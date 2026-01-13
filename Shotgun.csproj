@@ -33,6 +33,13 @@
     <EmbeddedResource Remove="DLLs\**" />
     <None Remove="DLLs\**" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="unity\**" />
+    <EmbeddedResource Remove="unity\**" />
+    <None Remove="unity\**" />
+  </ItemGroup>
+  
   <ItemGroup>
     <PackageReference Include="STBlade.Modding.TLD.Il2CppAssemblies.Windows" Version="2.51.0" />
     <Reference Include="ModSettings">
