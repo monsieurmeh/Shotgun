@@ -2,8 +2,8 @@
 using System.Reflection;
 
 [assembly: AssemblyTitle("Shotgun")]
-[assembly: AssemblyCopyright("MonsiuerMeh")]
-[assembly: AssemblyVersion("0.1.0")]
-[assembly: AssemblyFileVersion("0.1.0")]
-[assembly: MelonInfo(typeof(Shotgun.Main), "Shotgun", "0.1.0", "MonsieurMeh", null)]
+[assembly: AssemblyCopyright("MonsiuerMeh & Kaiusername")]
+[assembly: AssemblyVersion("0.2.0")]
+[assembly: AssemblyFileVersion("0.2.0")]
+[assembly: MelonInfo(typeof(Shotgun.Main), "Shotgun", "0.2.0", "MonsieurMeh & Kaiusername", null)]
 [assembly: MelonGame("Hinterland", "TheLongDark")]
