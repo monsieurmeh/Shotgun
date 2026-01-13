@@ -6,21 +6,24 @@ using MelonLoader.Utils;
 using Shotgun.Util;
 using UnityEngine.AddressableAssets;
 using Il2CppVLB;
+using HarmonyLib;
 
 
 namespace Shotgun
 {
 	public class Main : MelonMod
     {
+        public static Main? Instance { get; private set; }
+
         public override void OnEarlyInitializeMelon()
         {
             LoggerInstance.Msg(EarlyInitialize() ? "EarlyInitialized Successfully!" : "EarlyInitialization Errors!");
         }
 
-
-        public override void OnLateInitializeMelon()
+        [HarmonyPatch(typeof(Panel_Crafting), nameof(Panel_Crafting.Initialize))]
+        internal static class MC_MapPrefabs
         {
-            LoggerInstance.Msg(LateInitialize() ? "LateInitialized Successfully!" : "LateInitialization Errors!"); 
+            internal static void Postfix() => Instance.LoggerInstance.Msg(Instance.LateInitialize() ? "LateInitialized Successfully!" : "LateInitialization Errors!");
         }
 
 
@@ -33,6 +36,7 @@ namespace Shotgun
         {
             try
             {
+                Instance = this; // lazy accessor for lateinitialize patch
                 string modsPath = MelonEnvironment.ModsDirectory;
                 string basePath = Path.Combine(modsPath, DataFolderPath);
                 Directory.CreateDirectory(basePath);
@@ -78,12 +82,9 @@ namespace Shotgun
         }
 
 
-
-
-
         protected bool ConfigureGearItem(GameObject shotgun)
         {
-            GearItem gearItem = shotgun.GetOrCreateComponent<GearItem>();
+            GearItem gearItem = shotgun.GetComponent<GearItem>();
             if (gearItem == null)
             {
                 MelonLogger.Error("Null GearItem");
