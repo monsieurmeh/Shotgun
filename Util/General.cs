@@ -11,5 +11,6 @@ namespace Shotgun.Utility
     internal static class Utility
     {
         internal const string DataFolderPath = "Shotgun";
+        
     }
 }

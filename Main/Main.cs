@@ -58,6 +58,7 @@ namespace Shotgun
             {
                 GameObject shotgun = Addressables.LoadAssetAsync<GameObject>("GEAR_Shotgun").WaitForCompletion();
                 if (shotgun == null) return false;
+                if (!ConfigureGearItem(shotgun)) return false;
                 if (!ConfigureGunItem(shotgun)) return false;
                 if (!ConfigureFirstPersonItem(shotgun)) return false;
 
@@ -76,13 +77,35 @@ namespace Shotgun
             return true;
         }
 
+        protected bool ConfigureGearItem(GameObject shotgun)
+        {
+            GearItem gearItemScript = shotgun.GetOrCreateComponent<GearItem>();
+            if (gearItemScript == null) return false;
+
+            StruggleBonus struggleBonus = gearItemScript.m_StruggleBonus;
+            if (struggleBonus == null) return false;
+
+            // Future state: use custom enum
+            // struggleBonus.m_StruggleWeaponType = (StruggleBonus.StruggleWeaponType)((int)(StruggleBonus.StruggleWeaponType.SurvivalKnife) + 1);
+
+            // For testing: use rifle
+            struggleBonus.m_StruggleWeaponType = StruggleBonus.StruggleWeaponType.Rifle;
+
+            return true;
+        }
+
 
         protected bool ConfigureGunItem(GameObject shotgun)
         {
             GunItem gunItemScript = shotgun.GetOrCreateComponent<GunItem>();
             if (gunItemScript == null) return false;
 
-            //configure gunitem stuff here
+            // Future state: use custom enum
+            // gunItemScript.m_GunType  = (GunType)((int)(GunType.Camera) + 1);
+
+            // for testing: use rifle
+            gunItemScript.m_GunType = GunType.Rifle;
+
             return true;
         }
 
