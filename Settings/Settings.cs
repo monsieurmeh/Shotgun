@@ -4,9 +4,9 @@ using Il2Cpp;
 
 namespace Shotgun
 {
-    public class Settings : JsonModSettings
+    internal class Settings : JsonModSettings
     {
-        public Settings() : base(Path.Combine("Shotgun", "Shotgun"))
+        internal Settings() : base(Path.Combine("Shotgun", "Shotgun"))
         {
             Initialize();
         }
