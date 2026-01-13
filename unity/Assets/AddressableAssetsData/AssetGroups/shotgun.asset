@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: shotgun
+  m_EditorClassIdentifier: 
+  m_GroupName: shotgun
+  m_GUID: 38210b1315f74d94cbc0fca6f05eb04a
+  m_SerializeEntries:
+  - m_GUID: 37196789428d69a4e83209d7e7c61ba7
+    m_Address: DoubleBarrel_Shotgun_BaseColor.1002
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 84138664cf2f1954ea46fbe3b5f77539
+    m_Address: GEAR_Shotgun
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 86b1f0be61580d14f8bdd7c8cc4309c4
+    m_Address: DoubleBarrel_Shotgun_BaseColor.1013
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 92e3f0a0816dea14facc34b77175f102
+    m_Address: DoubleBarrel_Shotgun_BaseColor.1012
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d5d27e2d9eb7eb649b8146e93c96d3ed
+    m_Address: DoubleBarrel_Shotgun_BaseColor.1001
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d5fe235a08002474abfc91e5046755d4
+    m_Address: DoubleBarrel_Shotgun_BaseColor.1011
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: cffdf2c850ccb174f9f523e067e86409, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 794de20f99b27c741930ad2fa0a553a1, type: 2}

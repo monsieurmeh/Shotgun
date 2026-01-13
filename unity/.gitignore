@@ -1,0 +1,9 @@
+.vs
+Logs
+obj
+Library
+Temp
+UserSettings
+.vsconfig
+*.meta
+Assets/_ModComponent/DataAssets/
