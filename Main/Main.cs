@@ -80,10 +80,18 @@ namespace Shotgun
         protected bool ConfigureGearItem(GameObject shotgun)
         {
             GearItem gearItemScript = shotgun.GetOrCreateComponent<GearItem>();
-            if (gearItemScript == null) return false;
+            if (gearItemScript == null)
+            {
+                MelonLogger.Error("Null GearItem");
+                return false;
+            }
 
             StruggleBonus struggleBonus = gearItemScript.m_StruggleBonus;
-            if (struggleBonus == null) return false;
+            if (struggleBonus == null)
+            {
+                MelonLogger.Error("Null StruggleBonus on GearItem");
+                return false;
+            }
 
             // Future state: use custom enum
             // struggleBonus.m_StruggleWeaponType = (StruggleBonus.StruggleWeaponType)((int)(StruggleBonus.StruggleWeaponType.SurvivalKnife) + 1);
@@ -98,7 +106,11 @@ namespace Shotgun
         protected bool ConfigureGunItem(GameObject shotgun)
         {
             GunItem gunItemScript = shotgun.GetOrCreateComponent<GunItem>();
-            if (gunItemScript == null) return false;
+            if (gunItemScript == null)
+            {
+                MelonLogger.Error("Null GunItem");
+                return false;
+            }
 
             // Future state: use custom enum
             // gunItemScript.m_GunType  = (GunType)((int)(GunType.Camera) + 1);
@@ -113,7 +125,11 @@ namespace Shotgun
         protected bool ConfigureFirstPersonItem(GameObject shotgun)
         {
             FirstPersonItem firstPersonItemScript = shotgun.GetOrCreateComponent<FirstPersonItem>();
-            if (firstPersonItemScript == null) return false;
+            if (firstPersonItemScript == null)
+            {
+                MelonLogger.Error("Null FirstPersonItem");
+                return false;
+            }
 
             //configure firstPersonItemScript stuff here
             return true;
