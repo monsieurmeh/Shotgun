@@ -4,6 +4,7 @@ using System.Reflection;
 using Il2Cpp;
 using MelonLoader.Utils;
 using Shotgun.Util;
+using UnityEngine.AddressableAssets;
 
 
 namespace Shotgun
@@ -12,7 +13,13 @@ namespace Shotgun
     {
         public override void OnEarlyInitializeMelon()
         {
-            LoggerInstance.Msg(EarlyInitialize() ? "Initialized Successfully!" : "Initialization Errors!");
+            LoggerInstance.Msg(EarlyInitialize() ? "EarlyInitialized Successfully!" : "EarlyInitialization Errors!");
+        }
+
+
+        public override void OnLateInitializeMelon()
+        {
+            LoggerInstance.Msg(LateInitialize() ? "LateInitialized Successfully!" : "LateInitialization Errors!"); 
         }
 
 
@@ -34,6 +41,22 @@ namespace Shotgun
                 
                 // seems the .modcomponent needs to live at root like the .dll
                 EmbeddedResourceExtractor.RefreshEmbeddedData(modsPath, "Shotgun.modcomponent", shouldForceRefreshEmbeddedData);
+
+                return true;
+            }
+            catch (Exception e)
+            {
+                MelonLogger.Error(e);
+                return false;
+            }
+        }
+
+        protected bool LateInitialize()
+        {
+            try
+            {
+                GameObject shotgunGO = Addressables.LoadAssetAsync<GameObject>("GEAR_Shotgun").WaitForCompletion();
+                if (shotgunGO == null) return false;
 
                 return true;
             }
