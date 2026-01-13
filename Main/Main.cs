@@ -5,6 +5,7 @@ using Il2Cpp;
 using MelonLoader.Utils;
 using Shotgun.Util;
 using UnityEngine.AddressableAssets;
+using Il2CppVLB;
 
 
 namespace Shotgun
@@ -55,8 +56,10 @@ namespace Shotgun
         {
             try
             {
-                GameObject shotgunGO = Addressables.LoadAssetAsync<GameObject>("GEAR_Shotgun").WaitForCompletion();
-                if (shotgunGO == null) return false;
+                GameObject shotgun = Addressables.LoadAssetAsync<GameObject>("GEAR_Shotgun").WaitForCompletion();
+                if (shotgun == null) return false;
+                if (!ConfigureGunItem(shotgun)) return false;
+                if (!ConfigureFirstPersonItem(shotgun)) return false;
 
                 return true;
             }
@@ -70,6 +73,26 @@ namespace Shotgun
 
         protected bool Shutdown()
         {
+            return true;
+        }
+
+
+        protected bool ConfigureGunItem(GameObject shotgun)
+        {
+            GunItem gunItemScript = shotgun.GetOrCreateComponent<GunItem>();
+            if (gunItemScript == null) return false;
+
+            //configure gunitem stuff here
+            return true;
+        }
+
+
+        protected bool ConfigureFirstPersonItem(GameObject shotgun)
+        {
+            FirstPersonItem firstPersonItemScript = shotgun.GetOrCreateComponent<FirstPersonItem>();
+            if (firstPersonItemScript == null) return false;
+
+            //configure firstPersonItemScript stuff here
             return true;
         }
     }
