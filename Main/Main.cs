@@ -77,19 +77,31 @@ namespace Shotgun
             return true;
         }
 
+
+
+
+
         protected bool ConfigureGearItem(GameObject shotgun)
         {
-            GearItem gearItemScript = shotgun.GetOrCreateComponent<GearItem>();
-            if (gearItemScript == null)
+            GearItem gearItem = shotgun.GetOrCreateComponent<GearItem>();
+            if (gearItem == null)
             {
                 MelonLogger.Error("Null GearItem");
                 return false;
             }
 
-            StruggleBonus struggleBonus = gearItemScript.m_StruggleBonus;
+            if (!ConfigureStruggleBonus(shotgun, gearItem)) return false;
+
+            return true;
+        }
+
+
+        protected bool ConfigureStruggleBonus(GameObject shotgun, GearItem gearItem)
+        {
+            StruggleBonus struggleBonus = shotgun.GetOrCreateComponent<StruggleBonus>();
             if (struggleBonus == null)
             {
-                MelonLogger.Error("Null StruggleBonus on GearItem");
+                MelonLogger.Error("Null StruggleBonus");
                 return false;
             }
 
@@ -98,6 +110,8 @@ namespace Shotgun
 
             // For testing: use rifle
             struggleBonus.m_StruggleWeaponType = StruggleBonus.StruggleWeaponType.Rifle;
+
+            gearItem.m_StruggleBonus = struggleBonus;
 
             return true;
         }
