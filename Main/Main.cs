@@ -15,6 +15,7 @@ namespace Shotgun
 	public class Main : MelonMod
     {
         public static Main? Instance { get; private set; }
+        public static bool FPSItemInitialized { get; set; } = false;
 
         public override void OnEarlyInitializeMelon()
         {
@@ -22,9 +23,28 @@ namespace Shotgun
         }
 
         [HarmonyPatch(typeof(Panel_Crafting), nameof(Panel_Crafting.Initialize))]
-        internal static class MC_MapPrefabs
+        internal static class LateInitializePatch
         {
             internal static void Postfix() => Instance.LoggerInstance.Msg(Instance.LateInitialize() ? "LateInitialized Successfully!" : "LateInitialization Errors!");
+        }
+
+        [HarmonyPatch(typeof(vp_FPSCamera), nameof(vp_FPSCamera.RegisterWeaponItem), new Type[] { typeof(FPSItem) })]
+        internal static class SuperLateInitializePatch
+        {
+            internal static void Postfix()
+            {
+                try
+                {
+                    if (FPSItemInitialized) return;
+                    vp_FPSCamera fpsCamera = GameManager.GetVpFPSCamera();
+                    if (fpsCamera == null) return;
+                    FPSItemInitialized = Instance.ConfigureVPFPS(fpsCamera);
+                    Instance.LoggerInstance.Msg(FPSItemInitialized ? "ConfigureVPFPS Successful!" : "ConfigureVPFPS Errors!");
+                } catch (Exception e)
+                {
+                    MelonLogger.Error(e);
+                }
+            }
         }
 
 
@@ -66,7 +86,7 @@ namespace Shotgun
                 if (!ConfigureGearItem(shotgun)) return false;
                 if (!ConfigureGunItem(shotgun)) return false;
                 if (!ConfigureFirstPersonItem(shotgun)) return false;
-                if (!ConfigureVPFPS(shotgun)) return false;
+                //if (!ConfigureVPFPS(shotgun)) return false; //vp_FPSCammera doesnt appear to be avaialble at the same time as the rest of this stuff?
 
                 return true;
             }
@@ -84,7 +104,7 @@ namespace Shotgun
         }
 
 
-        internal bool ConfigureVPFPS(GameObject shotgun)
+        internal bool ConfigureVPFPS(vp_FPSCamera fpsCamera)
         {
             GameObject shotgunFPS = new GameObject("Shotgun");
 
@@ -113,8 +133,12 @@ namespace Shotgun
             shotgunFPSWeapon.MaybeBuildRuntimeHierarchy();
             shotgunFPSWeapon.MaybeSpawnFirstPersonWeapon();
 
+            if (fpsCamera.m_Weapons == null)
+            {
+                fpsCamera.m_Weapons = new Il2CppSystem.Collections.Generic.Dictionary<FPSItem, vp_FPSWeapon>();
+            }
 
-            if (!GameManager.GetVpFPSCamera().m_Weapons.TryAdd(shotgunFPSItem, shotgunFPSWeapon))
+            if (!fpsCamera.m_Weapons.TryAdd(shotgunFPSItem, shotgunFPSWeapon))
             {
                 MelonLogger.Error("Failed to add shotgun to vpFPSCamera.m_weapons dictionary");
                 return false;
