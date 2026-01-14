@@ -15,7 +15,6 @@ namespace Shotgun
 	public class Main : MelonMod
     {
         public static Main? Instance { get; private set; }
-        public static bool FPSItemInitialized { get; set; } = false;
 
         public override void OnEarlyInitializeMelon()
         {
@@ -28,20 +27,23 @@ namespace Shotgun
             internal static void Postfix() => Instance.LoggerInstance.Msg(Instance.LateInitialize() ? "LateInitialized Successfully!" : "LateInitialization Errors!");
         }
 
-        [HarmonyPatch(typeof(vp_FPSCamera), nameof(vp_FPSCamera.RegisterWeaponItem), new Type[] { typeof(FPSItem) })]
+        [HarmonyPatch(typeof(vp_FPSPlayer), nameof(vp_FPSPlayer.Start))]
         internal static class SuperLateInitializePatch
         {
             internal static void Postfix()
             {
                 try
                 {
-                    if (Instance == null) return;
-                    if (FPSItemInitialized) return;
-                    vp_FPSCamera fpsCamera = GameManager.GetVpFPSCamera();
-                    if (fpsCamera == null) return;
-                    FPSItemInitialized = Instance.ConfigureVPFPS(fpsCamera);
-                    Instance.LoggerInstance.Msg(FPSItemInitialized ? "ConfigureVPFPS Successful!" : "ConfigureVPFPS Errors!");
-                } catch (Exception e)
+                    vp_FPSPlayer fpsPlayer = GameManager.GetVpFPSPlayer();
+                    if (fpsPlayer == null)
+                    {
+                        MelonLogger.Error("null vp_FPSPlayer");
+                        return;
+                    }
+                    Instance.LoggerInstance.Msg(Instance.ConfigureVPFPS(fpsPlayer) ? "ConfigureVPFPS Successful!" : "ConfigureVPFPS Errors!");
+                    Instance.LoggerInstance.Msg(Instance.ConfigureRadial() ? "ConfigureRadial Successful!" : "ConfigureRadial Errors!");
+                }
+                catch (Exception e)
                 {
                     MelonLogger.Error(e);
                 }
@@ -104,10 +106,37 @@ namespace Shotgun
             return true;
         }
 
-
-        internal bool ConfigureVPFPS(vp_FPSCamera fpsCamera)
+        internal bool ConfigureRadial()
         {
+            Panel_ActionsRadial radialActionsPanel = InterfaceManager.GetPanel<Panel_ActionsRadial>();
+            if (radialActionsPanel == null)
+            {
+                MelonLogger.Error("Null Panel_ActionsRadial");
+                return false;
+            }
+            Il2CppInterop.Runtime.InteropTypes.Arrays.Il2CppStringArray newWeaponFilterList = new Il2CppInterop.Runtime.InteropTypes.Arrays.Il2CppStringArray(radialActionsPanel.m_WeaponRadialOrder.Length + 1);
+            for (int i = 0, iMax = radialActionsPanel.m_WeaponRadialOrder.Length; i < iMax; i++)
+            {
+                newWeaponFilterList[i] = radialActionsPanel.m_WeaponRadialOrder[i];
+            }
+            newWeaponFilterList[^1] = "GEAR_Shotgun";
+            radialActionsPanel.m_WeaponRadialOrder = newWeaponFilterList;
+            return true;
+        }
+
+
+        internal bool ConfigureVPFPS(vp_FPSPlayer fpsPlayer)
+        {
+            vp_FPSCamera fpsCamera = fpsPlayer.FPSCamera;
+            if (fpsCamera == null)
+            {
+                MelonLogger.Error("Null vp_FPSCamera");
+                return false;
+            }
+
+            GameObject shotgunWeaponGroup = new GameObject("FPSWeapon_ShotgunTransform");
             GameObject shotgunFPS = new GameObject("Shotgun");
+            shotgunFPS.transform.SetParent(shotgunWeaponGroup.transform, false);
 
             vp_FPSWeapon shotgunFPSWeapon = shotgunFPS.AddComponent<vp_FPSWeapon>();
             if (shotgunFPSWeapon == null)
@@ -116,12 +145,12 @@ namespace Shotgun
                 return false;
             }
 
-            //vp_FPSShooter shotgunFPSShooter = shotgunFPS.AddComponent<vp_FPSShooter>();
-            //if (shotgunFPSShooter == null)
-            //{
-            //    MelonLogger.Error("Null vp_FPSShooter");
-            //    return false;
-            //}
+            vp_FPSShooter shotgunFPSShooter = shotgunFPS.AddComponent<vp_FPSShooter>();
+            if (shotgunFPSShooter == null)
+            {
+                MelonLogger.Error("Null vp_FPSShooter");
+                return false;
+            }
 
             FPSItem shotgunFPSItem = ScriptableObject.CreateInstance<FPSItem>();
             if (shotgunFPSItem == null)
@@ -129,15 +158,15 @@ namespace Shotgun
                 MelonLogger.Error("Null FPSItem");
                 return false;
             }
-            shotgunFPSItem.name = "Shotgun FPS Item";
+            shotgunFPSItem.name = "FPSItem_Shotgun";
+
+            shotgunFPSWeapon.m_WeaponGroup = shotgunWeaponGroup;
+            shotgunWeaponGroup.transform.SetParent(fpsCamera.m_WeaponParent, false);
+
+            //adjust weapon group or weapon transform offsets here
 
             shotgunFPSWeapon.MaybeBuildRuntimeHierarchy();
             shotgunFPSWeapon.MaybeSpawnFirstPersonWeapon();
-
-            if (fpsCamera.m_Weapons == null)
-            {
-                fpsCamera.m_Weapons = new Il2CppSystem.Collections.Generic.Dictionary<FPSItem, vp_FPSWeapon>();
-            }
 
             if (!fpsCamera.m_Weapons.TryAdd(shotgunFPSItem, shotgunFPSWeapon))
             {
