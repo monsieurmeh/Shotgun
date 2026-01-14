@@ -36,7 +36,7 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 94d23ed78c6ff834d8f2652440a9a73a
-    m_Address: Assets/Shotgun/Prefabs/FPH_Shotgun.prefab
+    m_Address: FPH_Shotgun
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

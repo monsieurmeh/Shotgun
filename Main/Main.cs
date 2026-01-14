@@ -159,6 +159,28 @@ namespace Shotgun
             }
             shotgunFPSItem.name = "FPSItem_Shotgun";
 
+            GameObject riflePrefab = Addressables.LoadAssetAsync<GameObject>("GEAR_Rifle").WaitForCompletion();
+            if (riflePrefab == null)
+            {
+                MelonLogger.Error("Could not summon rifle prefab");
+                return false;
+            }    
+
+            FirstPersonItem rifleFirstPersonItem = riflePrefab.GetComponent<FirstPersonItem>();
+            if (rifleFirstPersonItem == null)
+            {
+                MelonLogger.Error("Could not find rifle first person item");
+                return false;
+            }
+
+            FPSItem rifleFPSItem = rifleFirstPersonItem.m_ItemData;
+            if (rifleFPSItem == null)
+            {
+                MelonLogger.Error("Null rifle FPSItem");
+                return false;
+            }
+
+            shotgunFPSItem.m_FPSWeaponPrefab = rifleFPSItem.m_FPSWeaponPrefab;
 
             GameObject shotgunPrefab = Addressables.LoadAssetAsync<GameObject>("GEAR_Shotgun").WaitForCompletion();
             if (shotgunPrefab == null)
@@ -187,7 +209,7 @@ namespace Shotgun
                 MelonLogger.Error("Could not summon FPH_Shotgun");
                 return false;
             }
-            shotgunFPSWeapon.m_FirstPersonWeaponRightHandPrefab = shotgunFPH;
+            shotgunFPSWeapon.m_FirstPersonWeaponShoulderPrefab = shotgunFPH;
 
             shotgunFPSWeapon.MaybeBuildRuntimeHierarchy();
             shotgunFPSWeapon.MaybeSpawnFirstPersonWeapon();
