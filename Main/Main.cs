@@ -7,6 +7,7 @@ using Shotgun.Util;
 using UnityEngine.AddressableAssets;
 using Il2CppVLB;
 using HarmonyLib;
+using Il2CppTLD.Gameplay;
 
 
 namespace Shotgun
@@ -32,7 +33,7 @@ namespace Shotgun
             LoggerInstance.Msg(Shutdown() ? "Shutdown Successfully!" : "Shutdown Errors!");
         }
 
-        protected bool EarlyInitialize()
+        internal bool EarlyInitialize()
         {
             try
             {
@@ -56,7 +57,7 @@ namespace Shotgun
             }
         }
 
-        protected bool LateInitialize()
+        internal bool LateInitialize()
         {
             try
             {
@@ -65,6 +66,7 @@ namespace Shotgun
                 if (!ConfigureGearItem(shotgun)) return false;
                 if (!ConfigureGunItem(shotgun)) return false;
                 if (!ConfigureFirstPersonItem(shotgun)) return false;
+                if (!ConfigureVPFPS(shotgun)) return false;
 
                 return true;
             }
@@ -76,13 +78,52 @@ namespace Shotgun
         }
 
 
-        protected bool Shutdown()
+        internal bool Shutdown()
         {
             return true;
         }
 
 
-        protected bool ConfigureGearItem(GameObject shotgun)
+        internal bool ConfigureVPFPS(GameObject shotgun)
+        {
+            GameObject shotgunFPS = new GameObject("Shotgun");
+
+            vp_FPSWeapon shotgunFPSWeapon = shotgunFPS.AddComponent<vp_FPSWeapon>();
+            if (shotgunFPSWeapon == null)
+            {
+                MelonLogger.Error("Null vp_FPSWeapon");
+                return false;
+            }
+
+            //vp_FPSShooter shotgunFPSShooter = shotgunFPS.AddComponent<vp_FPSShooter>();
+            //if (shotgunFPSShooter == null)
+            //{
+            //    MelonLogger.Error("Null vp_FPSShooter");
+            //    return false;
+            //}
+
+            FPSItem shotgunFPSItem = ScriptableObject.CreateInstance<FPSItem>();
+            if (shotgunFPSItem == null)
+            {
+                MelonLogger.Error("Null FPSItem");
+                return false;
+            }
+            shotgunFPSItem.name = "Shotgun FPS Item";
+
+            shotgunFPSWeapon.MaybeBuildRuntimeHierarchy();
+            shotgunFPSWeapon.MaybeSpawnFirstPersonWeapon();
+
+
+            if (!GameManager.GetVpFPSCamera().m_Weapons.TryAdd(shotgunFPSItem, shotgunFPSWeapon))
+            {
+                MelonLogger.Error("Failed to add shotgun to vpFPSCamera.m_weapons dictionary");
+                return false;
+            }
+
+            return true;
+        }
+
+        internal bool ConfigureGearItem(GameObject shotgun)
         {
             GearItem gearItem = shotgun.GetComponent<GearItem>();
             if (gearItem == null)
@@ -97,7 +138,7 @@ namespace Shotgun
         }
 
 
-        protected bool ConfigureStruggleBonus(GameObject shotgun, GearItem gearItem)
+        internal bool ConfigureStruggleBonus(GameObject shotgun, GearItem gearItem)
         {
             StruggleBonus struggleBonus = shotgun.GetOrCreateComponent<StruggleBonus>();
             if (struggleBonus == null)
@@ -118,10 +159,10 @@ namespace Shotgun
         }
 
 
-        protected bool ConfigureGunItem(GameObject shotgun)
+        internal bool ConfigureGunItem(GameObject shotgun)
         {
-            GunItem gunItemScript = shotgun.GetOrCreateComponent<GunItem>();
-            if (gunItemScript == null)
+            GunItem gunItem = shotgun.GetOrCreateComponent<GunItem>();
+            if (gunItem == null)
             {
                 MelonLogger.Error("Null GunItem");
                 return false;
@@ -131,22 +172,24 @@ namespace Shotgun
             // gunItemScript.m_GunType  = (GunType)((int)(GunType.Camera) + 1);
 
             // for testing: use rifle
-            gunItemScript.m_GunType = GunType.Rifle;
+            gunItem.m_GunType = GunType.Rifle;
 
             return true;
         }
 
 
-        protected bool ConfigureFirstPersonItem(GameObject shotgun)
+        internal bool ConfigureFirstPersonItem(GameObject shotgun)
         {
-            FirstPersonItem firstPersonItemScript = shotgun.GetOrCreateComponent<FirstPersonItem>();
-            if (firstPersonItemScript == null)
+            FirstPersonItem firstPersonItem = shotgun.GetOrCreateComponent<FirstPersonItem>();
+            if (firstPersonItem == null)
             {
                 MelonLogger.Error("Null FirstPersonItem");
                 return false;
             }
 
             //configure firstPersonItemScript stuff here
+
+            firstPersonItem.m_FirstPersonObjectName = "Shotgun";
             return true;
         }
     }
