@@ -184,28 +184,7 @@ namespace Shotgun
 
             shotgunFPSItem.m_FPSWeaponPrefab = rifleFPSItem.m_FPSWeaponPrefab;
 
-            GameObject rifleFPH = null!;
-            foreach (var kvp in fpsCamera.m_Weapons)
-            {
-                if (kvp.value.name.Contains("Rifle"))
-                {
-                    rifleFPH = kvp.value.m_FirstPersonWeaponShoulderPrefab;
-                    break;
-                }
-            }
-
-            if (rifleFPH == null)
-            {
-                MelonLogger.Error("Could not summon FPH_Rifle");
-                return false;
-            }
-
-            Animator rifleAnimator = rifleFPH.GetComponent<Animator>();
-            if (rifleAnimator == null)
-            {
-                MelonLogger.Error("Could not find Animator attachd to FPH_Rifle");
-                return false;
-            }
+            // doesnt seem like we have access to things like FPH_Rifle at this time - bummer, animator will need to be stolen at some other point or we grab something manually maybe.
 
             GameObject shotgunPrefab = Addressables.LoadAssetAsync<GameObject>("GEAR_Shotgun").WaitForCompletion();
             if (shotgunPrefab == null)
@@ -241,7 +220,6 @@ namespace Shotgun
             }
 
             Animator shotgunAnimator = shotgunFPH.AddComponent<Animator>();
-            shotgunAnimator.runtimeAnimatorController = rifleAnimator.runtimeAnimatorController;
 
             shotgunFPSWeapon.m_FirstPersonWeaponShoulderPrefab = shotgunFPH;
             shotgunFPSWeapon.m_GearItem = shotgunPrefab.GetComponent<GearItem>();
