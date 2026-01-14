@@ -89,7 +89,6 @@ namespace Shotgun
                 if (!ConfigureGearItem(shotgun)) return false;
                 if (!ConfigureGunItem(shotgun)) return false;
                 if (!ConfigureFirstPersonItem(shotgun)) return false;
-                //if (!ConfigureVPFPS(shotgun)) return false; //vp_FPSCammera doesnt appear to be avaialble at the same time as the rest of this stuff?
 
                 return true;
             }
@@ -160,10 +159,35 @@ namespace Shotgun
             }
             shotgunFPSItem.name = "FPSItem_Shotgun";
 
+
+            GameObject shotgunPrefab = Addressables.LoadAssetAsync<GameObject>("GEAR_Shotgun").WaitForCompletion();
+            if (shotgunPrefab == null)
+            {
+                MelonLogger.Error("Could not re-summon shotgun rpefab");
+                return false;
+            }
+
+            FirstPersonItem shotgunFirstPersonItem = shotgunPrefab.GetComponent<FirstPersonItem>();
+            if (shotgunFirstPersonItem == null)
+            {
+                MelonLogger.Error("Could not re-summon shotgun first person item");
+                return false;
+            }
+
+            shotgunFirstPersonItem.m_ItemData = shotgunFPSItem;
+
             shotgunFPSWeapon.m_WeaponGroup = shotgunWeaponGroup;
             shotgunWeaponGroup.transform.SetParent(fpsCamera.m_WeaponParent, false);
 
             //adjust weapon group or weapon transform offsets here
+
+            GameObject shotgunFPH = Addressables.LoadAssetAsync<GameObject>("FPH_Shotgun").WaitForCompletion();
+            if (shotgunFPH == null)
+            {
+                MelonLogger.Error("Could not summon FPH_Shotgun");
+                return false;
+            }
+            shotgunFPSWeapon.m_FirstPersonWeaponRightHandPrefab = shotgunFPH;
 
             shotgunFPSWeapon.MaybeBuildRuntimeHierarchy();
             shotgunFPSWeapon.MaybeSpawnFirstPersonWeapon();

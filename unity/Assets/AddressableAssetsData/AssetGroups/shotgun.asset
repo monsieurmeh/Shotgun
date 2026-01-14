@@ -35,6 +35,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 94d23ed78c6ff834d8f2652440a9a73a
+    m_Address: Assets/Shotgun/Prefabs/FPH_Shotgun.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d5d27e2d9eb7eb649b8146e93c96d3ed
     m_Address: DoubleBarrel_Shotgun_BaseColor.1001
     m_ReadOnly: 0
