@@ -35,6 +35,7 @@ namespace Shotgun
             {
                 try
                 {
+                    if (Instance == null) return;
                     if (FPSItemInitialized) return;
                     vp_FPSCamera fpsCamera = GameManager.GetVpFPSCamera();
                     if (fpsCamera == null) return;
