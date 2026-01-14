@@ -15,6 +15,7 @@ namespace Shotgun
 	public class Main : MelonMod
     {
         public static Main? Instance { get; private set; }
+        internal static bool SuperLateInitialized { get; set; } //im tired, leave me be
 
         public override void OnEarlyInitializeMelon()
         {
@@ -34,6 +35,7 @@ namespace Shotgun
             {
                 try
                 {
+                    if (SuperLateInitialized) return;
                     vp_FPSPlayer fpsPlayer = GameManager.GetVpFPSPlayer();
                     if (fpsPlayer == null)
                     {
@@ -42,6 +44,7 @@ namespace Shotgun
                     }
                     Instance.LoggerInstance.Msg(Instance.ConfigureVPFPS(fpsPlayer) ? "ConfigureVPFPS Successful!" : "ConfigureVPFPS Errors!");
                     Instance.LoggerInstance.Msg(Instance.ConfigureRadial() ? "ConfigureRadial Successful!" : "ConfigureRadial Errors!");
+                    SuperLateInitialized = true;
                 }
                 catch (Exception e)
                 {
