@@ -184,7 +184,16 @@ namespace Shotgun
 
             shotgunFPSItem.m_FPSWeaponPrefab = rifleFPSItem.m_FPSWeaponPrefab;
 
-            GameObject rifleFPH = Addressables.LoadAssetAsync<GameObject>("FPH_Rifle").WaitForCompletion();
+            GameObject rifleFPH = null!;
+            foreach (var kvp in fpsCamera.m_Weapons)
+            {
+                if (kvp.value.name.Contains("Rifle"))
+                {
+                    rifleFPH = kvp.value.m_FirstPersonWeaponShoulderPrefab;
+                    break;
+                }
+            }
+
             if (rifleFPH == null)
             {
                 MelonLogger.Error("Could not summon FPH_Rifle");
