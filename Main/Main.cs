@@ -123,7 +123,8 @@ namespace Shotgun
             return true;
         }
 
-
+        // it all started to jumble together, for now just noodling around experimenting - when it starts to really work, I'll untangle this. 
+        // INTENTIONAL tech debt
         internal bool ConfigureVPFPS(vp_FPSPlayer fpsPlayer)
         {
             vp_FPSCamera fpsCamera = fpsPlayer.FPSCamera;
@@ -150,6 +151,7 @@ namespace Shotgun
                 MelonLogger.Error("Null vp_FPSShooter");
                 return false;
             }
+            shotgunFPSShooter.enabled = true;
 
             FPSItem shotgunFPSItem = ScriptableObject.CreateInstance<FPSItem>();
             if (shotgunFPSItem == null)
@@ -182,6 +184,20 @@ namespace Shotgun
 
             shotgunFPSItem.m_FPSWeaponPrefab = rifleFPSItem.m_FPSWeaponPrefab;
 
+            GameObject rifleFPH = Addressables.LoadAssetAsync<GameObject>("FPH_Rifle").WaitForCompletion();
+            if (rifleFPH == null)
+            {
+                MelonLogger.Error("Could not summon FPH_Rifle");
+                return false;
+            }
+
+            Animator rifleAnimator = rifleFPH.GetComponent<Animator>();
+            if (rifleAnimator == null)
+            {
+                MelonLogger.Error("Could not find Animator attachd to FPH_Rifle");
+                return false;
+            }
+
             GameObject shotgunPrefab = Addressables.LoadAssetAsync<GameObject>("GEAR_Shotgun").WaitForCompletion();
             if (shotgunPrefab == null)
             {
@@ -195,13 +211,11 @@ namespace Shotgun
                 MelonLogger.Error("Could not re-summon shotgun first person item");
                 return false;
             }
-
+            
             shotgunFirstPersonItem.m_ItemData = shotgunFPSItem;
 
             shotgunFPSWeapon.m_WeaponGroup = shotgunWeaponGroup;
             shotgunWeaponGroup.transform.SetParent(fpsCamera.m_WeaponParent, false);
-
-            //adjust weapon group or weapon transform offsets here
 
             GameObject shotgunFPH = Addressables.LoadAssetAsync<GameObject>("FPH_Shotgun").WaitForCompletion();
             if (shotgunFPH == null)
@@ -209,7 +223,20 @@ namespace Shotgun
                 MelonLogger.Error("Could not summon FPH_Shotgun");
                 return false;
             }
+
+            FirstPersonWeapon shotgunFirstPersonWeapon = shotgunFPH.AddComponent<FirstPersonWeapon>();
+            if (shotgunFirstPersonWeapon == null)
+            {
+                MelonLogger.Error("Could not attach FirstPersonWeapon to FPH_Shotgun");
+                return false;
+            }
+
+            Animator shotgunAnimator = shotgunFPH.AddComponent<Animator>();
+            shotgunAnimator.runtimeAnimatorController = rifleAnimator.runtimeAnimatorController;
+
             shotgunFPSWeapon.m_FirstPersonWeaponShoulderPrefab = shotgunFPH;
+            shotgunFPSWeapon.m_GearItem = shotgunPrefab.GetComponent<GearItem>();
+            shotgunFPSWeapon.m_GunItem = shotgunPrefab.GetComponent<GunItem>();
 
             shotgunFPSWeapon.MaybeBuildRuntimeHierarchy();
             shotgunFPSWeapon.MaybeSpawnFirstPersonWeapon();
