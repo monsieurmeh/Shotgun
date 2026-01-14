@@ -225,6 +225,8 @@ namespace Shotgun
             shotgunFPSWeapon.m_GearItem = shotgunPrefab.GetComponent<GearItem>();
             shotgunFPSWeapon.m_GunItem = shotgunPrefab.GetComponent<GunItem>();
 
+            shotgunFirstPersonWeapon.m_Renderable = shotgunFPH;
+
             shotgunFPSWeapon.MaybeBuildRuntimeHierarchy();
             shotgunFPSWeapon.MaybeSpawnFirstPersonWeapon();
 
