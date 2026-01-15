@@ -57,7 +57,7 @@ namespace Shotgun
                 refs.Shotgun.Floating.FPSItem.name = "FPSItem_Shotgun";
                 refs.Shotgun.Floating.FPSItem.m_FPSWeaponPrefab = refs.Rifle.Floating.FPSItem.m_FPSWeaponPrefab;
 
-                refs.Shotgun.FPH.FirstPersonWeapon.m_Renderable = refs.Shotgun.FPH.Root;
+                refs.Shotgun.FPH.FirstPersonWeapon.m_Renderable = refs.Shotgun.FPH.Root.transform.GetChild(0).gameObject;
 
                 refs.Shotgun.WeaponView.FPSShooter.enabled = true;
                 refs.Shotgun.WeaponView.FPSShooter.m_Weapon = refs.Shotgun.WeaponView.FPSWeapon;
