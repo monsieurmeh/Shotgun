@@ -21,12 +21,6 @@ namespace Shotgun.Patches
                 {
                     MelonLogger.Msg($"vp_FPSWeapon.Awake triggered on {__instance.name}");
                     __instance.m_FirstPersonWeaponShoulderPrefab = Main.Instance.Configuration.ConfigRefs.Shotgun.FPH.Root;
-                    __instance.ReportNullProperties();
-                }
-                else if (__instance.name.Contains("FPSWeapon_Rifle"))
-                {
-                    MelonLogger.Msg($"vp_FPSWeapon.Awake triggered on {__instance.name}");
-                    __instance.ReportNullProperties();
                 }
             }
         }

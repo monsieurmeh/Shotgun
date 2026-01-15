@@ -31,6 +31,7 @@ namespace Shotgun
             if (!InstantiateShotgunAnimator(ConfigRefs)) return;
 
             if (!InstantiateShotgunWeaponGroup(ConfigRefs)) return;
+
             if (!InstantiateShotgunVPFPSWeapon(ConfigRefs)) return;
             if (!InstantiateShotgunVPFPSShooter(ConfigRefs)) return;
 
@@ -59,7 +60,6 @@ namespace Shotgun
 
                 refs.Shotgun.FPH.FirstPersonWeapon.m_Renderable = refs.Shotgun.FPH.Root;
 
-                refs.Shotgun.WeaponView.Root.transform.SetParent(refs.FPSCamera.m_WeaponParent, false);
                 refs.Shotgun.WeaponView.FPSShooter.enabled = true;
                 refs.Shotgun.WeaponView.FPSWeapon.m_WeaponGroup = refs.Shotgun.WeaponView.Root;
                 // CRITICAL NOTE: vp_FPSWeapon appears to suffer a null reference exception unless there is at least one FirstPerson prefab attached... 
@@ -180,10 +180,11 @@ namespace Shotgun
             refs.Shotgun.WeaponView.Root = new GameObject("FPSWeapon_ShotgunTransform");
             refs.Shotgun.WeaponView.Child = new GameObject("Shotgun");
             refs.Shotgun.WeaponView.Child.transform.SetParent(refs.Shotgun.WeaponView.Root.transform, false);
+            refs.Shotgun.WeaponView.Root.transform.SetParent(refs.FPSCamera.transform);
             return true;
         }
 
-
+        
         internal bool InstantiateShotgunVPFPSWeapon(ConfigurationReferences refs)
         {
             MelonLogger.Msg("InstantiateShotgunVPFPSWeapon");
