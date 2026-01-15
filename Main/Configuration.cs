@@ -406,6 +406,7 @@ namespace Shotgun
 
         internal bool RegisterShotgunFPSItemAndFPSWeapon(ConfigurationReferences refs)
         {
+            MelonLogger.Msg("RegisterShotgunFPSItemAndFPSWeapon");
             if (!refs.FPSCamera.m_Weapons.TryAdd(refs.Shotgun.Floating.FPSItem, refs.Shotgun.WeaponView.FPSWeapon))
             {
                 MelonLogger.Error("Failed to add shotgun to vpFPSCamera.m_weapons dictionary");
