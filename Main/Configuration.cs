@@ -31,7 +31,6 @@ namespace Shotgun
             if (!InstantiateShotgunAnimator(ConfigRefs)) return;
 
             if (!InstantiateShotgunWeaponGroup(ConfigRefs)) return;
-
             if (!InstantiateShotgunVPFPSWeapon(ConfigRefs)) return;
             if (!InstantiateShotgunVPFPSShooter(ConfigRefs)) return;
 
@@ -177,10 +176,8 @@ namespace Shotgun
         internal bool InstantiateShotgunWeaponGroup(ConfigurationReferences refs)
         {
             MelonLogger.Msg("InstantiateShotgunWeaponGroup");
-            refs.Shotgun.WeaponView.Root = new GameObject("FPSWeapon_ShotgunTransform");
-            refs.Shotgun.WeaponView.Child = new GameObject("Shotgun");
-            refs.Shotgun.WeaponView.Child.transform.SetParent(refs.Shotgun.WeaponView.Root.transform, false);
-            refs.Shotgun.WeaponView.Root.transform.SetParent(refs.FPSCamera.transform);
+            refs.Shotgun.WeaponView.Root = new GameObject("Shotgun");
+            refs.Shotgun.WeaponView.Root.transform.SetParent(refs.FPSCamera.m_WeaponParent.transform, false);
             return true;
         }
 
@@ -188,7 +185,7 @@ namespace Shotgun
         internal bool InstantiateShotgunVPFPSWeapon(ConfigurationReferences refs)
         {
             MelonLogger.Msg("InstantiateShotgunVPFPSWeapon");
-            refs.Shotgun.WeaponView.FPSWeapon = refs.Shotgun.WeaponView.Child.GetOrCreateComponent<vp_FPSWeapon>();
+            refs.Shotgun.WeaponView.FPSWeapon = refs.Shotgun.WeaponView.Root.GetOrCreateComponent<vp_FPSWeapon>();
             if (refs.Shotgun.WeaponView.FPSWeapon == null)
             {
                 MelonLogger.Error("Null vp_FPSWeapon");
@@ -201,7 +198,7 @@ namespace Shotgun
         internal bool InstantiateShotgunVPFPSShooter(ConfigurationReferences refs)
         {
             MelonLogger.Msg("InstantiateShotgunVPFPSShooter");
-            refs.Shotgun.WeaponView.FPSShooter = refs.Shotgun.WeaponView.Child.GetOrCreateComponent<vp_FPSShooter>();
+            refs.Shotgun.WeaponView.FPSShooter = refs.Shotgun.WeaponView.Root.GetOrCreateComponent<vp_FPSShooter>();
             if (refs.Shotgun.WeaponView.FPSShooter == null)
             {
                 MelonLogger.Error("Null vp_FPSShooter");
