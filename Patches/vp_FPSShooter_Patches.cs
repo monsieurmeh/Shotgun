@@ -22,9 +22,9 @@ namespace Shotgun.Patches
 
             internal static void Postfix(vp_FPSShooter __instance)
             {
-                if (__instance.name.Contains("Shotgun") || __instance.name.Contains("Rifle"))
+                if (__instance.name == "FPSWeapon_Rifle(Clone)" || __instance.name == "Shotgun")
                 {
-                    __instance.ReportNullProperties();
+                    __instance.ReportNullProperties("vp_FPSShooter.Awake.Postfix");
                 }
             }
         }

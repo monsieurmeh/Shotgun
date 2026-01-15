@@ -18,7 +18,7 @@ namespace Shotgun.Utility
         {
         };
 
-        internal static void ReportNulls<T>(T t) where T : MonoBehaviour
+        internal static void ReportNulls<T>(T t, string optionalDescription = "") where T : MonoBehaviour
         {
             Type tType = t.GetType();
             if (!TypeToPropertyNameDict.TryGetValue(tType, out List<string> propertyNames))
@@ -31,6 +31,10 @@ namespace Shotgun.Utility
                 }
             }
             MelonLogger.Msg($"\n\n\nNullCheck on {t.name}");
+            if (optionalDescription.Length > 0)
+            {
+                MelonLogger.Msg(optionalDescription);
+            }
             foreach (string propertyName in propertyNames)
             {
                 t.ReportIfPropertyNull(propertyName);
@@ -61,9 +65,9 @@ namespace Shotgun.Utility
             }
         }
 
-        internal static void ReportNullProperties<T>(this T script) where T : MonoBehaviour
+        internal static void ReportNullProperties<T>(this T script, string optionalDescription = "") where T : MonoBehaviour
         {
-            NullChecks.ReportNulls(script);
+            NullChecks.ReportNulls(script, optionalDescription);
         }
     }
 }
