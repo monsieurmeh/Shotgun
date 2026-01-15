@@ -19,8 +19,15 @@ namespace Shotgun.Patches
             {
                 if (__instance.name.Contains("Shotgun"))
                 {
-                    MelonLogger.Msg($"vp_FPSWeapon.Awake triggered on {__instance.name}");
                     __instance.m_FirstPersonWeaponShoulderPrefab = Main.Instance.Configuration.ConfigRefs.Shotgun.FPH.Root;
+                }
+            }
+
+            internal static void Postfix(vp_FPSWeapon __instance)
+            {
+                if (__instance.name.Contains("Shotgun"))
+                {
+                    __instance.ReportNullProperties();
                 }
             }
         }
