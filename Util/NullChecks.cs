@@ -33,7 +33,7 @@ namespace Shotgun.Utility
             MelonLogger.Msg("");
             MelonLogger.Msg("");
             MelonLogger.Msg("");
-            MelonLogger.Msg("NullCheck on {t.name}");
+            MelonLogger.Msg($"NullCheck on {t.name}");
             if (optionalDescription.Length > 0)
             {
                 MelonLogger.Msg(optionalDescription);

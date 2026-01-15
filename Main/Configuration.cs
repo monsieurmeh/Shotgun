@@ -49,6 +49,7 @@ namespace Shotgun
             if (!InstantiateShotgunFPSItem(ConfigRefs)) return;
 
             if (!ConfigureDetails(ConfigRefs)) return;
+            if (!RegisterShotgunFPSItemAndFPSWeapon(ConfigRefs)) return;
         }
 
         internal bool ConfigureDetails(ConfigurationReferences refs)

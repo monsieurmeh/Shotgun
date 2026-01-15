@@ -22,7 +22,7 @@ namespace Shotgun.Patches
 
             internal static void Postfix(vp_FPSShooter __instance)
             {
-                if (__instance.name == RifleFPSPrefabName || __instance.name == ShotgunFPSPrefabName)
+                if (__instance.name == RifleFPSPrefabName || __instance.gameObject == Main.Instance.Configuration.ConfigRefs.Shotgun.WeaponView.Root)
                 {
                     __instance.ReportNullProperties("vp_FPSShooter.Awake.Postfix");
                 }
