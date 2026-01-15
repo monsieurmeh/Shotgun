@@ -4,3 +4,8 @@ bin/
 clips/
 IgnoreMe/
 .aider*
+.dll
+DLLs/*
+DLLs/
+DLLs
+Shotgun.dll
