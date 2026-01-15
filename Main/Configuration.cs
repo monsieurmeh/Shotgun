@@ -89,6 +89,7 @@ namespace Shotgun
                 refs.Shotgun.WeaponView.FPSWeapon.MaybeBuildRuntimeHierarchy();
                 refs.Shotgun.WeaponView.FPSWeapon.MaybeSpawnFirstPersonWeapon();
 
+                refs.Shotgun.WeaponView.Root.transform.parent.gameObject.name = $"FPSWeapon_{ShotgunFPSPrefabName}Transform";
 
                 return true;
             }
