@@ -84,12 +84,23 @@ namespace Shotgun
                 // Following line was removed from ConfigureDetails and moved to a patch
                 refs.Shotgun.WeaponView.FPSWeapon.m_FirstPersonWeaponShoulderPrefab = refs.Shotgun.FPH.Root;
                 refs.Shotgun.WeaponView.FPSWeapon.m_StateManager.m_States.Clear();
+
+                //make some deep copies of the states and presets from rifle
                 foreach (var state in refs.Rifle.WeaponView.FPSWeapon.m_StateManager.m_States)
                 {
-                    refs.Shotgun.WeaponView.FPSWeapon.m_StateManager.m_States.Add(new vp_StateInfo(state.TypeName, state.Name));
-                    // before we try to update the fpsweapon states themselves, lets see if they update in UE
+                    vp_StateInfo newState = new vp_StateInfo(state.TypeName, state.Name);
+                    vp_ComponentPreset newPreset = new vp_ComponentPreset();
+                    newPreset.m_ComponentType = state.Preset.m_ComponentType;
+                    newPreset.m_Fields = new Il2CppSystem.Collections.Generic.List<vp_ComponentPreset.Field>();
+                    foreach (vp_ComponentPreset.Field field in state.Preset.m_Fields)
+                    {
+                        newPreset.m_Fields.Add(new vp_ComponentPreset.Field(field.m_FieldInfo, field.Args));
+                    }
+                    newState.Preset = newPreset;
+                    refs.Shotgun.WeaponView.FPSWeapon.m_StateManager.m_States.Add(newState);
                 }
-                refs.Shotgun.WeaponView.FPSWeapon.m_DefaultState = refs.Shotgun.WeaponView.FPSWeapon.m_StateManager.m_States[0];
+
+                refs.Shotgun.WeaponView.FPSWeapon.m_DefaultState = refs.Shotgun.WeaponView.FPSWeapon.m_StateManager.m_States[^1]; //this should be the "default" state
                 refs.Shotgun.WeaponView.FPSWeapon.m_GearItem = refs.Shotgun.Item.Prefab.GetComponent<GearItem>();
                 refs.Shotgun.WeaponView.FPSWeapon.m_GunItem = refs.Shotgun.Item.Prefab.GetComponent<GunItem>();
 
