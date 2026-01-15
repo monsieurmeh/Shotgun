@@ -82,8 +82,14 @@ namespace Shotgun
 
                 // CRITICAL NOTE: vp_FPSWeapon appears to suffer a null reference exception unless there is at least one FirstPerson prefab attached... 
                 // Following line was removed from ConfigureDetails and moved to a patch
-                // refs.Shotgun.WeaponView.FPSWeapon.m_FirstPersonWeaponShoulderPrefab = refs.Shotgun.FPH.Root;
-
+                refs.Shotgun.WeaponView.FPSWeapon.m_FirstPersonWeaponShoulderPrefab = refs.Shotgun.FPH.Root;
+                refs.Shotgun.WeaponView.FPSWeapon.m_StateManager.m_States.Clear();
+                foreach (var state in refs.Rifle.WeaponView.FPSWeapon.m_StateManager.m_States)
+                {
+                    refs.Shotgun.WeaponView.FPSWeapon.m_StateManager.m_States.Add(new vp_StateInfo(state.TypeName, state.Name));
+                    // before we try to update the fpsweapon states themselves, lets see if they update in UE
+                }
+                refs.Shotgun.WeaponView.FPSWeapon.m_DefaultState = refs.Shotgun.WeaponView.FPSWeapon.m_StateManager.m_States[0];
                 refs.Shotgun.WeaponView.FPSWeapon.m_GearItem = refs.Shotgun.Item.Prefab.GetComponent<GearItem>();
                 refs.Shotgun.WeaponView.FPSWeapon.m_GunItem = refs.Shotgun.Item.Prefab.GetComponent<GunItem>();
 
