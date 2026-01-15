@@ -179,7 +179,7 @@ namespace Shotgun
         internal bool InstantiateShotgunWeaponGroup(ConfigurationReferences refs)
         {
             MelonLogger.Msg("InstantiateShotgunWeaponGroup");
-            refs.Shotgun.WeaponView.Root = new GameObject("Shotgun");
+            refs.Shotgun.WeaponView.Root = new GameObject("FPSWeapon_Shotgun");
             refs.Shotgun.WeaponView.Root.transform.SetParent(refs.FPSCamera.m_WeaponParent.transform, false);
             return true;
         }
