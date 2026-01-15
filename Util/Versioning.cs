@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Shotgun.Util
+namespace Shotgun.Utility
 {
     internal static class Versioning
     {

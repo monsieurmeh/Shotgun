@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 
-namespace Shotgun.Util
+namespace Shotgun.Utility
 {
     internal static class Extensions
     {

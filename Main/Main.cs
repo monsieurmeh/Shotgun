@@ -3,11 +3,12 @@ using UnityEngine;
 using System.Reflection;
 using Il2Cpp;
 using MelonLoader.Utils;
-using Shotgun.Util;
+using Shotgun.Utility;
 using UnityEngine.AddressableAssets;
 using Il2CppVLB;
 using HarmonyLib;
 using Il2CppTLD.Gameplay;
+using static Il2Cpp.Utils;
 
 
 namespace Shotgun
@@ -131,13 +132,13 @@ namespace Shotgun
             if (!GetRifleFirstPersonItem(ConfigRefs)) return;
             if (!GetRifleFPSItem(ConfigRefs)) return;
 
-            if (!InstantiateShotgunWeaponGroup(ConfigRefs)) return;
-            if (!InstantiateShotgunVPFPSWeapon(ConfigRefs)) return;
-            if (!InstantiateShotgunVPFPSShooter(ConfigRefs)) return;
-
             if (!InstantiateShotgunFPH(ConfigRefs)) return;
             if (!InstantiateShotgunFirstPersonWeapon(ConfigRefs)) return;
             if (!InstantiateShotgunAnimator(ConfigRefs)) return;
+
+            if (!InstantiateShotgunWeaponGroup(ConfigRefs)) return; 
+            if (!InstantiateShotgunVPFPSWeapon(ConfigRefs)) return;
+            if (!InstantiateShotgunVPFPSShooter(ConfigRefs)) return;
 
             if (!InstantiateShotgunPrefab(ConfigRefs)) return;
             if (!GetShotgunGearItem(ConfigRefs)) return;
@@ -167,7 +168,9 @@ namespace Shotgun
                 refs.Shotgun.WeaponView.Root.transform.SetParent(refs.FPSCamera.m_WeaponParent, false);
                 refs.Shotgun.WeaponView.FPSShooter.enabled = true;
                 refs.Shotgun.WeaponView.FPSWeapon.m_WeaponGroup = refs.Shotgun.WeaponView.Root;
-                refs.Shotgun.WeaponView.FPSWeapon.m_FirstPersonWeaponShoulderPrefab = refs.Shotgun.FPH.Root;
+                // CRITICAL NOTE: vp_FPSWeapon appears to suffer a null reference exception unless there is at least one FirstPerson prefab attached... 
+                // Following line was removed from ConfigureDetails and moved to a patch
+                // refs.Shotgun.WeaponView.FPSWeapon.m_FirstPersonWeaponShoulderPrefab = refs.Shotgun.FPH.Root;
                 refs.Shotgun.WeaponView.FPSWeapon.m_GearItem = refs.Shotgun.Item.Prefab.GetComponent<GearItem>();
                 refs.Shotgun.WeaponView.FPSWeapon.m_GunItem = refs.Shotgun.Item.Prefab.GetComponent<GunItem>();
                 refs.Shotgun.WeaponView.FPSWeapon.MaybeBuildRuntimeHierarchy();
@@ -279,7 +282,7 @@ namespace Shotgun
 
         internal bool InstantiateShotgunWeaponGroup(ConfigurationReferences refs)
         {
-            MelonLogger.Msg("ConfigureShotgunWeaponGroup");
+            MelonLogger.Msg("InstantiateShotgunWeaponGroup");
             refs.Shotgun.WeaponView.Root = new GameObject("FPSWeapon_ShotgunTransform");
             refs.Shotgun.WeaponView.Child = new GameObject("Shotgun");
             refs.Shotgun.WeaponView.Child.transform.SetParent(refs.Shotgun.WeaponView.Root.transform, false);
@@ -289,7 +292,7 @@ namespace Shotgun
 
         internal bool InstantiateShotgunVPFPSWeapon(ConfigurationReferences refs)
         {
-            MelonLogger.Msg("ConfigureShotgunVPFPSWeapon");
+            MelonLogger.Msg("InstantiateShotgunVPFPSWeapon");
             refs.Shotgun.WeaponView.FPSWeapon = refs.Shotgun.WeaponView.Child.GetOrCreateComponent<vp_FPSWeapon>();
             if (refs.Shotgun.WeaponView.FPSWeapon == null)
             {
@@ -302,7 +305,7 @@ namespace Shotgun
 
         internal bool InstantiateShotgunVPFPSShooter(ConfigurationReferences refs)
         {
-            MelonLogger.Msg("ConfigureShotgunVPFPSShooter");
+            MelonLogger.Msg("InstantiateShotgunVPFPSShooter");
             refs.Shotgun.WeaponView.FPSShooter = refs.Shotgun.WeaponView.Child.GetOrCreateComponent<vp_FPSShooter>();
             if (refs.Shotgun.WeaponView.FPSShooter == null)
             {
@@ -315,7 +318,7 @@ namespace Shotgun
 
         internal bool InstantiateShotgunFPSItem(ConfigurationReferences refs)
         {
-            MelonLogger.Msg("ConfigureShotgunFPSItem");
+            MelonLogger.Msg("InstantiateShotgunFPSItem");
             refs.Shotgun.Floating.FPSItem = ScriptableObject.CreateInstance<FPSItem>();
             if (refs.Shotgun.Floating.FPSItem == null)
             {
@@ -413,7 +416,5 @@ namespace Shotgun
             }
             return true;
         }
-
-
     }
 }
