@@ -11,6 +11,7 @@ namespace Shotgun.Utility
     internal static class Utility
     {
         internal const string DataFolderPath = "Shotgun";
-        
+        internal const string ShotgunFPSPrefabName = "FPSWeapon_Shotgun";
+        internal const string RifleFPSPrefabName = "FPSWeapon_Rifle(Clone)";
     }
 }

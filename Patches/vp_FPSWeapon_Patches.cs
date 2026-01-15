@@ -17,7 +17,7 @@ namespace Shotgun.Patches
         {
             internal static void Prefix(vp_FPSWeapon __instance)
             {
-                if (__instance.name == "Shotgun")
+                if (__instance.name == ShotgunFPSPrefabName)
                 {
                     __instance.m_FirstPersonWeaponShoulderPrefab = Main.Instance.Configuration.ConfigRefs.Shotgun.FPH.Root;
                 }
@@ -25,7 +25,7 @@ namespace Shotgun.Patches
 
             internal static void Postfix(vp_FPSWeapon __instance)
             {
-                if (__instance.name == "FPSWeapon_Rifle(Clone)" || __instance.name == "FPSWeapon_Shotgun")
+                if (__instance.name == RifleFPSPrefabName || __instance.name == ShotgunFPSPrefabName)
                 {
                     __instance.ReportNullProperties("vp_FPSWeapon.Awake.Postfix");
                 }

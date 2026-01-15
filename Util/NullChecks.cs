@@ -30,15 +30,20 @@ namespace Shotgun.Utility
                     propertyNames.Add(property.Name);
                 }
             }
-            MelonLogger.Msg($"\n\n\nNullCheck on {t.name}");
+            MelonLogger.Msg("");
+            MelonLogger.Msg("");
+            MelonLogger.Msg("");
+            MelonLogger.Msg("NullCheck on {t.name}");
             if (optionalDescription.Length > 0)
             {
                 MelonLogger.Msg(optionalDescription);
             }
+            MelonLogger.Msg("");
             foreach (string propertyName in propertyNames)
             {
                 t.ReportIfPropertyNull(propertyName);
             }
+            MelonLogger.Msg("");
         }
     }
 
