@@ -17,12 +17,15 @@ namespace Shotgun.Patches
         {
             internal static void Prefix(vp_FPSWeapon __instance)
             {
-                MelonLogger.Msg($"vp_FPSWeapon.Awake prefix on {__instance.name}");
                 if (__instance.name.Contains("Shotgun"))
                 {
                     MelonLogger.Msg($"vp_FPSWeapon.Awake triggered on {__instance.name}");
-                    __instance.ReportNullProperties();
                     __instance.m_FirstPersonWeaponShoulderPrefab = Main.Instance.Configuration.ConfigRefs.Shotgun.FPH.Root;
+                    __instance.ReportNullProperties();
+                }
+                else if (__instance.name.Contains("FPSWeapon_Rifle"))
+                {
+                    MelonLogger.Msg($"vp_FPSWeapon.Awake triggered on {__instance.name}");
                     __instance.ReportNullProperties();
                 }
             }
