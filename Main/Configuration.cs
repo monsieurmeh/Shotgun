@@ -26,6 +26,13 @@ namespace Shotgun
             if (!GetRifleFirstPersonItem(ConfigRefs)) return;
             if (!GetRifleFPSItem(ConfigRefs)) return;
 
+            if (!GetRifleVPFPSRoot(ConfigRefs)) return;
+            if (!GetRifleVPFPSWeapon(ConfigRefs)) return;
+            if (!GetRifleVPFPShooter(ConfigRefs)) return;
+            if (!GetRifleFPH(ConfigRefs)) return;
+            if (!GetRifleFirstPersonWeapon(ConfigRefs)) return;
+            if (!GetRifleAnimator(ConfigRefs)) return;
+
             if (!InstantiateShotgunFPH(ConfigRefs)) return;
             if (!InstantiateShotgunFirstPersonWeapon(ConfigRefs)) return;
             if (!InstantiateShotgunAnimator(ConfigRefs)) return;
@@ -58,6 +65,12 @@ namespace Shotgun
                 refs.Shotgun.Floating.FPSItem.m_FPSWeaponPrefab = refs.Rifle.Floating.FPSItem.m_FPSWeaponPrefab;
 
                 refs.Shotgun.FPH.FirstPersonWeapon.m_Renderable = refs.Shotgun.FPH.Root.transform.GetChild(0).gameObject;
+                //refs.Shotgun.FPH.FirstPersonWeapon.m_BulletEmissionPoint = ???; gameobject ref
+                refs.Shotgun.FPH.FirstPersonWeapon.m_Animator = refs.Shotgun.FPH.Animator;
+                //refs.Shotgun.FPH.FirstPersonWeapon.m_FrontSight = ???; transform ref
+                //refs.Shotgun.FPH.FirstPersonWeapon.m_RearSight = ???; transform ref
+
+                refs.Shotgun.FPH.Animator.avatar = refs.Rifle.FPH.Animator.avatar;
 
                 refs.Shotgun.WeaponView.FPSShooter.enabled = true;
                 refs.Shotgun.WeaponView.FPSShooter.m_Weapon = refs.Shotgun.WeaponView.FPSWeapon;
@@ -262,6 +275,87 @@ namespace Shotgun
             return true;
         }
 
+        internal bool GetRifleVPFPSRoot(ConfigurationReferences refs)
+        {
+            MelonLogger.Msg("GetRifleVPFPSWeapon");
+            foreach (var kvp in refs.FPSCamera.m_Weapons)
+            {
+                if (kvp.Value.name.Contains("Rifle"))
+                {
+                    refs.Rifle.WeaponView.Root = kvp.Value.gameObject;
+                    break;
+                }
+            }
+            if (refs.Rifle.WeaponView.Root == null)
+            {
+                MelonLogger.Error("Could not find rifle vp_FPSWeapon script amongst all of vp_FPSCamera.m_Weapons");
+                return false;
+            }
+            return true;
+        }
+
+
+        internal bool GetRifleVPFPSWeapon(ConfigurationReferences refs)
+        {
+            MelonLogger.Msg("GetRifleVPFPSWeapon");
+            refs.Rifle.WeaponView.FPSWeapon = refs.Rifle.WeaponView.Root.GetComponent<vp_FPSWeapon>();
+            if (refs.Rifle.WeaponView.FPSWeapon == null)
+            {
+                MelonLogger.Error("Could not find rifle vp_FPSWeapon");
+                return false;
+            }
+            return true;
+        }
+
+        internal bool GetRifleVPFPShooter(ConfigurationReferences refs)
+        {
+            MelonLogger.Msg("GetRifleVPFPShooter");
+            refs.Rifle.WeaponView.FPSShooter = refs.Rifle.WeaponView.Root.GetComponent<vp_FPSShooter>();
+            if (refs.Rifle.WeaponView.FPSWeapon == null)
+            {
+                MelonLogger.Error("Could not find rifle vp_FPSShooter");
+                return false;
+            }
+            return true;
+        }
+
+
+        internal bool GetRifleFPH(ConfigurationReferences refs)
+        {
+            MelonLogger.Msg("GetRifleFPH");
+            refs.Rifle.FPH.Root = refs.Rifle.WeaponView.FPSWeapon.m_FirstPersonWeaponShoulder.gameObject;
+            if (refs.Rifle.FPH.Root == null)
+            {
+                MelonLogger.Error("Could not find rifle FPH root from rifle vp_FPSWeapon");
+                return false;
+            }
+            return true;
+        }
+
+        internal bool GetRifleFirstPersonWeapon(ConfigurationReferences refs)
+        {
+            MelonLogger.Msg("GetRifleFirstPersonWeapon");
+            refs.Rifle.FPH.FirstPersonWeapon = refs.Rifle.FPH.Root.GetComponent<FirstPersonWeapon>();
+            if (refs.Rifle.FPH.FirstPersonWeapon == null)
+            {
+                MelonLogger.Error("Could not find rifle first person weapon from rifle FPH root");
+                return false;
+            }
+            return true;
+        }
+
+
+        internal bool GetRifleAnimator(ConfigurationReferences refs)
+        {
+            MelonLogger.Msg("GetRifleAnimator");
+            refs.Rifle.FPH.Animator = refs.Rifle.FPH.Root.GetComponent<Animator>();
+            if (refs.Rifle.FPH.Animator == null)
+            {
+                MelonLogger.Error("Could not find rifle animator from rifle FPH root");
+                return false;
+            }
+            return true;
+        }
 
         internal bool InstantiateShotgunFPH(ConfigurationReferences refs)
         {
