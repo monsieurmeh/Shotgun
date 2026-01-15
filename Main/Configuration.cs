@@ -60,12 +60,15 @@ namespace Shotgun
                 refs.Shotgun.FPH.FirstPersonWeapon.m_Renderable = refs.Shotgun.FPH.Root;
 
                 refs.Shotgun.WeaponView.FPSShooter.enabled = true;
-                refs.Shotgun.WeaponView.FPSWeapon.m_WeaponGroup = refs.Shotgun.WeaponView.Root;
+                refs.Shotgun.WeaponView.FPSShooter.m_Weapon = refs.Shotgun.WeaponView.FPSWeapon;
+
                 // CRITICAL NOTE: vp_FPSWeapon appears to suffer a null reference exception unless there is at least one FirstPerson prefab attached... 
                 // Following line was removed from ConfigureDetails and moved to a patch
                 // refs.Shotgun.WeaponView.FPSWeapon.m_FirstPersonWeaponShoulderPrefab = refs.Shotgun.FPH.Root;
+
                 refs.Shotgun.WeaponView.FPSWeapon.m_GearItem = refs.Shotgun.Item.Prefab.GetComponent<GearItem>();
                 refs.Shotgun.WeaponView.FPSWeapon.m_GunItem = refs.Shotgun.Item.Prefab.GetComponent<GunItem>();
+
                 refs.Shotgun.WeaponView.FPSWeapon.MaybeBuildRuntimeHierarchy();
                 refs.Shotgun.WeaponView.FPSWeapon.MaybeSpawnFirstPersonWeapon();
                 return true;
