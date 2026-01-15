@@ -10,10 +10,6 @@ namespace Shotgun.Patches
 {
     internal class vp_FPSPlayer_Patches
     {
-        [HarmonyPatch(typeof(vp_FPSPlayer), nameof(vp_FPSPlayer.Start))]
-        internal static class SuperLateInitializePatch
-        {
-            internal static void Postfix() => Main.Instance?.LateInitialize();
-        }
+
     }
 }
