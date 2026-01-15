@@ -74,6 +74,8 @@ namespace Shotgun
                 refs.Shotgun.FPH.Animator.runtimeAnimatorController = refs.Rifle.FPH.Animator.runtimeAnimatorController;
                 refs.Shotgun.FPH.Animator.cullingMode = AnimatorCullingMode.CullUpdateTransforms;
 
+                refs.Shotgun.WeaponView.Root.name = ShotgunFPSPrefabName;
+
                 refs.Shotgun.WeaponView.FPSShooter.enabled = true;
                 refs.Shotgun.WeaponView.FPSShooter.m_Weapon = refs.Shotgun.WeaponView.FPSWeapon;
 
@@ -86,6 +88,8 @@ namespace Shotgun
 
                 refs.Shotgun.WeaponView.FPSWeapon.MaybeBuildRuntimeHierarchy();
                 refs.Shotgun.WeaponView.FPSWeapon.MaybeSpawnFirstPersonWeapon();
+
+
                 return true;
             }
             catch (Exception e)
@@ -194,7 +198,7 @@ namespace Shotgun
         internal bool InstantiateShotgunWeaponGroup(ConfigurationReferences refs)
         {
             MelonLogger.Msg("InstantiateShotgunWeaponGroup");
-            refs.Shotgun.WeaponView.Root = new GameObject("FPSWeapon_Shotgun");
+            refs.Shotgun.WeaponView.Root = new GameObject();
             refs.Shotgun.WeaponView.Root.transform.SetParent(refs.FPSCamera.m_WeaponParent.transform, false);
             return true;
         }
