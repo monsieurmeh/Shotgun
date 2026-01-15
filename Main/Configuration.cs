@@ -71,6 +71,8 @@ namespace Shotgun
                 //refs.Shotgun.FPH.FirstPersonWeapon.m_RearSight = ???; transform ref
 
                 refs.Shotgun.FPH.Animator.avatar = refs.Rifle.FPH.Animator.avatar;
+                refs.Shotgun.FPH.Animator.runtimeAnimatorController = refs.Rifle.FPH.Animator.runtimeAnimatorController;
+                refs.Shotgun.FPH.Animator.cullingMode = AnimatorCullingMode.CullUpdateTransforms;
 
                 refs.Shotgun.WeaponView.FPSShooter.enabled = true;
                 refs.Shotgun.WeaponView.FPSShooter.m_Weapon = refs.Shotgun.WeaponView.FPSWeapon;
