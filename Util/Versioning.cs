@@ -9,7 +9,7 @@ namespace Shotgun.Utility
 {
     internal static class Versioning
     {
-        internal const string CurrentVersion = "0.5.2";
+        internal const string CurrentVersion = "0.6.0";
 
         internal static bool IsVersionCorrect(string basePath)
         {
