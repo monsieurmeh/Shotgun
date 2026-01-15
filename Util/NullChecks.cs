@@ -54,7 +54,7 @@ namespace Shotgun.Utility
 
         internal static void ReportNulls<T>(T t) where T : MonoBehaviour
         {
-            if (!TypeToPropertyNameDict.TryGetValue(typeof(T), out List<string> propertyNames))
+            if (!TypeToPropertyNameDict.TryGetValue(t.GetType(), out List<string> propertyNames))
             {
                 MelonLogger.Error($"[ReportNulls] type not registered for null checks: {typeof(T).Name}");
                 return;
@@ -69,7 +69,7 @@ namespace Shotgun.Utility
 
     internal static class NulLCheckExtension
     {
-        internal static void ReportIfPropertyNull(this MonoBehaviour script, string propertyName)
+        internal static void ReportIfPropertyNull<T>(this T script, string propertyName) where T : MonoBehaviour
         {
             PropertyInfo propertyInfo = script.GetType().GetProperty(propertyName);
             if (propertyInfo == null)
@@ -83,6 +83,9 @@ namespace Shotgun.Utility
             }
         }
 
-        internal static void ReportNullProperties(this MonoBehaviour script) => NullChecks.ReportNulls(script);
+        internal static void ReportNullProperties<T>(this T script) where T : MonoBehaviour
+        {
+            NullChecks.ReportNulls(script);
+        }
     }
 }

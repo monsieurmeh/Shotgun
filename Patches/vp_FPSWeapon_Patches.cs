@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using HarmonyLib;
 using MelonLoader;
+using Shotgun.Utility;
 
 namespace Shotgun.Patches
 {
@@ -19,7 +20,10 @@ namespace Shotgun.Patches
                 MelonLogger.Msg($"vp_FPSWeapon.Awake prefix on {__instance.name}");
                 if (__instance.name.Contains("Shotgun"))
                 {
+                    MelonLogger.Msg($"vp_FPSWeapon.Awake triggered on {__instance.name}");
+                    __instance.ReportNullProperties();
                     __instance.m_FirstPersonWeaponShoulderPrefab = Main.Instance.Configuration.ConfigRefs.Shotgun.FPH.Root;
+                    __instance.ReportNullProperties();
                 }
             }
         }
