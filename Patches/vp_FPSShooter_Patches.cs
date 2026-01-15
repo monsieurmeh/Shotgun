@@ -22,7 +22,7 @@ namespace Shotgun.Patches
 
             internal static void Postfix(vp_FPSShooter __instance)
             {
-                if (__instance.name.Contains("Shotgun"))
+                if (__instance.name.Contains("Shotgun") || __instance.name.Contains("Rifle"))
                 {
                     __instance.ReportNullProperties();
                 }

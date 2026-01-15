@@ -22,6 +22,14 @@ namespace Shotgun.Patches
                     __instance.m_FirstPersonWeaponShoulderPrefab = Main.Instance.Configuration.ConfigRefs.Shotgun.FPH.Root;
                 }
             }
+
+            internal static void Postfix(vp_FPSWeapon __instance)
+            {
+                if (__instance.name.Contains("Shotgun") || __instance.name.Contains("Rifle"))
+                {
+                    __instance.ReportNullProperties();
+                }
+            }
         }
     }
 }
