@@ -95,10 +95,16 @@ namespace Shotgun
                 refs.Shotgun.Floating.FPSItem.m_FPSWeaponPrefab = refs.Rifle.Floating.FPSItem.m_FPSWeaponPrefab;
 
                 refs.Shotgun.FPH.FirstPersonWeapon.m_Renderable = refs.Shotgun.FPH.Root.transform.GetChild(0).gameObject;
-                //refs.Shotgun.FPH.FirstPersonWeapon.m_BulletEmissionPoint = ???; gameobject ref
                 refs.Shotgun.FPH.FirstPersonWeapon.m_Animator = refs.Shotgun.FPH.Animator;
-                //refs.Shotgun.FPH.FirstPersonWeapon.m_FrontSight = ???; transform ref
-                //refs.Shotgun.FPH.FirstPersonWeapon.m_RearSight = ???; transform ref
+                foreach (Transform transform in refs.Shotgun.FPH.Root.GetComponentsInChildren<Transform>())
+                {
+                    switch (transform.gameObject.name)
+                    {
+                        case "FrontSight": refs.Shotgun.FPH.FirstPersonWeapon.m_FrontSight = transform; break;
+                        case "RearSight": refs.Shotgun.FPH.FirstPersonWeapon.m_RearSight = transform; break;
+                        case "BulletEmissionPoint": refs.Shotgun.FPH.FirstPersonWeapon.m_BulletEmissionPoint = transform.gameObject; break;
+                    }
+                }
 
                 refs.Shotgun.FPH.Animator.avatar = refs.Rifle.FPH.Animator.avatar;
                 refs.Shotgun.FPH.Animator.runtimeAnimatorController = refs.Rifle.FPH.Animator.runtimeAnimatorController;
@@ -106,15 +112,33 @@ namespace Shotgun
 
                 refs.Shotgun.WeaponView.Root.name = ShotgunFPSPrefabName;
 
-                refs.Shotgun.WeaponView.FPSShooter.enabled = true;
                 refs.Shotgun.WeaponView.FPSShooter.m_Weapon = refs.Shotgun.WeaponView.FPSWeapon;
+                refs.Shotgun.WeaponView.FPSShooter.MuzzleFlashPrefab = refs.Rifle.WeaponView.FPSShooter.MuzzleFlashPrefab;
+                //TEMPORARY - WE GOT OUR OWN INCOMING, BABY
+                refs.Shotgun.WeaponView.FPSShooter.ProjectilePrefab = refs.Rifle.WeaponView.FPSShooter.ProjectilePrefab;
+                refs.Shotgun.WeaponView.FPSShooter.ShellPrefab = refs.Rifle.WeaponView.FPSShooter.ShellPrefab;
 
-                // CRITICAL NOTE: vp_FPSWeapon appears to suffer a null reference exception unless there is at least one FirstPerson prefab attached... 
-                // Following line was removed from ConfigureDetails and moved to a patch
+                refs.Shotgun.WeaponView.FPSShooter.m_StateManager.m_States.Clear();
+                foreach (var state in refs.Rifle.WeaponView.FPSShooter.m_StateManager.m_States)
+                {
+                    vp_StateInfo newState = new vp_StateInfo(state.TypeName, state.Name);
+                    vp_ComponentPreset newPreset = new vp_ComponentPreset();
+                    newPreset.m_ComponentType = state.Preset.m_ComponentType;
+                    newPreset.m_Fields = new Il2CppSystem.Collections.Generic.List<vp_ComponentPreset.Field>();
+                    foreach (vp_ComponentPreset.Field field in state.Preset.m_Fields)
+                    {
+                        newPreset.m_Fields.Add(new vp_ComponentPreset.Field(field.m_FieldInfo, field.Args));
+                    }
+                    newState.Preset = newPreset;
+                    newState.TextAsset = state.TextAsset;
+                    refs.Shotgun.WeaponView.FPSShooter.m_StateManager.m_States.Add(newState);
+                    if (state.Name == "Default") refs.Shotgun.WeaponView.FPSShooter.m_DefaultState = newState;
+                }
+
+                refs.Shotgun.WeaponView.FPSShooter.enabled = true;
+
                 refs.Shotgun.WeaponView.FPSWeapon.m_FirstPersonWeaponShoulderPrefab = refs.Shotgun.FPH.Root;
                 refs.Shotgun.WeaponView.FPSWeapon.m_StateManager.m_States.Clear();
-
-                //make some deep copies of the states and presets from rifle
                 foreach (var state in refs.Rifle.WeaponView.FPSWeapon.m_StateManager.m_States)
                 {
                     vp_StateInfo newState = new vp_StateInfo(state.TypeName, state.Name);
@@ -126,10 +150,11 @@ namespace Shotgun
                         newPreset.m_Fields.Add(new vp_ComponentPreset.Field(field.m_FieldInfo, field.Args));
                     }
                     newState.Preset = newPreset;
+                    newState.TextAsset = state.TextAsset;
                     refs.Shotgun.WeaponView.FPSWeapon.m_StateManager.m_States.Add(newState);
+                    if (state.Name == "Default") refs.Shotgun.WeaponView.FPSWeapon.m_DefaultState = newState;
                 }
 
-                refs.Shotgun.WeaponView.FPSWeapon.m_DefaultState = refs.Shotgun.WeaponView.FPSWeapon.m_StateManager.m_States[^1]; //this should be the "default" state
                 refs.Shotgun.WeaponView.FPSWeapon.m_GearItem = refs.Shotgun.Item.Prefab.GetComponent<GearItem>();
                 refs.Shotgun.WeaponView.FPSWeapon.m_GunItem = refs.Shotgun.Item.Prefab.GetComponent<GunItem>();
 
