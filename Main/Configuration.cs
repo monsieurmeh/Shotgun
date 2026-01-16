@@ -665,7 +665,7 @@ namespace Shotgun
         {
             MelonLogger.Msg("ConfigureShotgunFPSShooter");
             vp_FPSShooter shooter = refs.Shotgun.WeaponView.FPSShooter;
-            vp_FPSShooter rifleShooter = refs.Shotgun.WeaponView.FPSShooter;
+            vp_FPSShooter rifleShooter = refs.Rifle.WeaponView.FPSShooter;
             shooter.m_Weapon = refs.Shotgun.WeaponView.FPSWeapon;
             shooter.MuzzleFlashPrefab = rifleShooter.MuzzleFlashPrefab;
             shooter.ProjectilePrefab = rifleShooter.ProjectilePrefab;
