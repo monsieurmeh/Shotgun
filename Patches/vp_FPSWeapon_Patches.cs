@@ -8,14 +8,10 @@ using HarmonyLib;
 using MelonLoader;
 using Shotgun.Utility;
 
-namespace Shotgun.Patches
+namespace Shotgun
 {
     internal class vp_FPSWeapon_Patches
     {
-        [HarmonyPatch(typeof(vp_FPSWeapon), nameof(vp_FPSWeapon.Awake))]
-        internal static class PatchAwake
-        {
 
-        }
     }
 }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using HarmonyLib;
 using MelonLoader;
 
-namespace Shotgun.Patches
+namespace Shotgun
 {
     internal class vp_FPSCamera_Patches
     {

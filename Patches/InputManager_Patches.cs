@@ -9,7 +9,7 @@ using MelonLoader;
 using Shotgun.Utility;
 using UnityEngine;
 
-namespace Shotgun.Patches
+namespace Shotgun
 {
     internal class InputManager_Patches
     {

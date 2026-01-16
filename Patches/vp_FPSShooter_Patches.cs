@@ -8,7 +8,7 @@ using HarmonyLib;
 using MelonLoader;
 using Shotgun.Utility;
 
-namespace Shotgun.Patches
+namespace Shotgun
 {
     internal class vp_FPSShooter_Patches
     {

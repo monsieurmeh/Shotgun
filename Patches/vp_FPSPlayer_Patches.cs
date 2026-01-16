@@ -8,7 +8,7 @@ using HarmonyLib;
 using MelonLoader;
 using UnityEngine;
 
-namespace Shotgun.Patches
+namespace Shotgun
 {
     internal class vp_FPSPlayer_Patches
     {
