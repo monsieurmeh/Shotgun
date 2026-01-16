@@ -103,7 +103,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6464405495566880746}
   - component: {fileID: 5356293449525123284}
-  - component: {fileID: -1290163669504996541}
+  - component: {fileID: 3053833551297769037}
   m_Layer: 0
   m_Name: GEAR_Shotgun
   m_TagString: Untagged
@@ -151,7 +151,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.07025695, y: 0.29628465, z: 1.4217626}
   m_Center: {x: -0.003495276, y: -0.046603665, z: 0.061749876}
---- !u!114 &-1290163669504996541
+--- !u!114 &3053833551297769037
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -160,7 +160,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8934522354640711522}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a1ce3f43b3e1fb4f982ed0b2cfb635d, type: 3}
+  m_Script: {fileID: 11500000, guid: b791cf8328f045d45bf04b4f116cb5bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   DisplayNameLocalizationId: GAMEPLAY_Shotgun_Name
@@ -169,12 +169,12 @@ MonoBehaviour:
   WeightKG: 3
   DaysToDecay: 500
   MaxHP: 100
-  InitialCondition: 0
-  InventoryCategory: 0
-  PickUpAudio: {fileID: 11400000, guid: 0cf592dac6df95f4b8df0b16001972f8, type: 2}
-  PutBackAudio: {fileID: 11400000, guid: 0cf592dac6df95f4b8df0b16001972f8, type: 2}
-  StowAudio: {fileID: 11400000, guid: 0cf592dac6df95f4b8df0b16001972f8, type: 2}
-  WornOutAudio: {fileID: 11400000, guid: 0cf592dac6df95f4b8df0b16001972f8, type: 2}
+  InitialCondition: 2
+  InventoryCategory: 6
+  PickUpAudio: {fileID: 11400000, guid: f143f37cca89a7f45980a931e234ec21, type: 2}
+  PutBackAudio: {fileID: 11400000, guid: f143f37cca89a7f45980a931e234ec21, type: 2}
+  StowAudio: {fileID: 11400000, guid: f143f37cca89a7f45980a931e234ec21, type: 2}
+  WornOutAudio: {fileID: 11400000, guid: f143f37cca89a7f45980a931e234ec21, type: 2}
   InspectOnPickup: 1
   InspectDistance: 1
   InspectAngles: {x: 20, y: -90, z: 0}
@@ -182,9 +182,6 @@ MonoBehaviour:
   InspectScale: {x: 0.48, y: 0.48, z: 0.48}
   NormalModel: {fileID: 0}
   InspectModel: {fileID: 0}
-  EquippedModelPrefab: {fileID: 11400000, guid: bfd7525724b3a354cb4e2d690740953b, type: 2}
-  ImplementationType: 
-  EquippingAudio: {fileID: 11400000, guid: 0cf592dac6df95f4b8df0b16001972f8, type: 2}
 --- !u!1001 &4451402439440926740
 PrefabInstance:
   m_ObjectHideFlags: 0

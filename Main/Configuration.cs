@@ -64,7 +64,6 @@ namespace Shotgun
         {
             try
             {
-                refs.Shotgun.Item.ModComponent.OnPrimaryAction = CustomActions.MaybePullTrigger;
                 refs.Shotgun.Item.GearItem.m_StruggleBonus = refs.Shotgun.Item.StruggleBonus;
                 refs.Shotgun.Item.GunItem.m_GunType = GunType.Rifle;
                 refs.Shotgun.Item.GunItem.m_AmmoReferences = refs.Rifle.Item.GunItem.m_AmmoReferences;

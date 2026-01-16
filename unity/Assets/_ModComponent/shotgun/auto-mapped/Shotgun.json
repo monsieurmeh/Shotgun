@@ -1,17 +1,17 @@
 {
-  "ModGenericEquippableComponent": {
+  "ModGenericComponent": {
     "DisplayNameLocalizationId": "GAMEPLAY_Shotgun_Name",
     "DescriptionLocalizatonId": "GAMEPLAY_Shotgun_Description",
     "InventoryActionLocalizationId": "",
     "WeightKG": 3.0,
     "DaysToDecay": 500,
     "MaxHP": 100.0,
-    "InitialCondition": "Random",
-    "InventoryCategory": "Auto",
-    "PickUpAudio": "Play_4DonChallengeComplete",
-    "PutBackAudio": "Play_4DonChallengeComplete",
-    "StowAudio": "Play_4DonChallengeComplete",
-    "WornOutAudio": "Play_4DonChallengeComplete",
+    "InitialCondition": "High",
+    "InventoryCategory": "Tool",
+    "PickUpAudio": "Play_DrawRifle",
+    "PutBackAudio": "Play_DrawRifle",
+    "StowAudio": "Play_DrawRifle",
+    "WornOutAudio": "Play_DrawRifle",
     "InspectOnPickup": true,
     "InspectDistance": 1.0,
     "InspectAngles": [
@@ -30,9 +30,6 @@
       0.48
     ],
     "NormalModel": "",
-    "InspectModel": "",
-    "EquippedModelPrefab": "GEAR_Shotgun",
-    "ImplementationType": "",
-    "EquippingAudio": "Play_4DonChallengeComplete"
+    "InspectModel": ""
   }
 }
