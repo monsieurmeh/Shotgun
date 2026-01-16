@@ -46,6 +46,14 @@ namespace Shotgun
 
         }
 
+
+        [HarmonyPatch(typeof(vp_FPSCamera), nameof(vp_FPSCamera.LoadAllFPSWeapons))]
+        internal static class LateInitializationPatch
+        {
+            internal static void Postfix() => Main.Instance?.LateInitialize();
+        }
+
+
         internal void LateInitialize()
         {
             try
