@@ -72,7 +72,7 @@ namespace Shotgun
                 }
                 LateInitialized = true;
                 MelonLogger.Msg("LateInitializing");
-                Configuration.ConfigureShotgun();
+                Configuration.PrepareShotgun();
                 MelonLogger.Msg("LateInitialize Complete");
             }
             catch (Exception e)
