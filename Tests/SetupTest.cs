@@ -9,12 +9,13 @@ namespace Shotgun
 {
     internal static class SetupTest
     {
-        public static bool IsConfigurationReferencesValid(ConfigurationReferences refs)
+        public static bool Validate(ConfigurationReferences refs)
         {
             if (!ValidateTopLevel(refs)) return false;
 
             return true;
         }
+
 
         internal static bool ValidateTopLevel(ConfigurationReferences refs)
         {
@@ -24,12 +25,13 @@ namespace Shotgun
         }
 
 
-
         internal static bool ValidateFPSCamera(ConfigurationReferences refs)
         {
             if (!TestAndReport(() => refs.FPSCamera != null, "Null FPSCamera")) return false;
             return true;
         }
+
+
         internal static bool ValidateFPSPlayer(ConfigurationReferences refs)
         {
             if (!TestAndReport(() => refs.FPSPlayer != null, "Null FPSPlayer")) return false;

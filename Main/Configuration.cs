@@ -24,6 +24,7 @@ namespace Shotgun
             if (!Instantiate(configRefs)) return;
             if (!Configure(configRefs)) return;
             if (!RegisterShotgun(configRefs)) return;
+            if (!SetupTest.Validate(configRefs)) return;
             ReportDifferences(configRefs);
             MelonLogger.Msg("Ready to roll!");
         }
@@ -479,9 +480,9 @@ namespace Shotgun
                 ConfigureShotgunFirstPersonItem(refs);
                 ConfigureShotgunStruggleBonus(refs);
                 ConfigureShotgunFPSItem(refs);
+                ConfigureShotgunFPHRoot(refs);
                 ConfigureShotgunFirstPersonWeapon(refs);
                 ConfigureShotgunAnimator(refs);
-                ConfigureShotgunFPHRoot(refs);
                 ConfigureShotgunFPSShooter(refs);
                 ConfigureShotgunFPSWeapon(refs);
                 ConfigureShotgunFPSRoot(refs);
@@ -518,42 +519,88 @@ namespace Shotgun
         internal void ConfigureShotgunGearItem(ConfigurationReferences refs)
         {
             MelonLogger.Msg("ConfigureShotgunGearItem");
-            refs.Shotgun.Item.GearItem.m_StruggleBonus = refs.Shotgun.Item.StruggleBonus;
+            GearItem gearItem = refs.Shotgun.Item.GearItem;
+            gearItem.m_StruggleBonus = refs.Shotgun.Item.StruggleBonus;
+            gearItem.m_FirstPersonItem = refs.Shotgun.Item.FirstPersonItem;
+            gearItem.m_GunItem = refs.Shotgun.Item.GunItem;
+
+            //move to get?
+            gearItem.m_Inspect = refs.Shotgun.Item.Prefab.GetComponent<Inspect>();
+
+            //need to configure?
+            // degrate on use?
+            // GearItem.m_BodyHarvestPanel.m_PanelReference 
+            // GearItem.m_IceFishingPanel.m_PanelReference
+            // GearItem.m_InventoryPanel.m_PanelReference 
+
+            //need to do anything with?
+            // m_GearItemData
+
         }
 
 
         internal void ConfigureShotgunGunItem(ConfigurationReferences refs)
         {
             MelonLogger.Msg("ConfigureShotgunGunItem");
-            refs.Shotgun.Item.GunItem.m_GunType = GunType.Rifle;
-            refs.Shotgun.Item.GunItem.m_AmmoReferences = refs.Rifle.Item.GunItem.m_AmmoReferences;
-            refs.Shotgun.Item.GunItem.m_AmmoSpriteName = refs.Rifle.Item.GunItem.m_AmmoSpriteName;
-            refs.Shotgun.Item.GunItem.m_ClipSize = 6;
-            refs.Shotgun.Item.GunItem.m_GearItem = refs.Shotgun.Item.GearItem;
+            GunItem gunItem = refs.Shotgun.Item.GunItem;
+            GunItem rifleGunItem = refs.Rifle.Item.GunItem;
+
+            gunItem.m_AmmoReferences = rifleGunItem.m_AmmoReferences;
+            gunItem.m_AmmoSpriteName = rifleGunItem.m_AmmoSpriteName;
+            gunItem.m_GearItem = refs.Shotgun.Item.GearItem;
+            gunItem.m_CasingData = rifleGunItem.m_CasingData;
+            gunItem.m_CasingAudio = rifleGunItem.m_CasingAudio;
+            gunItem.m_DryFireAudio = rifleGunItem.m_DryFireAudio;
+            gunItem.m_FireAudio = rifleGunItem.m_FireAudio;
+            gunItem.m_ImpactAudio = rifleGunItem.m_ImpactAudio;
+            gunItem.m_UncockAudio = rifleGunItem.m_UncockAudio;
+            gunItem.m_MisfireTable = rifleGunItem.m_MisfireTable;
+            gunItem.m_MisfirePlayerVO = rifleGunItem.m_MisfirePlayerVO;
+            gunItem.m_AimingStaminaExhaustedSound = rifleGunItem.m_AimingStaminaExhaustedSound;
+
+            gunItem.m_GunType = GunType.Rifle;
+            gunItem.m_ClipSize = 2;
+            gunItem.m_RoundsToReloadPerClip = 2;
+            gunItem.m_DamageHP = 100;
+            gunItem.m_AccuracyRange = 35;
+            gunItem.m_FiringRateSeconds = 0.75f;
+            gunItem.m_ReloadCoolDownSeconds = 2;
+            gunItem.m_MinDistanceForAimAssist = 15;
+            gunItem.m_MuzzleFlash_FlashDelay = 0.1f;
+            gunItem.m_MuzzleFlash_SmokeDelay = 0.15f;
+            gunItem.m_SwayValueMaxFatigue = 0.75f;
+            gunItem.m_SwayIncreasePerSecond = 0.1f;
+            gunItem.m_SwayDecreasePerSecond = 0.15f;
         }
 
 
         internal void ConfigureShotgunFirstPersonItem(ConfigurationReferences refs)
         {
             MelonLogger.Msg("ConfigureShotgunFirstPersonItem");
-            refs.Shotgun.Item.FirstPersonItem.m_FirstPersonObjectName = "Shotgun";
-            refs.Shotgun.Item.FirstPersonItem.m_PlayerStateTransitions = new PlayerStateTransitions();
-            refs.Shotgun.Item.FirstPersonItem.m_PlayerStateTransitions.m_InvalidTransitions = new Il2CppInterop.Runtime.InteropTypes.Arrays.Il2CppStructArray<PlayerAnimation.StateFlags>(refs.Rifle.Item.FirstPersonItem.m_PlayerStateTransitions.m_InvalidTransitions.Length);
-            refs.Shotgun.Item.FirstPersonItem.m_PlayerStateTransitions.m_ValidTransitions = new Il2CppInterop.Runtime.InteropTypes.Arrays.Il2CppStructArray<PlayerAnimation.StateFlags>(refs.Rifle.Item.FirstPersonItem.m_PlayerStateTransitions.m_ValidTransitions.Length);
+            FirstPersonItem firstPersonItem = refs.Shotgun.Item.FirstPersonItem;
+            FirstPersonItem rifleFirstPersonItem = refs.Rifle.Item.FirstPersonItem;
+
+            firstPersonItem.m_FirstPersonObjectName = "Shotgun";
+            firstPersonItem.m_PlayerStateTransitions = new PlayerStateTransitions();
+            firstPersonItem.m_PlayerStateTransitions.m_InvalidTransitions = new Il2CppInterop.Runtime.InteropTypes.Arrays.Il2CppStructArray<PlayerAnimation.StateFlags>(rifleFirstPersonItem.m_PlayerStateTransitions.m_InvalidTransitions.Length);
+            firstPersonItem.m_PlayerStateTransitions.m_ValidTransitions = new Il2CppInterop.Runtime.InteropTypes.Arrays.Il2CppStructArray<PlayerAnimation.StateFlags>(rifleFirstPersonItem.m_PlayerStateTransitions.m_ValidTransitions.Length);
             int i = 0;
-            foreach (var transition in refs.Rifle.Item.FirstPersonItem.m_PlayerStateTransitions.m_InvalidTransitions)
+            foreach (var transition in rifleFirstPersonItem.m_PlayerStateTransitions.m_InvalidTransitions)
             {
-                refs.Shotgun.Item.FirstPersonItem.m_PlayerStateTransitions.m_InvalidTransitions[i] = transition;
+                firstPersonItem.m_PlayerStateTransitions.m_InvalidTransitions[i] = transition;
                 i++;
             }
             i = 0;
-            foreach (var transition in refs.Rifle.Item.FirstPersonItem.m_PlayerStateTransitions.m_ValidTransitions)
+            foreach (var transition in rifleFirstPersonItem.m_PlayerStateTransitions.m_ValidTransitions)
             {
-                refs.Shotgun.Item.FirstPersonItem.m_PlayerStateTransitions.m_ValidTransitions[i] = transition;
+                firstPersonItem.m_PlayerStateTransitions.m_ValidTransitions[i] = transition;
                 i++;
             }
-            refs.Shotgun.Item.FirstPersonItem.m_ItemData = refs.Shotgun.Floating.FPSItem;
+            firstPersonItem.m_ItemData = refs.Shotgun.Floating.FPSItem;
+            firstPersonItem.m_WieldAudioEvent = rifleFirstPersonItem.m_WieldAudioEvent;
+            firstPersonItem.m_UnwieldAudioEvent = rifleFirstPersonItem.m_UnwieldAudioEvent;
         }
+
 
         internal void ConfigureShotgunStruggleBonus(ConfigurationReferences refs)
         {
@@ -561,12 +608,20 @@ namespace Shotgun
             refs.Shotgun.Item.StruggleBonus.m_StruggleWeaponType = StruggleBonus.StruggleWeaponType.Rifle;
         }
 
+
         internal void ConfigureShotgunFPSItem(ConfigurationReferences refs)
         {
             MelonLogger.Msg("ConfigureShotgunFPSItem");
             refs.Shotgun.Floating.FPSItem.name = "FPSItem_Shotgun";
             refs.Shotgun.Floating.FPSItem.m_FPSWeaponPrefab = refs.Rifle.Floating.FPSItem.m_FPSWeaponPrefab;
         }
+
+        internal void ConfigureShotgunFPHRoot(ConfigurationReferences refs)
+        {
+            MelonLogger.Msg("ConfigureShotgunFPHRoot");
+            refs.Shotgun.WeaponView.Root.name = ShotgunFPSPrefabName;
+        }
+
 
         internal void ConfigureShotgunFirstPersonWeapon(ConfigurationReferences refs)
         {
@@ -584,6 +639,7 @@ namespace Shotgun
             }
         }
 
+
         internal void ConfigureShotgunAnimator(ConfigurationReferences refs)
         {
             MelonLogger.Msg("ConfigureShotgunAnimator");
@@ -592,22 +648,23 @@ namespace Shotgun
             refs.Shotgun.FPH.Animator.cullingMode = AnimatorCullingMode.CullUpdateTransforms;
         }
 
-        internal void ConfigureShotgunFPHRoot(ConfigurationReferences refs)
-        {
-            MelonLogger.Msg("ConfigureShotgunFPHRoot");
-            refs.Shotgun.WeaponView.Root.name = ShotgunFPSPrefabName;
-        }
+
+
+
 
         internal void ConfigureShotgunFPSShooter(ConfigurationReferences refs)
         {
             MelonLogger.Msg("ConfigureShotgunFPSShooter");
-            refs.Shotgun.WeaponView.FPSShooter.m_Weapon = refs.Shotgun.WeaponView.FPSWeapon;
-            refs.Shotgun.WeaponView.FPSShooter.MuzzleFlashPrefab = refs.Rifle.WeaponView.FPSShooter.MuzzleFlashPrefab;
-            refs.Shotgun.WeaponView.FPSShooter.ProjectilePrefab = refs.Rifle.WeaponView.FPSShooter.ProjectilePrefab;
-            refs.Shotgun.WeaponView.FPSShooter.ShellPrefab = refs.Rifle.WeaponView.FPSShooter.ShellPrefab;
+            vp_FPSShooter shooter = refs.Shotgun.WeaponView.FPSShooter;
+            vp_FPSShooter rifleShooter = refs.Shotgun.WeaponView.FPSShooter;
+            shooter.m_Weapon = refs.Shotgun.WeaponView.FPSWeapon;
+            shooter.MuzzleFlashPrefab = rifleShooter.MuzzleFlashPrefab;
+            shooter.ProjectilePrefab = rifleShooter.ProjectilePrefab;
+            shooter.ShellPrefab = rifleShooter.ShellPrefab;
+            shooter.BulletEmissionLocator = refs.Shotgun.FPH.FirstPersonWeapon.m_BulletEmissionPoint.transform;
 
-            refs.Shotgun.WeaponView.FPSShooter.m_StateManager.m_States.Clear();
-            foreach (var state in refs.Rifle.WeaponView.FPSShooter.m_StateManager.m_States)
+            shooter.m_StateManager.m_States.Clear();
+            foreach (var state in rifleShooter.m_StateManager.m_States)
             {
                 vp_StateInfo newState = new vp_StateInfo(state.TypeName, state.Name);
                 vp_ComponentPreset newPreset = new vp_ComponentPreset();
@@ -619,11 +676,19 @@ namespace Shotgun
                 }
                 newState.Preset = newPreset;
                 newState.TextAsset = state.TextAsset;
-                refs.Shotgun.WeaponView.FPSShooter.m_StateManager.m_States.Add(newState);
-                if (state.Name == "Default") refs.Shotgun.WeaponView.FPSShooter.m_DefaultState = newState;
+                shooter.m_StateManager.m_States.Add(newState);
+                if (state.Name == "Default") shooter.m_DefaultState = newState;
             }
 
-            refs.Shotgun.WeaponView.FPSShooter.enabled = true;
+            shooter.ProjectileScale = 1.0f;
+            shooter.MotionPositionPause = 0f; //not sure what this is for?
+            shooter.ShellScale = 1.0f;
+            shooter.ShellEjectSpin = 0f;
+
+
+            shooter.enabled = true;
+
+            // need to find and attach bullet emission point?
         }
 
         internal void ConfigureShotgunFPSWeapon(ConfigurationReferences refs)
@@ -650,8 +715,13 @@ namespace Shotgun
             refs.Shotgun.WeaponView.FPSWeapon.m_GearItem = refs.Shotgun.Item.Prefab.GetComponent<GearItem>();
             refs.Shotgun.WeaponView.FPSWeapon.m_GunItem = refs.Shotgun.Item.Prefab.GetComponent<GunItem>();
 
+            refs.Shotgun.WeaponView.FPSWeapon.m_FirstPersonWeaponShoulderPrefab.layer = 23;
+            refs.Shotgun.WeaponView.FPSWeapon.m_UseFirstPersonHands = true;
+
             refs.Shotgun.WeaponView.FPSWeapon.MaybeBuildRuntimeHierarchy();
             refs.Shotgun.WeaponView.FPSWeapon.MaybeSpawnFirstPersonWeapon();
+
+
 
         }
 

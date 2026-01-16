@@ -54,10 +54,6 @@ namespace Shotgun.Utility
             typeof(CancellationToken),
             typeof(CancellationTokenSource),
             typeof(IEnumerable),
-            typeof(Vector2),
-            typeof(Vector3),
-            typeof(Vector4),
-            typeof(Quaternion),
             typeof(Matrix4x4)
         };
 
