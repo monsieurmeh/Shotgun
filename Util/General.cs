@@ -12,6 +12,7 @@ namespace Shotgun.Utility
     {
         internal const string DataFolderPath = "Shotgun";
         internal const string ShotgunFPSPrefabName = "Shotgun";
-        internal const string RifleFPSPrefabName = "FPSWeapon_Rifle(Clone)";
+        internal const string ShotgunItemPrefabName = "GEAR_Shotgun";
+        internal const string ShotgunItemPrefabCloneName = "GEAR_Shotgun(Clone)";
     }
 }

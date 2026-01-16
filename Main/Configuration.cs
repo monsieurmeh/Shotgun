@@ -18,6 +18,7 @@ namespace Shotgun
 
         internal void ConfigureShotgun()
         {
+            MelonLogger.Msg("Configuring shotgun...");
             if (!GetFPSPlayer(ConfigRefs)) return;
             if (!GetFPSCamera(ConfigRefs)) return;
             if (!ConfigureRadial(ConfigRefs)) return;
@@ -32,6 +33,8 @@ namespace Shotgun
             if (!GetRifleFPH(ConfigRefs)) return;
             if (!GetRifleFirstPersonWeapon(ConfigRefs)) return;
             if (!GetRifleAnimator(ConfigRefs)) return;
+            if (!GetRifleGearItem(ConfigRefs)) return;
+            if (!GetRifleGunItem(ConfigRefs)) return;
 
             if (!InstantiateShotgunFPH(ConfigRefs)) return;
             if (!InstantiateShotgunFirstPersonWeapon(ConfigRefs)) return;
@@ -50,6 +53,8 @@ namespace Shotgun
 
             if (!ConfigureDetails(ConfigRefs)) return;
             if (!RegisterShotgunFPSItemAndFPSWeapon(ConfigRefs)) return;
+
+            MelonLogger.Msg("Ready to roll!");
         }
 
         internal bool ConfigureDetails(ConfigurationReferences refs)
@@ -58,6 +63,9 @@ namespace Shotgun
             {
                 refs.Shotgun.Item.GearItem.m_StruggleBonus = refs.Shotgun.Item.StruggleBonus;
                 refs.Shotgun.Item.GunItem.m_GunType = GunType.Rifle;
+                refs.Shotgun.Item.GunItem.m_AmmoReferences = refs.Rifle.Item.GunItem.m_AmmoReferences;
+                refs.Shotgun.Item.GunItem.m_AmmoSpriteName = refs.Rifle.Item.GunItem.m_AmmoSpriteName;
+                refs.Shotgun.Item.GunItem.m_GearItem = refs.Shotgun.Item.GearItem;
                 refs.Shotgun.Item.FirstPersonItem.m_FirstPersonObjectName = "Shotgun";
                 refs.Shotgun.Item.FirstPersonItem.m_ItemData = refs.Shotgun.Floating.FPSItem;
                 refs.Shotgun.Item.StruggleBonus.m_StruggleWeaponType = StruggleBonus.StruggleWeaponType.Rifle;
@@ -377,6 +385,30 @@ namespace Shotgun
             if (refs.Rifle.FPH.Animator == null)
             {
                 MelonLogger.Error("Could not find rifle animator from rifle FPH root");
+                return false;
+            }
+            return true;
+        }
+
+        internal bool GetRifleGunItem(ConfigurationReferences refs)
+        {
+            MelonLogger.Msg("GetRifleGunItem");
+            refs.Rifle.Item.GunItem = refs.Rifle.Item.Prefab.GetComponent<GunItem>();
+            if (refs.Rifle.Item.GearItem == null)
+            {
+                MelonLogger.Error("Could not find rifle GunItem from rifle prefab");
+                return false;
+            }
+            return true;
+        }
+
+        internal bool GetRifleGearItem(ConfigurationReferences refs)
+        {
+            MelonLogger.Msg("GetRifleGearItrm");
+            refs.Rifle.Item.GearItem = refs.Rifle.Item.Prefab.GetComponent<GearItem>();
+            if (refs.Rifle.Item.GearItem == null)
+            {
+                MelonLogger.Error("Could not find rifle gearitem from rifle prefab");
                 return false;
             }
             return true;

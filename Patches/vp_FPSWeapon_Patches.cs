@@ -17,18 +17,12 @@ namespace Shotgun.Patches
         {
             internal static void Prefix(vp_FPSWeapon __instance)
             {
-                //if (__instance.gameObject == Main.Instance.Configuration.ConfigRefs.Shotgun.WeaponView.Root)
-                //{
-                //    __instance.m_FirstPersonWeaponShoulderPrefab = Main.Instance.Configuration.ConfigRefs.Shotgun.FPH.Root;
-                //}
+
             }
 
             internal static void Postfix(vp_FPSWeapon __instance)
             {
-                if (__instance.name == RifleFPSPrefabName || __instance.gameObject == Main.Instance.Configuration.ConfigRefs.Shotgun.WeaponView.Root)
-                {
-                    __instance.ReportNullProperties("vp_FPSWeapon.Awake.Postfix");
-                }
+
             }
         }
     }

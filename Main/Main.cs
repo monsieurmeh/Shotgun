@@ -19,6 +19,8 @@ namespace Shotgun
 
         internal Configuration Configuration { get; private set; } = new();
 
+        internal bool LateInitialized { get; private set; } = false;
+
         public override void OnEarlyInitializeMelon()
         {
             EarlyInitialize();
@@ -48,7 +50,20 @@ namespace Shotgun
         {
             try
             {
-                MelonLogger.Msg("LateInitialize");
+                string sceneName = GameManager.m_ActiveScene;
+                if (sceneName.Contains("MainMenu") || sceneName.Contains("Boot"))
+                {
+                    MelonLogger.Msg("Delaying late initialize until non-boot/main scene load");
+                    LateInitialized = false;
+                    return;
+                }
+                if (LateInitialized)
+                {
+                    MelonLogger.Msg("LateInitialization already performed, skipping until next boot/mainmenu scene load");
+                    return;
+                }
+                LateInitialized = true;
+                MelonLogger.Msg("LateInitializing");
                 Configuration.ConfigureShotgun();
                 MelonLogger.Msg("LateInitialize Complete");
             }
