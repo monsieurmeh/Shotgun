@@ -57,6 +57,13 @@ namespace Shotgun
             if (!ConfigureDetails(ConfigRefs)) return;
             if (!RegisterShotgunFPSItemAndFPSWeapon(ConfigRefs)) return;
 
+            ScriptComparer.ReportDifferences(ConfigRefs.Shotgun.Item.GunItem, ConfigRefs.Rifle.Item.GunItem);
+            ScriptComparer.ReportDifferences(ConfigRefs.Shotgun.Item.GearItem, ConfigRefs.Rifle.Item.GearItem);
+            ScriptComparer.ReportDifferences(ConfigRefs.Shotgun.Item.FirstPersonItem, ConfigRefs.Rifle.Item.FirstPersonItem);
+            ScriptComparer.ReportDifferences(ConfigRefs.Shotgun.WeaponView.FPSShooter, ConfigRefs.Rifle.WeaponView.FPSShooter);
+            ScriptComparer.ReportDifferences(ConfigRefs.Shotgun.WeaponView.FPSWeapon, ConfigRefs.Rifle.WeaponView.FPSWeapon);
+            ScriptComparer.ReportDifferences(ConfigRefs.Shotgun.FPH.FirstPersonWeapon, ConfigRefs.Rifle.FPH.FirstPersonWeapon);
+
             MelonLogger.Msg("Ready to roll!");
         }
 
