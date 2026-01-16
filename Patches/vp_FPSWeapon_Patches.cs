@@ -15,15 +15,7 @@ namespace Shotgun.Patches
         [HarmonyPatch(typeof(vp_FPSWeapon), nameof(vp_FPSWeapon.Awake))]
         internal static class PatchAwake
         {
-            internal static void Prefix(vp_FPSWeapon __instance)
-            {
 
-            }
-
-            internal static void Postfix(vp_FPSWeapon __instance)
-            {
-
-            }
         }
     }
 }

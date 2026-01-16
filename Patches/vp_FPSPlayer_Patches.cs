@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using HarmonyLib;
+using MelonLoader;
+using UnityEngine;
 
 namespace Shotgun.Patches
 {

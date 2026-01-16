@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using UnityEngine.AddressableAssets;
 using UnityEngine;
 using Shotgun.Utility;
+using Harmony;
 
 namespace Shotgun
 { 
@@ -65,9 +66,27 @@ namespace Shotgun
                 refs.Shotgun.Item.GunItem.m_GunType = GunType.Rifle;
                 refs.Shotgun.Item.GunItem.m_AmmoReferences = refs.Rifle.Item.GunItem.m_AmmoReferences;
                 refs.Shotgun.Item.GunItem.m_AmmoSpriteName = refs.Rifle.Item.GunItem.m_AmmoSpriteName;
+                refs.Shotgun.Item.GunItem.m_ClipSize = 6;
                 refs.Shotgun.Item.GunItem.m_GearItem = refs.Shotgun.Item.GearItem;
+
                 refs.Shotgun.Item.FirstPersonItem.m_FirstPersonObjectName = "Shotgun";
+                refs.Shotgun.Item.FirstPersonItem.m_PlayerStateTransitions = new PlayerStateTransitions();
+                refs.Shotgun.Item.FirstPersonItem.m_PlayerStateTransitions.m_InvalidTransitions = new Il2CppInterop.Runtime.InteropTypes.Arrays.Il2CppStructArray<PlayerAnimation.StateFlags>(refs.Rifle.Item.FirstPersonItem.m_PlayerStateTransitions.m_InvalidTransitions.Length);
+                refs.Shotgun.Item.FirstPersonItem.m_PlayerStateTransitions.m_ValidTransitions = new Il2CppInterop.Runtime.InteropTypes.Arrays.Il2CppStructArray<PlayerAnimation.StateFlags>(refs.Rifle.Item.FirstPersonItem.m_PlayerStateTransitions.m_ValidTransitions.Length);
+                int i = 0;
+                foreach (var transition in refs.Rifle.Item.FirstPersonItem.m_PlayerStateTransitions.m_InvalidTransitions)
+                {
+                    refs.Shotgun.Item.FirstPersonItem.m_PlayerStateTransitions.m_InvalidTransitions[i] = transition;
+                    i++;
+                }
+                i = 0;
+                foreach (var transition in refs.Rifle.Item.FirstPersonItem.m_PlayerStateTransitions.m_ValidTransitions)
+                {
+                    refs.Shotgun.Item.FirstPersonItem.m_PlayerStateTransitions.m_ValidTransitions[i] = transition;
+                    i++;
+                }
                 refs.Shotgun.Item.FirstPersonItem.m_ItemData = refs.Shotgun.Floating.FPSItem;
+
                 refs.Shotgun.Item.StruggleBonus.m_StruggleWeaponType = StruggleBonus.StruggleWeaponType.Rifle;
 
                 refs.Shotgun.Floating.FPSItem.name = "FPSItem_Shotgun";

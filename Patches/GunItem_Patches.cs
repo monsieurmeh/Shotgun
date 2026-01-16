@@ -12,13 +12,6 @@ namespace Shotgun.Patches
 {
     internal class GunItem_Patches
     {
-        [HarmonyPatch(typeof(GunItem), nameof(GunItem.Awake))]
-        internal static class PatchAwake
-        {
-            internal static void Prefix(GunItem __instance)
-            {
 
-            }
-        }
     }
 }
