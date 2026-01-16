@@ -16,17 +16,26 @@ namespace Shotgun
 {
     internal class Configuration
     {
-        internal void PrepareShotgun()
+        internal bool PrepareShotgun()
         {
-            MelonLogger.Msg("Preparing shotgun...");
-            ConfigurationReferences configRefs = new();
-            if (!Get(configRefs)) return;
-            if (!Instantiate(configRefs)) return;
-            if (!Configure(configRefs)) return;
-            if (!RegisterShotgun(configRefs)) return;
-            if (!SetupTest.Validate(configRefs)) return;
-            ReportDifferences(configRefs);
-            MelonLogger.Msg("Ready to roll!");
+            try
+            {
+                MelonLogger.Msg("Preparing shotgun...");
+                ConfigurationReferences configRefs = new();
+                if (!Get(configRefs)) return false;
+                if (!Instantiate(configRefs)) return false;
+                if (!Configure(configRefs)) return false;
+                if (!RegisterShotgun(configRefs)) return false;
+                if (!SetupTest.Validate(configRefs)) return false;
+                ReportDifferences(configRefs);
+                MelonLogger.Msg("Ready to roll!");
+                return true;
+            }
+            catch (Exception e)
+            {
+                MelonLogger.Error($"Error during PrepareShotgun: {e}");
+                return false;
+            }
         }
 
         internal bool RegisterShotgun(ConfigurationReferences refs)
@@ -299,7 +308,7 @@ namespace Shotgun
         {
             if (!InstantiateTopLevel(refs)) return false;
             if (!InstantiateShotgun(refs)) return false;
-            return false;
+            return true;
         }
 
 
@@ -328,7 +337,7 @@ namespace Shotgun
 
         internal bool InstantiateShotgunStruggleBonus(ConfigurationReferences refs)
         {
-            MelonLogger.Msg("ConfigureStruggleBonus");
+            MelonLogger.Msg("InstantiateShotgunStruggleBonus");
             refs.Shotgun.Item.StruggleBonus = refs.Shotgun.Item.Prefab?.GetOrCreateComponent<StruggleBonus>() ?? null;
             if (refs.Shotgun.Item.StruggleBonus == null)
             {
@@ -341,7 +350,7 @@ namespace Shotgun
 
         internal bool InstantiateShotgunGunItem(ConfigurationReferences refs)
         {
-            MelonLogger.Msg("ConfigureGunItem");
+            MelonLogger.Msg("InstantiateShotgunGunItem");
             refs.Shotgun.Item.GunItem = refs.Shotgun.Item.Prefab?.GetOrCreateComponent<GunItem>() ?? null;
             if (refs.Shotgun.Item.GunItem == null)
             {
@@ -354,7 +363,7 @@ namespace Shotgun
 
         internal bool InstantiateShotgunFirstPersonItem(ConfigurationReferences refs)
         {
-            MelonLogger.Msg("ConfigureFirstPersonItem");
+            MelonLogger.Msg("InstantiateShotgunFirstPersonItem");
             refs.Shotgun.Item.FirstPersonItem = refs.Shotgun.Item.Prefab?.GetOrCreateComponent<FirstPersonItem>() ?? null;
             if (refs.Shotgun.Item.FirstPersonItem == null)
             {

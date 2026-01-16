@@ -70,10 +70,10 @@ namespace Shotgun
                     MelonLogger.Msg("LateInitialization already performed, skipping until next boot/mainmenu scene load");
                     return;
                 }
-                LateInitialized = true;
                 MelonLogger.Msg("LateInitializing");
-                Configuration.PrepareShotgun();
-                MelonLogger.Msg("LateInitialize Complete");
+                LateInitialized = Configuration.PrepareShotgun();
+                MelonLogger.Msg(LateInitialized ? "LateInitialize Complete" : "LateInitialize Failed!");
+                MelonLogger.Msg("");
             }
             catch (Exception e)
             {
