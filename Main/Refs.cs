@@ -1,5 +1,6 @@
 ﻿using Il2Cpp;
 using Il2CppTLD.Gameplay;
+using ModComponent.API.Components;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,6 +35,7 @@ namespace Shotgun
         internal GunItem? GunItem { get; set; }
         internal FirstPersonItem? FirstPersonItem { get; set; }
         internal StruggleBonus? StruggleBonus { get; set; }
+        internal ModGenericEquippableComponent? ModComponent { get; set; }
     }
 
 

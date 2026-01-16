@@ -10,6 +10,7 @@ using UnityEngine.AddressableAssets;
 using UnityEngine;
 using Shotgun.Utility;
 using Harmony;
+using ModComponent.API.Components;
 
 namespace Shotgun
 { 
@@ -47,6 +48,7 @@ namespace Shotgun
 
             if (!InstantiateShotgunPrefab(ConfigRefs)) return;
             if (!GetShotgunGearItem(ConfigRefs)) return;
+            if (!GetShotgunModComponent(ConfigRefs)) return;
             if (!InstantiateShotgunStruggleBonus(ConfigRefs)) return;
             if (!InstantiateShotgunGunItem(ConfigRefs)) return;
             if (!InstantiateShotgunFirstPersonItem(ConfigRefs)) return;
@@ -62,6 +64,7 @@ namespace Shotgun
         {
             try
             {
+                refs.Shotgun.Item.ModComponent.OnPrimaryAction = CustomActions.MaybePullTrigger;
                 refs.Shotgun.Item.GearItem.m_StruggleBonus = refs.Shotgun.Item.StruggleBonus;
                 refs.Shotgun.Item.GunItem.m_GunType = GunType.Rifle;
                 refs.Shotgun.Item.GunItem.m_AmmoReferences = refs.Rifle.Item.GunItem.m_AmmoReferences;
@@ -177,6 +180,15 @@ namespace Shotgun
         {
             MelonLogger.Msg("ConfigureGearItem");
             refs.Shotgun.Item.GearItem = refs.Shotgun.Item.Prefab?.GetComponent<GearItem>();
+            if (refs.Shotgun.Item.GearItem == null) MelonLogger.Error("Null Shotgun GearItem");
+            return refs.Shotgun.Item.GearItem != null;
+        }
+
+
+        internal bool GetShotgunModComponent(ConfigurationReferences refs)
+        {
+            MelonLogger.Msg("GetShotgunModComponent");
+            refs.Shotgun.Item.ModComponent = refs.Shotgun.Item.Prefab?.GetComponent<ModGenericEquippableComponent>();
             if (refs.Shotgun.Item.GearItem == null) MelonLogger.Error("Null Shotgun GearItem");
             return refs.Shotgun.Item.GearItem != null;
         }
