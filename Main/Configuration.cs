@@ -66,8 +66,8 @@ namespace Shotgun
 
         internal bool GetTopLevel(ConfigurationReferences refs)
         {
-            if (!GetFPSCamera(refs)) return false;
             if (!GetFPSPlayer(refs)) return false;
+            if (!GetFPSCamera(refs)) return false;
             return true;
         }
 
