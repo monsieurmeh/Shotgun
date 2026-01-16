@@ -187,7 +187,7 @@ namespace Shotgun
         internal bool GetShotgunModComponent(ConfigurationReferences refs)
         {
             MelonLogger.Msg("GetShotgunModComponent");
-            refs.Shotgun.Item.ModComponent = refs.Shotgun.Item.Prefab?.GetComponent<ModGenericEquippableComponent>();
+            refs.Shotgun.Item.ModComponent = refs.Shotgun.Item.Prefab?.GetComponent<ModGenericComponent>();
             if (refs.Shotgun.Item.GearItem == null) MelonLogger.Error("Null Shotgun GearItem");
             return refs.Shotgun.Item.GearItem != null;
         }
