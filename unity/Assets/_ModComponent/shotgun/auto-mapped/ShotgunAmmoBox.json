@@ -1,5 +1,5 @@
 {
-  "ModGenericComponent": {
+  "ModAmmoComponent": {
     "DisplayNameLocalizationId": "GAMEPLAY_Shotgun_AmmoBoxName",
     "DescriptionLocalizatonId": "GAMEPLAY_Shotgun_AmmoBoxDescription",
     "InventoryActionLocalizationId": "",
@@ -8,10 +8,10 @@
     "MaxHP": 100.0,
     "InitialCondition": "Perfect",
     "InventoryCategory": "Tool",
-    "PickUpAudio": "Play_HarvestingAmmo",
-    "PutBackAudio": "Play_HarvestingAmmo",
-    "StowAudio": "Play_HarvestingAmmo",
-    "WornOutAudio": "Play_HarvestingAmmo",
+    "PickUpAudio": "Play_RifleDryFire",
+    "PutBackAudio": "Play_RifleDryFire",
+    "StowAudio": "Play_RifleDryFire",
+    "WornOutAudio": "Play_RifleDryFire",
     "InspectOnPickup": true,
     "InspectDistance": 1.0,
     "InspectAngles": [
@@ -30,7 +30,8 @@
       1.0
     ],
     "NormalModel": "",
-    "InspectModel": ""
+    "InspectModel": "",
+    "AmmoForGunType": "Rifle"
   },
   "ModStackableBehaviour": {
     "SingleUnitTextId": "GAMEPLAY_Shotgun_AmmoUnitSingular",
