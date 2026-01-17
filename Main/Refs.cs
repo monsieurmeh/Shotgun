@@ -1,5 +1,9 @@
 ﻿using Il2Cpp;
+using Il2CppInterop.Runtime.Injection;
+using Il2CppInterop.Runtime.Runtime;
+using Il2CppSystem;
 using Il2CppTLD.Gameplay;
+using Il2CppTLD.Gear;
 using ModComponent.API.Components;
 using System;
 using System.Collections.Generic;
@@ -25,8 +29,9 @@ namespace Shotgun
         internal AmmoPrefabRefs AmmoSingle { get; set; } = new();
         internal AmmoPrefabRefs AmmoBox { get; set; } = new();
         internal WeaponViewRefs WeaponView { get; set; } = new();
-        internal FPHRefs FPH { get; set; } = new();
+        internal FPHRefs FPH { get; set; } = new(); 
         internal FloatingRefs Floating { get; set; } = new();
+        internal Il2CppSystem.Collections.Generic.List<Il2CppTLD.Gear.GearItemData> ValidAmmoGearItemDatas { get; set; } = new();
     }
 
 
