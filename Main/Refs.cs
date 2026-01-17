@@ -21,14 +21,26 @@ namespace Shotgun
 
     internal class GunRefs
     {
-        internal ItemRefs Item { get; set; } = new();
+        internal GunPrefabRefs Gun { get; set; } = new();
+        internal AmmoPrefabRefs AmmoSingle { get; set; } = new();
+        internal AmmoPrefabRefs AmmoBox { get; set; } = new();
         internal WeaponViewRefs WeaponView { get; set; } = new();
         internal FPHRefs FPH { get; set; } = new();
         internal FloatingRefs Floating { get; set; } = new();
     }
 
 
-    internal class ItemRefs
+    internal class AmmoPrefabRefs
+    {
+        internal GameObject? Prefab { get; set; }
+        internal GearItem? GearItem { get; set; }
+        internal AmmoItem? AmmoItem { get; set; }
+        internal StackableItem? StackableItem { get; set; }
+        internal Harvestable? Harvestable { get; set; }
+    }
+
+
+    internal class GunPrefabRefs
     {
         internal GameObject? Prefab { get; set; }
         internal GearItem? GearItem { get; set; }

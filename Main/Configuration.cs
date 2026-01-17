@@ -11,6 +11,7 @@ using UnityEngine;
 using Shotgun.Utility;
 using Harmony;
 using ModComponent.API.Components;
+using System.Runtime.CompilerServices;
 
 namespace Shotgun
 {
@@ -52,16 +53,30 @@ namespace Shotgun
 
         internal void ReportDifferences(ConfigurationReferences refs)
         {
-            ScriptComparer.ReportDifferences(refs.Shotgun.Item.GunItem, refs.Rifle.Item.GunItem);
-            ScriptComparer.ReportDifferences(refs.Shotgun.Item.GearItem, refs.Rifle.Item.GearItem);
-            ScriptComparer.ReportDifferences(refs.Shotgun.Item.FirstPersonItem, refs.Rifle.Item.FirstPersonItem);
+            ScriptComparer.ReportDifferences(refs.Shotgun.Gun.GunItem, refs.Rifle.Gun.GunItem);
+            ScriptComparer.ReportDifferences(refs.Shotgun.Gun.GearItem, refs.Rifle.Gun.GearItem);
+            ScriptComparer.ReportDifferences(refs.Shotgun.Gun.FirstPersonItem, refs.Rifle.Gun.FirstPersonItem);
             ScriptComparer.ReportDifferences(refs.Shotgun.WeaponView.FPSShooter, refs.Rifle.WeaponView.FPSShooter);
             ScriptComparer.ReportDifferences(refs.Shotgun.WeaponView.FPSWeapon, refs.Rifle.WeaponView.FPSWeapon);
             ScriptComparer.ReportDifferences(refs.Shotgun.FPH.FirstPersonWeapon, refs.Rifle.FPH.FirstPersonWeapon);
         }
 
 
+        internal static bool Attempt(Action action, Func<bool> test, string errorMessage, [CallerMemberName] string methodName = "")
+        {
+            MelonLogger.Msg(methodName);
+            action.Invoke();
+            if (!test.Invoke())
+            {
+                MelonLogger.Error($"[CONFIG FAIL]: {errorMessage}");
+                return false;
+            }
+            return true;
+        }
+
+
         #region Get
+
 
 
         internal bool Get(ConfigurationReferences refs)
@@ -85,7 +100,9 @@ namespace Shotgun
         {
             if (!GetShotgunPrefab(refs)) return false;
             if (!GetShotgunGearItem(refs)) return false;
-            if (!GetShotgunModComponent(refs)) return false;
+            if (!GetShotgunModComponent(refs)) return false; 
+            if (!GetShotgunAmmoSingle(refs)) return false;
+            if (!GetShotgunAmmoBox(refs)) return false;
             return true;
         }
 
@@ -103,8 +120,75 @@ namespace Shotgun
             if (!GetRifleAnimator(refs)) return false;
             if (!GetRifleGearItem(refs)) return false;
             if (!GetRifleGunItem(refs)) return false;
+            if (!GetRifleAmmoSingle(refs)) return false;
+            if (!GetRifleAmmoBox(refs)) return false;
             return true;
         }
+
+
+        internal bool GetRifleAmmoSingle(ConfigurationReferences refs)
+        {
+            if (!GetRifleAmmoSingleAsset(refs)) return false;
+            if (!GetRifleAmmoSingleGearItem(refs)) return false;
+            if (!GetRifleAmmoSingleAmmoItem(refs)) return false;
+            if (!GetRifleAmmoSingleStackableItem(refs)) return false;
+            if (!GetRifleAmmoSingleHarvestable(refs)) return false;
+            return true;
+        }
+
+
+        internal bool GetRifleAmmoBox(ConfigurationReferences refs)
+        {
+            if (!GetRifleAmmoBoxAsset(refs)) return false;
+            if (!GetRifleAmmoBoxGearItem(refs)) return false;
+            if (!GetRifleAmmoBoxAmmoItem(refs)) return false;
+            if (!GetRifleAmmoBoxStackableItem(refs)) return false;
+            if (!GetRifleAmmoBoxHarvestable(refs)) return false;
+            return true;
+        }
+
+
+        internal bool GetShotgunAmmoSingle(ConfigurationReferences refs)
+        {
+            if (!GetShotgunAmmoSingleAsset(refs)) return false;
+            if (!GetShotgunAmmoSingleGearItem(refs)) return false;
+            if (!GetShotgunAmmoSingleAmmoItem(refs)) return false;
+            if (!GetShotgunAmmoSingleStackableItem(refs)) return false;
+            if (!GetShotgunAmmoSingleHarvestable(refs)) return false;
+            return true;
+        }
+
+
+        internal bool GetShotgunAmmoBox(ConfigurationReferences refs)
+        {
+            if (!GetShotgunAmmoBoxAsset(refs)) return false;
+            if (!GetShotgunAmmoBoxGearItem(refs)) return false;
+            if (!GetShotgunAmmoBoxAmmoItem(refs)) return false;
+            if (!GetShotgunAmmoBoxStackableItem(refs)) return false;
+            if (!GetShotgunAmmoBoxHarvestable(refs)) return false;
+            return true;
+        }
+
+        internal bool GetRifleAmmoSingleAsset(ConfigurationReferences refs) => Attempt(() => refs.Rifle.AmmoSingle.Prefab = Addressables.LoadAssetAsync<GameObject>("GEAR_RifleAmmoSingle").WaitForCompletion(), () => refs.Rifle.AmmoSingle.Prefab != null, "Null GEAR_RifleAmmoSingle");
+        internal bool GetRifleAmmoSingleGearItem(ConfigurationReferences refs) => Attempt(() => refs.Rifle.AmmoSingle.GearItem = refs.Rifle.AmmoSingle.Prefab.GetComponent<GearItem>(), () => refs.Rifle.AmmoSingle.GearItem != null, "Null GEAR_RifleAmmoSingle.GearItem");
+        internal bool GetRifleAmmoSingleAmmoItem(ConfigurationReferences refs) => Attempt(() => refs.Rifle.AmmoSingle.AmmoItem = refs.Rifle.AmmoSingle.Prefab.GetComponent<AmmoItem>(), () => refs.Rifle.AmmoSingle.AmmoItem != null, "Null GEAR_RifleAmmoSingle.AmmoItem");
+        internal bool GetRifleAmmoSingleStackableItem(ConfigurationReferences refs) => Attempt(() => refs.Rifle.AmmoSingle.StackableItem = refs.Rifle.AmmoSingle.Prefab.GetComponent<StackableItem>(), () => refs.Rifle.AmmoSingle.StackableItem != null, "Null GEAR_RifleAmmoSingle.StackableItem");
+        internal bool GetRifleAmmoSingleHarvestable(ConfigurationReferences refs) => Attempt(() => refs.Rifle.AmmoSingle.Harvestable = refs.Rifle.AmmoSingle.Prefab.GetComponent<Harvestable>(), () => refs.Rifle.AmmoSingle.GearItem != null, "Null GEAR_RifleAmmoSingle.Harvestable");
+        internal bool GetRifleAmmoBoxAsset(ConfigurationReferences refs) => Attempt(() => refs.Rifle.AmmoBox.Prefab = Addressables.LoadAssetAsync<GameObject>("GEAR_RifleAmmoBox").WaitForCompletion(), () => refs.Rifle.AmmoBox.Prefab != null, "Null GEAR_RifleAmmoBox");
+        internal bool GetRifleAmmoBoxGearItem(ConfigurationReferences refs) => Attempt(() => refs.Rifle.AmmoBox.GearItem = refs.Rifle.AmmoBox.Prefab.GetComponent<GearItem>(), () => refs.Rifle.AmmoBox.GearItem != null, "Null GEAR_RifleAmmoBox.GearItem");
+        internal bool GetRifleAmmoBoxAmmoItem(ConfigurationReferences refs) => Attempt(() => refs.Rifle.AmmoBox.AmmoItem = refs.Rifle.AmmoBox.Prefab.GetComponent<AmmoItem>(), () => refs.Rifle.AmmoBox.AmmoItem != null, "Null GEAR_RifleAmmoBox.AmmoItem");
+        internal bool GetRifleAmmoBoxStackableItem(ConfigurationReferences refs) => Attempt(() => refs.Rifle.AmmoBox.StackableItem = refs.Rifle.AmmoBox.Prefab.GetComponent<StackableItem>(), () => refs.Rifle.AmmoBox.StackableItem != null, "Null GEAR_RifleAmmoBox.StackableItem");
+        internal bool GetRifleAmmoBoxHarvestable(ConfigurationReferences refs) => Attempt(() => refs.Rifle.AmmoBox.Harvestable = refs.Rifle.AmmoBox.Prefab.GetComponent<Harvestable>(), () => refs.Rifle.AmmoBox.GearItem != null, "Null GEAR_RifleAmmoBox.Harvestable");
+        internal bool GetShotgunAmmoSingleAsset(ConfigurationReferences refs) => Attempt(() => refs.Shotgun.AmmoSingle.Prefab = Addressables.LoadAssetAsync<GameObject>("GEAR_ShotgunAmmoSingle").WaitForCompletion(), () => refs.Shotgun.AmmoSingle.Prefab != null, "Null GEAR_ShotgunAmmoSingle");
+        internal bool GetShotgunAmmoSingleGearItem(ConfigurationReferences refs) => Attempt(() => refs.Shotgun.AmmoSingle.GearItem = refs.Shotgun.AmmoSingle.Prefab.GetComponent<GearItem>(), () => refs.Shotgun.AmmoSingle.GearItem != null, "Null GEAR_ShotgunAmmoSingle.GearItem");
+        internal bool GetShotgunAmmoSingleAmmoItem(ConfigurationReferences refs) => Attempt(() => refs.Shotgun.AmmoSingle.AmmoItem = refs.Shotgun.AmmoSingle.Prefab.GetComponent<AmmoItem>(), () => refs.Shotgun.AmmoSingle.AmmoItem != null, "Null GEAR_ShotgunAmmoSingle.AmmoItem");
+        internal bool GetShotgunAmmoSingleStackableItem(ConfigurationReferences refs) => Attempt(() => refs.Shotgun.AmmoSingle.StackableItem = refs.Shotgun.AmmoSingle.Prefab.GetComponent<StackableItem>(), () => refs.Shotgun.AmmoSingle.StackableItem != null, "Null GEAR_ShotgunAmmoSingle.StackableItem");
+        internal bool GetShotgunAmmoSingleHarvestable(ConfigurationReferences refs) => Attempt(() => refs.Shotgun.AmmoSingle.Harvestable = refs.Shotgun.AmmoSingle.Prefab.GetComponent<Harvestable>(), () => refs.Shotgun.AmmoSingle.GearItem != null, "Null GEAR_ShotgunAmmoSingle.Harvestable");
+        internal bool GetShotgunAmmoBoxAsset(ConfigurationReferences refs) => Attempt(() => refs.Rifle.AmmoSingle.Prefab = Addressables.LoadAssetAsync<GameObject>("GEAR_ShotgunAmmoBox").WaitForCompletion(), () => refs.Rifle.AmmoSingle.Prefab != null, "Null GEAR_ShotgunAmmoBox");
+        internal bool GetShotgunAmmoBoxGearItem(ConfigurationReferences refs) => Attempt(() => refs.Rifle.AmmoSingle.GearItem = refs.Rifle.AmmoSingle.Prefab.GetComponent<GearItem>(), () => refs.Rifle.AmmoSingle.GearItem != null, "Null GEAR_ShotgunAmmoBox.GearItem");
+        internal bool GetShotgunAmmoBoxAmmoItem(ConfigurationReferences refs) => Attempt(() => refs.Rifle.AmmoSingle.AmmoItem = refs.Rifle.AmmoSingle.Prefab.GetComponent<AmmoItem>(), () => refs.Rifle.AmmoSingle.AmmoItem != null, "Null GEAR_ShotgunAmmoBox.AmmoItem");
+        internal bool GetShotgunAmmoBoxStackableItem(ConfigurationReferences refs) => Attempt(() => refs.Rifle.AmmoSingle.StackableItem = refs.Rifle.AmmoSingle.Prefab.GetComponent<StackableItem>(), () => refs.Rifle.AmmoSingle.StackableItem != null, "Null GEAR_ShotgunAmmoBox.StackableItem");
+        internal bool GetShotgunAmmoBoxHarvestable(ConfigurationReferences refs) => Attempt(() => refs.Rifle.AmmoSingle.Harvestable = refs.Rifle.AmmoSingle.Prefab.GetComponent<Harvestable>(), () => refs.Rifle.AmmoSingle.GearItem != null, "Null GEAR_ShotgunAmmoBox.Harvestable");
 
 
         internal bool GetFPSPlayer(ConfigurationReferences refs)
@@ -127,8 +211,8 @@ namespace Shotgun
         internal bool GetRifleAsset(ConfigurationReferences refs)
         {
             MelonLogger.Msg("GetRifleAsset");
-            refs.Rifle.Item.Prefab = Addressables.LoadAssetAsync<GameObject>("GEAR_Rifle").WaitForCompletion();
-            if (refs.Rifle.Item.Prefab == null)
+            refs.Rifle.Gun.Prefab = Addressables.LoadAssetAsync<GameObject>("GEAR_Rifle").WaitForCompletion();
+            if (refs.Rifle.Gun.Prefab == null)
             {
                 MelonLogger.Error("Could not summon rifle prefab");
                 return false;
@@ -140,8 +224,8 @@ namespace Shotgun
         internal bool GetRifleFirstPersonItem(ConfigurationReferences refs)
         {
             MelonLogger.Msg("GetRifleFirstPersonItem");
-            refs.Rifle.Item.FirstPersonItem = refs.Rifle.Item.Prefab.GetComponent<FirstPersonItem>();
-            if (refs.Rifle.Item.FirstPersonItem == null)
+            refs.Rifle.Gun.FirstPersonItem = refs.Rifle.Gun.Prefab.GetComponent<FirstPersonItem>();
+            if (refs.Rifle.Gun.FirstPersonItem == null)
             {
                 MelonLogger.Error("Could not find rifle first person item");
                 return false;
@@ -153,8 +237,8 @@ namespace Shotgun
         internal bool GetRifleFPSItem(ConfigurationReferences refs)
         {
             MelonLogger.Msg("GetRifleFPSItem");
-            refs.Rifle.Floating.FPSItem = refs.Rifle.Item.FirstPersonItem.m_ItemData;
-            if (refs.Rifle.Item.FirstPersonItem == null)
+            refs.Rifle.Floating.FPSItem = refs.Rifle.Gun.FirstPersonItem.m_ItemData;
+            if (refs.Rifle.Gun.FirstPersonItem == null)
             {
                 MelonLogger.Error("Could not find rifle first person item");
                 return false;
@@ -250,8 +334,8 @@ namespace Shotgun
         internal bool GetRifleGunItem(ConfigurationReferences refs)
         {
             MelonLogger.Msg("GetRifleGunItem");
-            refs.Rifle.Item.GunItem = refs.Rifle.Item.Prefab.GetComponent<GunItem>();
-            if (refs.Rifle.Item.GearItem == null)
+            refs.Rifle.Gun.GunItem = refs.Rifle.Gun.Prefab.GetComponent<GunItem>();
+            if (refs.Rifle.Gun.GearItem == null)
             {
                 MelonLogger.Error("Could not find rifle GunItem from rifle prefab");
                 return false;
@@ -262,8 +346,8 @@ namespace Shotgun
         internal bool GetRifleGearItem(ConfigurationReferences refs)
         {
             MelonLogger.Msg("GetRifleGearItrm");
-            refs.Rifle.Item.GearItem = refs.Rifle.Item.Prefab.GetComponent<GearItem>();
-            if (refs.Rifle.Item.GearItem == null)
+            refs.Rifle.Gun.GearItem = refs.Rifle.Gun.Prefab.GetComponent<GearItem>();
+            if (refs.Rifle.Gun.GearItem == null)
             {
                 MelonLogger.Error("Could not find rifle gearitem from rifle prefab");
                 return false;
@@ -275,27 +359,27 @@ namespace Shotgun
         internal bool GetShotgunPrefab(ConfigurationReferences refs)
         {
             MelonLogger.Msg("GetShotgunPrefab");
-            refs.Shotgun.Item.Prefab = Addressables.LoadAssetAsync<GameObject>("GEAR_Shotgun").WaitForCompletion();
-            if (refs.Shotgun.Item.Prefab == null) MelonLogger.Error("Could not summon GEAR_Shotgun");
-            return refs.Shotgun.Item.Prefab != null;
+            refs.Shotgun.Gun.Prefab = Addressables.LoadAssetAsync<GameObject>("GEAR_Shotgun").WaitForCompletion();
+            if (refs.Shotgun.Gun.Prefab == null) MelonLogger.Error("Could not summon GEAR_Shotgun");
+            return refs.Shotgun.Gun.Prefab != null;
         }
 
 
         internal bool GetShotgunGearItem(ConfigurationReferences refs)
         {
             MelonLogger.Msg("GetShotgunGearItem");
-            refs.Shotgun.Item.GearItem = refs.Shotgun.Item.Prefab?.GetComponent<GearItem>();
-            if (refs.Shotgun.Item.GearItem == null) MelonLogger.Error("Null Shotgun GearItem");
-            return refs.Shotgun.Item.GearItem != null;
+            refs.Shotgun.Gun.GearItem = refs.Shotgun.Gun.Prefab?.GetComponent<GearItem>();
+            if (refs.Shotgun.Gun.GearItem == null) MelonLogger.Error("Null Shotgun GearItem");
+            return refs.Shotgun.Gun.GearItem != null;
         }
 
 
         internal bool GetShotgunModComponent(ConfigurationReferences refs)
         {
             MelonLogger.Msg("GetShotgunModComponent");
-            refs.Shotgun.Item.ModComponent = refs.Shotgun.Item.Prefab?.GetComponent<ModGenericComponent>();
-            if (refs.Shotgun.Item.GearItem == null) MelonLogger.Error("Null Shotgun GearItem");
-            return refs.Shotgun.Item.GearItem != null;
+            refs.Shotgun.Gun.ModComponent = refs.Shotgun.Gun.Prefab?.GetComponent<ModGenericComponent>();
+            if (refs.Shotgun.Gun.GearItem == null) MelonLogger.Error("Null Shotgun GearItem");
+            return refs.Shotgun.Gun.GearItem != null;
         }
 
 
@@ -338,8 +422,8 @@ namespace Shotgun
         internal bool InstantiateShotgunStruggleBonus(ConfigurationReferences refs)
         {
             MelonLogger.Msg("InstantiateShotgunStruggleBonus");
-            refs.Shotgun.Item.StruggleBonus = refs.Shotgun.Item.Prefab?.GetOrCreateComponent<StruggleBonus>() ?? null;
-            if (refs.Shotgun.Item.StruggleBonus == null)
+            refs.Shotgun.Gun.StruggleBonus = refs.Shotgun.Gun.Prefab?.GetOrCreateComponent<StruggleBonus>() ?? null;
+            if (refs.Shotgun.Gun.StruggleBonus == null)
             {
                 MelonLogger.Error("Null StruggleBonus");
                 return false;
@@ -351,8 +435,8 @@ namespace Shotgun
         internal bool InstantiateShotgunGunItem(ConfigurationReferences refs)
         {
             MelonLogger.Msg("InstantiateShotgunGunItem");
-            refs.Shotgun.Item.GunItem = refs.Shotgun.Item.Prefab?.GetOrCreateComponent<GunItem>() ?? null;
-            if (refs.Shotgun.Item.GunItem == null)
+            refs.Shotgun.Gun.GunItem = refs.Shotgun.Gun.Prefab?.GetOrCreateComponent<GunItem>() ?? null;
+            if (refs.Shotgun.Gun.GunItem == null)
             {
                 MelonLogger.Error("Null GunItem");
                 return false;
@@ -364,8 +448,8 @@ namespace Shotgun
         internal bool InstantiateShotgunFirstPersonItem(ConfigurationReferences refs)
         {
             MelonLogger.Msg("InstantiateShotgunFirstPersonItem");
-            refs.Shotgun.Item.FirstPersonItem = refs.Shotgun.Item.Prefab?.GetOrCreateComponent<FirstPersonItem>() ?? null;
-            if (refs.Shotgun.Item.FirstPersonItem == null)
+            refs.Shotgun.Gun.FirstPersonItem = refs.Shotgun.Gun.Prefab?.GetOrCreateComponent<FirstPersonItem>() ?? null;
+            if (refs.Shotgun.Gun.FirstPersonItem == null)
             {
                 MelonLogger.Error("Null FirstPersonItem");
                 return false;
@@ -528,13 +612,13 @@ namespace Shotgun
         internal void ConfigureShotgunGearItem(ConfigurationReferences refs)
         {
             MelonLogger.Msg("ConfigureShotgunGearItem");
-            GearItem gearItem = refs.Shotgun.Item.GearItem;
-            gearItem.m_StruggleBonus = refs.Shotgun.Item.StruggleBonus;
-            gearItem.m_FirstPersonItem = refs.Shotgun.Item.FirstPersonItem;
-            gearItem.m_GunItem = refs.Shotgun.Item.GunItem;
+            GearItem gearItem = refs.Shotgun.Gun.GearItem;
+            gearItem.m_StruggleBonus = refs.Shotgun.Gun.StruggleBonus;
+            gearItem.m_FirstPersonItem = refs.Shotgun.Gun.FirstPersonItem;
+            gearItem.m_GunItem = refs.Shotgun.Gun.GunItem;
 
             //move to get?
-            gearItem.m_Inspect = refs.Shotgun.Item.Prefab.GetComponent<Inspect>();
+            gearItem.m_Inspect = refs.Shotgun.Gun.Prefab.GetComponent<Inspect>();
 
             //need to configure?
             // degrate on use?
@@ -551,12 +635,12 @@ namespace Shotgun
         internal void ConfigureShotgunGunItem(ConfigurationReferences refs)
         {
             MelonLogger.Msg("ConfigureShotgunGunItem");
-            GunItem gunItem = refs.Shotgun.Item.GunItem;
-            GunItem rifleGunItem = refs.Rifle.Item.GunItem;
+            GunItem gunItem = refs.Shotgun.Gun.GunItem;
+            GunItem rifleGunItem = refs.Rifle.Gun.GunItem;
 
             gunItem.m_AmmoReferences = rifleGunItem.m_AmmoReferences;
             gunItem.m_AmmoSpriteName = rifleGunItem.m_AmmoSpriteName;
-            gunItem.m_GearItem = refs.Shotgun.Item.GearItem;
+            gunItem.m_GearItem = refs.Shotgun.Gun.GearItem;
             gunItem.m_CasingData = rifleGunItem.m_CasingData;
             gunItem.m_CasingAudio = rifleGunItem.m_CasingAudio;
             gunItem.m_DryFireAudio = rifleGunItem.m_DryFireAudio;
@@ -586,8 +670,8 @@ namespace Shotgun
         internal void ConfigureShotgunFirstPersonItem(ConfigurationReferences refs)
         {
             MelonLogger.Msg("ConfigureShotgunFirstPersonItem");
-            FirstPersonItem firstPersonItem = refs.Shotgun.Item.FirstPersonItem;
-            FirstPersonItem rifleFirstPersonItem = refs.Rifle.Item.FirstPersonItem;
+            FirstPersonItem firstPersonItem = refs.Shotgun.Gun.FirstPersonItem;
+            FirstPersonItem rifleFirstPersonItem = refs.Rifle.Gun.FirstPersonItem;
 
             firstPersonItem.m_FirstPersonObjectName = "Shotgun";
             firstPersonItem.m_PlayerStateTransitions = new PlayerStateTransitions();
@@ -614,7 +698,7 @@ namespace Shotgun
         internal void ConfigureShotgunStruggleBonus(ConfigurationReferences refs)
         {
             MelonLogger.Msg("ConfigureShotgunStruggleBonus");
-            refs.Shotgun.Item.StruggleBonus.m_StruggleWeaponType = StruggleBonus.StruggleWeaponType.Rifle;
+            refs.Shotgun.Gun.StruggleBonus.m_StruggleWeaponType = StruggleBonus.StruggleWeaponType.Rifle;
         }
 
 
@@ -721,8 +805,8 @@ namespace Shotgun
                 if (state.Name == "Default") refs.Shotgun.WeaponView.FPSWeapon.m_DefaultState = newState;
             }
 
-            refs.Shotgun.WeaponView.FPSWeapon.m_GearItem = refs.Shotgun.Item.Prefab.GetComponent<GearItem>();
-            refs.Shotgun.WeaponView.FPSWeapon.m_GunItem = refs.Shotgun.Item.Prefab.GetComponent<GunItem>();
+            refs.Shotgun.WeaponView.FPSWeapon.m_GearItem = refs.Shotgun.Gun.Prefab.GetComponent<GearItem>();
+            refs.Shotgun.WeaponView.FPSWeapon.m_GunItem = refs.Shotgun.Gun.Prefab.GetComponent<GunItem>();
 
             refs.Shotgun.WeaponView.FPSWeapon.m_FirstPersonWeaponShoulderPrefab.layer = 23;
             refs.Shotgun.WeaponView.FPSWeapon.m_UseFirstPersonHands = true;

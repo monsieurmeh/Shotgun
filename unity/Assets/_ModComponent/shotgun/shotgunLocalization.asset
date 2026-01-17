@@ -36,7 +36,133 @@ MonoBehaviour:
       Ukrainian: 
   - localizationKey: GAMEPLAY_Shotgun_Description
     languages:
-      English: You know exactly what this is...
+      English: A shotgun, or as DigitalZombie likes to call it, a Shitgun!
+      German: 
+      Russian: 
+      French: 
+      Japanese: 
+      Korean: 
+      SimplifiedChinese: 
+      Swedish: 
+      TraditionalChinese: 
+      Turkish: 
+      Norwegian: 
+      Spanish: 
+      PortuguesePortugal: 
+      PortugueseBrazil: 
+      Dutch: 
+      Finnish: 
+      Italian: 
+      Polish: 
+      Ukrainian: 
+  - localizationKey: GAMEPLAY_Shotgun_AmmoBoxName
+    languages:
+      English: Box of Shotgun Rounds
+      German: 
+      Russian: 
+      French: 
+      Japanese: 
+      Korean: 
+      SimplifiedChinese: 
+      Swedish: 
+      TraditionalChinese: 
+      Turkish: 
+      Norwegian: 
+      Spanish: 
+      PortuguesePortugal: 
+      PortugueseBrazil: 
+      Dutch: 
+      Finnish: 
+      Italian: 
+      Polish: 
+      Ukrainian: 
+  - localizationKey: GAMEPLAY_Shotgun_AmmoBoxDescription
+    languages:
+      English: A box of shotgun rounds. Looks like buckshot...?
+      German: 
+      Russian: 
+      French: 
+      Japanese: 
+      Korean: 
+      SimplifiedChinese: 
+      Swedish: 
+      TraditionalChinese: 
+      Turkish: 
+      Norwegian: 
+      Spanish: 
+      PortuguesePortugal: 
+      PortugueseBrazil: 
+      Dutch: 
+      Finnish: 
+      Italian: 
+      Polish: 
+      Ukrainian: 
+  - localizationKey: GAMEPLAY_Shotgun_AmmoUnitSingular
+    languages:
+      English: Round
+      German: 
+      Russian: 
+      French: 
+      Japanese: 
+      Korean: 
+      SimplifiedChinese: 
+      Swedish: 
+      TraditionalChinese: 
+      Turkish: 
+      Norwegian: 
+      Spanish: 
+      PortuguesePortugal: 
+      PortugueseBrazil: 
+      Dutch: 
+      Finnish: 
+      Italian: 
+      Polish: 
+      Ukrainian: 
+  - localizationKey: GAMEPLAY_Shotgun_AmmoUnitPlural
+    languages:
+      English: Rounds
+      German: 
+      Russian: 
+      French: 
+      Japanese: 
+      Korean: 
+      SimplifiedChinese: 
+      Swedish: 
+      TraditionalChinese: 
+      Turkish: 
+      Norwegian: 
+      Spanish: 
+      PortuguesePortugal: 
+      PortugueseBrazil: 
+      Dutch: 
+      Finnish: 
+      Italian: 
+      Polish: 
+      Ukrainian: 
+  - localizationKey: GAMEPLAY_Shotgun_AmmoSingleName
+    languages:
+      English: Shotgun Round
+      German: 
+      Russian: 
+      French: 
+      Japanese: 
+      Korean: 
+      SimplifiedChinese: 
+      Swedish: 
+      TraditionalChinese: 
+      Turkish: 
+      Norwegian: 
+      Spanish: 
+      PortuguesePortugal: 
+      PortugueseBrazil: 
+      Dutch: 
+      Finnish: 
+      Italian: 
+      Polish: 
+      Ukrainian: 
+  - localizationKey: GAMEPLAY_Shotgun_AmmoSingleDescription
+    languages:
+      English: A single shotgun round. Looks like buckshot...?
       German: 
       Russian: 
       French: 

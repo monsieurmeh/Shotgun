@@ -15,6 +15,11 @@ MonoBehaviour:
   m_GroupName: shotgun
   m_GUID: 38210b1315f74d94cbc0fca6f05eb04a
   m_SerializeEntries:
+  - m_GUID: 2c35b1e32ef401e418849e163bb76383
+    m_Address: ShotgunAmmoSingleMesh_standardSurface1_BaseColor.1001
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 37196789428d69a4e83209d7e7c61ba7
     m_Address: DoubleBarrel_Shotgun_BaseColor.1002
     m_ReadOnly: 0
@@ -40,6 +45,16 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c2c42eca6e124ea4ba6093fd8d174c6d
+    m_Address: GEAR_ShotgunAmmoBox
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d3ec771b87c74d74b9a94992fa337583
+    m_Address: GEAR_ShotgunAmmoSingle
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d5d27e2d9eb7eb649b8146e93c96d3ed
     m_Address: DoubleBarrel_Shotgun_BaseColor.1001
     m_ReadOnly: 0
@@ -47,6 +62,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d5fe235a08002474abfc91e5046755d4
     m_Address: DoubleBarrel_Shotgun_BaseColor.1011
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e67d8c77c09a14244b907f30a5fd9554
+    m_Address: ShotgunAmmoBoxMesh_Default_Material_BaseColor.1001
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

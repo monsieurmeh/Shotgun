@@ -1,0 +1,60 @@
+{
+  "ModGenericComponent": {
+    "DisplayNameLocalizationId": "GAMEPLAY_Shotgun_AmmoSingleName",
+    "DescriptionLocalizatonId": "GAMEPLAY_Shotgun_AmmoSingleDescription",
+    "InventoryActionLocalizationId": "",
+    "WeightKG": 0.01,
+    "DaysToDecay": 0,
+    "MaxHP": 100.0,
+    "InitialCondition": "Perfect",
+    "InventoryCategory": "Tool",
+    "PickUpAudio": "Play_HarvestingAmmo",
+    "PutBackAudio": "Play_HarvestingAmmo",
+    "StowAudio": "Play_HarvestingAmmo",
+    "WornOutAudio": "Play_HarvestingAmmo",
+    "InspectOnPickup": true,
+    "InspectDistance": 1.0,
+    "InspectAngles": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "InspectOffset": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "InspectScale": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "NormalModel": "",
+    "InspectModel": ""
+  },
+  "ModStackableBehaviour": {
+    "SingleUnitTextId": "GAMEPLAY_Shotgun_AmmoUnitSingular",
+    "MultipleUnitTextId": "GAMEPLAY_Shotgun_AmmoUnitPlural",
+    "StackSprite": "",
+    "UnitsPerItem": 1,
+    "ChanceFull": 100.0,
+    "ShareStackWithGear": [
+      "GEAR_ShotgunAmmoBox"
+    ],
+    "InstantiateStackItem": "GEAR_ShotgunAmmoBox",
+    "StackConditionDifferenceConstraint": 0.0
+  },
+  "ModHarvestableBehaviour": {
+    "Audio": "Play_HarvestingAmmo",
+    "Minutes": 5,
+    "YieldCounts": [
+      1,
+      1
+    ],
+    "YieldNames": [
+      "GEAR_RifleAmmoCasing",
+      "GEAR_Bullet"
+    ],
+    "RequiredToolNames": []
+  }
+}
