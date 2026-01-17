@@ -336,10 +336,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1883753848236164382, guid: 4db3720b306e87b49a7f307927ccb47c, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 464149eed8b88e347ab7606175ee076c, type: 2}
     - target: {fileID: 2120003052407420769, guid: 4db3720b306e87b49a7f307927ccb47c, type: 3}
       propertyPath: m_Name
       value: GEAR_Shotgun_Mesh
       objectReference: {fileID: 0}
+    - target: {fileID: 6819762348808225132, guid: 4db3720b306e87b49a7f307927ccb47c, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d29b4d0e90f90ec49993c567d78e8b7c, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
