@@ -11,7 +11,6 @@ using HarmonyLib;
 namespace Shotgun
 {
     internal class Debug
-    { 
-
+    {
     }
 }

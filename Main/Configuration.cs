@@ -58,20 +58,7 @@ namespace Shotgun
 
         internal void ReportDifferences(ConfigurationReferences refs)
         {
-            ScriptComparer.ReportDifferences(refs.Shotgun.Gun.GunItem, refs.Rifle.Gun.GunItem);
-            ScriptComparer.ReportDifferences(refs.Shotgun.Gun.GearItem, refs.Rifle.Gun.GearItem);
-            ScriptComparer.ReportDifferences(refs.Shotgun.Gun.FirstPersonItem, refs.Rifle.Gun.FirstPersonItem);
-            ScriptComparer.ReportDifferences(refs.Shotgun.WeaponView.FPSShooter, refs.Rifle.WeaponView.FPSShooter);
-            ScriptComparer.ReportDifferences(refs.Shotgun.WeaponView.FPSWeapon, refs.Rifle.WeaponView.FPSWeapon);
-            ScriptComparer.ReportDifferences(refs.Shotgun.FPH.FirstPersonWeapon, refs.Rifle.FPH.FirstPersonWeapon);
-            ScriptComparer.ReportDifferences(refs.Shotgun.AmmoSingle.GearItem, refs.Rifle.AmmoSingle.GearItem);
-            ScriptComparer.ReportDifferences(refs.Shotgun.AmmoSingle.AmmoItem, refs.Rifle.AmmoSingle.AmmoItem);
-            ScriptComparer.ReportDifferences(refs.Shotgun.AmmoSingle.StackableItem, refs.Rifle.AmmoSingle.StackableItem);
-            ScriptComparer.ReportDifferences(refs.Shotgun.AmmoSingle.Harvestable, refs.Rifle.AmmoSingle.Harvestable);
-            ScriptComparer.ReportDifferences(refs.Shotgun.AmmoBox.GearItem, refs.Rifle.AmmoBox.GearItem);
-            ScriptComparer.ReportDifferences(refs.Shotgun.AmmoBox.AmmoItem, refs.Rifle.AmmoBox.AmmoItem);
-            ScriptComparer.ReportDifferences(refs.Shotgun.AmmoBox.StackableItem, refs.Rifle.AmmoBox.StackableItem);
-            ScriptComparer.ReportDifferences(refs.Shotgun.AmmoBox.Harvestable, refs.Rifle.AmmoBox.Harvestable);
+
         }
 
 
@@ -631,9 +618,12 @@ namespace Shotgun
             MelonLogger.Msg("ConfigureShotgunAmmoSingle");
             //refs.Shotgun.AmmoSingle.AmmoItem.m_AmmoForGunType = (GunType)((int)(GunType.Camera) + 1); //CUSTOM ammo type signal for mods
             refs.Shotgun.AmmoSingle.AmmoItem.m_AmmoForGunType = GunType.Rifle;
-            if (refs.Shotgun.AmmoSingle.GearItem.m_GearItemData == null)
-                MelonLogger.Error("Null gearitemdata on ammo item single!");
+            refs.Shotgun.AmmoSingle.AmmoItem.m_LoadedHudIconSpriteName = refs.Rifle.AmmoSingle.AmmoItem.m_LoadedHudIconSpriteName;
+            refs.Shotgun.AmmoSingle.AmmoItem.m_EmptyHudIconSpriteName = refs.Rifle.AmmoSingle.AmmoItem.m_EmptyHudIconSpriteName;
             CustomAddressablesPatch.customAddressablePaths["ModdedGearItemData_ShotgunAmmoSingle"] = refs.Shotgun.AmmoSingle.GearItem.m_GearItemData;
+
+            refs.Shotgun.AmmoSingle.GearItem.m_AmmoItem = refs.Shotgun.AmmoSingle.AmmoItem;
+
         }
 
 
@@ -641,7 +631,9 @@ namespace Shotgun
         {
             MelonLogger.Msg("ConfigureShotgunAmmoBox");
             //refs.Shotgun.AmmoSingle.AmmoItem.m_AmmoForGunType = (GunType)((int)(GunType.Camera) + 1); //CUSTOM ammo type signal for mods
-            refs.Shotgun.AmmoBox.AmmoItem.m_AmmoForGunType = GunType.Rifle;
+            refs.Shotgun.AmmoBox.AmmoItem.m_AmmoForGunType = GunType.Rifle; 
+            refs.Shotgun.AmmoBox.AmmoItem.m_LoadedHudIconSpriteName = refs.Rifle.AmmoBox.AmmoItem.m_LoadedHudIconSpriteName;
+            refs.Shotgun.AmmoBox.AmmoItem.m_EmptyHudIconSpriteName = refs.Rifle.AmmoBox.AmmoItem.m_EmptyHudIconSpriteName;
         }
 
 
@@ -693,10 +685,10 @@ namespace Shotgun
             //gunItem.m_GunType = (GunType)((int)(GunType.Camera) + 1);
             gunItem.m_ClipSize = 2;
             gunItem.m_RoundsToReloadPerClip = 2;
-            gunItem.m_DamageHP = 100;
+            gunItem.m_DamageHP = 125;
             gunItem.m_AccuracyRange = 35;
-            gunItem.m_FiringRateSeconds = 0.75f;
-            gunItem.m_ReloadCoolDownSeconds = 2;
+            gunItem.m_FiringRateSeconds = 0.35f;
+            gunItem.m_ReloadCoolDownSeconds = 1.5f;
             gunItem.m_MinDistanceForAimAssist = 15;
             gunItem.m_MuzzleFlash_FlashDelay = 0.1f;
             gunItem.m_MuzzleFlash_SmokeDelay = 0.15f;
