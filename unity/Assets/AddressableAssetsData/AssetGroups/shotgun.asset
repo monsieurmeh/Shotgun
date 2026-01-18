@@ -15,6 +15,11 @@ MonoBehaviour:
   m_GroupName: shotgun
   m_GUID: 38210b1315f74d94cbc0fca6f05eb04a
   m_SerializeEntries:
+  - m_GUID: 09d061a8ea129ed438db6601cfca1d20
+    m_Address: ico_GearItem__Shotgun
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2c35b1e32ef401e418849e163bb76383
     m_Address: ShotgunAmmoSingleMesh_standardSurface1_BaseColor.1001
     m_ReadOnly: 0
@@ -22,6 +27,16 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 37196789428d69a4e83209d7e7c61ba7
     m_Address: DoubleBarrel_Shotgun_BaseColor.1002
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5befba9a7780b3e408793f8686bb1ef9
+    m_Address: ico_GearItem__ShotgunAmmoBox
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 67dc120823ce7914d90e01e839acfeae
+    m_Address: ico_GearItem__ShotgunAmmoSingle
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

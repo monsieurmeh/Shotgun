@@ -631,7 +631,9 @@ namespace Shotgun
             MelonLogger.Msg("ConfigureShotgunAmmoSingle");
             //refs.Shotgun.AmmoSingle.AmmoItem.m_AmmoForGunType = (GunType)((int)(GunType.Camera) + 1); //CUSTOM ammo type signal for mods
             refs.Shotgun.AmmoSingle.AmmoItem.m_AmmoForGunType = GunType.Rifle;
-            refs.Shotgun.ValidAmmoGearItemDatas.Add(refs.Shotgun.AmmoSingle.GearItem.m_GearItemData);
+            if (refs.Shotgun.AmmoSingle.GearItem.m_GearItemData == null)
+                MelonLogger.Error("Null gearitemdata on ammo item single!");
+            CustomAddressablesPatch.customAddressablePaths["ModdedGearItemData_ShotgunAmmoSingle"] = refs.Shotgun.AmmoSingle.GearItem.m_GearItemData;
         }
 
 
@@ -672,7 +674,9 @@ namespace Shotgun
             GunItem gunItem = refs.Shotgun.Gun.GunItem;
             GunItem rifleGunItem = refs.Rifle.Gun.GunItem;
 
-            gunItem.m_ValidAmmoHandle = Addressables.ResourceManager.CreateCompletedOperation<Il2CppSystem.Collections.Generic.IList<Il2CppTLD.Gear.GearItemData>>(refs.Shotgun.ValidAmmoGearItemDatas.Cast<Il2CppSystem.Collections.Generic.IList<Il2CppTLD.Gear.GearItemData>>(), "FUCK ADDRESSABLES");
+
+            gunItem.m_AmmoReferences = new Il2CppSystem.Collections.Generic.List<AssetReferenceT<Il2CppTLD.Gear.GearItemData>>();
+            gunItem.m_AmmoReferences.Add(new AssetReferenceT<Il2CppTLD.Gear.GearItemData>("ModdedGearItemData_ShotgunAmmoSingle"));
             gunItem.m_AmmoSpriteName = rifleGunItem.m_AmmoSpriteName;
             gunItem.m_GearItem = refs.Shotgun.Gun.GearItem;
             gunItem.m_CasingData = rifleGunItem.m_CasingData;

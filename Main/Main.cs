@@ -9,6 +9,8 @@ using Il2CppVLB;
 using HarmonyLib;
 using Il2CppTLD.Gameplay;
 using static Il2Cpp.Utils;
+using Il2CppInterop.Runtime.Injection;
+using UnityEngine.AddressableAssets.ResourceLocators;
 
 
 namespace Shotgun
@@ -44,6 +46,25 @@ namespace Shotgun
                 MelonLogger.Error($"EarlyInitialize Failed: {e}");
             }
 
+        }
+
+        public override void OnInitializeMelon()
+        {
+            ClassInjector.RegisterTypeInIl2Cpp<ModdedResourceLocator>(new RegisterTypeOptions()
+            {
+                Interfaces = new Il2CppInterfaceCollection(new[] { typeof(IResourceLocator) })
+            });
+        }
+
+        public bool Register = false;
+
+        public override void OnSceneWasInitialized(int buildIndex, string sceneName)
+        {
+            if (!Register)
+            {
+                Addressables.AddResourceLocator(new ModdedResourceLocator().Cast<IResourceLocator>());
+                Register = true;
+            }
         }
 
 
