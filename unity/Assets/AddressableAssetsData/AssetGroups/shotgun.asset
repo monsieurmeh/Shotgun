@@ -25,11 +25,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 37196789428d69a4e83209d7e7c61ba7
-    m_Address: DoubleBarrel_Shotgun_BaseColor.1002
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5befba9a7780b3e408793f8686bb1ef9
     m_Address: ico_GearItem__ShotgunAmmoBox
     m_ReadOnly: 0
@@ -45,18 +40,13 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 86b1f0be61580d14f8bdd7c8cc4309c4
-    m_Address: DoubleBarrel_Shotgun_BaseColor.1013
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 92e3f0a0816dea14facc34b77175f102
-    m_Address: DoubleBarrel_Shotgun_BaseColor.1012
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 94d23ed78c6ff834d8f2652440a9a73a
     m_Address: FPH_Shotgun
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b32445faae2511b44af10fbb5ffd1863
+    m_Address: Shotgun_lambert1_BaseColor
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -67,16 +57,6 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d3ec771b87c74d74b9a94992fa337583
     m_Address: GEAR_ShotgunAmmoSingle
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: d5d27e2d9eb7eb649b8146e93c96d3ed
-    m_Address: DoubleBarrel_Shotgun_BaseColor.1001
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: d5fe235a08002474abfc91e5046755d4
-    m_Address: DoubleBarrel_Shotgun_BaseColor.1011
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
