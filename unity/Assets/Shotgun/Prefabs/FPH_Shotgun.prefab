@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 961612986222601556}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0030048077, y: 0.1521, z: 0.904}
+  m_LocalPosition: {x: -0.0005634015, y: 0.1705, z: 1.4086}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -89,7 +89,7 @@ Transform:
   m_GameObject: {fileID: 2373631409432869472}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0030048077, y: 0.16, z: 0.0678}
+  m_LocalPosition: {x: -0.0006, y: 0.1838, z: 0.0444}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -186,14 +186,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5961502143719544898}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.06, z: -1.6}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: 0, y: -0.03, z: 0.3}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1927528434614499192}
+  - {fileID: 6074309820858274747}
   m_Father: {fileID: 2024450568336005386}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &7206977576490137757
 GameObject:
   m_ObjectHideFlags: 0
@@ -219,7 +219,7 @@ Transform:
   m_GameObject: {fileID: 7206977576490137757}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.003, y: 0.16, z: 0.8783}
+  m_LocalPosition: {x: -0.0005682092, y: 0.1921, z: 1.4052}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -353,8 +353,8 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4db3720b306e87b49a7f307927ccb47c, type: 3}
---- !u!4 &1927528434614499192 stripped
+--- !u!4 &6074309820858274747 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 1594295329129016795, guid: 4db3720b306e87b49a7f307927ccb47c, type: 3}
+  m_CorrespondingSourceObject: {fileID: 6400652291800123672, guid: 4db3720b306e87b49a7f307927ccb47c, type: 3}
   m_PrefabInstance: {fileID: 909700468826299043}
   m_PrefabAsset: {fileID: 0}
