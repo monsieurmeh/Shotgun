@@ -661,6 +661,7 @@ namespace Shotgun
             refs.Shotgun.AmmoBox.AmmoItem.m_AmmoForGunType = GunType.Rifle; 
             refs.Shotgun.AmmoBox.AmmoItem.m_LoadedHudIconSpriteName = refs.Rifle.AmmoBox.AmmoItem.m_LoadedHudIconSpriteName;
             refs.Shotgun.AmmoBox.AmmoItem.m_EmptyHudIconSpriteName = refs.Rifle.AmmoBox.AmmoItem.m_EmptyHudIconSpriteName;
+            CustomAddressablesPatch.customAddressablePaths["ModdedGearItemData_ShotgunAmmoBox"] = refs.Shotgun.AmmoBox.GearItem.m_GearItemData;
         }
 
 
@@ -701,6 +702,7 @@ namespace Shotgun
 
             gunItem.m_AmmoReferences = new Il2CppSystem.Collections.Generic.List<AssetReferenceT<Il2CppTLD.Gear.GearItemData>>();
             gunItem.m_AmmoReferences.Add(new AssetReferenceT<Il2CppTLD.Gear.GearItemData>("ModdedGearItemData_ShotgunAmmoSingle"));
+            gunItem.m_AmmoReferences.Add(new AssetReferenceT<Il2CppTLD.Gear.GearItemData>("ModdedGearItemData_ShotgunAmmoBox"));
             gunItem.m_GearItem = refs.Shotgun.Gun.GearItem;
             gunItem.m_CasingData = refs.Shotgun.Casing.GearItem.m_GearItemData;
 

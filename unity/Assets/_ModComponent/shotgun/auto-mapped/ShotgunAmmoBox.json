@@ -39,11 +39,9 @@
     "StackSprite": "",
     "UnitsPerItem": 6,
     "ChanceFull": 100.0,
-    "ShareStackWithGear": [
-      "GEAR_ShotgunAmmoSingle"
-    ],
+    "ShareStackWithGear": [],
     "InstantiateStackItem": "",
-    "StackConditionDifferenceConstraint": 0.0
+    "StackConditionDifferenceConstraint": 0.01
   },
   "ModHarvestableBehaviour": {
     "Audio": "Play_HarvestingAmmo",
