@@ -1,98 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1655240874715024723
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2279886270975280768}
-  m_Layer: 0
-  m_Name: InspectModePivot
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2279886270975280768
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1655240874715024723}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.0010821378, z: 0, w: 0.9999994}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 6464405495566880746}
-  m_LocalEulerAnglesHint: {x: 0, y: 0.124, z: 0}
---- !u!1 &3759025346413969348
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7434896284645066375}
-  m_Layer: 0
-  m_Name: DropDummy
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7434896284645066375
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3759025346413969348}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0.05, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 6464405495566880746}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
---- !u!1 &5274105844003360040
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4363039293840765885}
-  m_Layer: 0
-  m_Name: locator_breech
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4363039293840765885
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5274105844003360040}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.285, z: 0.108}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 6464405495566880746}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8934522354640711522
 GameObject:
   m_ObjectHideFlags: 0
@@ -102,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6464405495566880746}
-  - component: {fileID: 5356293449525123284}
+  - component: {fileID: 4368208935187895110}
   m_Layer: 0
   m_Name: GEAR_Shotgun
   m_TagString: Untagged
@@ -124,12 +31,9 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4925949766736872855}
-  - {fileID: 4363039293840765885}
-  - {fileID: 7434896284645066375}
-  - {fileID: 2279886270975280768}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &5356293449525123284
+--- !u!65 &4368208935187895110
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -148,8 +52,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.07025695, y: 0.29628465, z: 1.4217626}
-  m_Center: {x: -0.003495276, y: -0.046603665, z: 0.061749876}
+  m_Size: {x: 0.07770015, y: 0.31887248, z: 1.5845573}
+  m_Center: {x: 0.0001263693, y: -0.0015410036, z: 0.0005136728}
 --- !u!1001 &2058094925363039375
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -161,6 +65,18 @@ PrefabInstance:
     - target: {fileID: 4171766355313164097, guid: 4db3720b306e87b49a7f307927ccb47c, type: 3}
       propertyPath: m_Name
       value: GEAR_Shotgun_Mesh
+      objectReference: {fileID: 0}
+    - target: {fileID: 6400652291800123672, guid: 4db3720b306e87b49a7f307927ccb47c, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6400652291800123672, guid: 4db3720b306e87b49a7f307927ccb47c, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6400652291800123672, guid: 4db3720b306e87b49a7f307927ccb47c, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6400652291800123672, guid: 4db3720b306e87b49a7f307927ccb47c, type: 3}
       propertyPath: m_LocalPosition.x
