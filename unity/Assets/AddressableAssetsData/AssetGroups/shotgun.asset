@@ -20,6 +20,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0ad2102fb8a04c04e8cb156063866611
+    m_Address: GEAR_ShotgunAmmoCasing
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2c35b1e32ef401e418849e163bb76383
     m_Address: ShotgunAmmoSingleMesh_standardSurface1_BaseColor.1001
     m_ReadOnly: 0

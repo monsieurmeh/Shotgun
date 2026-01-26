@@ -1,0 +1,40 @@
+{
+  "Name": "",
+  "RequiredGear": [
+    {
+      "Item": "GEAR_Hardwood",
+      "Count": 2,
+      "Units": "Count"
+    },
+    {
+      "Item": "GEAR_NutsNBolts",
+      "Count": 1,
+      "Units": "Count"
+    },
+    {
+      "Item": "GEAR_ScrapMetal",
+      "Count": 4,
+      "Units": "Count"
+    },
+    {
+      "Item": "GEAR_GunParts",
+      "Count": 2,
+      "Units": "Count"
+    }
+  ],
+  "RequiredPowder": [],
+  "RequiredLiquid": [],
+  "RequiredTool": "GEAR_SimpleTools",
+  "OptionalTools": [
+    "GEAR_HighQualityTools"
+  ],
+  "RequiredCraftingLocation": "Workbench",
+  "RequiresLitFire": false,
+  "RequiresLight": true,
+  "CraftedResult": "GEAR_Shotgun",
+  "CraftedResultCount": 1,
+  "DurationMinutes": 300,
+  "CraftingAudio": "Play_HarvestingAmmo",
+  "AppliedSkill": "Rifle",
+  "ImprovedSkill": "Rifle"
+}

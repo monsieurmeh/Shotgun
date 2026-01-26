@@ -28,8 +28,9 @@ namespace Shotgun
         internal GunPrefabRefs Gun { get; set; } = new();
         internal AmmoPrefabRefs AmmoSingle { get; set; } = new();
         internal AmmoPrefabRefs AmmoBox { get; set; } = new();
+        internal CasingPrefabRefs Casing { get; set; }
         internal WeaponViewRefs WeaponView { get; set; } = new();
-        internal FPHRefs FPH { get; set; } = new(); 
+        internal FPHRefs FPH { get; set; } = new();
         internal FloatingRefs Floating { get; set; } = new();
         internal Il2CppSystem.Collections.Generic.List<Il2CppTLD.Gear.GearItemData> ValidAmmoGearItemDatas { get; set; } = new();
     }
@@ -42,6 +43,13 @@ namespace Shotgun
         internal AmmoItem? AmmoItem { get; set; }
         internal StackableItem? StackableItem { get; set; }
         internal Harvestable? Harvestable { get; set; }
+    }
+
+    internal class CasingPrefabRefs
+    {
+        internal GameObject? Prefab { get; set; }
+        internal GearItem? GearItem { get; set; }
+        internal StackableItem? StackableItem { get; set; }
     }
 
 

@@ -103,6 +103,7 @@ namespace Shotgun
             if (!GetShotgunModComponent(refs)) return false; 
             if (!GetShotgunAmmoSingle(refs)) return false;
             if (!GetShotgunAmmoBox(refs)) return false;
+            if (!GetShotgunCasing(refs)) return false;
             return true;
         }
 
@@ -122,6 +123,7 @@ namespace Shotgun
             if (!GetRifleGunItem(refs)) return false;
             if (!GetRifleAmmoSingle(refs)) return false;
             if (!GetRifleAmmoBox(refs)) return false;
+            if (!GetRifleCasing(refs)) return false;
             return true;
         }
 
@@ -147,6 +149,14 @@ namespace Shotgun
             return true;
         }
 
+        internal bool GetRifleCasing(ConfigurationReferences refs)
+        {
+            if (!GetRifleCasingAsset(refs)) return false;
+            if (!GetRifleCasingGearItem(refs)) return false;
+            if (!GetRifleCasingStackableItem(refs)) return false;
+            return true;
+        }
+
 
         internal bool GetShotgunAmmoSingle(ConfigurationReferences refs)
         {
@@ -169,6 +179,15 @@ namespace Shotgun
             return true;
         }
 
+        internal bool GetShotgunCasing(ConfigurationReferences refs)
+        {
+            if (!GetShotgunCasingAsset(refs)) return false;
+            if (!GetShotgunCasingGearItem(refs)) return false;
+            if (!GetShotgunCasingStackableItem(refs)) return false;
+            return true;
+        }
+
+
         internal bool GetRifleAmmoSingleAsset(ConfigurationReferences refs) => Attempt(() => refs.Rifle.AmmoSingle.Prefab = Addressables.LoadAssetAsync<GameObject>("GEAR_RifleAmmoSingle").WaitForCompletion(), () => refs.Rifle.AmmoSingle.Prefab != null, "Null GEAR_RifleAmmoSingle");
         internal bool GetRifleAmmoSingleGearItem(ConfigurationReferences refs) => Attempt(() => refs.Rifle.AmmoSingle.GearItem = refs.Rifle.AmmoSingle.Prefab.GetComponent<GearItem>(), () => refs.Rifle.AmmoSingle.GearItem != null, "Null GEAR_RifleAmmoSingle.GearItem");
         internal bool GetRifleAmmoSingleAmmoItem(ConfigurationReferences refs) => Attempt(() => refs.Rifle.AmmoSingle.AmmoItem = refs.Rifle.AmmoSingle.Prefab.GetComponent<AmmoItem>(), () => refs.Rifle.AmmoSingle.AmmoItem != null, "Null GEAR_RifleAmmoSingle.AmmoItem");
@@ -180,6 +199,10 @@ namespace Shotgun
         internal bool GetRifleAmmoBoxAmmoItem(ConfigurationReferences refs) => Attempt(() => refs.Rifle.AmmoBox.AmmoItem = refs.Rifle.AmmoBox.Prefab.GetComponent<AmmoItem>(), () => refs.Rifle.AmmoBox.AmmoItem != null, "Null GEAR_RifleAmmoBox.AmmoItem");
         internal bool GetRifleAmmoBoxStackableItem(ConfigurationReferences refs) => Attempt(() => refs.Rifle.AmmoBox.StackableItem = refs.Rifle.AmmoBox.Prefab.GetComponent<StackableItem>(), () => refs.Rifle.AmmoBox.StackableItem != null, "Null GEAR_RifleAmmoBox.StackableItem");
         internal bool GetRifleAmmoBoxHarvestable(ConfigurationReferences refs) => Attempt(() => refs.Rifle.AmmoBox.Harvestable = refs.Rifle.AmmoBox.Prefab.GetComponent<Harvestable>(), () => refs.Rifle.AmmoBox.GearItem != null, "Null GEAR_RifleAmmoBox.Harvestable");
+        
+        internal bool GetRifleCasingAsset(ConfigurationReferences refs) => Attempt(() => refs.Rifle.Casing.Prefab = Addressables.LoadAssetAsync<GameObject>("GEAR_RifleAmmoCasing").WaitForCompletion(), () => refs.Rifle.Casing.Prefab != null, "Null GEAR_RifleAmmoCasing");
+        internal bool GetRifleCasingGearItem(ConfigurationReferences refs) => Attempt(() => refs.Rifle.Casing.GearItem = refs.Rifle.Casing.Prefab.GetComponent<GearItem>(), () => refs.Rifle.Casing.GearItem != null, "Null GEAR_RifleAmmoCasing.GearItem");
+        internal bool GetRifleCasingStackableItem(ConfigurationReferences refs) => Attempt(() => refs.Rifle.Casing.StackableItem = refs.Rifle.Casing.Prefab.GetComponent<StackableItem>(), () => refs.Rifle.Casing.StackableItem != null, "Null GEAR_RifleAmmoCasing.StackableItem");
 
         internal bool GetShotgunAmmoSingleAsset(ConfigurationReferences refs) => Attempt(() => refs.Shotgun.AmmoSingle.Prefab = Addressables.LoadAssetAsync<GameObject>("GEAR_ShotgunAmmoSingle").WaitForCompletion(), () => refs.Shotgun.AmmoSingle.Prefab != null, "Null GEAR_ShotgunAmmoSingle");
         internal bool GetShotgunAmmoSingleGearItem(ConfigurationReferences refs) => Attempt(() => refs.Shotgun.AmmoSingle.GearItem = refs.Shotgun.AmmoSingle.Prefab.GetComponent<GearItem>(), () => refs.Shotgun.AmmoSingle.GearItem != null, "Null GEAR_ShotgunAmmoSingle.GearItem");
@@ -193,6 +216,9 @@ namespace Shotgun
         internal bool GetShotgunAmmoBoxStackableItem(ConfigurationReferences refs) => Attempt(() => refs.Shotgun.AmmoBox.StackableItem = refs.Shotgun.AmmoBox.Prefab.GetComponent<StackableItem>(), () => refs.Shotgun.AmmoBox.StackableItem != null, "Null GEAR_ShotgunAmmoBox.StackableItem");
         internal bool GetShotgunAmmoBoxHarvestable(ConfigurationReferences refs) => Attempt(() => refs.Shotgun.AmmoBox.Harvestable = refs.Shotgun.AmmoBox.Prefab.GetComponent<Harvestable>(), () => refs.Shotgun.AmmoBox.GearItem != null, "Null GEAR_ShotgunAmmoBox.Harvestable");
 
+        internal bool GetShotgunCasingAsset(ConfigurationReferences refs) => Attempt(() => refs.Shotgun.Casing.Prefab = Addressables.LoadAssetAsync<GameObject>("GEAR_ShotgunAmmoCasing").WaitForCompletion(), () => refs.Shotgun.Casing.Prefab != null, "Null GEAR_ShotgunAmmoCasing");
+        internal bool GetShotgunCasingGearItem(ConfigurationReferences refs) => Attempt(() => refs.Shotgun.Casing.GearItem = refs.Shotgun.Casing.Prefab.GetComponent<GearItem>(), () => refs.Shotgun.Casing.GearItem != null, "Null GEAR_ShotgunAmmoCasing.GearItem");
+        internal bool GetShotgunCasingStackableItem(ConfigurationReferences refs) => Attempt(() => refs.Shotgun.Casing.StackableItem = refs.Shotgun.Casing.Prefab.GetComponent<StackableItem>(), () => refs.Shotgun.Casing.StackableItem != null, "Null GEAR_ShotgunAmmoCasing.StackableItem");
 
         internal bool GetFPSPlayer(ConfigurationReferences refs)
         {
@@ -573,6 +599,7 @@ namespace Shotgun
             {
                 ConfigureShotgunAmmoSingle(refs);
                 ConfigureShotgunAmmoBox(refs);
+                ConfigureShotgunAmmoCasing(refs);
                 ConfigureShotgunGearItem(refs);
                 ConfigureShotgunGunItem(refs);
                 ConfigureShotgunFirstPersonItem(refs);
@@ -637,6 +664,12 @@ namespace Shotgun
         }
 
 
+        internal void ConfigureShotgunAmmoCasing(ConfigurationReferences refs)
+        {
+            MelonLogger.Msg("ConfigureShotgunAmmoCasing");
+        }
+
+
         internal void ConfigureShotgunGearItem(ConfigurationReferences refs)
         {
             MelonLogger.Msg("ConfigureShotgunGearItem");
@@ -666,12 +699,13 @@ namespace Shotgun
             GunItem gunItem = refs.Shotgun.Gun.GunItem;
             GunItem rifleGunItem = refs.Rifle.Gun.GunItem;
 
-
             gunItem.m_AmmoReferences = new Il2CppSystem.Collections.Generic.List<AssetReferenceT<Il2CppTLD.Gear.GearItemData>>();
             gunItem.m_AmmoReferences.Add(new AssetReferenceT<Il2CppTLD.Gear.GearItemData>("ModdedGearItemData_ShotgunAmmoSingle"));
-            gunItem.m_AmmoSpriteName = rifleGunItem.m_AmmoSpriteName;
             gunItem.m_GearItem = refs.Shotgun.Gun.GearItem;
-            gunItem.m_CasingData = rifleGunItem.m_CasingData;
+            gunItem.m_CasingData = refs.Shotgun.Casing.GearItem.m_GearItemData;
+
+            // copied from rifle - expose in modcomponent!
+            gunItem.m_AmmoSpriteName = rifleGunItem.m_AmmoSpriteName;
             gunItem.m_CasingAudio = rifleGunItem.m_CasingAudio;
             gunItem.m_DryFireAudio = rifleGunItem.m_DryFireAudio;
             gunItem.m_FireAudio = rifleGunItem.m_FireAudio;
@@ -680,9 +714,10 @@ namespace Shotgun
             gunItem.m_MisfireTable = rifleGunItem.m_MisfireTable;
             gunItem.m_MisfirePlayerVO = rifleGunItem.m_MisfirePlayerVO;
             gunItem.m_AimingStaminaExhaustedSound = rifleGunItem.m_AimingStaminaExhaustedSound;
+            gunItem.m_GunType = GunType.Rifle;
 
-            gunItem.m_GunType = GunType.Rifle; //game doesnt seem to like **not** having a valid guntype :(
-            //gunItem.m_GunType = (GunType)((int)(GunType.Camera) + 1);
+
+            // preset here - expose in modcomponent!
             gunItem.m_ClipSize = 2;
             gunItem.m_RoundsToReloadPerClip = 2;
             gunItem.m_DamageHP = 125;

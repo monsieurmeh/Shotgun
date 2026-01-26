@@ -24,6 +24,7 @@ MonoBehaviour:
   - {fileID: 8934522354640711522, guid: 84138664cf2f1954ea46fbe3b5f77539, type: 3}
   - {fileID: 1646895218734789835, guid: c2c42eca6e124ea4ba6093fd8d174c6d, type: 3}
   - {fileID: 8960731958093122448, guid: d3ec771b87c74d74b9a94992fa337583, type: 3}
+  - {fileID: 8960731958093122448, guid: 0ad2102fb8a04c04e8cb156063866611, type: 3}
   Icons:
   - {fileID: 2800000, guid: e67d8c77c09a14244b907f30a5fd9554, type: 3}
   - {fileID: 2800000, guid: 2c35b1e32ef401e418849e163bb76383, type: 3}

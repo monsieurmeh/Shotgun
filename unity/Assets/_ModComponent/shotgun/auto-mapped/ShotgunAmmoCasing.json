@@ -1,0 +1,45 @@
+{
+  "ModGenericComponent": {
+    "DisplayNameLocalizationId": "GAMEPLAY_Shotgun_AmmoCasingName",
+    "DescriptionLocalizatonId": "GAMEPLAY_Shotgun_AmmoCasingDescription",
+    "InventoryActionLocalizationId": "",
+    "WeightKG": 0.01,
+    "DaysToDecay": 0,
+    "MaxHP": 100.0,
+    "InitialCondition": "Perfect",
+    "InventoryCategory": "Material",
+    "PickUpAudio": "Play_SndInvBulletCasing",
+    "PutBackAudio": "Play_SndInvBulletCasing",
+    "StowAudio": "Play_SndInvBulletCasing",
+    "WornOutAudio": "Play_SndInvBulletCasing",
+    "InspectOnPickup": true,
+    "InspectDistance": 1.0,
+    "InspectAngles": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "InspectOffset": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "InspectScale": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "NormalModel": "",
+    "InspectModel": ""
+  },
+  "ModStackableBehaviour": {
+    "SingleUnitTextId": "GAMEPLAY_Shotgun_AmmoCasingUnitSingular",
+    "MultipleUnitTextId": "GAMEPLAY_Shotgun_AmmoCasingUnitPlural",
+    "StackSprite": "",
+    "UnitsPerItem": 1,
+    "ChanceFull": 100.0,
+    "ShareStackWithGear": [],
+    "InstantiateStackItem": "GEAR_ShotgunAmmoCasing",
+    "StackConditionDifferenceConstraint": 0.0
+  }
+}

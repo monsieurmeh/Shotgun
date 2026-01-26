@@ -1,0 +1,23 @@
+{
+  "Name": "Shotgun Shell Casing",
+  "RequiredGear": [
+    {
+      "Item": "GEAR_ScrapMetal",
+      "Count": 1,
+      "Units": "Count"
+    }
+  ],
+  "RequiredPowder": [],
+  "RequiredLiquid": [],
+  "RequiredTool": "",
+  "OptionalTools": [],
+  "RequiredCraftingLocation": "Forge",
+  "RequiresLitFire": true,
+  "RequiresLight": true,
+  "CraftedResult": "GEAR_ShotgunAmmoCasing",
+  "CraftedResultCount": 6,
+  "DurationMinutes": 30,
+  "CraftingAudio": "Play_HarvestingAmmo",
+  "AppliedSkill": "Gunsmithing",
+  "ImprovedSkill": "Gunsmithing"
+}

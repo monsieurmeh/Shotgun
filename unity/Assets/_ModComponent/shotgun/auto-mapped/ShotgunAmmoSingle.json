@@ -8,10 +8,10 @@
     "MaxHP": 100.0,
     "InitialCondition": "Perfect",
     "InventoryCategory": "Tool",
-    "PickUpAudio": "Play_RifleDryFire",
-    "PutBackAudio": "Play_RifleDryFire",
-    "StowAudio": "Play_RifleDryFire",
-    "WornOutAudio": "Play_RifleDryFire",
+    "PickUpAudio": "Play_SndInvBulletCasing",
+    "PutBackAudio": "Play_SndInvBulletCasing",
+    "StowAudio": "Play_SndInvBulletCasing",
+    "WornOutAudio": "Play_SndInvBulletCasing",
     "InspectOnPickup": true,
     "InspectDistance": 1.0,
     "InspectAngles": [
@@ -53,7 +53,7 @@
       1
     ],
     "YieldNames": [
-      "GEAR_RifleAmmoCasing",
+      "GEAR_ShotgunAmmoCasing",
       "GEAR_Bullet"
     ],
     "RequiredToolNames": []
