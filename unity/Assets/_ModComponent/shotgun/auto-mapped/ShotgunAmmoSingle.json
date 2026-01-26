@@ -3,7 +3,7 @@
     "DisplayNameLocalizationId": "GAMEPLAY_Shotgun_AmmoSingleName",
     "DescriptionLocalizatonId": "GAMEPLAY_Shotgun_AmmoSingleDescription",
     "InventoryActionLocalizationId": "",
-    "WeightKG": 0.01,
+    "WeightKG": 0.02,
     "DaysToDecay": 0,
     "MaxHP": 100.0,
     "InitialCondition": "Perfect",
