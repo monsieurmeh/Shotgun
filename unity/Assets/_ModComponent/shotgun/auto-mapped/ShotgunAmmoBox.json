@@ -37,7 +37,7 @@
     "SingleUnitTextId": "GAMEPLAY_Shotgun_AmmoUnitSingular",
     "MultipleUnitTextId": "GAMEPLAY_Shotgun_AmmoUnitPlural",
     "StackSprite": "",
-    "UnitsPerItem": 5,
+    "UnitsPerItem": 6,
     "ChanceFull": 100.0,
     "ShareStackWithGear": [
       "GEAR_ShotgunAmmoSingle"
