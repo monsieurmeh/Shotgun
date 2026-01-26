@@ -55,6 +55,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bd67c7844ba36b947be3133326e72fea
+    m_Address: ico_GearItem__ShotgunAmmoCasing
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c2c42eca6e124ea4ba6093fd8d174c6d
     m_Address: GEAR_ShotgunAmmoBox
     m_ReadOnly: 0

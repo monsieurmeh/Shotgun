@@ -181,3 +181,46 @@ MonoBehaviour:
       Italian: 
       Polish: 
       Ukrainian: 
+  - localizationKey: GAMEPLAY_Shotgun_AmmoCasingName
+    languages:
+      English: Shotgun Shell Casing
+      German: 
+      Russian: 
+      French: 
+      Japanese: 
+      Korean: 
+      SimplifiedChinese: 
+      Swedish: 
+      TraditionalChinese: 
+      Turkish: 
+      Norwegian: 
+      Spanish: 
+      PortuguesePortugal: 
+      PortugueseBrazil: 
+      Dutch: 
+      Finnish: 
+      Italian: 
+      Polish: 
+      Ukrainian: 
+  - localizationKey: GAMEPLAY_Shotgun_AmmoCasingDescription
+    languages:
+      English: A single shotgun shell casing. Fill it with something fun like lead
+        or rocksalt.
+      German: 
+      Russian: 
+      French: 
+      Japanese: 
+      Korean: 
+      SimplifiedChinese: 
+      Swedish: 
+      TraditionalChinese: 
+      Turkish: 
+      Norwegian: 
+      Spanish: 
+      PortuguesePortugal: 
+      PortugueseBrazil: 
+      Dutch: 
+      Finnish: 
+      Italian: 
+      Polish: 
+      Ukrainian: 

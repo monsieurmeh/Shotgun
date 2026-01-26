@@ -1,14 +1,9 @@
 {
-  "Name": "",
+  "Name": "Shotgun",
   "RequiredGear": [
     {
       "Item": "GEAR_Hardwood",
       "Count": 2,
-      "Units": "Count"
-    },
-    {
-      "Item": "GEAR_NutsNBolts",
-      "Count": 1,
       "Units": "Count"
     },
     {
