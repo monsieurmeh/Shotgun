@@ -28,7 +28,7 @@ namespace Shotgun
         internal GunPrefabRefs Gun { get; set; } = new();
         internal AmmoPrefabRefs AmmoSingle { get; set; } = new();
         internal AmmoPrefabRefs AmmoBox { get; set; } = new();
-        internal CasingPrefabRefs Casing { get; set; }
+        internal CasingPrefabRefs Casing { get; set; } = new();
         internal WeaponViewRefs WeaponView { get; set; } = new();
         internal FPHRefs FPH { get; set; } = new();
         internal FloatingRefs Floating { get; set; } = new();
