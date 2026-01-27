@@ -797,7 +797,14 @@ namespace Shotgun
                     case "RearSight": refs.Shotgun.FPH.FirstPersonWeapon.m_RearSight = transform; break;
                     case "BulletEmissionPoint": refs.Shotgun.FPH.FirstPersonWeapon.m_BulletEmissionPoint = transform.gameObject; break;
                 }
+            }            
+            /* DEBUG
+             * Tested this, for sure the front and rear sight are 100% used for aiming and its very consistent. Enable this to test ingame for yourself!
+            if (refs.Shotgun.FPH.FirstPersonWeapon.m_RearSight != null && refs.Shotgun.FPH.FirstPersonWeapon.m_FrontSight != null)
+            {
+                Primitives.ShootRay(refs.Shotgun.FPH.FirstPersonWeapon.m_RearSight, refs.Shotgun.FPH.FirstPersonWeapon.m_FrontSight, 0.001f, Color.green, 100);
             }
+            */
         }
 
 
