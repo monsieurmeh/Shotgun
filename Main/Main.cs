@@ -11,6 +11,7 @@ using Il2CppTLD.Gameplay;
 using static Il2Cpp.Utils;
 using Il2CppInterop.Runtime.Injection;
 using UnityEngine.AddressableAssets.ResourceLocators;
+using Il2CppAtlas.Unity;
 
 
 namespace Shotgun

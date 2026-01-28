@@ -96,14 +96,20 @@ namespace Shotgun
         }
 
 
+        internal static readonly string[] ShotgunAmmoTypes = { "Slug", "Buckshot", "Birdshot" };
+
         internal bool GetShotgun(ConfigurationReferences refs)
         {
             if (!GetShotgunPrefab(refs)) return false;
             if (!GetShotgunGearItem(refs)) return false;
-            if (!GetShotgunModComponent(refs)) return false; 
-            if (!GetShotgunAmmoSingle(refs)) return false;
-            if (!GetShotgunAmmoBox(refs)) return false;
+            if (!GetShotgunModComponent(refs)) return false;
             if (!GetShotgunCasing(refs)) return false;
+            foreach (var ammoType in ShotgunAmmoTypes)
+            {
+                refs.Shotgun.AmmoTypes[ammoType] = new ShotgunAmmoTypeRefs();
+                if (!GetShotgunAmmoSingle(refs, ammoType)) return false;
+                if (!GetShotgunAmmoBox(refs, ammoType)) return false;
+            }
             return true;
         }
 
@@ -158,24 +164,24 @@ namespace Shotgun
         }
 
 
-        internal bool GetShotgunAmmoSingle(ConfigurationReferences refs)
+        internal bool GetShotgunAmmoSingle(ConfigurationReferences refs, string ammoType)
         {
-            if (!GetShotgunAmmoSingleAsset(refs)) return false;
-            if (!GetShotgunAmmoSingleGearItem(refs)) return false;
-            if (!GetShotgunAmmoSingleAmmoItem(refs)) return false;
-            if (!GetShotgunAmmoSingleStackableItem(refs)) return false;
-            if (!GetShotgunAmmoSingleHarvestable(refs)) return false;
+            if (!GetShotgunAmmoSingleAsset(refs, ammoType)) return false;
+            if (!GetShotgunAmmoSingleGearItem(refs, ammoType)) return false;
+            if (!GetShotgunAmmoSingleAmmoItem(refs, ammoType)) return false;
+            if (!GetShotgunAmmoSingleStackableItem(refs, ammoType)) return false;
+            if (!GetShotgunAmmoSingleHarvestable(refs, ammoType)) return false;
             return true;
         }
 
 
-        internal bool GetShotgunAmmoBox(ConfigurationReferences refs)
+        internal bool GetShotgunAmmoBox(ConfigurationReferences refs, string ammoType)
         {
-            if (!GetShotgunAmmoBoxAsset(refs)) return false;
-            if (!GetShotgunAmmoBoxGearItem(refs)) return false;
-            if (!GetShotgunAmmoBoxAmmoItem(refs)) return false;
-            if (!GetShotgunAmmoBoxStackableItem(refs)) return false;
-            if (!GetShotgunAmmoBoxHarvestable(refs)) return false;
+            if (!GetShotgunAmmoBoxAsset(refs, ammoType)) return false;
+            if (!GetShotgunAmmoBoxGearItem(refs, ammoType)) return false;
+            if (!GetShotgunAmmoBoxAmmoItem(refs, ammoType)) return false;
+            if (!GetShotgunAmmoBoxStackableItem(refs, ammoType)) return false;
+            if (!GetShotgunAmmoBoxHarvestable(refs, ammoType)) return false;
             return true;
         }
 
@@ -204,21 +210,21 @@ namespace Shotgun
         internal bool GetRifleCasingGearItem(ConfigurationReferences refs) => Attempt(() => refs.Rifle.Casing.GearItem = refs.Rifle.Casing.Prefab.GetComponent<GearItem>(), () => refs.Rifle.Casing.GearItem != null, "Null GEAR_RifleAmmoCasing.GearItem");
         internal bool GetRifleCasingStackableItem(ConfigurationReferences refs) => Attempt(() => refs.Rifle.Casing.StackableItem = refs.Rifle.Casing.Prefab.GetComponent<StackableItem>(), () => refs.Rifle.Casing.StackableItem != null, "Null GEAR_RifleAmmoCasing.StackableItem");
 
-        internal bool GetShotgunAmmoSingleAsset(ConfigurationReferences refs) => Attempt(() => refs.Shotgun.AmmoSingle.Prefab = Addressables.LoadAssetAsync<GameObject>("GEAR_ShotgunAmmoSingle").WaitForCompletion(), () => refs.Shotgun.AmmoSingle.Prefab != null, "Null GEAR_ShotgunAmmoSingle");
-        internal bool GetShotgunAmmoSingleGearItem(ConfigurationReferences refs) => Attempt(() => refs.Shotgun.AmmoSingle.GearItem = refs.Shotgun.AmmoSingle.Prefab.GetComponent<GearItem>(), () => refs.Shotgun.AmmoSingle.GearItem != null, "Null GEAR_ShotgunAmmoSingle.GearItem");
-        internal bool GetShotgunAmmoSingleAmmoItem(ConfigurationReferences refs) => Attempt(() => refs.Shotgun.AmmoSingle.AmmoItem = refs.Shotgun.AmmoSingle.Prefab.GetComponent<AmmoItem>(), () => refs.Shotgun.AmmoSingle.AmmoItem != null, "Null GEAR_ShotgunAmmoSingle.AmmoItem");
-        internal bool GetShotgunAmmoSingleStackableItem(ConfigurationReferences refs) => Attempt(() => refs.Shotgun.AmmoSingle.StackableItem = refs.Shotgun.AmmoSingle.Prefab.GetComponent<StackableItem>(), () => refs.Shotgun.AmmoSingle.StackableItem != null, "Null GEAR_ShotgunAmmoSingle.StackableItem");
-        internal bool GetShotgunAmmoSingleHarvestable(ConfigurationReferences refs) => Attempt(() => refs.Shotgun.AmmoSingle.Harvestable = refs.Shotgun.AmmoSingle.Prefab.GetComponent<Harvestable>(), () => refs.Shotgun.AmmoSingle.GearItem != null, "Null GEAR_ShotgunAmmoSingle.Harvestable");
+        internal bool GetShotgunAmmoSingleAsset(ConfigurationReferences refs, string ammoType) => Attempt(() => refs.Shotgun.AmmoTypes[ammoType].AmmoSingle.Prefab = Addressables.LoadAssetAsync<GameObject>($"GEAR_ShotgunAmmoSingle{ammoType}").WaitForCompletion(), () => refs.Shotgun.AmmoTypes[ammoType].AmmoSingle.Prefab != null, $"Null GEAR_ShotgunAmmoSingle{ammoType}");
+        internal bool GetShotgunAmmoSingleGearItem(ConfigurationReferences refs, string ammoType) => Attempt(() => refs.Shotgun.AmmoTypes[ammoType].AmmoSingle.GearItem = refs.Shotgun.AmmoTypes[ammoType].AmmoSingle.Prefab.GetComponent<GearItem>(), () => refs.Shotgun.AmmoTypes[ammoType].AmmoSingle.GearItem != null, $"Null GEAR_ShotgunAmmoSingle{ammoType}.GearItem");
+        internal bool GetShotgunAmmoSingleAmmoItem(ConfigurationReferences refs, string ammoType) => Attempt(() => refs.Shotgun.AmmoTypes[ammoType].AmmoSingle.AmmoItem = refs.Shotgun.AmmoTypes[ammoType].AmmoSingle.Prefab.GetComponent<AmmoItem>(), () => refs.Shotgun.AmmoTypes[ammoType].AmmoSingle.AmmoItem != null, $"Null GEAR_ShotgunAmmoSingle{ammoType}.AmmoItem");
+        internal bool GetShotgunAmmoSingleStackableItem(ConfigurationReferences refs, string ammoType) => Attempt(() => refs.Shotgun.AmmoTypes[ammoType].AmmoSingle.StackableItem = refs.Shotgun.AmmoTypes[ammoType].AmmoSingle.Prefab.GetComponent<StackableItem>(), () => refs.Shotgun.AmmoTypes[ammoType].AmmoSingle.StackableItem != null, $"Null GEAR_ShotgunAmmoSingle{ammoType}.StackableItem");
+        internal bool GetShotgunAmmoSingleHarvestable(ConfigurationReferences refs, string ammoType) => Attempt(() => refs.Shotgun.AmmoTypes[ammoType].AmmoSingle.Harvestable = refs.Shotgun.AmmoTypes[ammoType].AmmoSingle.Prefab.GetComponent<Harvestable>(), () => refs.Shotgun.AmmoTypes[ammoType].AmmoSingle.GearItem != null, $"Null GEAR_ShotgunAmmoSingle{ammoType}.Harvestable");
 
-        internal bool GetShotgunAmmoBoxAsset(ConfigurationReferences refs) => Attempt(() => refs.Shotgun.AmmoBox.Prefab = Addressables.LoadAssetAsync<GameObject>("GEAR_ShotgunAmmoBox").WaitForCompletion(), () => refs.Shotgun.AmmoBox.Prefab != null, "Null GEAR_ShotgunAmmoBox");
-        internal bool GetShotgunAmmoBoxGearItem(ConfigurationReferences refs) => Attempt(() => refs.Shotgun.AmmoBox.GearItem = refs.Shotgun.AmmoBox.Prefab.GetComponent<GearItem>(), () => refs.Shotgun.AmmoBox.GearItem != null, "Null GEAR_ShotgunAmmoBox.GearItem");
-        internal bool GetShotgunAmmoBoxAmmoItem(ConfigurationReferences refs) => Attempt(() => refs.Shotgun.AmmoBox.AmmoItem = refs.Shotgun.AmmoBox.Prefab.GetComponent<AmmoItem>(), () => refs.Shotgun.AmmoBox.AmmoItem != null, "Null GEAR_ShotgunAmmoBox.AmmoItem");
-        internal bool GetShotgunAmmoBoxStackableItem(ConfigurationReferences refs) => Attempt(() => refs.Shotgun.AmmoBox.StackableItem = refs.Shotgun.AmmoBox.Prefab.GetComponent<StackableItem>(), () => refs.Shotgun.AmmoBox.StackableItem != null, "Null GEAR_ShotgunAmmoBox.StackableItem");
-        internal bool GetShotgunAmmoBoxHarvestable(ConfigurationReferences refs) => Attempt(() => refs.Shotgun.AmmoBox.Harvestable = refs.Shotgun.AmmoBox.Prefab.GetComponent<Harvestable>(), () => refs.Shotgun.AmmoBox.GearItem != null, "Null GEAR_ShotgunAmmoBox.Harvestable");
+        internal bool GetShotgunAmmoBoxAsset(ConfigurationReferences refs, string ammoType) => Attempt(() => refs.Shotgun.AmmoTypes[ammoType].AmmoBox.Prefab = Addressables.LoadAssetAsync<GameObject>($"GEAR_ShotgunAmmoBox{ammoType}").WaitForCompletion(), () => refs.Shotgun.AmmoTypes[ammoType].AmmoBox.Prefab != null, $"Null GEAR_ShotgunAmmoBox{ammoType}");
+        internal bool GetShotgunAmmoBoxGearItem(ConfigurationReferences refs, string ammoType) => Attempt(() => refs.Shotgun.AmmoTypes[ammoType].AmmoBox.GearItem = refs.Shotgun.AmmoTypes[ammoType].AmmoBox.Prefab.GetComponent<GearItem>(), () => refs.Shotgun.AmmoTypes[ammoType].AmmoBox.GearItem != null, $"Null GEAR_ShotgunAmmoBox{ammoType}.GearItem");
+        internal bool GetShotgunAmmoBoxAmmoItem(ConfigurationReferences refs, string ammoType) => Attempt(() => refs.Shotgun.AmmoTypes[ammoType].AmmoBox.AmmoItem = refs.Shotgun.AmmoTypes[ammoType].AmmoBox.Prefab.GetComponent<AmmoItem>(), () => refs.Shotgun.AmmoTypes[ammoType].AmmoBox.AmmoItem != null, $"Null GEAR_ShotgunAmmoBox{ammoType}.AmmoItem");
+        internal bool GetShotgunAmmoBoxStackableItem(ConfigurationReferences refs, string ammoType) => Attempt(() => refs.Shotgun.AmmoTypes[ammoType].AmmoBox.StackableItem = refs.Shotgun.AmmoTypes[ammoType].AmmoBox.Prefab.GetComponent<StackableItem>(), () => refs.Shotgun.AmmoTypes[ammoType].AmmoBox.StackableItem != null, $"Null GEAR_ShotgunAmmoBox{ammoType}.StackableItem");
+        internal bool GetShotgunAmmoBoxHarvestable(ConfigurationReferences refs, string ammoType) => Attempt(() => refs.Shotgun.AmmoTypes[ammoType].AmmoBox.Harvestable = refs.Shotgun.AmmoTypes[ammoType].AmmoBox.Prefab.GetComponent<Harvestable>(), () => refs.Shotgun.AmmoTypes[ammoType].AmmoBox.GearItem != null, $"Null GEAR_ShotgunAmmoBox{ammoType}.Harvestable");
 
-        internal bool GetShotgunCasingAsset(ConfigurationReferences refs) => Attempt(() => refs.Shotgun.Casing.Prefab = Addressables.LoadAssetAsync<GameObject>("GEAR_ShotgunAmmoCasing").WaitForCompletion(), () => refs.Shotgun.Casing.Prefab != null, "Null GEAR_ShotgunAmmoCasing");
-        internal bool GetShotgunCasingGearItem(ConfigurationReferences refs) => Attempt(() => refs.Shotgun.Casing.GearItem = refs.Shotgun.Casing.Prefab.GetComponent<GearItem>(), () => refs.Shotgun.Casing.GearItem != null, "Null GEAR_ShotgunAmmoCasing.GearItem");
-        internal bool GetShotgunCasingStackableItem(ConfigurationReferences refs) => Attempt(() => refs.Shotgun.Casing.StackableItem = refs.Shotgun.Casing.Prefab.GetComponent<StackableItem>(), () => refs.Shotgun.Casing.StackableItem != null, "Null GEAR_ShotgunAmmoCasing.StackableItem");
+        internal bool GetShotgunCasingAsset(ConfigurationReferences refs) => Attempt(() => refs.Shotgun.Casing.Prefab = Addressables.LoadAssetAsync<GameObject>($"GEAR_ShotgunAmmoCasing").WaitForCompletion(), () => refs.Shotgun.Casing.Prefab != null, $"Null GEAR_ShotgunAmmoCasing");
+        internal bool GetShotgunCasingGearItem(ConfigurationReferences refs) => Attempt(() => refs.Shotgun.Casing.GearItem = refs.Shotgun.Casing.Prefab.GetComponent<GearItem>(), () => refs.Shotgun.Casing.GearItem != null, $"Null GEAR_ShotgunAmmoCasing.GearItem");
+        internal bool GetShotgunCasingStackableItem(ConfigurationReferences refs) => Attempt(() => refs.Shotgun.Casing.StackableItem = refs.Shotgun.Casing.Prefab.GetComponent<StackableItem>(), () => refs.Shotgun.Casing.StackableItem != null, $"Null GEAR_ShotgunAmmoCasing.StackableItem");
 
         internal bool GetFPSPlayer(ConfigurationReferences refs)
         {
@@ -597,9 +603,12 @@ namespace Shotgun
         {
             try
             {
-                ConfigureShotgunAmmoSingle(refs);
-                ConfigureShotgunAmmoBox(refs);
-                ConfigureShotgunAmmoCasing(refs);
+                foreach (var ammoType in ShotgunAmmoTypes)
+                {
+                    ConfigureShotgunAmmoSingle(refs, ammoType);
+                    ConfigureShotgunAmmoBox(refs, ammoType);
+                    ConfigureShotgunAmmoCasing(refs, ammoType);
+                }
                 ConfigureShotgunGearItem(refs);
                 ConfigureShotgunGunItem(refs);
                 ConfigureShotgunFirstPersonItem(refs);
@@ -640,34 +649,45 @@ namespace Shotgun
             return true;
         }
 
-        internal void ConfigureShotgunAmmoSingle(ConfigurationReferences refs)
+        internal void ConfigureShotgunAmmoSingle(ConfigurationReferences refs, string ammoType)
         {
-            MelonLogger.Msg("ConfigureShotgunAmmoSingle");
-            //refs.Shotgun.AmmoSingle.AmmoItem.m_AmmoForGunType = (GunType)((int)(GunType.Camera) + 1); //CUSTOM ammo type signal for mods
-            refs.Shotgun.AmmoSingle.AmmoItem.m_AmmoForGunType = GunType.Rifle;
-            refs.Shotgun.AmmoSingle.AmmoItem.m_LoadedHudIconSpriteName = refs.Rifle.AmmoSingle.AmmoItem.m_LoadedHudIconSpriteName;
-            refs.Shotgun.AmmoSingle.AmmoItem.m_EmptyHudIconSpriteName = refs.Rifle.AmmoSingle.AmmoItem.m_EmptyHudIconSpriteName;
-            CustomAddressablesPatch.customAddressablePaths["ModdedGearItemData_ShotgunAmmoSingle"] = refs.Shotgun.AmmoSingle.GearItem.m_GearItemData;
-
-            refs.Shotgun.AmmoSingle.GearItem.m_AmmoItem = refs.Shotgun.AmmoSingle.AmmoItem;
-
+            MelonLogger.Msg($"ConfigureShotgunAmmoSingle{ammoType}");
+            var ammoRefs = refs.Shotgun.AmmoTypes[ammoType];
+            ammoRefs.AmmoSingle.AmmoItem.m_AmmoForGunType = (GunType)((int)(GunType.Camera) + 1);
+            ammoRefs.AmmoSingle.AmmoItem.m_LoadedHudIconSpriteName = "";
+            ammoRefs.AmmoSingle.AmmoItem.m_EmptyHudIconSpriteName = "";
+            ammoRefs.AmmoBox.GearItem.m_GearItemData.name = $"GEAR_ShotgunAmmoSingle{ammoType}";
+            CustomAddressablesPatch.customAddressablePaths[$"ModdedGearItemData_ShotgunAmmoSingle{ammoType}"] = ammoRefs.AmmoSingle.GearItem.m_GearItemData;
+            ammoRefs.AmmoSingle.GearItem.m_AmmoItem = ammoRefs.AmmoSingle.AmmoItem;
         }
 
 
-        internal void ConfigureShotgunAmmoBox(ConfigurationReferences refs)
+        internal void ConfigureShotgunAmmoBox(ConfigurationReferences refs, string ammoType)
         {
-            MelonLogger.Msg("ConfigureShotgunAmmoBox");
-            //refs.Shotgun.AmmoSingle.AmmoItem.m_AmmoForGunType = (GunType)((int)(GunType.Camera) + 1); //CUSTOM ammo type signal for mods
-            refs.Shotgun.AmmoBox.AmmoItem.m_AmmoForGunType = GunType.Rifle; 
-            refs.Shotgun.AmmoBox.AmmoItem.m_LoadedHudIconSpriteName = refs.Rifle.AmmoBox.AmmoItem.m_LoadedHudIconSpriteName;
-            refs.Shotgun.AmmoBox.AmmoItem.m_EmptyHudIconSpriteName = refs.Rifle.AmmoBox.AmmoItem.m_EmptyHudIconSpriteName;
-            CustomAddressablesPatch.customAddressablePaths["ModdedGearItemData_ShotgunAmmoBox"] = refs.Shotgun.AmmoBox.GearItem.m_GearItemData;
+            MelonLogger.Msg($"ConfigureShotgunAmmoBox{ammoType}");
+            var ammoRefs = refs.Shotgun.AmmoTypes[ammoType];
+            ammoRefs.AmmoBox.AmmoItem.m_AmmoForGunType = (GunType)((int)(GunType.Camera) + 1);
+            ammoRefs.AmmoBox.AmmoItem.m_LoadedHudIconSpriteName = "";
+            ammoRefs.AmmoBox.AmmoItem.m_EmptyHudIconSpriteName = "";
+            ammoRefs.AmmoBox.GearItem.m_GearItemData.name = $"GEAR_ShotgunAmmoBox{ammoType}";
+            CustomAddressablesPatch.customAddressablePaths[$"ModdedGearItemData_ShotgunAmmoBox{ammoType}"] = ammoRefs.AmmoBox.GearItem.m_GearItemData;
+            ammoRefs.AmmoBox.GearItem.m_AmmoItem = ammoRefs.AmmoBox.AmmoItem;
+
+            CustomAmmoHUD.HUDPreset preset = new CustomAmmoHUD.HUDPreset();
+            preset.LoadedSprite = Addressables.LoadAssetAsync<Sprite>($"ico_Shotgun{ammoType}HUD").WaitForCompletion();
+            preset.UnloadedSprite = Addressables.LoadAssetAsync<Sprite>($"ico_ShotgunEmptyHUD").WaitForCompletion();
+            preset.IconHeight = 30f;
+            preset.IconWidth = 10;
+            preset.IconSpacing = 10f;
+            preset.IconsPerRow = 2;
+            CustomAmmoHUD.Current.TryRegisterHUDPreset("GEAR_Shotgun", $"GEAR_ShotgunAmmoBox{ammoType}", preset);
         }
 
 
-        internal void ConfigureShotgunAmmoCasing(ConfigurationReferences refs)
+        internal void ConfigureShotgunAmmoCasing(ConfigurationReferences refs, string ammoType)
         {
-            MelonLogger.Msg("ConfigureShotgunAmmoCasing");
+            MelonLogger.Msg($"ConfigureShotgunAmmoCasing{ammoType}");
+            // Casing configuration if needed in future
         }
 
 
@@ -701,8 +721,11 @@ namespace Shotgun
             GunItem rifleGunItem = refs.Rifle.Gun.GunItem;
 
             gunItem.m_AmmoReferences = new Il2CppSystem.Collections.Generic.List<AssetReferenceT<Il2CppTLD.Gear.GearItemData>>();
-            gunItem.m_AmmoReferences.Add(new AssetReferenceT<Il2CppTLD.Gear.GearItemData>("ModdedGearItemData_ShotgunAmmoSingle"));
-            gunItem.m_AmmoReferences.Add(new AssetReferenceT<Il2CppTLD.Gear.GearItemData>("ModdedGearItemData_ShotgunAmmoBox"));
+            foreach (var ammoType in ShotgunAmmoTypes)
+            {
+                //gunItem.m_AmmoReferences.Add(new AssetReferenceT<Il2CppTLD.Gear.GearItemData>($"ModdedGearItemData_ShotgunAmmoSingle{ammoType}"));
+                gunItem.m_AmmoReferences.Add(new AssetReferenceT<Il2CppTLD.Gear.GearItemData>($"ModdedGearItemData_ShotgunAmmoBox{ammoType}"));
+            }
             gunItem.m_GearItem = refs.Shotgun.Gun.GearItem;
             gunItem.m_CasingData = refs.Shotgun.Casing.GearItem.m_GearItemData;
 
@@ -716,7 +739,7 @@ namespace Shotgun
             gunItem.m_MisfireTable = rifleGunItem.m_MisfireTable;
             gunItem.m_MisfirePlayerVO = rifleGunItem.m_MisfirePlayerVO;
             gunItem.m_AimingStaminaExhaustedSound = rifleGunItem.m_AimingStaminaExhaustedSound;
-            gunItem.m_GunType = GunType.Rifle;
+            gunItem.m_GunType = (GunType)((int)(GunType.Camera) + 1);
 
 
             // preset here - expose in modcomponent!

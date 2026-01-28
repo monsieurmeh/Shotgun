@@ -55,9 +55,9 @@ MonoBehaviour:
       Italian: 
       Polish: 
       Ukrainian: 
-  - localizationKey: GAMEPLAY_Shotgun_AmmoBoxName
+  - localizationKey: GAMEPLAY_Shotgun_AmmoBoxSlugName
     languages:
-      English: Box of Shotgun Rounds
+      English: Box of Shotgun Slug Rounds
       German: 
       Russian: 
       French: 
@@ -76,9 +76,9 @@ MonoBehaviour:
       Italian: 
       Polish: 
       Ukrainian: 
-  - localizationKey: GAMEPLAY_Shotgun_AmmoBoxDescription
+  - localizationKey: GAMEPLAY_Shotgun_AmmoBoxSlugDescription
     languages:
-      English: A box of shotgun rounds. Looks like buckshot...?
+      English: A box of shotgun slug rounds.
       German: 
       Russian: 
       French: 
@@ -139,9 +139,9 @@ MonoBehaviour:
       Italian: 
       Polish: 
       Ukrainian: 
-  - localizationKey: GAMEPLAY_Shotgun_AmmoSingleName
+  - localizationKey: GAMEPLAY_Shotgun_AmmoSingleSlugName
     languages:
-      English: Shotgun Round
+      English: Shotgun Slug Round
       German: 
       Russian: 
       French: 
@@ -160,9 +160,9 @@ MonoBehaviour:
       Italian: 
       Polish: 
       Ukrainian: 
-  - localizationKey: GAMEPLAY_Shotgun_AmmoSingleDescription
+  - localizationKey: GAMEPLAY_Shotgun_AmmoSingleSlugDescription
     languages:
-      English: A single shotgun round. Looks like buckshot...?
+      English: A single shotgun slug round.
       German: 
       Russian: 
       French: 
@@ -204,8 +204,176 @@ MonoBehaviour:
       Ukrainian: 
   - localizationKey: GAMEPLAY_Shotgun_AmmoCasingDescription
     languages:
-      English: A single shotgun shell casing. Fill it with something fun like lead
-        or rocksalt.
+      English: A single shotgun shell casing. Fill it with something fun and made
+        of lead.
+      German: 
+      Russian: 
+      French: 
+      Japanese: 
+      Korean: 
+      SimplifiedChinese: 
+      Swedish: 
+      TraditionalChinese: 
+      Turkish: 
+      Norwegian: 
+      Spanish: 
+      PortuguesePortugal: 
+      PortugueseBrazil: 
+      Dutch: 
+      Finnish: 
+      Italian: 
+      Polish: 
+      Ukrainian: 
+  - localizationKey: GAMEPLAY_Shotgun_AmmoBoxBirdshotName
+    languages:
+      English: Box of Shotgun Birdshot Rounds
+      German: 
+      Russian: 
+      French: 
+      Japanese: 
+      Korean: 
+      SimplifiedChinese: 
+      Swedish: 
+      TraditionalChinese: 
+      Turkish: 
+      Norwegian: 
+      Spanish: 
+      PortuguesePortugal: 
+      PortugueseBrazil: 
+      Dutch: 
+      Finnish: 
+      Italian: 
+      Polish: 
+      Ukrainian: 
+  - localizationKey: GAMEPLAY_Shotgun_AmmoBoxBuckshotName
+    languages:
+      English: Box of Shotgun Buckshot Rounds
+      German: 
+      Russian: 
+      French: 
+      Japanese: 
+      Korean: 
+      SimplifiedChinese: 
+      Swedish: 
+      TraditionalChinese: 
+      Turkish: 
+      Norwegian: 
+      Spanish: 
+      PortuguesePortugal: 
+      PortugueseBrazil: 
+      Dutch: 
+      Finnish: 
+      Italian: 
+      Polish: 
+      Ukrainian: 
+  - localizationKey: GAMEPLAY_Shotgun_AmmoSingleBuckshotName
+    languages:
+      English: Shotgun Buckshot Round
+      German: 
+      Russian: 
+      French: 
+      Japanese: 
+      Korean: 
+      SimplifiedChinese: 
+      Swedish: 
+      TraditionalChinese: 
+      Turkish: 
+      Norwegian: 
+      Spanish: 
+      PortuguesePortugal: 
+      PortugueseBrazil: 
+      Dutch: 
+      Finnish: 
+      Italian: 
+      Polish: 
+      Ukrainian: 
+  - localizationKey: GAMEPLAY_Shotgun_AmmoSingleBirdshotName
+    languages:
+      English: Shotgun Birdshot Round
+      German: 
+      Russian: 
+      French: 
+      Japanese: 
+      Korean: 
+      SimplifiedChinese: 
+      Swedish: 
+      TraditionalChinese: 
+      Turkish: 
+      Norwegian: 
+      Spanish: 
+      PortuguesePortugal: 
+      PortugueseBrazil: 
+      Dutch: 
+      Finnish: 
+      Italian: 
+      Polish: 
+      Ukrainian: 
+  - localizationKey: GAMEPLAY_Shotgun_AmmoBoxBirdshotDescription
+    languages:
+      English: A box of shotgun birdshot rounds.
+      German: 
+      Russian: 
+      French: 
+      Japanese: 
+      Korean: 
+      SimplifiedChinese: 
+      Swedish: 
+      TraditionalChinese: 
+      Turkish: 
+      Norwegian: 
+      Spanish: 
+      PortuguesePortugal: 
+      PortugueseBrazil: 
+      Dutch: 
+      Finnish: 
+      Italian: 
+      Polish: 
+      Ukrainian: 
+  - localizationKey: GAMEPLAY_Shotgun_AmmoBoxBuckshotDescription
+    languages:
+      English: A box of shotgun buckshot rounds.
+      German: 
+      Russian: 
+      French: 
+      Japanese: 
+      Korean: 
+      SimplifiedChinese: 
+      Swedish: 
+      TraditionalChinese: 
+      Turkish: 
+      Norwegian: 
+      Spanish: 
+      PortuguesePortugal: 
+      PortugueseBrazil: 
+      Dutch: 
+      Finnish: 
+      Italian: 
+      Polish: 
+      Ukrainian: 
+  - localizationKey: GAMEPLAY_Shotgun_AmmoSingleBirdshotDescription
+    languages:
+      English: A single shotgun birdshot round.
+      German: 
+      Russian: 
+      French: 
+      Japanese: 
+      Korean: 
+      SimplifiedChinese: 
+      Swedish: 
+      TraditionalChinese: 
+      Turkish: 
+      Norwegian: 
+      Spanish: 
+      PortuguesePortugal: 
+      PortugueseBrazil: 
+      Dutch: 
+      Finnish: 
+      Italian: 
+      Polish: 
+      Ukrainian: 
+  - localizationKey: GAMEPLAY_Shotgun_AmmoSingleBuckshotDescription
+    languages:
+      English: A single shotgun buckshot round.
       German: 
       Russian: 
       French: 

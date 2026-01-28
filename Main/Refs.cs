@@ -18,7 +18,7 @@ namespace Shotgun
     {
         internal vp_FPSPlayer? FPSPlayer { get; set; }
         internal vp_FPSCamera? FPSCamera { get; set; }
-        internal GunRefs? Shotgun { get; set; } = new();
+        internal ShotgunRefs? Shotgun { get; set; } = new();
         internal GunRefs? Rifle { get; set; } = new();
     }
 
@@ -33,6 +33,25 @@ namespace Shotgun
         internal FPHRefs FPH { get; set; } = new();
         internal FloatingRefs Floating { get; set; } = new();
         internal Il2CppSystem.Collections.Generic.List<Il2CppTLD.Gear.GearItemData> ValidAmmoGearItemDatas { get; set; } = new();
+    }
+
+
+    internal class ShotgunRefs
+    {
+        internal GunPrefabRefs Gun { get; set; } = new();
+        internal Dictionary<string, ShotgunAmmoTypeRefs> AmmoTypes { get; set; } = new();
+        internal CasingPrefabRefs Casing { get; set; } = new();
+        internal WeaponViewRefs WeaponView { get; set; } = new();
+        internal FPHRefs FPH { get; set; } = new();
+        internal FloatingRefs Floating { get; set; } = new();
+        internal Il2CppSystem.Collections.Generic.List<Il2CppTLD.Gear.GearItemData> ValidAmmoGearItemDatas { get; set; } = new();
+    }
+
+
+    internal class ShotgunAmmoTypeRefs
+    {
+        internal AmmoPrefabRefs AmmoSingle { get; set; } = new();
+        internal AmmoPrefabRefs AmmoBox { get; set; } = new();
     }
 
 

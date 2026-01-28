@@ -1,7 +1,7 @@
 {
   "ModAmmoComponent": {
-    "DisplayNameLocalizationId": "GAMEPLAY_Shotgun_AmmoBoxName",
-    "DescriptionLocalizatonId": "GAMEPLAY_Shotgun_AmmoBoxDescription",
+    "DisplayNameLocalizationId": "GAMEPLAY_Shotgun_AmmoSingleBuckshotName",
+    "DescriptionLocalizatonId": "GAMEPLAY_Shotgun_AmmoSingleBuckshotDescription",
     "InventoryActionLocalizationId": "",
     "WeightKG": 0.02,
     "DaysToDecay": 0,
@@ -15,13 +15,13 @@
     "InspectOnPickup": true,
     "InspectDistance": 1.0,
     "InspectAngles": [
-      0.0,
-      0.0,
+      20.0,
+      90.0,
       0.0
     ],
     "InspectOffset": [
       0.0,
-      0.0,
+      0.03,
       0.0
     ],
     "InspectScale": [
@@ -37,10 +37,12 @@
     "SingleUnitTextId": "GAMEPLAY_Shotgun_AmmoUnitSingular",
     "MultipleUnitTextId": "GAMEPLAY_Shotgun_AmmoUnitPlural",
     "StackSprite": "",
-    "UnitsPerItem": 6,
+    "UnitsPerItem": 1,
     "ChanceFull": 100.0,
-    "ShareStackWithGear": [],
-    "InstantiateStackItem": "",
+    "ShareStackWithGear": [
+      "GEAR_ShotgunAmmoBoxBuckshot"
+    ],
+    "InstantiateStackItem": "GEAR_ShotgunAmmoBoxBuckshot",
     "StackConditionDifferenceConstraint": 0.01
   },
   "ModHarvestableBehaviour": {

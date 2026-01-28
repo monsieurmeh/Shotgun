@@ -1,5 +1,5 @@
 {
-  "Name": "Shotgun Round",
+  "Name": "Shotgun Buckshot Round",
   "RequiredGear": [
     {
       "Item": "GEAR_ShotgunAmmoCasing",
@@ -24,7 +24,7 @@
   "RequiredCraftingLocation": "AmmoWorkbench",
   "RequiresLitFire": false,
   "RequiresLight": true,
-  "CraftedResult": "GEAR_ShotgunAmmoSingle",
+  "CraftedResult": "GEAR_ShotgunAmmoSingleBuckshot",
   "CraftedResultCount": 1,
   "DurationMinutes": 5,
   "CraftingAudio": "Play_HarvestingAmmo",
