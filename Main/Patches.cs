@@ -6,6 +6,7 @@ using MelonLoader;
 
 namespace Shotgun
 {
+    // Rare set of comments for me, since a lot of these patches do seemingly illogical things - always a good reason for it though!
     internal class Patches
     {
         [HarmonyPatch(typeof(EquipItemPopup), nameof(EquipItemPopup.AllowedToHideAmmoPopup))]
@@ -14,7 +15,16 @@ namespace Shotgun
         {
             internal static void Postfix(ref bool __result)
             {
-                __result = __result && (GameManager.GetPlayerManagerComponent().m_ItemInHands == null || GameManager.GetPlayerManagerComponent().m_ItemInHands.m_GunItem == null);
+                // Don't interfere with vanilla disallowing hiding of ammo popup, it has it's reasons for wanting it up.
+                if (!__result) return;
+
+                // If not holding anything at all, no reason to block hiding of ammo popup.
+                if (GameManager.GetPlayerManagerComponent().m_ItemInHands == null) return;
+
+                // If holding something but not a gunitem, no reason to block hiding of ammo popup.
+                if (GameManager.GetPlayerManagerComponent().m_ItemInHands.m_GunItem == null) return;
+
+                __result = false;
             }
         }
 
@@ -24,17 +34,33 @@ namespace Shotgun
         {
             internal static bool Prefix(GunItem __instance)
             {
-                return __instance.m_GunType == GunType.Camera || (InputManager.HasContext(InputManager.m_CurrentContext) && Input.GetKey(KeyCode.T));
+                // Don't bother unless custom gun type
+                if (__instance.m_GunType != GunTypeCustom) return true;
+
+                // Don't allow if ui NOT explicitly triggering ammo switch
+                if (!InputManager.HasContext(InputManager.m_CurrentContext)) return false;
+                if (!Input.GetKey(KeyCode.T)) return false;
+
+                // Allow otherwise
+                return true;
             }
         }
 
 
         [HarmonyPatch(typeof(GunItem), nameof(GunItem.PressReloadAmmo))]
-        internal static class GunItem_PreventReloadUnlessIntended
+        internal static class GunItem_PreventReloadAmmoUnlessIntended
         {
             internal static bool Prefix(GunItem __instance)
             {
-                return __instance.m_GunType == GunType.Camera || (InputManager.HasContext(InputManager.m_CurrentContext) && (Input.GetKey(KeyCode.R) || Input.GetKey(KeyCode.T)));
+                // Don't bother unless custom gun type
+                if (__instance.m_GunType != GunTypeCustom) return true;
+
+                // Don't allow if ui NOT explicitly triggering ammo reload OR switch
+                if (!InputManager.HasContext(InputManager.m_CurrentContext)) return false;
+                if (!Input.GetKey(KeyCode.T) && !Input.GetKey(KeyCode.R)) return false;
+
+                // Allow otherwise
+                return true;
             }
         }
 
@@ -44,11 +70,11 @@ namespace Shotgun
         {
             internal static void Postfix(GunItem __instance)
             {
-                if (__instance.name.Contains("Shotgun"))
-                {
-                    UpdateShotgunParams(__instance, __instance.ValidAmmo[__instance.m_SelectedAmmoIndex].DisplayName);
-                    CustomAmmoHUD.Current.Refresh();
-                }
+                // Don't bother unless custom guntype
+                if (__instance.m_GunType != GunTypeCustom) return;
+
+                UpdateShotgunParams(__instance, __instance.ValidAmmo[__instance.m_SelectedAmmoIndex].DisplayName);
+                CustomAmmoHUD.Current.Refresh();
             }
         }
 
@@ -58,17 +84,26 @@ namespace Shotgun
         {
             internal static void Postfix(GunItem __instance)
             {
-                if (__instance.m_GunType != GunType.Camera && InputManager.HasContext(InputManager.m_CurrentContext) && Input.GetKeyDown(KeyCode.T))
+                // Don't bother unless custom guntype
+                if (__instance.m_GunType != GunTypeCustom) return;
+
+                // Don't continue if ui NOT explicitly triggering ammo switch
+                if (!InputManager.HasContext(InputManager.m_CurrentContext)) return;
+                if (!Input.GetKeyDown(KeyCode.T)) return;
+
+                // Empty clip entirely
+                while (__instance.m_Clip.Count > 0)
                 {
-                    while (__instance.m_Clip.Count > 0)
-                    {
-                        GameManager.GetPlayerManagerComponent().InstantiateItemInPlayerInventory(__instance.ValidAmmo[__instance.m_SelectedAmmoIndex].m_PrefabReference);
-                        __instance.RemoveNextFromClip();
-                    }
-                    __instance.PressSwitchAmmo();
-                    UpdateShotgunParams(__instance, __instance.ValidAmmo[__instance.m_SelectedAmmoIndex].DisplayName);
-                    CustomAmmoHUD.Current.Refresh();
+                    GameManager.GetPlayerManagerComponent().InstantiateItemInPlayerInventory(__instance.ValidAmmo[__instance.m_SelectedAmmoIndex].m_PrefabReference);
+                    __instance.RemoveNextFromClip();
                 }
+
+                // Engage vanilla mechanism to switch to next valid ammo
+                __instance.PressSwitchAmmo();
+
+                // Update shotgun based on new ammo params and refresh HUD
+                UpdateShotgunParams(__instance, __instance.ValidAmmo[__instance.m_SelectedAmmoIndex].DisplayName);
+                CustomAmmoHUD.Current.Refresh();
             }
         }
 
@@ -80,16 +115,26 @@ namespace Shotgun
         {
             internal static void Postfix(GunItem __instance)
             {
-                if (__instance.m_GunType != GunType.Camera && InputManager.HasContext(InputManager.m_CurrentContext) && Input.GetKeyDown(KeyCode.R))
+                // Don't bother unless custom guntype
+                if (__instance.m_GunType != GunTypeCustom) return;
+
+                // Don't continue if ui NOT explicitly triggering ammo reload
+                if (!InputManager.HasContext(InputManager.m_CurrentContext)) return;
+                if (!Input.GetKeyDown(KeyCode.R)) return;
+
+                // Don't continue if clip is full, why would we empty and reload on a full clip?
+                if (__instance.m_Clip.Count == __instance.m_ClipSize) return;
+
+                // Empty clip entirely UNTIL we can get reload anim working with partial clip
+                while (__instance.m_Clip.Count > 0)
                 {
-                    while (__instance.m_Clip.Count > 0)
-                    {
-                        GameManager.GetPlayerManagerComponent().InstantiateItemInPlayerInventory(__instance.ValidAmmo[__instance.m_SelectedAmmoIndex].m_PrefabReference);
-                        __instance.RemoveNextFromClip();
-                    }
-                    __instance.PressReloadAmmo();
-                    CustomAmmoHUD.Current.Refresh();
+                    GameManager.GetPlayerManagerComponent().InstantiateItemInPlayerInventory(__instance.ValidAmmo[__instance.m_SelectedAmmoIndex].m_PrefabReference);
+                    __instance.RemoveNextFromClip();
                 }
+
+                // Engage vanilla mechanism to reload to a full clip and update HUD
+                __instance.PressReloadAmmo();
+                CustomAmmoHUD.Current.Refresh();
             }
         }
 
@@ -132,16 +177,13 @@ namespace Shotgun
                 switch (CustomAmmoHUD.Current.LoadedAmmo.name)
                 {
                     case "GEAR_ShotgunAmmoBoxBirdshot":
-                        __result = false;
-                        return;
                     case "GEAR_ShotgunAmmoBoxBuckshot":
-                        __result = Utils.RollChance(__instance.GetChanceKill(weapon) * 0.05f);
+                        __result = false; //We don't allow crits on multi-projectile shot
                         return;
                 }
             }
         }
 
-        /*
 
         [HarmonyPatch(typeof(BaseAi), nameof(BaseAi.ApplyDamage), new Type[] { typeof(float), typeof(float), typeof(DamageSource), typeof(string) })]
         internal static class BaseAi_LogDamage
@@ -173,9 +215,7 @@ namespace Shotgun
         }
 
 
-        */
-
-
+        // this should turn into an expansion of the ModAmmoComponent in ModComponent - these should all be parameters exposed and then applied just like this when that ammo is chosen.
         internal static void UpdateShotgunParams(GunItem gun, string ammoName)
         {
             if (gun == null) return;
