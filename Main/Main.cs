@@ -21,7 +21,7 @@ namespace Shotgun
         internal static Main? Instance { get; private set; }
 
         internal Configuration Configuration { get; private set; } = new();
-
+        internal Settings Settings { get; private set; } = new();
         internal bool LateInitialized { get; private set; } = false;
 
         public override void OnEarlyInitializeMelon()

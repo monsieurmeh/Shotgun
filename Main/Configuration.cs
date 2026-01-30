@@ -676,9 +676,9 @@ namespace Shotgun
             CustomAmmoHUD.HUDPreset preset = new CustomAmmoHUD.HUDPreset();
             preset.LoadedSprite = Addressables.LoadAssetAsync<Sprite>($"ico_Shotgun{ammoType}HUD").WaitForCompletion();
             preset.UnloadedSprite = Addressables.LoadAssetAsync<Sprite>($"ico_ShotgunEmptyHUD").WaitForCompletion();
-            preset.IconHeight = 30f;
-            preset.IconWidth = 10;
-            preset.IconSpacing = 10f;
+            preset.IconHeight = Settings.Instance.CustomAmmoHUDIconHeight;
+            preset.IconWidth = preset.IconHeight / 3;
+            preset.IconSpacing = preset.IconWidth * Settings.Instance.CustomAmmoHUDIconSpacingRatio;
             preset.IconsPerRow = 2;
             CustomAmmoHUD.Current.TryRegisterHUDPreset("GEAR_Shotgun", $"GEAR_ShotgunAmmoBox{ammoType}", preset);
         }

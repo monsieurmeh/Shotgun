@@ -63,7 +63,13 @@ namespace Shotgun
         private void Awake()
         {
             mCanvasObject = new GameObject("Canvas");
-            mCanvasObject.transform.SetParent(gameObject.transform);
+            mCanvasObject.transform.SetParent(null, false);
+
+            RectTransform canvasRect = mCanvasObject.AddComponent<RectTransform>();
+            canvasRect.anchorMin = Vector2.zero;
+            canvasRect.anchorMax = Vector2.one;
+            canvasRect.offsetMin = Vector2.zero;
+            canvasRect.offsetMax = Vector2.zero;
 
             mCanvas = mCanvasObject.AddComponent<Canvas>();
             mCanvas.renderMode = RenderMode.ScreenSpaceOverlay;
@@ -72,16 +78,17 @@ namespace Shotgun
             mCanvasScaler = mCanvasObject.AddComponent<CanvasScaler>();
             mCanvasScaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
             mCanvasScaler.referenceResolution = new Vector2(1920, 1080);
+            mCanvasScaler.matchWidthOrHeight = 0.5f; 
+
+            mCanvasObject.AddComponent<GraphicRaycaster>();
 
             mIconPanel = new GameObject("IconPanel");
             mIconPanel.transform.SetParent(mCanvasObject.transform, false);
 
-            mIconPanelRect = mIconPanel.GetOrCreateComponent<RectTransform>();
+            mIconPanelRect = mIconPanel.AddComponent<RectTransform>();
             mIconPanelRect.anchorMin = new Vector2(1f, 0f);
             mIconPanelRect.anchorMax = new Vector2(1f, 0f);
             mIconPanelRect.pivot = new Vector2(1f, 0f);
-
-            mIconPanelRect.anchoredPosition = new Vector2(-105f, 140f);
 
             mGridLayoutGroup = mIconPanel.AddComponent<GridLayoutGroup>();
             mGridLayoutGroup.startCorner = GridLayoutGroup.Corner.LowerRight;
@@ -90,6 +97,32 @@ namespace Shotgun
             mGridLayoutGroup.constraint = GridLayoutGroup.Constraint.FixedColumnCount;
 
             mLastAmmoCount = 0;
+
+            UpdateIconPanelPosition();
+        }
+
+        public void UpdateIconPanelPosition()
+        {
+            if (Settings.Instance == null) return;
+
+            float x = -Screen.width * ((float)Settings.Instance.CustomAmmoHUDXOffset / 1920f);
+            float y = Screen.height * ((float)Settings.Instance.CustomAmmoHUDYOffset / 1080f);
+
+            mIconPanelRect.anchoredPosition = new Vector2(x, y);
+
+            foreach (var preset in mHUDPresets.Values)
+            {
+                preset.IconHeight = Settings.Instance.CustomAmmoHUDIconHeight;
+                preset.IconWidth = preset.IconHeight / 3;
+                preset.IconSpacing = preset.IconWidth * Settings.Instance.CustomAmmoHUDIconSpacingRatio;
+            }
+
+            Refresh();
+        }
+
+        private void OnRectTransformDimensionsChange()
+        {
+            UpdateIconPanelPosition();
         }
 
         public void Update()
