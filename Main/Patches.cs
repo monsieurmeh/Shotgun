@@ -131,12 +131,14 @@ namespace Shotgun
                 GameManager.GetPlayerManagerComponent().InstantiateItemInPlayerInventory(__instance.m_CasingData.m_PrefabReference, __instance.m_SpentCasingsInClip);
                 __instance.m_SpentCasingsInClip = 0;
 
+                /*
                 // Empty clip entirely UNTIL we can get reload anim working with partial clip
                 while (__instance.m_Clip.Count > 0)
                 {
                     GameManager.GetPlayerManagerComponent().InstantiateItemInPlayerInventory(__instance.ValidAmmo[__instance.m_SelectedAmmoIndex].m_PrefabReference);
                     __instance.m_Clip.RemoveAt(0);
                 }
+                */
 
                 // Engage vanilla mechanism to reload to a full clip and update HUD
                 __instance.PressReloadAmmo();
@@ -152,6 +154,20 @@ namespace Shotgun
                 if (__instance.m_GunType != GunTypeCustom) return;
                 if (__instance.m_Clip.Count == 0) return;
                 __instance.m_SpentCasingsInClip++;
+            }
+        }
+
+        [HarmonyPatch(typeof(vp_FPSShooter), nameof(vp_FPSShooter.Reload), new Type[] { typeof(int) })]
+        internal static class vp_FPSShooter_EnsureCorrectReloadCount
+        {
+            internal static void Prefix(ref int ammoCount, vp_FPSShooter __instance)
+            {
+                if (__instance == null) return;
+                if (__instance.m_Weapon == null) return;
+                if (__instance.m_Weapon.m_GunItem == null) return;
+                if (__instance.m_Weapon.m_GunItem.m_GunType != GunTypeCustom) return;
+
+                ammoCount = __instance.m_Weapon.m_GunItem.m_ClipSize - __instance.m_Weapon.m_GunItem.m_Clip.Count;
             }
         }
 
