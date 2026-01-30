@@ -131,15 +131,6 @@ namespace Shotgun
                 GameManager.GetPlayerManagerComponent().InstantiateItemInPlayerInventory(__instance.m_CasingData.m_PrefabReference, __instance.m_SpentCasingsInClip);
                 __instance.m_SpentCasingsInClip = 0;
 
-                /*
-                // Empty clip entirely UNTIL we can get reload anim working with partial clip
-                while (__instance.m_Clip.Count > 0)
-                {
-                    GameManager.GetPlayerManagerComponent().InstantiateItemInPlayerInventory(__instance.ValidAmmo[__instance.m_SelectedAmmoIndex].m_PrefabReference);
-                    __instance.m_Clip.RemoveAt(0);
-                }
-                */
-
                 // Engage vanilla mechanism to reload to a full clip and update HUD
                 __instance.PressReloadAmmo();
                 CustomAmmoHUD.Current.Refresh();
@@ -215,7 +206,7 @@ namespace Shotgun
                         return;
                 }
             }
-        }
+        }       
 
 
         [HarmonyPatch(typeof(BaseAi), nameof(BaseAi.ApplyDamage), new Type[] { typeof(float), typeof(float), typeof(DamageSource), typeof(string) })]
