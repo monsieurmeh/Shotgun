@@ -91,11 +91,15 @@ namespace Shotgun
                 if (!InputManager.HasContext(InputManager.m_CurrentContext)) return;
                 if (!Input.GetKeyDown(KeyCode.T)) return;
 
+                // Place shell casings into inventory - makes sense as they are easily accessible while reloading unlike revolver which has 6 to replace.
+                GameManager.GetPlayerManagerComponent().InstantiateItemInPlayerInventory(__instance.m_CasingData.m_PrefabReference, __instance.m_SpentCasingsInClip);
+                __instance.m_SpentCasingsInClip = 0;
+
                 // Empty clip entirely
                 while (__instance.m_Clip.Count > 0)
                 {
                     GameManager.GetPlayerManagerComponent().InstantiateItemInPlayerInventory(__instance.ValidAmmo[__instance.m_SelectedAmmoIndex].m_PrefabReference);
-                    __instance.RemoveNextFromClip();
+                    __instance.m_Clip.RemoveAt(0);
                 }
 
                 // Engage vanilla mechanism to switch to next valid ammo
@@ -106,8 +110,6 @@ namespace Shotgun
                 CustomAmmoHUD.Current.Refresh();
             }
         }
-
-
 
 
         [HarmonyPatch(typeof(GunItem), nameof(GunItem.Update))]
@@ -125,16 +127,31 @@ namespace Shotgun
                 // Don't continue if clip is full, why would we empty and reload on a full clip?
                 if (__instance.m_Clip.Count == __instance.m_ClipSize) return;
 
+                // Place shell casings into inventory - makes sense as they are easily accessible while reloading unlike revolver which has 6 to replace.
+                GameManager.GetPlayerManagerComponent().InstantiateItemInPlayerInventory(__instance.m_CasingData.m_PrefabReference, __instance.m_SpentCasingsInClip);
+                __instance.m_SpentCasingsInClip = 0;
+
                 // Empty clip entirely UNTIL we can get reload anim working with partial clip
                 while (__instance.m_Clip.Count > 0)
                 {
                     GameManager.GetPlayerManagerComponent().InstantiateItemInPlayerInventory(__instance.ValidAmmo[__instance.m_SelectedAmmoIndex].m_PrefabReference);
-                    __instance.RemoveNextFromClip();
+                    __instance.m_Clip.RemoveAt(0);
                 }
 
                 // Engage vanilla mechanism to reload to a full clip and update HUD
                 __instance.PressReloadAmmo();
                 CustomAmmoHUD.Current.Refresh();
+            }
+        }
+
+        [HarmonyPatch(typeof(GunItem), nameof(GunItem.RemoveNextFromClip))]
+        internal static class GunItem_AddSpentShellCasingOnRemoveNextFromClip
+        {
+            internal static void Prefix(GunItem __instance)
+            {
+                if (__instance.m_GunType != GunTypeCustom) return;
+                if (__instance.m_Clip.Count == 0) return;
+                __instance.m_SpentCasingsInClip++;
             }
         }
 
