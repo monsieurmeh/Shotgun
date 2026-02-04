@@ -48,6 +48,12 @@
     <Reference Include="ModComponent">
       <HintPath>$(ModsPath)\ModComponent.dll</HintPath>
     </Reference>
+    <Reference Include="FiligranisSkills">
+      <HintPath>$(ModsPath)\FiligranisSkills.dll</HintPath>
+    </Reference>
+    <Reference Include="MehToolBox">
+      <HintPath>$(ModsPath)\MehToolBox.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
   <ItemGroup>

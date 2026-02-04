@@ -1,4 +1,5 @@
 ﻿global using static Shotgun.Utility.Utility;
+global using MehToolBox;
 using Il2Cpp;
 using System;
 using System.Collections.Generic;
