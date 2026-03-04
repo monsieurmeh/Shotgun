@@ -35,18 +35,28 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 20df821b54f84ae4cb8b7bc3e1e865fc
-    m_Address: ico_GearItem__ShotgunAmmoBoxBirdshot
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2c35b1e32ef401e418849e163bb76383
     m_Address: ShotgunAmmoSingleMesh_standardSurface1_BaseColor.1001
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 30ab1c4d5fd01a54abf5c6aad1e27547
+    m_Address: ico_GearItem__ShotgunAmmoBoxBirdshot
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3113b71c61d90f64fa672c5c71e21414
     m_Address: GEAR_ShotgunAmmoBoxBirdshot
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 33ef8c66053b35843bb74fc75a917207
+    m_Address: FPH_Shotgun
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 45b0748a386d1e44381cad77d48b68eb
+    m_Address: ico_ShotgunFlareHUD
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -57,11 +67,6 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 599cc86b11253364a835e8845667b135
     m_Address: ico_ShotgunSlugHUD
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 5befba9a7780b3e408793f8686bb1ef9
-    m_Address: ico_GearItem__ShotgunAmmoBoxSlug
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -90,8 +95,13 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 92649c61de2e60c419387941584afb33
+    m_Address: ico_GearItem__ShotgunAmmoBoxBuckshot
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 94d23ed78c6ff834d8f2652440a9a73a
-    m_Address: FPH_Shotgun
+    m_Address: FPH_Shotgun_OLD
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -120,18 +130,23 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ccea383ff9a4f3845ae65d0fa54db410
+    m_Address: ico_GearItem__ShotgunAmmoBoxSlug
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d3ec771b87c74d74b9a94992fa337583
     m_Address: GEAR_ShotgunAmmoSingleSlug
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: d822b1a64fe05604fb213cfd27d475d9
-    m_Address: ico_GearItem__ShotgunAmmoBoxBuckshot
+  - m_GUID: e67d8c77c09a14244b907f30a5fd9554
+    m_Address: ShotgunAmmoBoxMesh_Default_Material_BaseColor.1001
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: e67d8c77c09a14244b907f30a5fd9554
-    m_Address: ShotgunAmmoBoxMesh_Default_Material_BaseColor.1001
+  - m_GUID: efabf0e36642cb74da0b3cd4c7c99cc1
+    m_Address: GAMEPLAY_Shotgun_Discharge
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

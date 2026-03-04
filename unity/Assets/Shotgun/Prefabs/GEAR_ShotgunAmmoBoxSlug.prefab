@@ -10,9 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 487206438106937592}
   - component: {fileID: 6394233225737833577}
-  - component: {fileID: -4281823600205316806}
-  - component: {fileID: 8374269908421442898}
-  - component: {fileID: 1381579478453932289}
   m_Layer: 0
   m_Name: GEAR_ShotgunAmmoBoxSlug
   m_TagString: Untagged
@@ -57,78 +54,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.2408927, y: 0.09466626, z: 0.12217137}
   m_Center: {x: -0.00001064688, y: 0.000016994774, z: -0.000011608005}
---- !u!114 &-4281823600205316806
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1646895218734789835}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5b7770007a18f3499221e80cdac66d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DisplayNameLocalizationId: GAMEPLAY_Shotgun_AmmoBoxSlugName
-  DescriptionLocalizatonId: GAMEPLAY_Shotgun_AmmoBoxSlugDescription
-  InventoryActionLocalizationId: 
-  WeightKG: 0.02
-  DaysToDecay: 0
-  MaxHP: 100
-  InitialCondition: 1
-  InventoryCategory: 6
-  PickUpAudio: {fileID: 11400000, guid: bfe386bb10d83064cad92eaf27d2a50b, type: 2}
-  PutBackAudio: {fileID: 11400000, guid: bfe386bb10d83064cad92eaf27d2a50b, type: 2}
-  StowAudio: {fileID: 11400000, guid: bfe386bb10d83064cad92eaf27d2a50b, type: 2}
-  WornOutAudio: {fileID: 11400000, guid: bfe386bb10d83064cad92eaf27d2a50b, type: 2}
-  InspectOnPickup: 1
-  InspectDistance: 1
-  InspectAngles: {x: 0, y: 0, z: 0}
-  InspectOffset: {x: 0, y: 0, z: 0}
-  InspectScale: {x: 1, y: 1, z: 1}
-  NormalModel: {fileID: 0}
-  InspectModel: {fileID: 0}
-  AmmoForGunType: 2
---- !u!114 &8374269908421442898
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1646895218734789835}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8181b3dd6e8f5b143a90a869d85f7cb2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SingleUnitTextId: GAMEPLAY_Shotgun_AmmoUnitSingular
-  MultipleUnitTextId: GAMEPLAY_Shotgun_AmmoUnitPlural
-  StackSprite: 
-  UnitsPerItem: 6
-  ChanceFull: 100
-  ShareStackWithGear: []
-  InstantiateStackItem: {fileID: 0}
-  StackConditionDifferenceConstraint: 0.01
---- !u!114 &1381579478453932289
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1646895218734789835}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ef1a33782359ad459a4abd90c908127, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Audio: {fileID: 11400000, guid: f1c6de6d4392e6542a17b68d477656ad, type: 2}
-  Minutes: 5
-  Yields:
-  - YieldCounts: 1
-    YieldNames: {fileID: 11400000, guid: 451151ba75d8ceb41ac4aed9ff13a22e, type: 2}
-  - YieldCounts: 1
-    YieldNames: {fileID: 11400000, guid: 8da687a0ff9e9804da5b6bcfb18152cd, type: 2}
-  RequiredToolNames: []
 --- !u!1001 &6949865221881393500
 PrefabInstance:
   m_ObjectHideFlags: 0
