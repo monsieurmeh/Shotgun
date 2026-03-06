@@ -443,6 +443,7 @@ namespace Shotgun
             if (!InstantiateShotgunFPH(refs)) return false;
             if (!InstantiateShotgunFirstPersonWeapon(refs)) return false;
             if (!InstantiateShotgunAnimator(refs)) return false;
+            if (!InstantiateShotgunSubAnimator(refs)) return false;
             if (!InstantiateShotgunWeaponGroup(refs)) return false;
             if (!InstantiateShotgunVPFPSWeapon(refs)) return false;
             if (!InstantiateShotgunVPFPSShooter(refs)) return false;
@@ -579,6 +580,38 @@ namespace Shotgun
             return true;
         }
 
+
+        internal bool InstantiateShotgunSubAnimator(ConfigurationReferences refs)
+        {
+            MelonLogger.Msg("InstantiateShotgunSubAnimator");
+            Animator playerAnimator = GameManager.GetPlayerAnimationComponent().m_Animator;
+            if (playerAnimator == null)
+            {
+                MelonLogger.Error("Could not find player animator for sub-animator placement");
+                return false;
+            }
+
+            Transform gameDataChild = null;
+            for (int i = 0, iMax = playerAnimator.gameObject.transform.childCount; i < iMax; i++)
+            {
+                Transform child = playerAnimator.gameObject.transform.GetChild(i);
+                if (child.gameObject.name.Contains("GAME_DATA"))
+                {
+                    gameDataChild = child;
+                    break;
+                }
+            }
+
+            if (gameDataChild == null)
+            {
+                MelonLogger.Error("Could not find GAME_DATA child of player animator");
+                return false;
+            }
+
+            refs.SubAnimator = gameDataChild.gameObject.GetOrCreateComponent<Animator>();
+            return true;
+        }
+
         #endregion
 
 
@@ -617,6 +650,7 @@ namespace Shotgun
                 ConfigureShotgunFPHRoot(refs);
                 ConfigureShotgunFirstPersonWeapon(refs);
                 ConfigureShotgunAnimator(refs);
+                ConfigureShotgunSubAnimator(refs);
                 ConfigureShotgunFPSShooter(refs);
                 ConfigureShotgunFPSWeapon(refs);
                 ConfigureShotgunFPSRoot(refs);
@@ -748,13 +782,12 @@ namespace Shotgun
             gunItem.m_DamageHP = 125;
             gunItem.m_AccuracyRange = 35;
             gunItem.m_FiringRateSeconds = 0.35f;
-            gunItem.m_ReloadCoolDownSeconds = 1.5f;
             gunItem.m_MinDistanceForAimAssist = 15;
             gunItem.m_MuzzleFlash_FlashDelay = 0.1f;
             gunItem.m_MuzzleFlash_SmokeDelay = 0.15f;
-            gunItem.m_SwayValueMaxFatigue = 0.75f;
-            gunItem.m_SwayIncreasePerSecond = 0.1f;
-            gunItem.m_SwayDecreasePerSecond = 0.15f;
+
+            // Skill-based stats: reload, sway, hold duration
+            ShotgunSkill.ApplyToGunItem(gunItem);
         }
 
 
@@ -837,6 +870,18 @@ namespace Shotgun
             refs.Shotgun.FPH.Animator.avatar = refs.Rifle.FPH.Animator.avatar;
             refs.Shotgun.FPH.Animator.runtimeAnimatorController = refs.Rifle.FPH.Animator.runtimeAnimatorController;
             refs.Shotgun.FPH.Animator.cullingMode = AnimatorCullingMode.CullUpdateTransforms;
+        }
+
+
+        internal void ConfigureShotgunSubAnimator(ConfigurationReferences refs)
+        {
+            MelonLogger.Msg("ConfigureShotgunSubAnimator");
+            RuntimeAnimatorController controller = Addressables.LoadAssetAsync<RuntimeAnimatorController>("FPH_Shotgun_Controller").WaitForCompletion();
+            refs.SubAnimator.runtimeAnimatorController = controller;
+            refs.SubAnimator.avatar = refs.Rifle.FPH.Animator.avatar;
+            refs.SubAnimator.cullingMode = AnimatorCullingMode.CullUpdateTransforms;
+            refs.SubAnimator.enabled = false;
+            Patches.ShotgunSubAnimator = refs.SubAnimator;
         }
 
 

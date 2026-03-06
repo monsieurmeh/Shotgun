@@ -3,6 +3,8 @@ using ModComponent.Utils;
 using Il2Cpp;
 using UnityEngine;
 using MelonLoader;
+using UnityEngine.Playables;
+using UnityEngine.AddressableAssets;
 
 namespace Shotgun
 {
@@ -15,15 +17,9 @@ namespace Shotgun
         {
             internal static void Postfix(ref bool __result)
             {
-                // Don't interfere with vanilla disallowing hiding of ammo popup, it has it's reasons for wanting it up.
                 if (!__result) return;
-
-                // If not holding anything at all, no reason to block hiding of ammo popup.
                 if (GameManager.GetPlayerManagerComponent().m_ItemInHands == null) return;
-
-                // If holding something but not a gunitem, no reason to block hiding of ammo popup.
                 if (GameManager.GetPlayerManagerComponent().m_ItemInHands.m_GunItem == null) return;
-
                 __result = false;
             }
         }
@@ -34,14 +30,9 @@ namespace Shotgun
         {
             internal static bool Prefix(GunItem __instance)
             {
-                // Don't bother unless custom gun type
                 if (__instance.m_GunType != GunTypeCustom) return true;
-
-                // Don't allow if ui NOT explicitly triggering ammo switch
                 if (!InputManager.HasContext(InputManager.m_CurrentContext)) return false;
                 if (!Input.GetKey(KeyCode.T)) return false;
-
-                // Allow otherwise
                 return true;
             }
         }
@@ -52,14 +43,9 @@ namespace Shotgun
         {
             internal static bool Prefix(GunItem __instance)
             {
-                // Don't bother unless custom gun type
                 if (__instance.m_GunType != GunTypeCustom) return true;
-
-                // Don't allow if ui NOT explicitly triggering ammo reload OR switch
                 if (!InputManager.HasContext(InputManager.m_CurrentContext)) return false;
                 if (!Input.GetKey(KeyCode.T) && !Input.GetKey(KeyCode.R)) return false;
-
-                // Allow otherwise
                 return true;
             }
         }
@@ -70,9 +56,8 @@ namespace Shotgun
         {
             internal static void Postfix(GunItem __instance)
             {
-                // Don't bother unless custom guntype
                 if (__instance.m_GunType != GunTypeCustom) return;
-
+                ShotgunSkill.ApplyToGunItem(__instance);
                 UpdateShotgunParams(__instance, __instance.ValidAmmo[__instance.m_SelectedAmmoIndex].DisplayName);
                 CustomAmmoHUD.Current.Refresh();
             }
@@ -84,28 +69,21 @@ namespace Shotgun
         {
             internal static void Postfix(GunItem __instance)
             {
-                // Don't bother unless custom guntype
                 if (__instance.m_GunType != GunTypeCustom) return;
-
-                // Don't continue if ui NOT explicitly triggering ammo switch
                 if (!InputManager.HasContext(InputManager.m_CurrentContext)) return;
                 if (!Input.GetKeyDown(KeyCode.T)) return;
 
-                // Place shell casings into inventory - makes sense as they are easily accessible while reloading unlike revolver which has 6 to replace.
                 GameManager.GetPlayerManagerComponent().InstantiateItemInPlayerInventory(__instance.m_CasingData.m_PrefabReference, __instance.m_SpentCasingsInClip);
                 __instance.m_SpentCasingsInClip = 0;
 
-                // Empty clip entirely
                 while (__instance.m_Clip.Count > 0)
                 {
                     GameManager.GetPlayerManagerComponent().InstantiateItemInPlayerInventory(__instance.ValidAmmo[__instance.m_SelectedAmmoIndex].m_PrefabReference);
                     __instance.m_Clip.RemoveAt(0);
                 }
 
-                // Engage vanilla mechanism to switch to next valid ammo
                 __instance.PressSwitchAmmo();
 
-                // Update shotgun based on new ammo params and refresh HUD
                 UpdateShotgunParams(__instance, __instance.ValidAmmo[__instance.m_SelectedAmmoIndex].DisplayName);
                 CustomAmmoHUD.Current.Refresh();
             }
@@ -117,21 +95,14 @@ namespace Shotgun
         {
             internal static void Postfix(GunItem __instance)
             {
-                // Don't bother unless custom guntype
                 if (__instance.m_GunType != GunTypeCustom) return;
-
-                // Don't continue if ui NOT explicitly triggering ammo reload
                 if (!InputManager.HasContext(InputManager.m_CurrentContext)) return;
                 if (!Input.GetKeyDown(KeyCode.R)) return;
-
-                // Don't continue if clip is full, why would we empty and reload on a full clip?
                 if (__instance.m_Clip.Count == __instance.m_ClipSize) return;
-
-                // Place shell casings into inventory - makes sense as they are easily accessible while reloading unlike revolver which has 6 to replace.
+                
                 GameManager.GetPlayerManagerComponent().InstantiateItemInPlayerInventory(__instance.m_CasingData.m_PrefabReference, __instance.m_SpentCasingsInClip);
                 __instance.m_SpentCasingsInClip = 0;
-
-                // Engage vanilla mechanism to reload to a full clip and update HUD
+                
                 __instance.PressReloadAmmo();
                 CustomAmmoHUD.Current.Refresh();
             }
@@ -169,6 +140,9 @@ namespace Shotgun
             internal static void Postfix(GunItem __instance)
             {
                 CustomAmmoHUD.Current.Refresh();
+
+                if (__instance.m_GunType != GunTypeCustom) return;
+                ShotgunSkill.MaybeIncreaseSkillOnFire();
             }
         }
 
@@ -235,6 +209,85 @@ namespace Shotgun
             internal static void Postfix(vp_Bullet __instance)
             {
                 MelonLogger.Msg($"Damage: {__instance.Damage} | DamageFalloffPerMeterBeyondEffectiveRange: {__instance.DamageFalloffPerMeterBeyondEffectiveRange} | MinDamageFalloffBeyondEffectiveRange: {__instance.MinimumDamageFalloffBeyondEffectiveRange} | Accuracy: {__instance.Accuracy}");
+            }
+        }
+
+
+        internal static Animator? ShotgunSubAnimator;
+
+
+        internal static bool MaybeLatchShotgunAnimator(PlayerAnimation instance)
+        {
+            if (instance.m_EquippedFirstPersonWeaponShoulder == null) return false;
+            if (ShotgunSubAnimator == null) return false;
+
+            Animator nativeAnimator = instance.m_EquippedFirstPersonWeaponShoulder.m_Animator;
+            bool isShotgun = nativeAnimator != null
+                && instance.m_EquippedFirstPersonWeaponShoulder.name.Contains("Shotgun");
+
+            bool subAnimatorActive = ShotgunSubAnimator.enabled;
+
+            if (isShotgun && !subAnimatorActive)
+            {
+                if (nativeAnimator != null) 
+                    nativeAnimator.enabled = false;
+
+                ShotgunSubAnimator.enabled = true;
+            }
+
+            if (!isShotgun && subAnimatorActive)
+            {
+                ShotgunSubAnimator.enabled = false;
+
+                if (nativeAnimator != null) 
+                    nativeAnimator.enabled = true;
+            }
+
+            return isShotgun;
+        }
+
+
+        [HarmonyPatch(typeof(PlayerAnimation), nameof(PlayerAnimation.Trigger_Generic_Aim))]
+        internal static class PlayerAnimation_ShotgunAim
+        {
+            internal static void Postfix(PlayerAnimation __instance)
+            {
+                if (!MaybeLatchShotgunAnimator(__instance)) return;
+                ShotgunSubAnimator.SetTrigger("Trigger_Generic_Aim");
+            }
+        }
+
+
+        [HarmonyPatch(typeof(PlayerAnimation), nameof(PlayerAnimation.Trigger_Generic_Aim_Cancel))]
+        internal static class PlayerAnimation_ShotgunAimCancel
+        {
+            internal static void Postfix(PlayerAnimation __instance)
+            {
+                if (!MaybeLatchShotgunAnimator(__instance)) return;
+                ShotgunSubAnimator.SetTrigger("Trigger_Generic_Aim_Cancel");
+            }
+        }
+
+
+        [HarmonyPatch(typeof(PlayerAnimation), nameof(PlayerAnimation.Trigger_Generic_Fire))]
+        internal static class PlayerAnimation_ShotgunFire
+        {
+            internal static void Postfix(PlayerAnimation __instance)
+            {
+                if (!MaybeLatchShotgunAnimator(__instance)) return;
+                ShotgunSubAnimator.SetTrigger("Trigger_Generic_Fire");
+            }
+        }
+
+
+        [HarmonyPatch(typeof(vp_FPSWeapon), nameof(vp_FPSWeapon.PlayFireAnimation))]
+        internal static class vp_FPSWeapon_PlayFireAnimation
+        {
+            internal static bool Prefix(vp_FPSWeapon __instance)
+            {
+                if (__instance.m_GunItem == null) return true;
+                if (__instance.m_GunItem.m_GunType != GunTypeCustom) return true;
+                return true;
             }
         }
 

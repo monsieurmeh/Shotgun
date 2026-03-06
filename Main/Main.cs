@@ -19,9 +19,8 @@ namespace Shotgun
     public class Main : MelonMod
     {
         internal static Main? Instance { get; private set; }
-
         internal Configuration Configuration { get; private set; } = new();
-        internal Settings Settings { get; private set; } = new();
+        internal Settings? Settings { get; private set; }
         internal bool LateInitialized { get; private set; } = false;
 
         public override void OnEarlyInitializeMelon()
@@ -38,7 +37,8 @@ namespace Shotgun
                 string modsPath = MelonEnvironment.ModsDirectory;
                 string basePath = Path.Combine(modsPath, DataFolderPath);
                 Directory.CreateDirectory(basePath);
-                bool shouldForceRefreshEmbeddedData = Versioning.IsVersionCorrect(basePath, "0.9.5");
+                Settings = new();
+                bool shouldForceRefreshEmbeddedData = Versioning.IsVersionCorrect(basePath, "0.9.6");
                 EmbeddedResourceExtractor.RefreshEmbeddedData(modsPath, "Shotgun.modcomponent", shouldForceRefreshEmbeddedData);
                 MelonLogger.Msg("EarlyInitialize Complete");
             }
@@ -55,6 +55,8 @@ namespace Shotgun
             {
                 Interfaces = new Il2CppInterfaceCollection(new[] { typeof(IResourceLocator) })
             });
+
+            ShotgunSkill.Init();
         }
 
         public bool Register = false;
@@ -85,6 +87,7 @@ namespace Shotgun
                 {
                     MelonLogger.Msg("Delaying late initialize until non-boot/main scene load");
                     LateInitialized = false;
+                    Patches.ShotgunSubAnimator = null;
                     return;
                 }
                 if (LateInitialized)

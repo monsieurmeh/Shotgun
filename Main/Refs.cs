@@ -18,6 +18,7 @@ namespace Shotgun
     {
         internal vp_FPSPlayer? FPSPlayer { get; set; }
         internal vp_FPSCamera? FPSCamera { get; set; }
+        internal Animator? SubAnimator { get; set; }
         internal ShotgunRefs? Shotgun { get; set; } = new();
         internal GunRefs? Rifle { get; set; } = new();
     }
