@@ -36,8 +36,11 @@ namespace Shotgun
 
         internal void OnPlaySound(string sound)
         {
-            // TODO: implement sound playback
-            MelonLogger.Msg($"AnimationEventProxy.OnPlaySound: {sound}");
+            ConfigurationReferences refs = Main.Instance.Configuration.Refs;
+            if (refs.ClipManager == null || refs.AudioShot == null) return;
+            AudioMgr.Clip clip = refs.ClipManager.GetClip(sound);
+            if (clip == null) return;
+            refs.AudioShot._audioSource.PlayOneShot(clip.audioClip);
         }
     }
 }

@@ -38,7 +38,7 @@ namespace Shotgun
                 string basePath = Path.Combine(modsPath, DataFolderPath);
                 Directory.CreateDirectory(basePath);
                 Settings = new();
-                bool shouldForceRefreshEmbeddedData = Versioning.IsVersionCorrect(basePath, "0.9.7");
+                bool shouldForceRefreshEmbeddedData = Versioning.IsVersionCorrect(basePath, "0.9.8");
                 EmbeddedResourceExtractor.RefreshEmbeddedData(modsPath, "Shotgun.modcomponent", shouldForceRefreshEmbeddedData);
                 MelonLogger.Msg("EarlyInitialize Complete");
             }

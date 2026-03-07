@@ -54,6 +54,9 @@
     <Reference Include="MehToolBox">
       <HintPath>$(ModsPath)\MehToolBox.dll</HintPath>
     </Reference>
+    <Reference Include="AudioManager">
+      <HintPath>$(ModsPath)\AudioManager.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
   <ItemGroup>

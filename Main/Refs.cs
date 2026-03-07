@@ -22,6 +22,8 @@ namespace Shotgun
         internal Animator? ModdedAnimator { get; set; }
         internal ShotgunRefs? Shotgun { get; set; } = new();
         internal GunRefs? Rifle { get; set; } = new();
+        internal AudioMgr.ClipManager? ClipManager { get; set; }
+        internal AudioMgr.Shot? AudioShot { get; set; }
     }
 
 

@@ -653,6 +653,7 @@ namespace Shotgun
                 ConfigureShotgunFirstPersonWeapon(refs);
                 ConfigureShotgunAnimator(refs);
                 ConfigureModdedAnimator(refs);
+                ConfigureShotgunAudio(refs);
                 ConfigureShotgunFPSShooter(refs);
                 ConfigureShotgunFPSWeapon(refs);
                 ConfigureShotgunFPSRoot(refs);
@@ -885,6 +886,28 @@ namespace Shotgun
             refs.ModdedAnimator.enabled = false;
 
             refs.ModdedAnimator.gameObject.GetOrCreateComponent<AnimationEventProxy>();
+        }
+
+
+        internal void ConfigureShotgunAudio(ConfigurationReferences refs)
+        {
+            MelonLogger.Msg("ConfigureShotgunAudio");
+            refs.ClipManager = AudioMgr.AudioMaster.NewClipManager();
+            refs.AudioShot = AudioMgr.AudioMaster.CreatePlayerShot(AudioMgr.AudioMaster.SourceType.SFX);
+
+            RegisterAudioClip(refs, "GAMEPLAY_Shotgun_Discharge");
+        }
+
+        internal void RegisterAudioClip(ConfigurationReferences refs, string addressableKey)
+        {
+            AudioClip clip = Addressables.LoadAssetAsync<AudioClip>(addressableKey).WaitForCompletion();
+            if (clip == null)
+            {
+                MelonLogger.Error($"Failed to load audio clip: {addressableKey}");
+                return;
+            }
+            refs.ClipManager.RegisterClip(addressableKey, clip);
+            MelonLogger.Msg($"Registered audio clip: {addressableKey}");
         }
 
 

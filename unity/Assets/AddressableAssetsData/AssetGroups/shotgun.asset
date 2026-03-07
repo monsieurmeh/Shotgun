@@ -100,6 +100,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7645ad147a052a449ba06523ce6cd164
+    m_Address: GAMEPLAY_Shotgun_Discharge
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 795348f75cccf994091af03b522ae7dd
     m_Address: ico_ShotgunEmptyHUD
     m_ReadOnly: 0
@@ -192,11 +197,6 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e67d8c77c09a14244b907f30a5fd9554
     m_Address: ShotgunAmmoBoxMesh_Default_Material_BaseColor.1001
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: efabf0e36642cb74da0b3cd4c7c99cc1
-    m_Address: GAMEPLAY_Shotgun_Discharge
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
