@@ -8,7 +8,6 @@ using UnityEngine.AddressableAssets;
 
 namespace Shotgun
 {
-    // Rare set of comments for me, since a lot of these patches do seemingly illogical things - always a good reason for it though!
     internal class Patches
     {
         [HarmonyPatch(typeof(EquipItemPopup), nameof(EquipItemPopup.AllowedToHideAmmoPopup))]
@@ -218,21 +217,18 @@ namespace Shotgun
             Animator vanillaAnimator = Main.Instance.Configuration.Refs.VanillaAnimator;
             if (vanillaAnimator == null)
             {
-                MelonLogger.Msg($"[{callerName}] ABORT LATCH: Null vanilla animator");
                 return false;
             }
 
             Animator moddedAnimator = Main.Instance.Configuration.Refs.ModdedAnimator;
             if (moddedAnimator == null)
             {
-                MelonLogger.Msg($"[{callerName}] ABORT LATCH: Null modded animator");
                 vanillaAnimator.enabled = true;
                 return false;
             }
 
             if (instance.m_EquippedFirstPersonWeaponShoulder == null)
             {
-                MelonLogger.Msg($"[{callerName}] ABORT LATCH: Null FPS Shoulder");
                 moddedAnimator.enabled = false;
                 vanillaAnimator.enabled = true;
                 return false;
@@ -241,7 +237,6 @@ namespace Shotgun
 
             if (shotgunAnimator == null)
             {
-                MelonLogger.Msg($"[{callerName}] ABORT LATCH: Null Shotgun Animator");
                 moddedAnimator.enabled = false;
                 vanillaAnimator.enabled = true;
                 return false;
@@ -252,8 +247,6 @@ namespace Shotgun
             moddedAnimator.enabled = isShotgun;
             vanillaAnimator.enabled = !isShotgun;
             shotgunAnimator.enabled = !isShotgun;
-
-            MelonLogger.Msg($"[{callerName}] LATCH: {isShotgun}");
 
             return isShotgun;
         }
@@ -267,17 +260,11 @@ namespace Shotgun
             {
                 if (!MaybeLatchShotgunAnimator(__instance, "Equip")) return;
 
-                // Rename the clone so animation clip paths match (clips target "FPH_Shotgun", not "FPH_Shotgun (Clone)")
                 if (__instance.m_EquippedFirstPersonWeaponShoulder != null)
                     __instance.m_EquippedFirstPersonWeaponShoulder.gameObject.name = ShotgunFPHPrefabName;
-
-                // With the vanilla animator disabled, animation events that advance the state machine
-                // will never fire. Manually simulate them so m_State reaches Idle (5) and subsequent
-                // Trigger_Generic_Aim / Fire calls aren't blocked by MaybeSetState.
-                MelonLogger.Msg("[Equip] Manually firing ShowItem + EquipComplete to advance state machine");
+                Main.Instance.Configuration.Refs.ModdedAnimator.Rebind();
                 __instance.OnAnimationEvent_Generic_Equip_ShowItem();
                 __instance.OnAnimationEvent_Generic_Equip_Complete();
-                MelonLogger.Msg($"[Equip] State after manual advance: {__instance.m_State}");
             }
         }
 
