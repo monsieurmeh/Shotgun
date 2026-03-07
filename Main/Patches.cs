@@ -213,37 +213,72 @@ namespace Shotgun
         }
 
 
-        internal static Animator? ShotgunSubAnimator;
-
-
-        internal static bool MaybeLatchShotgunAnimator(PlayerAnimation instance)
+        internal static bool MaybeLatchShotgunAnimator(PlayerAnimation instance, string callerName = "")
         {
-            if (instance.m_EquippedFirstPersonWeaponShoulder == null) return false;
-            if (ShotgunSubAnimator == null) return false;
-
-            Animator nativeAnimator = instance.m_EquippedFirstPersonWeaponShoulder.m_Animator;
-            bool isShotgun = nativeAnimator != null
-                && instance.m_EquippedFirstPersonWeaponShoulder.name.Contains("Shotgun");
-
-            bool subAnimatorActive = ShotgunSubAnimator.enabled;
-
-            if (isShotgun && !subAnimatorActive)
+            Animator vanillaAnimator = Main.Instance.Configuration.Refs.VanillaAnimator;
+            if (vanillaAnimator == null)
             {
-                if (nativeAnimator != null) 
-                    nativeAnimator.enabled = false;
-
-                ShotgunSubAnimator.enabled = true;
+                MelonLogger.Msg($"[{callerName}] ABORT LATCH: Null vanilla animator");
+                return false;
             }
 
-            if (!isShotgun && subAnimatorActive)
+            Animator moddedAnimator = Main.Instance.Configuration.Refs.ModdedAnimator;
+            if (moddedAnimator == null)
             {
-                ShotgunSubAnimator.enabled = false;
-
-                if (nativeAnimator != null) 
-                    nativeAnimator.enabled = true;
+                MelonLogger.Msg($"[{callerName}] ABORT LATCH: Null modded animator");
+                vanillaAnimator.enabled = true;
+                return false;
             }
+
+            if (instance.m_EquippedFirstPersonWeaponShoulder == null)
+            {
+                MelonLogger.Msg($"[{callerName}] ABORT LATCH: Null FPS Shoulder");
+                moddedAnimator.enabled = false;
+                vanillaAnimator.enabled = true;
+                return false;
+            }
+            Animator shotgunAnimator = instance.m_EquippedFirstPersonWeaponShoulder.m_Animator;
+
+            if (shotgunAnimator == null)
+            {
+                MelonLogger.Msg($"[{callerName}] ABORT LATCH: Null Shotgun Animator");
+                moddedAnimator.enabled = false;
+                vanillaAnimator.enabled = true;
+                return false;
+            }
+
+            bool isShotgun = instance.m_EquippedFirstPersonWeaponShoulder.name.Contains("Shotgun");
+
+            moddedAnimator.enabled = isShotgun;
+            vanillaAnimator.enabled = !isShotgun;
+            shotgunAnimator.enabled = !isShotgun;
+
+            MelonLogger.Msg($"[{callerName}] LATCH: {isShotgun}");
 
             return isShotgun;
+        }
+
+
+
+        [HarmonyPatch(typeof(PlayerAnimation), nameof(PlayerAnimation.Trigger_Generic_Equip))]
+        internal static class PlayerAnimation_ShotgunEquip
+        {
+            internal static void Postfix(PlayerAnimation __instance)
+            {
+                if (!MaybeLatchShotgunAnimator(__instance, "Equip")) return;
+
+                // Rename the clone so animation clip paths match (clips target "FPH_Shotgun", not "FPH_Shotgun (Clone)")
+                if (__instance.m_EquippedFirstPersonWeaponShoulder != null)
+                    __instance.m_EquippedFirstPersonWeaponShoulder.gameObject.name = ShotgunFPHPrefabName;
+
+                // With the vanilla animator disabled, animation events that advance the state machine
+                // will never fire. Manually simulate them so m_State reaches Idle (5) and subsequent
+                // Trigger_Generic_Aim / Fire calls aren't blocked by MaybeSetState.
+                MelonLogger.Msg("[Equip] Manually firing ShowItem + EquipComplete to advance state machine");
+                __instance.OnAnimationEvent_Generic_Equip_ShowItem();
+                __instance.OnAnimationEvent_Generic_Equip_Complete();
+                MelonLogger.Msg($"[Equip] State after manual advance: {__instance.m_State}");
+            }
         }
 
 
@@ -252,8 +287,8 @@ namespace Shotgun
         {
             internal static void Postfix(PlayerAnimation __instance)
             {
-                if (!MaybeLatchShotgunAnimator(__instance)) return;
-                ShotgunSubAnimator.SetTrigger("Trigger_Generic_Aim");
+                if (!MaybeLatchShotgunAnimator(__instance, "Aim")) return;
+                Main.Instance.Configuration.Refs.ModdedAnimator.SetTrigger("Trigger_Generic_Aim");
             }
         }
 
@@ -263,8 +298,8 @@ namespace Shotgun
         {
             internal static void Postfix(PlayerAnimation __instance)
             {
-                if (!MaybeLatchShotgunAnimator(__instance)) return;
-                ShotgunSubAnimator.SetTrigger("Trigger_Generic_Aim_Cancel");
+                if (!MaybeLatchShotgunAnimator(__instance, "AimCancel")) return;
+                Main.Instance.Configuration.Refs.ModdedAnimator.SetTrigger("Trigger_Generic_Aim_Cancel");
             }
         }
 
@@ -274,8 +309,8 @@ namespace Shotgun
         {
             internal static void Postfix(PlayerAnimation __instance)
             {
-                if (!MaybeLatchShotgunAnimator(__instance)) return;
-                ShotgunSubAnimator.SetTrigger("Trigger_Generic_Fire");
+                if (!MaybeLatchShotgunAnimator(__instance, "Fire")) return;
+                Main.Instance.Configuration.Refs.ModdedAnimator.SetTrigger("Trigger_Generic_Fire");
             }
         }
 

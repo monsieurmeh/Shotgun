@@ -87,7 +87,6 @@ namespace Shotgun
                 {
                     MelonLogger.Msg("Delaying late initialize until non-boot/main scene load");
                     LateInitialized = false;
-                    Patches.ShotgunSubAnimator = null;
                     return;
                 }
                 if (LateInitialized)
