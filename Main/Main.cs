@@ -38,7 +38,7 @@ namespace Shotgun
                 string basePath = Path.Combine(modsPath, DataFolderPath);
                 Directory.CreateDirectory(basePath);
                 Settings = new();
-                bool shouldForceRefreshEmbeddedData = Versioning.IsVersionCorrect(basePath, "0.9.6");
+                bool shouldForceRefreshEmbeddedData = Versioning.IsVersionCorrect(basePath, "0.9.7");
                 EmbeddedResourceExtractor.RefreshEmbeddedData(modsPath, "Shotgun.modcomponent", shouldForceRefreshEmbeddedData);
                 MelonLogger.Msg("EarlyInitialize Complete");
             }
@@ -55,6 +55,8 @@ namespace Shotgun
             {
                 Interfaces = new Il2CppInterfaceCollection(new[] { typeof(IResourceLocator) })
             });
+
+            ClassInjector.RegisterTypeInIl2Cpp<AnimationEventProxy>();
 
             ShotgunSkill.Init();
         }

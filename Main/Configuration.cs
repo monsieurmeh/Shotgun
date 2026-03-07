@@ -883,6 +883,8 @@ namespace Shotgun
             //refs.SubAnimator.avatar = refs.Rifle.FPH.Animator.avatar;
             refs.ModdedAnimator.cullingMode = AnimatorCullingMode.CullUpdateTransforms;
             refs.ModdedAnimator.enabled = false;
+
+            refs.ModdedAnimator.gameObject.GetOrCreateComponent<AnimationEventProxy>();
         }
 
 
