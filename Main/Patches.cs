@@ -302,6 +302,29 @@ namespace Shotgun
         }
 
 
+        [HarmonyPatch(typeof(PlayerAnimation), nameof(PlayerAnimation.IsAllowedToFire))]
+        internal static class PlayerAnimation_IsAllowedToFire_ShotgunOverride
+        {
+            internal static bool Prefix(PlayerAnimation __instance, bool allowHipFire, ref bool __result)
+            {
+                if (__instance.m_EquippedFirstPersonWeaponShoulder == null) return true;
+                if (!__instance.m_EquippedFirstPersonWeaponShoulder.name.Contains("Shotgun")) return true;
+
+                if (allowHipFire)
+                {
+                    int state = (int)__instance.m_State;
+                    int blocked = (1 << (int)PlayerAnimation.State.Equipping) | (1 << (int)PlayerAnimation.State.Dequipping);
+                    __result = ((1 << state) & blocked) == 0;
+                }
+                else
+                {
+                    __result = __instance.m_State == PlayerAnimation.State.Aiming;
+                }
+                return false;
+            }
+        }
+
+
         [HarmonyPatch(typeof(vp_FPSWeapon), nameof(vp_FPSWeapon.PlayFireAnimation))]
         internal static class vp_FPSWeapon_PlayFireAnimation
         {
