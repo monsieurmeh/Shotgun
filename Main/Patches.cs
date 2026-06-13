@@ -10,6 +10,16 @@ namespace Shotgun
 {
     internal class Patches
     {
+        internal static void SyncAmmoParams(GunItem gunItem, string source)
+        {
+            if (gunItem == null || gunItem.m_Clip == null) return;
+            Animator moddedAnimator = Main.Instance?.Configuration?.Refs?.ModdedAnimator;
+            if (moddedAnimator == null) return;
+            moddedAnimator.SetInteger("Rounds_Loaded", gunItem.m_Clip.Count);
+            moddedAnimator.SetInteger("SpentCasingsInClip", gunItem.m_SpentCasingsInClip);
+            MelonLogger.Msg($"[Sync] ({source}): Rounds_Loaded={gunItem.m_Clip.Count} SpentCasings={gunItem.m_SpentCasingsInClip}");
+        }
+
         [HarmonyPatch(typeof(EquipItemPopup), nameof(EquipItemPopup.AllowedToHideAmmoPopup))]
         [HarmonyPriority(-999999)]
         internal static class EquipItemPopup_AllowedToHideAmmoPopup_ModComponentCompatibilityFix
@@ -17,8 +27,10 @@ namespace Shotgun
             internal static void Postfix(ref bool __result)
             {
                 if (!__result) return;
-                if (GameManager.GetPlayerManagerComponent().m_ItemInHands == null) return;
-                if (GameManager.GetPlayerManagerComponent().m_ItemInHands.m_GunItem == null) return;
+                PlayerManager playerManager = GameManager.GetPlayerManagerComponent();
+                if (playerManager == null) return;
+                if (playerManager.m_ItemInHands == null) return;
+                if (playerManager.m_ItemInHands.m_GunItem == null) return;
                 __result = false;
             }
         }
@@ -72,14 +84,6 @@ namespace Shotgun
                 if (!InputManager.HasContext(InputManager.m_CurrentContext)) return;
                 if (!Input.GetKeyDown(KeyCode.T)) return;
 
-                GameManager.GetPlayerManagerComponent().InstantiateItemInPlayerInventory(__instance.m_CasingData.m_PrefabReference, __instance.m_SpentCasingsInClip);
-                __instance.m_SpentCasingsInClip = 0;
-
-                while (__instance.m_Clip.Count > 0)
-                {
-                    GameManager.GetPlayerManagerComponent().InstantiateItemInPlayerInventory(__instance.ValidAmmo[__instance.m_SelectedAmmoIndex].m_PrefabReference);
-                    __instance.m_Clip.RemoveAt(0);
-                }
 
                 __instance.PressSwitchAmmo();
 
@@ -92,16 +96,31 @@ namespace Shotgun
         [HarmonyPatch(typeof(GunItem), nameof(GunItem.Update))]
         internal static class GunItem_ReloadAmmoOnR
         {
+            private static float mReloadDbgTimer = 0f;
+
             internal static void Postfix(GunItem __instance)
             {
                 if (__instance.m_GunType != GunTypeCustom) return;
+
+                // Periodic diagnostics every 3s
+                mReloadDbgTimer += Time.deltaTime;
+                if (mReloadDbgTimer >= 3f)
+                {
+                    mReloadDbgTimer = 0f;
+                    GearItem weaponInHands = GameManager.GetPlayerManagerComponent()?.m_ItemInHands;
+                    Inventory inventory = GameManager.GetInventoryComponent();
+                    int ammoAvailable = (weaponInHands != null && inventory != null) ? inventory.GetAmmoAvailableForWeapon(weaponInHands) : -1;
+                }
+
                 if (!InputManager.HasContext(InputManager.m_CurrentContext)) return;
                 if (!Input.GetKeyDown(KeyCode.R)) return;
-                if (__instance.m_Clip.Count == __instance.m_ClipSize) return;
-                
-                GameManager.GetPlayerManagerComponent().InstantiateItemInPlayerInventory(__instance.m_CasingData.m_PrefabReference, __instance.m_SpentCasingsInClip);
-                __instance.m_SpentCasingsInClip = 0;
-                
+
+
+                if (__instance.m_Clip.Count == __instance.m_ClipSize && __instance.m_SpentCasingsInClip == 0)
+                {
+                    return;
+                }
+
                 __instance.PressReloadAmmo();
                 CustomAmmoHUD.Current.Refresh();
             }
@@ -128,7 +147,25 @@ namespace Shotgun
                 if (__instance.m_Weapon.m_GunItem == null) return;
                 if (__instance.m_Weapon.m_GunItem.m_GunType != GunTypeCustom) return;
 
-                ammoCount = __instance.m_Weapon.m_GunItem.m_ClipSize - __instance.m_Weapon.m_GunItem.m_Clip.Count;
+                GunItem gunItem = __instance.m_Weapon.m_GunItem;
+
+                int slotsToFill;
+                if (gunItem.m_PreviousAmmoIndex >= 0)
+                {
+                    slotsToFill = gunItem.m_ClipSize;
+                }
+                else
+                {
+                    slotsToFill = gunItem.m_ClipSize - gunItem.m_Clip.Count;
+                }
+
+                int ammoAvailable = 0;
+                GearItem weaponInHands = GameManager.GetPlayerManagerComponent()?.m_ItemInHands;
+                Inventory inventory = GameManager.GetInventoryComponent();
+                if (weaponInHands != null && inventory != null)
+                    ammoAvailable = inventory.GetAmmoAvailableForWeapon(weaponInHands);
+
+                ammoCount = Math.Min(slotsToFill, ammoAvailable);
             }
         }
 
@@ -141,7 +178,18 @@ namespace Shotgun
                 CustomAmmoHUD.Current.Refresh();
 
                 if (__instance.m_GunType != GunTypeCustom) return;
+                SyncAmmoParams(__instance, "fire");
                 ShotgunSkill.MaybeIncreaseSkillOnFire();
+            }
+        }
+
+
+        [HarmonyPatch(typeof(vp_FPSShooter), nameof(vp_FPSShooter.OnBulletLoaded))]
+        internal static class vp_FPSShooter_RefreshHUDOnBulletLoaded
+        {
+            internal static void Postfix()
+            {
+                CustomAmmoHUD.Current.Refresh();
             }
         }
 
@@ -252,6 +300,39 @@ namespace Shotgun
         }
 
 
+        [HarmonyPatch(typeof(PlayerMovement), nameof(PlayerMovement.Update))]
+        internal static class PlayerMovement_TransmitLocomotion
+        {
+            private static Vector3 mLastPosisiton; 
+
+            internal static void Postfix(PlayerMovement __instance)
+            {
+                Animator moddedAnimator = Main.Instance?.Configuration?.Refs?.ModdedAnimator;
+                if (moddedAnimator == null || !moddedAnimator.enabled) return;
+
+                bool sprint = InputManager.GetSprintDown(__instance);
+                Vector2 move = InputManager.GetPlayerMovement(__instance);
+                bool hasInput = move.sqrMagnitude > 0.0001f;
+                Transform playerTransform = GameManager.GetPlayerTransform();
+                float speed = 0f;
+
+                if (playerTransform != null && Time.deltaTime > 0f)
+                {
+                    if (mLastPosisiton != Vector3.zero) 
+                    { 
+                        Vector3 d = playerTransform.position - mLastPosisiton; 
+                        d.y = 0f; 
+                        speed = d.magnitude / Time.deltaTime; 
+                    }
+                    mLastPosisiton = playerTransform.position; 
+                }
+
+                moddedAnimator.SetFloat("Movement_Speed", speed, 0.10f, Time.deltaTime);
+                moddedAnimator.SetBool("Movement_Input", hasInput);
+                moddedAnimator.SetBool("Sprint_Input", sprint);
+            }
+        }
+
 
         [HarmonyPatch(typeof(PlayerAnimation), nameof(PlayerAnimation.Trigger_Generic_Equip))]
         internal static class PlayerAnimation_ShotgunEquip
@@ -262,9 +343,34 @@ namespace Shotgun
 
                 if (__instance.m_EquippedFirstPersonWeaponShoulder != null)
                     __instance.m_EquippedFirstPersonWeaponShoulder.gameObject.name = ShotgunFPHPrefabName;
-                Main.Instance.Configuration.Refs.ModdedAnimator.Rebind();
-                __instance.OnAnimationEvent_Generic_Equip_ShowItem();
-                __instance.OnAnimationEvent_Generic_Equip_Complete();
+                Animator moddedAnimator = Main.Instance.Configuration.Refs.ModdedAnimator;
+                moddedAnimator.Rebind();
+
+                GunItem equippedGun = GameManager.GetPlayerManagerComponent()?.m_ItemInHands?.m_GunItem;
+                if (equippedGun != null) SyncAmmoParams(equippedGun, "equip");
+
+                moddedAnimator.SetTrigger("Trigger_Generic_Equip");
+            }
+        }
+
+
+        [HarmonyPatch(typeof(PlayerAnimation), nameof(PlayerAnimation.Trigger_Generic_Unequip))]
+        internal static class PlayerAnimation_ShotgunUnequip
+        {
+            internal static void Prefix(PlayerAnimation __instance)
+            {
+                if (__instance.m_EquippedFirstPersonWeaponShoulder == null) return;
+                if (!__instance.m_EquippedFirstPersonWeaponShoulder.name.Contains("Shotgun")) return;
+
+                Animator moddedAnimator = Main.Instance.Configuration.Refs.ModdedAnimator;
+                if (moddedAnimator == null || !moddedAnimator.enabled)
+                {
+                    Animator vanillaAnimator = Main.Instance.Configuration.Refs.VanillaAnimator;
+                    if (vanillaAnimator != null) vanillaAnimator.enabled = true;
+                    return;
+                }
+
+                moddedAnimator.SetTrigger("Trigger_Generic_Unequip");
             }
         }
 
@@ -297,7 +403,35 @@ namespace Shotgun
             internal static void Postfix(PlayerAnimation __instance)
             {
                 if (!MaybeLatchShotgunAnimator(__instance, "Fire")) return;
-                Main.Instance.Configuration.Refs.ModdedAnimator.SetTrigger("Trigger_Generic_Fire");
+                Animator moddedAnimator = Main.Instance.Configuration.Refs.ModdedAnimator;
+                ShotgunSkill.ApplyAnimatorParams(moddedAnimator);
+                moddedAnimator.SetTrigger("Trigger_Generic_Fire");
+            }
+        }
+
+
+        [HarmonyPatch(typeof(PlayerAnimation), nameof(PlayerAnimation.Trigger_Generic_Reload))]
+        internal static class PlayerAnimation_ShotgunReload
+        {
+            internal static void Postfix(PlayerAnimation __instance, int bulletsToReload, int roundsLoaded, bool willJam)
+            {
+                if (!MaybeLatchShotgunAnimator(__instance, "Reload")) return;
+
+                GearItem weaponInHands = GameManager.GetPlayerManagerComponent()?.m_ItemInHands;
+                GunItem gunItem = weaponInHands.m_GunItem;
+                int spentCasings = gunItem != null ? gunItem.m_SpentCasingsInClip : 0;
+                bool isAmmoSwitch = gunItem != null && gunItem.m_PreviousAmmoIndex >= 0;
+
+                Animator moddedAnimator = Main.Instance.Configuration.Refs.ModdedAnimator;
+                moddedAnimator.SetInteger("Reload_Count", bulletsToReload);
+                moddedAnimator.SetInteger("Rounds_Loaded", roundsLoaded);
+                moddedAnimator.SetInteger("SpentCasingsInClip", spentCasings);
+                moddedAnimator.SetBool("Is_Loaded", roundsLoaded > 0);
+                moddedAnimator.SetBool("IsAmmoSwitch", isAmmoSwitch);
+                moddedAnimator.SetBool("Is_Jammed", willJam);
+                moddedAnimator.SetBool("IsAimHeld", __instance.m_State == PlayerAnimation.State.Aiming);
+                ShotgunSkill.ApplyAnimatorParams(moddedAnimator);
+                moddedAnimator.SetTrigger("Trigger_Generic_Reload_Single");
             }
         }
 
