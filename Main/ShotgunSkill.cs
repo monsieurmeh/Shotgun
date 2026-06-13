@@ -9,12 +9,6 @@ namespace Shotgun
     internal static class ShotgunSkill
     {
         internal const string SkillName = "Shotgun";
-        internal static readonly float[] TierMultipliers = { 1.0f, 1.15f, 1.30f, 1.50f, 1.75f };
-        internal const float BaseReloadCooldown = 2.625f;
-        internal const float BaseSwayMaxFatigue = 1.3125f;
-        internal const float BaseSwayIncrease = 0.175f;
-        internal const float BaseSwayDecrease = 0.0857f;
-
         #region FiligranisSkills Compat
 
         private static Type mFSkillType;
@@ -83,19 +77,19 @@ namespace Shotgun
                 "ico_skill_large_Rifle",
                 new LocalizedString[]
                 {
-                    new LocalizedString { m_LocalizationID = "Novice: You've never handled a shotgun before. The recoil catches you off guard, your aim wavers constantly, and reloading is painfully slow." },
-                    new LocalizedString { m_LocalizationID = "Beginner: You're getting used to the kick. Your hands are steadier and you fumble less with shells, but there's still a long way to go." },
-                    new LocalizedString { m_LocalizationID = "Intermediate: The shotgun feels more natural now. You brace properly against the recoil and can keep your sights on target longer." },
-                    new LocalizedString { m_LocalizationID = "Advanced: Confidence with the shotgun is showing. You handle recoil smoothly, reload with practiced efficiency, and hold steady aim under pressure." },
-                    new LocalizedString { m_LocalizationID = "Expert: The shotgun is an extension of yourself. Recoil is absorbed instinctively, reloading is fluid, and you can hold aim with remarkable control." }
+                    new LocalizedString { m_LocalizationID = "Novice" },
+                    new LocalizedString { m_LocalizationID = "Beginner" },
+                    new LocalizedString { m_LocalizationID = "Intermediate" },
+                    new LocalizedString { m_LocalizationID = "Advanced" },
+                    new LocalizedString { m_LocalizationID = "Expert" }
                 },
                 new LocalizedString[]
                 {
-                    new LocalizedString { m_LocalizationID = "Base Shotgun Skill." },
-                    new LocalizedString { m_LocalizationID = "Recoil, sway, and reload improved by 15%." },
-                    new LocalizedString { m_LocalizationID = "Recoil, sway, and reload improved by 30%." },
-                    new LocalizedString { m_LocalizationID = "Recoil, sway, and reload improved by 50%." },
-                    new LocalizedString { m_LocalizationID = "Recoil, sway, and reload improved by 75%." }
+                    new LocalizedString { m_LocalizationID = "Novice" },
+                    new LocalizedString { m_LocalizationID = "Beginner" },
+                    new LocalizedString { m_LocalizationID = "Intermediate" },
+                    new LocalizedString { m_LocalizationID = "Advanced" },
+                    new LocalizedString { m_LocalizationID = "Expert" }
                 },
                 new int[] { 0, 25, 50, 75, 100 },
                 null
@@ -111,43 +105,50 @@ namespace Shotgun
 
         internal static int GetCurrentTier()
         {
-            if (!IsAvailable) return 4; 
+            if (!IsAvailable) return 3; 
             (int points, int tier) skill = GetPointsAndTiers(SkillName);
             return skill.tier;
         }
 
-        internal static float GetTierMultiplier()
-        {
-            int tier = GetCurrentTier();
-            return TierMultipliers[Math.Clamp(tier, 0, TierMultipliers.Length - 1)];
-        }
-
-        internal static float GetBadStat(float baseValue, float multiplier) => baseValue / multiplier;
-        internal static float GetGoodStat(float baseValue, float multiplier) => baseValue * multiplier;
-        internal static float GetReloadCooldown() => GetBadStat(BaseReloadCooldown, GetTierMultiplier());
-        internal static float GetSwayMaxFatigue() => GetBadStat(BaseSwayMaxFatigue, GetTierMultiplier());
-        internal static float GetSwayIncrease() => GetBadStat(BaseSwayIncrease, GetTierMultiplier());
-        internal static float GetSwayDecrease() => GetGoodStat(BaseSwayDecrease, GetTierMultiplier());
-        internal static float GetRecoilMultiplier() => TierMultipliers[4] / GetTierMultiplier();
 
         internal static void ApplyToGunItem(GunItem gunItem)
         {
-            gunItem.m_ReloadCoolDownSeconds = GetReloadCooldown();
-            gunItem.m_SwayValueMaxFatigue = GetSwayMaxFatigue();
-            gunItem.m_SwayIncreasePerSecond = GetSwayIncrease();
-            gunItem.m_SwayDecreasePerSecond = GetSwayDecrease();
+
         }
 
         internal static void MaybeIncreaseSkillOnFire()
         {
-            if (IncreaseSkillPoints == null) return;
 
-            // ~33% chance to gain a point per shot
-            double rand = new System.Random().NextDouble();
-            if (rand < 0.33)
-            {
-                IncreaseSkillPoints(SkillName, 1);
-            }
+        }
+
+        #endregion
+
+        #region Animation Skill Gates
+
+        internal static int DefaultAnimationTier = 3;
+        internal static int AnimationTier => IsAvailable ? GetCurrentTier() : DefaultAnimationTier;
+        internal static int CatchLeftMinTier = 3;
+        internal static int RemoveBothFastMinTier = 3;
+        internal static int InsertBothMediumMinTier = 2;
+        internal static int InsertBothFastMinTier = 4;
+        internal static int CloseToAimMinTier = 3;
+        internal static int RecoilMedMinTier = 2; 
+        internal static int RecoilLowMinTier = 4;
+
+        internal static bool CanCatchLeftOnAmmoSwitch => AnimationTier >= CatchLeftMinTier;
+        internal static bool CanCloseBarrelToAim => AnimationTier >= CloseToAimMinTier;
+        internal static int ManualRemoveSpeed  => AnimationTier >= RemoveBothFastMinTier ? 2 : 1;
+        internal static int InsertSpeed => AnimationTier >= InsertBothFastMinTier ? 2 : (AnimationTier >= InsertBothMediumMinTier ? 1 : 0);
+        internal static int RecoilHandlingLevel => AnimationTier >= RecoilLowMinTier ? 2 : (AnimationTier >= RecoilMedMinTier ? 1 : 0);
+
+        internal static void ApplyAnimatorParams(Animator animator)
+        {
+            if (animator == null) return;
+            animator.SetBool("CanCatchLeftOnAmmoSwitch", CanCatchLeftOnAmmoSwitch);
+            animator.SetBool("CanCloseBarrelToAim", CanCloseBarrelToAim);
+            animator.SetInteger("ManualRemoveSpeed", ManualRemoveSpeed);
+            animator.SetInteger("InsertSpeed", InsertSpeed);
+            animator.SetInteger("RecoilHandlingLevel", RecoilHandlingLevel);
         }
 
         #endregion
