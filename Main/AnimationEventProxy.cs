@@ -10,6 +10,7 @@ namespace Shotgun
         {
             PlayerAnimation playerAnimation = GameManager.GetPlayerAnimationComponent();
             if (playerAnimation == null) return;
+            MelonLogger.Msg("[Aim] OnAimComplete");
             playerAnimation.OnAnimationEvent_Generic_Aim_Complete();
         }
 
@@ -17,6 +18,7 @@ namespace Shotgun
         {
             PlayerAnimation playerAnimation = GameManager.GetPlayerAnimationComponent();
             if (playerAnimation == null) return;
+            MelonLogger.Msg("[Aim] OnAimCancelComplete");
             playerAnimation.OnAnimationEvent_Generic_Aim_Cancel_Complete();
         }
 
@@ -24,6 +26,7 @@ namespace Shotgun
         {
             PlayerAnimation playerAnimation = GameManager.GetPlayerAnimationComponent();
             if (playerAnimation == null) return;
+            MelonLogger.Msg("[Fire] OnFireFX");
             playerAnimation.OnAnimationEvent_Generic_Fire_FX();
         }
 
@@ -31,7 +34,149 @@ namespace Shotgun
         {
             PlayerAnimation playerAnimation = GameManager.GetPlayerAnimationComponent();
             if (playerAnimation == null) return;
+            MelonLogger.Msg("[Fire] OnFireComplete");
             playerAnimation.OnAnimationEvent_Generic_Fire_Complete();
+        }
+
+        internal void OnEquipShowItem()
+        {
+            PlayerAnimation playerAnimation = GameManager.GetPlayerAnimationComponent();
+            if (playerAnimation == null) return;
+            MelonLogger.Msg("[Equip] OnEquipShowItem");
+            playerAnimation.OnAnimationEvent_Generic_Equip_ShowItem();
+        }
+
+        internal void OnEquipComplete()
+        {
+            PlayerAnimation playerAnimation = GameManager.GetPlayerAnimationComponent();
+            if (playerAnimation == null) return;
+            MelonLogger.Msg("[Equip] OnEquipComplete");
+            playerAnimation.OnAnimationEvent_Generic_Equip_Complete();
+        }
+
+        internal void OnUnequipHidden()
+        {
+            PlayerAnimation playerAnimation = GameManager.GetPlayerAnimationComponent();
+            if (playerAnimation == null) return;
+            MelonLogger.Msg("[Unequip] OnUnequipHidden");
+            playerAnimation.OnAnimationEvent_Generic_Hidden();
+        }
+
+        internal void OnUnequipComplete()
+        {
+            PlayerAnimation playerAnimation = GameManager.GetPlayerAnimationComponent();
+            if (playerAnimation == null) return;
+            MelonLogger.Msg("[Unequip] OnUnequipComplete -- restoring vanilla animator");
+            playerAnimation.OnAnimationEvent_Generic_HiddenComplete();
+
+            // Modded animator owned the holster animation; hand the rig back to vanilla
+            // only now that the put-away has visibly finished.
+            Animator vanillaAnimator = Main.Instance?.Configuration?.Refs?.VanillaAnimator;
+            Animator moddedAnimator = Main.Instance?.Configuration?.Refs?.ModdedAnimator;
+            if (vanillaAnimator != null) vanillaAnimator.enabled = true;
+            if (moddedAnimator != null) moddedAnimator.enabled = false;
+        }
+
+        internal void OnRoundLoaded()
+        {
+            PlayerAnimation playerAnimation = GameManager.GetPlayerAnimationComponent();
+            if (playerAnimation == null) return;
+            MelonLogger.Msg($"[ReloadEvent] OnRoundLoaded: state={(int)playerAnimation.m_State}");
+            playerAnimation.OnAnimationEvent_Generic_Round_Loaded();
+
+            GunItem gunItem = GameManager.GetPlayerManagerComponent()?.m_ItemInHands?.m_GunItem;
+            if (gunItem != null) Patches.SyncAmmoParams(gunItem, "OnRoundLoaded");
+        }
+
+        internal void OnRoundsUnloaded()
+        {
+            PlayerAnimation playerAnimation = GameManager.GetPlayerAnimationComponent();
+            if (playerAnimation == null) return;
+            MelonLogger.Msg($"[ReloadEvent] OnRoundsUnloaded: state={(int)playerAnimation.m_State}");
+            playerAnimation.OnAnimationEvent_Generic_Rounds_Unloaded();
+        }
+
+        internal void OnReloadComplete()
+        {
+            PlayerAnimation playerAnimation = GameManager.GetPlayerAnimationComponent();
+            if (playerAnimation == null) return;
+
+            PlayerManager playerManager = GameManager.GetPlayerManagerComponent();
+            int controlModeBefore = playerManager != null ? (int)playerManager.m_ControlMode : -1;
+            int stateBefore = (int)playerAnimation.m_State;
+            MelonLogger.Msg($"[ReloadComplete] BEFORE: state={stateBefore} controlMode={controlModeBefore}");
+
+            playerAnimation.OnAnimationEvent_Generic_Reload_Complete();
+
+            int controlModeAfter = playerManager != null ? (int)playerManager.m_ControlMode : -1;
+            int stateAfter = (int)playerAnimation.m_State;
+            MelonLogger.Msg($"[ReloadComplete] AFTER: state={stateAfter} controlMode={controlModeAfter}");
+
+            GunItem gunItem = playerManager?.m_ItemInHands?.m_GunItem;
+            if (gunItem != null) SyncAmmoVisibility(gunItem);
+        }
+
+        internal void SyncAmmoVisibility(GunItem gunItem)
+        {
+            Patches.SyncAmmoParams(gunItem, "reconcile");
+        }
+
+        internal void OnSyncAmmoVisibility()
+        {
+            GunItem gunItem = GameManager.GetPlayerManagerComponent()?.m_ItemInHands?.m_GunItem;
+            if (gunItem == null) return;
+            SyncAmmoVisibility(gunItem);
+        }
+
+        internal void OnInsertStarted(int count)
+        {
+            if (count <= 0) count = 1;
+            GunItem gunItem = GameManager.GetPlayerManagerComponent()?.m_ItemInHands?.m_GunItem;
+            Animator moddedAnimator = Main.Instance?.Configuration?.Refs?.ModdedAnimator;
+            if (gunItem == null || gunItem.m_Clip == null || moddedAnimator == null) return;
+            moddedAnimator.SetInteger("Rounds_Loaded", gunItem.m_Clip.Count + count);
+            moddedAnimator.SetInteger("SpentCasingsInClip", gunItem.m_SpentCasingsInClip);
+            MelonLogger.Msg($"[Sync] (OnInsertStarted {count}): Rounds_Loaded={gunItem.m_Clip.Count + count} SpentCasings={gunItem.m_SpentCasingsInClip}");
+        }
+
+        internal void OnReturnRound(int count)
+        {
+            if (count <= 0) count = 1;
+            PlayerManager playerManager = GameManager.GetPlayerManagerComponent();
+            GunItem gunItem = playerManager?.m_ItemInHands?.m_GunItem;
+            if (gunItem == null || gunItem.m_Clip == null) return;
+            if (gunItem.m_PreviousAmmoIndex < 0) return;
+
+            for (int i = 0; i < count && gunItem.m_Clip.Count > 0; i++)
+            {
+                int condition = gunItem.m_Clip[0];
+                AssetReferenceGearItem assetRef = gunItem.ValidAmmo[gunItem.m_PreviousAmmoIndex].m_PrefabReference;
+                playerManager.InstantiateItemInPlayerInventory(assetRef, 1, condition, 0);
+                gunItem.m_Clip.RemoveAt(0);
+            }
+
+            if (gunItem.m_Clip.Count == 0) gunItem.m_PreviousAmmoIndex = -1;
+            MelonLogger.Msg($"[Firearm] OnReturnRound({count}): clip->{gunItem.m_Clip.Count} prevAmmo={gunItem.m_PreviousAmmoIndex}");
+        }
+
+        internal void OnEjectCasing(int count)
+        {
+            if (count <= 0) count = 1;
+            PlayerManager playerManager = GameManager.GetPlayerManagerComponent();
+            GunItem gunItem = playerManager?.m_ItemInHands?.m_GunItem;
+            if (gunItem == null) return;
+
+            for (int i = 0; i < count && gunItem.m_SpentCasingsInClip > 0; i++)
+            {
+                if (gunItem.m_CasingData != null)
+                {
+                    playerManager.InstantiateItemAtPlayersFeet(gunItem.m_CasingData.m_PrefabReference, 1);
+                    gunItem.PlayCasingAudio(1);
+                }
+                gunItem.m_SpentCasingsInClip--;
+            }
+            MelonLogger.Msg($"[Firearm] OnEjectCasing({count}): spent->{gunItem.m_SpentCasingsInClip}");
+            Patches.SyncAmmoParams(gunItem, "OnEjectCasing");
         }
 
         internal void OnPlaySound(string sound)
