@@ -116,9 +116,15 @@ namespace Shotgun
 
         }
 
-        internal static void MaybeIncreaseSkillOnFire()
-        {
+        internal static long LastSkillUpTime;
 
+        internal static void MaybeIncreaseSkill()
+        {
+            if (DateTime.Now.Millisecond - LastSkillUpTime >= 1000)
+            {
+                LastSkillUpTime = DateTime.Now.Millisecond;
+                IncreaseSkillPoints.Invoke("Shotgun", 1);
+            }
         }
 
         #endregion

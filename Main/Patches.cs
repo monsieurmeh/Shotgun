@@ -165,7 +165,6 @@ namespace Shotgun
 
                 if (__instance.m_GunType != GunTypeCustom) return;
                 SyncAmmoParams(__instance);
-                ShotgunSkill.MaybeIncreaseSkillOnFire();
             }
         }
 
@@ -187,6 +186,7 @@ namespace Shotgun
             {
                 CustomAmmoHUD futureFirearmManager = CustomAmmoHUD.Current;
                 if (futureFirearmManager.LoadedAmmo == null) return;
+                ShotgunSkill.MaybeIncreaseSkill();
                 switch (CustomAmmoHUD.Current.LoadedAmmo.name)
                 {
                     case "GEAR_ShotgunAmmoBoxBuckshot":
@@ -205,6 +205,7 @@ namespace Shotgun
             {
                 CustomAmmoHUD futureFirearmManager = CustomAmmoHUD.Current;
                 if (futureFirearmManager.LoadedAmmo == null) return;
+                ShotgunSkill.MaybeIncreaseSkill();
                 switch (CustomAmmoHUD.Current.LoadedAmmo.name)
                 {
                     case "GEAR_ShotgunAmmoBoxBirdshot":
@@ -465,30 +466,30 @@ namespace Shotgun
             vp_Bullet currentBullet = Main.Instance.Configuration.Refs.Shotgun.WeaponView.FPSShooter.ProjectilePrefab.GetComponent<vp_Bullet>();
             if (ammoName.Contains("Slug"))
             {
-                gun.m_DamageHP = 120;
-                gun.m_AccuracyRange = 30f;
+                gun.m_DamageHP = Settings.Instance.SlugBaseDamage;
+                gun.m_AccuracyRange = Settings.Instance.SlugAccuracyRange;
                 Main.Instance.Configuration.Refs.Shotgun.WeaponView.FPSShooter.ProjectileCount = 1;
                 Main.Instance.Configuration.Refs.Shotgun.WeaponView.FPSShooter.ProjectileSpread = 0f;
-                currentBullet.MinimumDamageFalloffBeyondEffectiveRange = 20f;
-                currentBullet.DamageFalloffPerMeterBeyondEffectiveRange = 5f;
+                currentBullet.MinimumDamageFalloffBeyondEffectiveRange = Settings.Instance.SlugMinimumDamage;
+                currentBullet.DamageFalloffPerMeterBeyondEffectiveRange = Settings.Instance.SlugDamageFalloff;
             }
             else if (ammoName.Contains("Buckshot"))
             {
-                gun.m_DamageHP = 15;
-                gun.m_AccuracyRange = 25f;
-                Main.Instance.Configuration.Refs.Shotgun.WeaponView.FPSShooter.ProjectileCount = 9;
-                Main.Instance.Configuration.Refs.Shotgun.WeaponView.FPSShooter.ProjectileSpread = 1f;
-                currentBullet.MinimumDamageFalloffBeyondEffectiveRange = 5f;
-                currentBullet.DamageFalloffPerMeterBeyondEffectiveRange = 1f;
+                gun.m_DamageHP = Settings.Instance.BuckshotBaseDamage;
+                gun.m_AccuracyRange = Settings.Instance.BuckshotAccuracyRange;
+                Main.Instance.Configuration.Refs.Shotgun.WeaponView.FPSShooter.ProjectileCount = Settings.Instance.BuckshotPelletCount;
+                Main.Instance.Configuration.Refs.Shotgun.WeaponView.FPSShooter.ProjectileSpread = Settings.Instance.BuckshotPelletSpread / 2;
+                currentBullet.MinimumDamageFalloffBeyondEffectiveRange = Settings.Instance.BuckshotMinimumDamage;
+                currentBullet.DamageFalloffPerMeterBeyondEffectiveRange = Settings.Instance.BuckshotDamageFalloff;
             }
             else if (ammoName.Contains("Birdshot"))
             {
-                gun.m_DamageHP = 3f;
-                gun.m_AccuracyRange = 20f;
-                Main.Instance.Configuration.Refs.Shotgun.WeaponView.FPSShooter.ProjectileCount = 30;
-                Main.Instance.Configuration.Refs.Shotgun.WeaponView.FPSShooter.ProjectileSpread = 2f;
-                currentBullet.MinimumDamageFalloffBeyondEffectiveRange = 1f;
-                currentBullet.DamageFalloffPerMeterBeyondEffectiveRange = 0.2f;
+                gun.m_DamageHP = Settings.Instance.BirdshotBaseDamage;
+                gun.m_AccuracyRange = Settings.Instance.BirdshotAccuracyRange;
+                Main.Instance.Configuration.Refs.Shotgun.WeaponView.FPSShooter.ProjectileCount = Settings.Instance.BirdshotPelletCount;
+                Main.Instance.Configuration.Refs.Shotgun.WeaponView.FPSShooter.ProjectileSpread = Settings.Instance.BirdshotPelletSpread / 2;
+                currentBullet.MinimumDamageFalloffBeyondEffectiveRange = Settings.Instance.BirdshotMinimumDamage;
+                currentBullet.DamageFalloffPerMeterBeyondEffectiveRange = Settings.Instance.BirdshotDamageFalloff;
             }
         }
     }

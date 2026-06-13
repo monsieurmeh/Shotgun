@@ -9,6 +9,7 @@ namespace Shotgun
     {
         internal static Settings Instance;
 
+        [Section("General Settings")]
         [Name("Custom Ammo HUD X Offset")]
         [Slider(10, 1920, 192)]
         [Description("X offset of custom ammo HUD, measured in pixels from the right of the screen relative to a screen size of 1920x1080. Scales with your actual resolution.")]
@@ -29,10 +30,95 @@ namespace Shotgun
         [Description("Spacing-to-Width ratio for Custom Ammo HUD icons. Higher values will result in larger spacing between ammo icons.")]
         public float CustomAmmoHUDIconSpacingRatio = 1.0f;
 
-
         [Name("Ammo Switch Hotkey")]
         [Description("Hotkey for swapping ammo types. Vanilla does not handle this, instead using single ammo types for guns and using the reload key for cameras. Default: T")]
         public KeyCode AmmoSwapKeyCode = KeyCode.T;
+
+
+        [Section("Slug Settings")]
+        [Name("Slug Base Damage")]
+        [Description("Base damage dealt by slugs within accuracy range. Default: 120")]
+        [Slider(50, 150)]
+        public int SlugBaseDamage = 120;
+
+        [Name("Slug Accuracy Range")]
+        [Description("Distance before damage begins to drop per meter. Default: 30m")]
+        [Slider(10, 50)]
+        public int SlugAccuracyRange = 30;
+
+        [Name("Slug Damage Falloff Rate")]
+        [Description("Damage reduction per meter beyond accuracy range. Default: 5")]
+        [Slider(1f, 10f)]
+        public float SlugDamageFalloff = 5f;
+
+        [Name("Slug Minimum Damage")]
+        [Description("Minimum damage dealt as long as a hit is registered. Default: 20")]
+        [Slider(0f, 50f)]
+        public float SlugMinimumDamage = 20f;
+
+
+        [Section("Buckshot Settings")]
+        [Name("Buckshot Base Damage")]
+        [Description("Base damage dealt by buckshot within accuracy range. Default: 15")]
+        [Slider(5, 25)]
+        public int BuckshotBaseDamage = 15;
+
+        [Name("Buckshot Accuracy Range")]
+        [Description("Distance before damage begins to drop per meter. Default: 25m")]
+        [Slider(10, 40)]
+        public int BuckshotAccuracyRange = 25;
+
+        [Name("Buckshot Damage Falloff Rate")]
+        [Description("Damage reduction per meter beyond accuracy range. Default: 1")]
+        [Slider(0.1f, 10f)]
+        public float BuckshotDamageFalloff = 1f;
+
+        [Name("Buckshot Minimum Damage")]
+        [Description("Minimum damage dealt as long as a hit is registered. Default: 5")]
+        [Slider(0f, 15f)]
+        public float BuckshotMinimumDamage = 5f;
+
+        [Name("Buckshot Pellet Spread")]
+        [Description("Conical spread (total included angle) of pellets. Default: 2 degrees")]
+        [Slider(0.2f, 5f)]
+        public float BuckshotPelletSpread = 2f;
+
+        [Name("Buckshot Pellet Count")]
+        [Description("Pellet Count. Default: 9")]
+        [Slider(6f, 12f)]
+        public int BuckshotPelletCount = 9;
+
+
+        [Section("Birdshot Settings")]
+        [Name("Birdshot Base Damage")]
+        [Description("Base damage dealt by Birdshot within accuracy range. Default: 3")]
+        [Slider(1f, 5f)]
+        public float BirdshotBaseDamage = 3f;
+
+        [Name("Birdshot Accuracy Range")]
+        [Description("Distance before damage begins to drop per meter. Default: 20m")]
+        [Slider(10, 30)]
+        public int BirdshotAccuracyRange = 20;
+
+        [Name("Birdshot Damage Falloff Rate")]
+        [Description("Damage reduction per meter beyond accuracy range. Default: 0.2")]
+        [Slider(0.01f, 1f)]
+        public float BirdshotDamageFalloff = 0.2f;
+
+        [Name("Birdshot Minimum Damage")]
+        [Description("Minimum damage dealt as long as a hit is registered. Default: 1")]
+        [Slider(0f, 3f)]
+        public float BirdshotMinimumDamage = 1f;
+
+        [Name("Birdshot Pellet Spread")]
+        [Description("Conical spread (total included angle) of pellets. Default: 4 degrees")]
+        [Slider(0.2f, 8f)]
+        public float BirdshotPelletSpread = 4f;
+
+        [Name("Birdshot Pellet Count")]
+        [Description("Pellet Count. Default: 30")]
+        [Slider(20, 40f)]
+        public int BirdshotPelletCount = 30;
 
 
         internal Settings() : base(Path.Combine("Shotgun", "Shotgun"))
