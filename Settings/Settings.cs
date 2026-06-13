@@ -1,5 +1,6 @@
 ﻿using ModSettings;
 using Il2Cpp;
+using UnityEngine;
 
 
 namespace Shotgun
@@ -27,6 +28,11 @@ namespace Shotgun
         [Slider(0.25f, 3.0f, 12)]
         [Description("Spacing-to-Width ratio for Custom Ammo HUD icons. Higher values will result in larger spacing between ammo icons.")]
         public float CustomAmmoHUDIconSpacingRatio = 1.0f;
+
+
+        [Name("Ammo Switch Hotkey")]
+        [Description("Hotkey for swapping ammo types. Vanilla does not handle this, instead using single ammo types for guns and using the reload key for cameras. Default: T")]
+        public KeyCode AmmoSwapKeyCode = KeyCode.T;
 
 
         internal Settings() : base(Path.Combine("Shotgun", "Shotgun"))

@@ -10,14 +10,13 @@ namespace Shotgun
 {
     internal class Patches
     {
-        internal static void SyncAmmoParams(GunItem gunItem, string source)
+        internal static void SyncAmmoParams(GunItem gunItem)
         {
             if (gunItem == null || gunItem.m_Clip == null) return;
             Animator moddedAnimator = Main.Instance?.Configuration?.Refs?.ModdedAnimator;
             if (moddedAnimator == null) return;
             moddedAnimator.SetInteger("Rounds_Loaded", gunItem.m_Clip.Count);
             moddedAnimator.SetInteger("SpentCasingsInClip", gunItem.m_SpentCasingsInClip);
-            MelonLogger.Msg($"[Sync] ({source}): Rounds_Loaded={gunItem.m_Clip.Count} SpentCasings={gunItem.m_SpentCasingsInClip}");
         }
 
         [HarmonyPatch(typeof(EquipItemPopup), nameof(EquipItemPopup.AllowedToHideAmmoPopup))]
@@ -43,7 +42,7 @@ namespace Shotgun
             {
                 if (__instance.m_GunType != GunTypeCustom) return true;
                 if (!InputManager.HasContext(InputManager.m_CurrentContext)) return false;
-                if (!Input.GetKey(KeyCode.T)) return false;
+                if (!Input.GetKey(Settings.Instance.AmmoSwapKeyCode)) return false;
                 return true;
             }
         }
@@ -56,7 +55,7 @@ namespace Shotgun
             {
                 if (__instance.m_GunType != GunTypeCustom) return true;
                 if (!InputManager.HasContext(InputManager.m_CurrentContext)) return false;
-                if (!Input.GetKey(KeyCode.T) && !Input.GetKey(KeyCode.R)) return false;
+                if (!InputManager.GetReloadPressed(InputManager.m_CurrentContext) && !Input.GetKey(Settings.Instance.AmmoSwapKeyCode)) return false;
                 return true;
             }
         }
@@ -82,7 +81,7 @@ namespace Shotgun
             {
                 if (__instance.m_GunType != GunTypeCustom) return;
                 if (!InputManager.HasContext(InputManager.m_CurrentContext)) return;
-                if (!Input.GetKeyDown(KeyCode.T)) return;
+                if (!Input.GetKeyDown(Settings.Instance.AmmoSwapKeyCode)) return;
 
 
                 __instance.PressSwitchAmmo();
@@ -96,25 +95,12 @@ namespace Shotgun
         [HarmonyPatch(typeof(GunItem), nameof(GunItem.Update))]
         internal static class GunItem_ReloadAmmoOnR
         {
-            private static float mReloadDbgTimer = 0f;
-
             internal static void Postfix(GunItem __instance)
             {
                 if (__instance.m_GunType != GunTypeCustom) return;
 
-                // Periodic diagnostics every 3s
-                mReloadDbgTimer += Time.deltaTime;
-                if (mReloadDbgTimer >= 3f)
-                {
-                    mReloadDbgTimer = 0f;
-                    GearItem weaponInHands = GameManager.GetPlayerManagerComponent()?.m_ItemInHands;
-                    Inventory inventory = GameManager.GetInventoryComponent();
-                    int ammoAvailable = (weaponInHands != null && inventory != null) ? inventory.GetAmmoAvailableForWeapon(weaponInHands) : -1;
-                }
-
                 if (!InputManager.HasContext(InputManager.m_CurrentContext)) return;
-                if (!Input.GetKeyDown(KeyCode.R)) return;
-
+                if (!InputManager.GetReloadPressed(InputManager.m_CurrentContext)) return;
 
                 if (__instance.m_Clip.Count == __instance.m_ClipSize && __instance.m_SpentCasingsInClip == 0)
                 {
@@ -178,7 +164,7 @@ namespace Shotgun
                 CustomAmmoHUD.Current.Refresh();
 
                 if (__instance.m_GunType != GunTypeCustom) return;
-                SyncAmmoParams(__instance, "fire");
+                SyncAmmoParams(__instance);
                 ShotgunSkill.MaybeIncreaseSkillOnFire();
             }
         }
@@ -347,7 +333,7 @@ namespace Shotgun
                 moddedAnimator.Rebind();
 
                 GunItem equippedGun = GameManager.GetPlayerManagerComponent()?.m_ItemInHands?.m_GunItem;
-                if (equippedGun != null) SyncAmmoParams(equippedGun, "equip");
+                if (equippedGun != null) SyncAmmoParams(equippedGun);
 
                 moddedAnimator.SetTrigger("Trigger_Generic_Equip");
             }

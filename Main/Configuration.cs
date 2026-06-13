@@ -25,16 +25,12 @@ namespace Shotgun
         {
             try
             {
-                MelonLogger.Msg("Preparing shotgun...");
                 ConfigurationReferences configRefs = new();
                 Refs = configRefs;
                 if (!Get(configRefs)) return false;
                 if (!Instantiate(configRefs)) return false;
                 if (!Configure(configRefs)) return false;
                 if (!RegisterShotgun(configRefs)) return false;
-                if (!SetupTest.Validate(configRefs)) return false;
-                ReportDifferences(configRefs);
-                MelonLogger.Msg("Ready to roll!");
                 return true;
             }
             catch (Exception e)
@@ -46,19 +42,12 @@ namespace Shotgun
 
         internal bool RegisterShotgun(ConfigurationReferences refs)
         {
-            MelonLogger.Msg("RegisterShotgunFPSItemAndFPSWeapon");
             if (!refs.FPSCamera.m_Weapons.TryAdd(refs.Shotgun.Floating.FPSItem, refs.Shotgun.WeaponView.FPSWeapon))
             {
                 MelonLogger.Error("Failed to add shotgun to vpFPSCamera.m_weapons dictionary");
                 return false;
             }
             return true;
-        }
-
-
-        internal void ReportDifferences(ConfigurationReferences refs)
-        {
-
         }
 
 
@@ -228,7 +217,6 @@ namespace Shotgun
 
         internal bool GetFPSPlayer(ConfigurationReferences refs)
         {
-            MelonLogger.Msg("GetFPSPlayer");
             refs.FPSPlayer = GameManager.GetVpFPSPlayer();
             if (refs.FPSPlayer == null) MelonLogger.Error("Could not summon vp_FPSPlayer");
             return refs.FPSPlayer != null;
@@ -237,7 +225,6 @@ namespace Shotgun
 
         internal bool GetFPSCamera(ConfigurationReferences refs)
         {
-            MelonLogger.Msg("GetFPSCamera");
             refs.FPSCamera = refs.FPSPlayer?.FPSCamera ?? null;
             if (refs.FPSCamera == null) MelonLogger.Error("Could not get vp_FPSCamera from vp_FPSPlayer instance");
             return refs.FPSCamera != null;
@@ -245,7 +232,6 @@ namespace Shotgun
 
         internal bool GetRifleAsset(ConfigurationReferences refs)
         {
-            MelonLogger.Msg("GetRifleAsset");
             refs.Rifle.Gun.Prefab = Addressables.LoadAssetAsync<GameObject>("GEAR_Rifle").WaitForCompletion();
             if (refs.Rifle.Gun.Prefab == null)
             {
@@ -258,7 +244,6 @@ namespace Shotgun
 
         internal bool GetRifleFirstPersonItem(ConfigurationReferences refs)
         {
-            MelonLogger.Msg("GetRifleFirstPersonItem");
             refs.Rifle.Gun.FirstPersonItem = refs.Rifle.Gun.Prefab.GetComponent<FirstPersonItem>();
             if (refs.Rifle.Gun.FirstPersonItem == null)
             {
@@ -271,7 +256,6 @@ namespace Shotgun
 
         internal bool GetRifleFPSItem(ConfigurationReferences refs)
         {
-            MelonLogger.Msg("GetRifleFPSItem");
             refs.Rifle.Floating.FPSItem = refs.Rifle.Gun.FirstPersonItem.m_ItemData;
             if (refs.Rifle.Gun.FirstPersonItem == null)
             {
@@ -283,7 +267,6 @@ namespace Shotgun
 
         internal bool GetRifleVPFPSRoot(ConfigurationReferences refs)
         {
-            MelonLogger.Msg("GetRifleVPFPSWeapon");
             foreach (var kvp in refs.FPSCamera.m_Weapons)
             {
                 if (kvp.Value.name.Contains("Rifle"))
@@ -303,7 +286,6 @@ namespace Shotgun
 
         internal bool GetRifleVPFPSWeapon(ConfigurationReferences refs)
         {
-            MelonLogger.Msg("GetRifleVPFPSWeapon");
             refs.Rifle.WeaponView.FPSWeapon = refs.Rifle.WeaponView.Root.GetComponent<vp_FPSWeapon>();
             if (refs.Rifle.WeaponView.FPSWeapon == null)
             {
@@ -316,7 +298,6 @@ namespace Shotgun
 
         internal bool GetRifleVPFPShooter(ConfigurationReferences refs)
         {
-            MelonLogger.Msg("GetRifleVPFPShooter");
             refs.Rifle.WeaponView.FPSShooter = refs.Rifle.WeaponView.Root.GetComponent<vp_FPSShooter>();
             if (refs.Rifle.WeaponView.FPSWeapon == null)
             {
@@ -329,7 +310,6 @@ namespace Shotgun
 
         internal bool GetRifleFPH(ConfigurationReferences refs)
         {
-            MelonLogger.Msg("GetRifleFPH");
             refs.Rifle.FPH.Root = refs.Rifle.WeaponView.FPSWeapon.m_FirstPersonWeaponShoulder.gameObject;
             if (refs.Rifle.FPH.Root == null)
             {
@@ -342,7 +322,6 @@ namespace Shotgun
 
         internal bool GetRifleFirstPersonWeapon(ConfigurationReferences refs)
         {
-            MelonLogger.Msg("GetRifleFirstPersonWeapon");
             refs.Rifle.FPH.FirstPersonWeapon = refs.Rifle.FPH.Root.GetComponent<FirstPersonWeapon>();
             if (refs.Rifle.FPH.FirstPersonWeapon == null)
             {
@@ -355,7 +334,6 @@ namespace Shotgun
 
         internal bool GetRifleAnimator(ConfigurationReferences refs)
         {
-            MelonLogger.Msg("GetRifleAnimator");
             refs.Rifle.FPH.Animator = refs.Rifle.FPH.Root.GetComponent<Animator>();
             if (refs.Rifle.FPH.Animator == null)
             {
@@ -368,7 +346,6 @@ namespace Shotgun
 
         internal bool GetRifleGunItem(ConfigurationReferences refs)
         {
-            MelonLogger.Msg("GetRifleGunItem");
             refs.Rifle.Gun.GunItem = refs.Rifle.Gun.Prefab.GetComponent<GunItem>();
             if (refs.Rifle.Gun.GearItem == null)
             {
@@ -380,7 +357,6 @@ namespace Shotgun
 
         internal bool GetRifleGearItem(ConfigurationReferences refs)
         {
-            MelonLogger.Msg("GetRifleGearItrm");
             refs.Rifle.Gun.GearItem = refs.Rifle.Gun.Prefab.GetComponent<GearItem>();
             if (refs.Rifle.Gun.GearItem == null)
             {
@@ -393,7 +369,6 @@ namespace Shotgun
 
         internal bool GetShotgunPrefab(ConfigurationReferences refs)
         {
-            MelonLogger.Msg("GetShotgunPrefab");
             refs.Shotgun.Gun.Prefab = Addressables.LoadAssetAsync<GameObject>("GEAR_Shotgun").WaitForCompletion();
             if (refs.Shotgun.Gun.Prefab == null) MelonLogger.Error("Could not summon GEAR_Shotgun");
             return refs.Shotgun.Gun.Prefab != null;
@@ -402,7 +377,6 @@ namespace Shotgun
 
         internal bool GetShotgunGearItem(ConfigurationReferences refs)
         {
-            MelonLogger.Msg("GetShotgunGearItem");
             refs.Shotgun.Gun.GearItem = refs.Shotgun.Gun.Prefab?.GetComponent<GearItem>();
             if (refs.Shotgun.Gun.GearItem == null) MelonLogger.Error("Null Shotgun GearItem");
             return refs.Shotgun.Gun.GearItem != null;
@@ -411,7 +385,6 @@ namespace Shotgun
 
         internal bool GetShotgunModComponent(ConfigurationReferences refs)
         {
-            MelonLogger.Msg("GetShotgunModComponent");
             refs.Shotgun.Gun.ModComponent = refs.Shotgun.Gun.Prefab?.GetComponent<ModGenericComponent>();
             if (refs.Shotgun.Gun.GearItem == null) MelonLogger.Error("Null Shotgun GearItem");
             return refs.Shotgun.Gun.GearItem != null;
@@ -457,7 +430,6 @@ namespace Shotgun
 
         internal bool InstantiateShotgunStruggleBonus(ConfigurationReferences refs)
         {
-            MelonLogger.Msg("InstantiateShotgunStruggleBonus");
             refs.Shotgun.Gun.StruggleBonus = refs.Shotgun.Gun.Prefab?.GetOrCreateComponent<StruggleBonus>() ?? null;
             if (refs.Shotgun.Gun.StruggleBonus == null)
             {
@@ -470,7 +442,6 @@ namespace Shotgun
 
         internal bool InstantiateShotgunGunItem(ConfigurationReferences refs)
         {
-            MelonLogger.Msg("InstantiateShotgunGunItem");
             refs.Shotgun.Gun.GunItem = refs.Shotgun.Gun.Prefab?.GetOrCreateComponent<GunItem>() ?? null;
             if (refs.Shotgun.Gun.GunItem == null)
             {
@@ -483,7 +454,6 @@ namespace Shotgun
 
         internal bool InstantiateShotgunFirstPersonItem(ConfigurationReferences refs)
         {
-            MelonLogger.Msg("InstantiateShotgunFirstPersonItem");
             refs.Shotgun.Gun.FirstPersonItem = refs.Shotgun.Gun.Prefab?.GetOrCreateComponent<FirstPersonItem>() ?? null;
             if (refs.Shotgun.Gun.FirstPersonItem == null)
             {
@@ -496,7 +466,6 @@ namespace Shotgun
 
         internal bool InstantiateShotgunWeaponGroup(ConfigurationReferences refs)
         {
-            MelonLogger.Msg("InstantiateShotgunWeaponGroup");
             refs.Shotgun.WeaponView.Root = new GameObject();
             refs.Shotgun.WeaponView.Root.transform.SetParent(refs.FPSCamera.m_WeaponParent.transform, false);
             return true;
@@ -505,7 +474,6 @@ namespace Shotgun
 
         internal bool InstantiateShotgunVPFPSWeapon(ConfigurationReferences refs)
         {
-            MelonLogger.Msg("InstantiateShotgunVPFPSWeapon");
             refs.Shotgun.WeaponView.FPSWeapon = refs.Shotgun.WeaponView.Root.GetOrCreateComponent<vp_FPSWeapon>();
             if (refs.Shotgun.WeaponView.FPSWeapon == null)
             {
@@ -518,7 +486,6 @@ namespace Shotgun
 
         internal bool InstantiateShotgunVPFPSShooter(ConfigurationReferences refs)
         {
-            MelonLogger.Msg("InstantiateShotgunVPFPSShooter");
             refs.Shotgun.WeaponView.FPSShooter = refs.Shotgun.WeaponView.Root.GetOrCreateComponent<vp_FPSShooter>();
             if (refs.Shotgun.WeaponView.FPSShooter == null)
             {
@@ -531,7 +498,6 @@ namespace Shotgun
 
         internal bool InstantiateShotgunFPSItem(ConfigurationReferences refs)
         {
-            MelonLogger.Msg("InstantiateShotgunFPSItem");
             refs.Shotgun.Floating.FPSItem = ScriptableObject.CreateInstance<FPSItem>();
             if (refs.Shotgun.Floating.FPSItem == null)
             {
@@ -544,7 +510,6 @@ namespace Shotgun
 
         internal bool InstantiateShotgunFPH(ConfigurationReferences refs)
         {
-            MelonLogger.Msg("InstantiateShotgunFPH");
             refs.Shotgun.FPH.Root = Addressables.LoadAssetAsync<GameObject>("FPH_Shotgun").WaitForCompletion();
             if (refs.Shotgun.FPH.Root == null)
             {
@@ -557,7 +522,6 @@ namespace Shotgun
 
         internal bool InstantiateShotgunFirstPersonWeapon(ConfigurationReferences refs)
         {
-            MelonLogger.Msg("InstantiateShotgunFirstPersonWeapon");
             refs.Shotgun.FPH.FirstPersonWeapon = refs.Shotgun.FPH.Root.GetOrCreateComponent<FirstPersonWeapon>();
             if (refs.Shotgun.FPH.FirstPersonWeapon == null)
             {
@@ -570,7 +534,6 @@ namespace Shotgun
 
         internal bool InstantiateShotgunAnimator(ConfigurationReferences refs)
         {
-            MelonLogger.Msg("InstantiateShotgunAnimator");
             refs.Shotgun.FPH.Animator = refs.Shotgun.FPH.Root.GetOrCreateComponent<Animator>();
             if (refs.Shotgun.FPH.FirstPersonWeapon == null)
             {
@@ -583,7 +546,6 @@ namespace Shotgun
 
         internal bool InstantiateModdedAnimator(ConfigurationReferences refs)
         {
-            MelonLogger.Msg("InstantiateModdedAnimator");
             Animator playerAnimator = GameManager.GetPlayerAnimationComponent().m_Animator;
             if (playerAnimator == null)
             {
@@ -669,7 +631,6 @@ namespace Shotgun
 
         internal bool ConfigureRadial(ConfigurationReferences refs)
         {
-            MelonLogger.Msg("ConfigureRadial");
             Panel_ActionsRadial radialActionsPanel = InterfaceManager.GetPanel<Panel_ActionsRadial>();
             if (radialActionsPanel == null)
             {
@@ -688,7 +649,6 @@ namespace Shotgun
 
         internal void ConfigureShotgunAmmoSingle(ConfigurationReferences refs, string ammoType)
         {
-            MelonLogger.Msg($"ConfigureShotgunAmmoSingle{ammoType}");
             var ammoRefs = refs.Shotgun.AmmoTypes[ammoType];
             ammoRefs.AmmoSingle.AmmoItem.m_AmmoForGunType = (GunType)((int)(GunType.Camera) + 1);
             ammoRefs.AmmoSingle.AmmoItem.m_LoadedHudIconSpriteName = "";
@@ -701,7 +661,6 @@ namespace Shotgun
 
         internal void ConfigureShotgunAmmoBox(ConfigurationReferences refs, string ammoType)
         {
-            MelonLogger.Msg($"ConfigureShotgunAmmoBox{ammoType}");
             var ammoRefs = refs.Shotgun.AmmoTypes[ammoType];
             ammoRefs.AmmoBox.AmmoItem.m_AmmoForGunType = (GunType)((int)(GunType.Camera) + 1);
             ammoRefs.AmmoBox.AmmoItem.m_LoadedHudIconSpriteName = "";
@@ -723,8 +682,6 @@ namespace Shotgun
 
         internal void ConfigureShotgunAmmoCasing(ConfigurationReferences refs, string ammoType)
         {
-            MelonLogger.Msg($"ConfigureShotgunAmmoCasing{ammoType}");
-            // Casing configuration if needed in future
         }
 
 
@@ -735,25 +692,12 @@ namespace Shotgun
             gearItem.m_StruggleBonus = refs.Shotgun.Gun.StruggleBonus;
             gearItem.m_FirstPersonItem = refs.Shotgun.Gun.FirstPersonItem;
             gearItem.m_GunItem = refs.Shotgun.Gun.GunItem;
-
-            //move to get?
             gearItem.m_Inspect = refs.Shotgun.Gun.Prefab.GetComponent<Inspect>();
-
-            //need to configure?
-            // degrate on use?
-            // GearItem.m_BodyHarvestPanel.m_PanelReference 
-            // GearItem.m_IceFishingPanel.m_PanelReference
-            // GearItem.m_InventoryPanel.m_PanelReference 
-
-            //need to do anything with?
-            // m_GearItemData
-
         }
 
 
         internal void ConfigureShotgunGunItem(ConfigurationReferences refs)
         {
-            MelonLogger.Msg("ConfigureShotgunGunItem");
             GunItem gunItem = refs.Shotgun.Gun.GunItem;
             GunItem rifleGunItem = refs.Rifle.Gun.GunItem;
 
@@ -796,7 +740,6 @@ namespace Shotgun
 
         internal void ConfigureShotgunFirstPersonItem(ConfigurationReferences refs)
         {
-            MelonLogger.Msg("ConfigureShotgunFirstPersonItem");
             FirstPersonItem firstPersonItem = refs.Shotgun.Gun.FirstPersonItem;
             FirstPersonItem rifleFirstPersonItem = refs.Rifle.Gun.FirstPersonItem;
 
@@ -824,28 +767,24 @@ namespace Shotgun
 
         internal void ConfigureShotgunStruggleBonus(ConfigurationReferences refs)
         {
-            MelonLogger.Msg("ConfigureShotgunStruggleBonus");
             refs.Shotgun.Gun.StruggleBonus.m_StruggleWeaponType = StruggleBonus.StruggleWeaponType.Rifle;
         }
 
 
         internal void ConfigureShotgunFPSItem(ConfigurationReferences refs)
         {
-            MelonLogger.Msg("ConfigureShotgunFPSItem");
             refs.Shotgun.Floating.FPSItem.name = "FPSItem_Shotgun";
             refs.Shotgun.Floating.FPSItem.m_FPSWeaponPrefab = refs.Rifle.Floating.FPSItem.m_FPSWeaponPrefab;
         }
 
         internal void ConfigureShotgunFPHRoot(ConfigurationReferences refs)
         {
-            MelonLogger.Msg("ConfigureShotgunFPHRoot");
             refs.Shotgun.WeaponView.Root.name = ShotgunFPSPrefabName;
         }
 
 
         internal void ConfigureShotgunFirstPersonWeapon(ConfigurationReferences refs)
         {
-            MelonLogger.Msg("ConfigureShotgunFirstPersonWeapon");
             refs.Shotgun.FPH.FirstPersonWeapon.m_Renderable = refs.Shotgun.FPH.Root.transform.GetChild(0).gameObject;
             refs.Shotgun.FPH.FirstPersonWeapon.m_Animator = refs.Shotgun.FPH.Animator;
             foreach (Transform transform in refs.Shotgun.FPH.Root.GetComponentsInChildren<Transform>())
@@ -862,14 +801,12 @@ namespace Shotgun
 
         internal void ConfigureShotgunAnimator(ConfigurationReferences refs)
         {
-            MelonLogger.Msg("ConfigureShotgunAnimator");
             refs.Shotgun.FPH.Animator.cullingMode = AnimatorCullingMode.CullUpdateTransforms;
         }
 
 
         internal void ConfigureModdedAnimator(ConfigurationReferences refs)
         {
-            MelonLogger.Msg("ConfigureModdedAnimator");
             RuntimeAnimatorController controller = Addressables.LoadAssetAsync<RuntimeAnimatorController>("FPH_Shotgun_Controller").WaitForCompletion();
             refs.ModdedAnimator.runtimeAnimatorController = controller;
             refs.ModdedAnimator.cullingMode = AnimatorCullingMode.CullUpdateTransforms;
@@ -881,7 +818,6 @@ namespace Shotgun
 
         internal void ConfigureShotgunAudio(ConfigurationReferences refs)
         {
-            MelonLogger.Msg("ConfigureShotgunAudio");
             refs.ClipManager = AudioMgr.AudioMaster.NewClipManager();
             refs.AudioShot = AudioMgr.AudioMaster.CreatePlayerShot(AudioMgr.AudioMaster.SourceType.SFX);
 
@@ -904,7 +840,6 @@ namespace Shotgun
 
         internal void ConfigureShotgunFPSShooter(ConfigurationReferences refs)
         {
-            MelonLogger.Msg("ConfigureShotgunFPSShooter");
             vp_FPSShooter shooter = refs.Shotgun.WeaponView.FPSShooter;
             vp_FPSShooter rifleShooter = refs.Rifle.WeaponView.FPSShooter;
             shooter.m_Weapon = refs.Shotgun.WeaponView.FPSWeapon;
@@ -939,7 +874,6 @@ namespace Shotgun
 
         internal void ConfigureShotgunFPSWeapon(ConfigurationReferences refs)
         {
-            MelonLogger.Msg("ConfigureShotgunFPSWeapon");
             refs.Shotgun.WeaponView.FPSWeapon.m_FirstPersonWeaponShoulderPrefab = refs.Shotgun.FPH.Root;
             refs.Shotgun.WeaponView.FPSWeapon.m_StateManager.m_States.Clear();
             foreach (var state in refs.Rifle.WeaponView.FPSWeapon.m_StateManager.m_States)
@@ -970,7 +904,6 @@ namespace Shotgun
 
         internal void ConfigureShotgunFPSRoot(ConfigurationReferences refs)
         {
-            MelonLogger.Msg("ConfigureShotgunFPSRoot");
             refs.Shotgun.WeaponView.Root.transform.parent.gameObject.name = $"FPSWeapon_{ShotgunFPSPrefabName}Transform";
         }
 
