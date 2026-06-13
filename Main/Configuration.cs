@@ -856,22 +856,13 @@ namespace Shotgun
                     case "RearSight": refs.Shotgun.FPH.FirstPersonWeapon.m_RearSight = transform; break;
                     case "BulletEmissionPoint": refs.Shotgun.FPH.FirstPersonWeapon.m_BulletEmissionPoint = transform.gameObject; break;
                 }
-            }            
-            /* DEBUG
-             * Tested this, for sure the front and rear sight are 100% used for aiming and its very consistent. Enable this to test ingame for yourself!
-            if (refs.Shotgun.FPH.FirstPersonWeapon.m_RearSight != null && refs.Shotgun.FPH.FirstPersonWeapon.m_FrontSight != null)
-            {
-                Primitives.ShootRay(refs.Shotgun.FPH.FirstPersonWeapon.m_RearSight, refs.Shotgun.FPH.FirstPersonWeapon.m_FrontSight, 0.001f, Color.green, 100);
-            }
-            */
+            }         
         }
 
 
         internal void ConfigureShotgunAnimator(ConfigurationReferences refs)
         {
             MelonLogger.Msg("ConfigureShotgunAnimator");
-            //refs.Shotgun.FPH.Animator.avatar = refs.Rifle.FPH.Animator.avatar;
-            //refs.Shotgun.FPH.Animator.runtimeAnimatorController = refs.Rifle.FPH.Animator.runtimeAnimatorController;
             refs.Shotgun.FPH.Animator.cullingMode = AnimatorCullingMode.CullUpdateTransforms;
         }
 
@@ -881,7 +872,6 @@ namespace Shotgun
             MelonLogger.Msg("ConfigureModdedAnimator");
             RuntimeAnimatorController controller = Addressables.LoadAssetAsync<RuntimeAnimatorController>("FPH_Shotgun_Controller").WaitForCompletion();
             refs.ModdedAnimator.runtimeAnimatorController = controller;
-            //refs.SubAnimator.avatar = refs.Rifle.FPH.Animator.avatar;
             refs.ModdedAnimator.cullingMode = AnimatorCullingMode.CullUpdateTransforms;
             refs.ModdedAnimator.enabled = false;
 
@@ -906,7 +896,8 @@ namespace Shotgun
                 MelonLogger.Error($"Failed to load audio clip: {addressableKey}");
                 return;
             }
-            refs.ClipManager.RegisterClip(addressableKey, clip);
+            //TODO: Need to figure out audio!
+            //refs.ClipManager.RegisterClip(addressableKey, clip);
             MelonLogger.Msg($"Registered audio clip: {addressableKey}");
         }
 
@@ -940,14 +931,10 @@ namespace Shotgun
             }
 
             shooter.ProjectileScale = 1.0f;
-            shooter.MotionPositionPause = 0f; //not sure what this is for?
+            shooter.MotionPositionPause = 0f;
             shooter.ShellScale = 1.0f;
             shooter.ShellEjectSpin = 0f;
-
-
             shooter.enabled = true;
-
-            // need to find and attach bullet emission point?
         }
 
         internal void ConfigureShotgunFPSWeapon(ConfigurationReferences refs)
@@ -979,9 +966,6 @@ namespace Shotgun
 
             refs.Shotgun.WeaponView.FPSWeapon.MaybeBuildRuntimeHierarchy();
             refs.Shotgun.WeaponView.FPSWeapon.MaybeSpawnFirstPersonWeapon();
-
-
-
         }
 
         internal void ConfigureShotgunFPSRoot(ConfigurationReferences refs)
