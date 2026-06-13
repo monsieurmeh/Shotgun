@@ -1,0 +1,73 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!319 &31900000
+AvatarMask:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: ShellVisibility_Mask
+  m_Mask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+  m_Elements:
+  - m_Path: 
+    m_Weight: 0
+  - m_Path: Origin
+    m_Weight: 0
+  - m_Path: Origin/HipJoint
+    m_Weight: 0
+  - m_Path: Origin/HipJoint/Chest_Joint
+    m_Weight: 0
+  - m_Path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset
+    m_Weight: 0
+  - m_Path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint
+    m_Weight: 0
+  - m_Path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset
+    m_Weight: 0
+  - m_Path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point
+    m_Weight: 0
+  - m_Path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun
+    m_Weight: 0
+  - m_Path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA
+    m_Weight: 0
+  - m_Path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Meshes
+    m_Weight: 0
+  - m_Path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Meshes/shotgunShell_Left
+    m_Weight: 0
+  - m_Path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Meshes/shotgunShell_Right
+    m_Weight: 0
+  - m_Path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Meshes/shotgunBarrel
+    m_Weight: 0
+  - m_Path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Meshes/shotgunButt
+    m_Weight: 0
+  - m_Path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Meshes/shotgunBarrelRelease
+    m_Weight: 0
+  - m_Path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Meshes/shotgunExtractor
+    m_Weight: 0
+  - m_Path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Meshes/shotgunIronSight_Front
+    m_Weight: 0
+  - m_Path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Meshes/shotgunIronSight_Rear
+    m_Weight: 0
+  - m_Path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin
+    m_Weight: 0
+  - m_Path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone
+    m_Weight: 0
+  - m_Path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/shaftBone
+    m_Weight: 0
+  - m_Path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_L
+    m_Weight: 1
+  - m_Path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_L/shellRotationBone_L
+    m_Weight: 0
+  - m_Path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_R
+    m_Weight: 1
+  - m_Path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_R/shellRotationBone_R
+    m_Weight: 0
+  - m_Path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/releaseBone
+    m_Weight: 0
+  - m_Path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/shaftBone/extractorBone
+    m_Weight: 0
+  - m_Path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/shaftBone/BulletEmissionPoint
+    m_Weight: 0
+  - m_Path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/shaftBone/FrontSight
+    m_Weight: 0
+  - m_Path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/shaftBone/RearSight
+    m_Weight: 0

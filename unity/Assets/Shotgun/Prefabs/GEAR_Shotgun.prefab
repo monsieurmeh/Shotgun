@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6464405495566880746}
   - component: {fileID: 4368208935187895110}
+  - component: {fileID: -297246439812819925}
+  - component: {fileID: -8746998477049039301}
   m_Layer: 0
   m_Name: GEAR_Shotgun
   m_TagString: Untagged
@@ -54,6 +56,74 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.07770015, y: 0.31887248, z: 1.5845573}
   m_Center: {x: 0.0001263693, y: -0.0015410036, z: 0.0005136728}
+--- !u!114 &-297246439812819925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8934522354640711522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b791cf8328f045d45bf04b4f116cb5bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DisplayNameLocalizationId: GAMEPLAY_Shotgun_Name
+  DescriptionLocalizatonId: GAMEPLAY_Shotgun_Description
+  InventoryActionLocalizationId: 
+  WeightKG: 3
+  DaysToDecay: 500
+  MaxHP: 100
+  InitialCondition: 2
+  InventoryCategory: 6
+  PickUpAudio: {fileID: 11400000, guid: f143f37cca89a7f45980a931e234ec21, type: 2}
+  PutBackAudio: {fileID: 11400000, guid: f143f37cca89a7f45980a931e234ec21, type: 2}
+  StowAudio: {fileID: 11400000, guid: f143f37cca89a7f45980a931e234ec21, type: 2}
+  WornOutAudio: {fileID: 11400000, guid: f143f37cca89a7f45980a931e234ec21, type: 2}
+  InspectOnPickup: 1
+  InspectDistance: 1
+  InspectAngles: {x: 20, y: -90, z: 0}
+  InspectOffset: {x: -0.1, y: -0.05, z: 0}
+  InspectScale: {x: 1, y: 1, z: 1}
+  NormalModel: {fileID: 0}
+  InspectModel: {fileID: 0}
+--- !u!114 &-8746998477049039301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8934522354640711522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b360e647930687e44be00c8e1cbabafd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Shotgun
+  RequiredGear:
+  - GearItem: {fileID: 11400000, guid: f25be1f07d7396b479fca66ffcfad380, type: 2}
+    Count: 2
+    Units: 0
+  - GearItem: {fileID: 11400000, guid: 571f0a0efde408349af72908c27f2387, type: 2}
+    Count: 4
+    Units: 0
+  - GearItem: {fileID: 11400000, guid: 5ec3c4398ad420d4ea01ca2d46db3cbd, type: 2}
+    Count: 2
+    Units: 0
+  RequiredPowder: []
+  RequiredLiquid: []
+  RequiredTool: {fileID: 11400000, guid: 72680386a55c5764782c58c12456f4c0, type: 2}
+  OptionalTools:
+  - {fileID: 11400000, guid: dc32020622c4f0c40b118175c4e6fbce, type: 2}
+  RequiredCraftingLocation: 1
+  RequiresLitFire: 0
+  RequiresLight: 1
+  CraftedResult: {fileID: 11400000, guid: bfd7525724b3a354cb4e2d690740953b, type: 2}
+  CraftedResultCount: 1
+  DurationMinutes: 300
+  CraftingAudio: {fileID: 11400000, guid: f1c6de6d4392e6542a17b68d477656ad, type: 2}
+  AppliedSkill: 5
+  ImprovedSkill: 5
 --- !u!1001 &2058094925363039375
 PrefabInstance:
   m_ObjectHideFlags: 0
