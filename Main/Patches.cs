@@ -466,25 +466,25 @@ namespace Shotgun
             if (ammoName.Contains("Slug"))
             {
                 gun.m_DamageHP = 120;
-                gun.m_AccuracyRange = 50;
+                gun.m_AccuracyRange = 30f;
                 Main.Instance.Configuration.Refs.Shotgun.WeaponView.FPSShooter.ProjectileCount = 1;
                 Main.Instance.Configuration.Refs.Shotgun.WeaponView.FPSShooter.ProjectileSpread = 0f;
-                currentBullet.MinimumDamageFalloffBeyondEffectiveRange = 25f;
+                currentBullet.MinimumDamageFalloffBeyondEffectiveRange = 20f;
                 currentBullet.DamageFalloffPerMeterBeyondEffectiveRange = 5f;
             }
             else if (ammoName.Contains("Buckshot"))
             {
                 gun.m_DamageHP = 15;
-                gun.m_AccuracyRange = 40f;
+                gun.m_AccuracyRange = 25f;
                 Main.Instance.Configuration.Refs.Shotgun.WeaponView.FPSShooter.ProjectileCount = 9;
                 Main.Instance.Configuration.Refs.Shotgun.WeaponView.FPSShooter.ProjectileSpread = 1f;
                 currentBullet.MinimumDamageFalloffBeyondEffectiveRange = 5f;
-                currentBullet.DamageFalloffPerMeterBeyondEffectiveRange = 0.5f;
+                currentBullet.DamageFalloffPerMeterBeyondEffectiveRange = 1f;
             }
             else if (ammoName.Contains("Birdshot"))
             {
                 gun.m_DamageHP = 3f;
-                gun.m_AccuracyRange = 30f;
+                gun.m_AccuracyRange = 20f;
                 Main.Instance.Configuration.Refs.Shotgun.WeaponView.FPSShooter.ProjectileCount = 30;
                 Main.Instance.Configuration.Refs.Shotgun.WeaponView.FPSShooter.ProjectileSpread = 2f;
                 currentBullet.MinimumDamageFalloffBeyondEffectiveRange = 1f;
