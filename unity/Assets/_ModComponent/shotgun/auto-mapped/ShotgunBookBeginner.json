@@ -1,0 +1,40 @@
+{
+  "ModResearchComponent": {
+    "DisplayNameLocalizationId": "GAMEPLAY_Shotgun_SkillbookBeginnerName",
+    "DescriptionLocalizatonId": "GAMEPLAY_Shotgun_SkillbookBeginnerDescription",
+    "InventoryActionLocalizationId": "",
+    "WeightKG": 1.0,
+    "DaysToDecay": 0,
+    "MaxHP": 100.0,
+    "InitialCondition": "Random",
+    "InventoryCategory": "Auto",
+    "PickUpAudio": "",
+    "PutBackAudio": "",
+    "StowAudio": "",
+    "WornOutAudio": "",
+    "InspectOnPickup": true,
+    "InspectDistance": 1.0,
+    "InspectAngles": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "InspectOffset": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "InspectScale": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "NormalModel": "",
+    "InspectModel": "",
+    "SkillType": "None",
+    "TimeRequirementHours": 10,
+    "SkillPoints": 20,
+    "NoBenefitAtSkillLevel": 3,
+    "ReadAudio": ""
+  }
+}

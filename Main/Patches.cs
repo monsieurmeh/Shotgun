@@ -492,5 +492,86 @@ namespace Shotgun
                 currentBullet.DamageFalloffPerMeterBeyondEffectiveRange = Settings.Instance.BirdshotDamageFalloff;
             }
         }
+
+
+        [HarmonyPatch(typeof(ResearchItem), nameof(ResearchItem.OnResearchComplete))]
+        internal static class Patch_ResearchItem_OnResearchComplete
+        {
+            private static void Postfix(ResearchItem __instance)
+            {
+                if (__instance == null || __instance.gameObject == null)
+                    return;
+
+                string goName = __instance.gameObject.name;
+                if (string.IsNullOrEmpty(goName) || !goName.StartsWith("GEAR_ShotgunBook"))
+                    return;
+
+                ShotgunSkill.IncreaseSkillPoints.Invoke("Shotgun", __instance.m_SkillPoints);
+            }
+        }
+
+
+        [HarmonyPatch(typeof(Panel_Inventory_Examine), nameof(Panel_Inventory_Examine.OnRead))]
+        internal static class Panel_Inventory_Examine_PatchOnRead
+        {
+            private static bool Prefix(Panel_Inventory_Examine __instance)
+            {
+                GearItem gi = __instance.m_GearItem;
+                if (gi == null)
+                    return false;
+
+                ResearchItem ri = gi.m_ResearchItem;
+                if (ri == null)
+                    return false;
+
+                if (!gi.name.StartsWith("GEAR_ShotgunBook"))
+                    return false;
+
+                if (ri.m_ElapsedHours >= ri.GetTimeRequirementHoursPrecise())
+                {
+                    GameAudioManager.PlayGUIError();
+                    return true;
+                }
+
+                int currentTier = ShotgunSkill.GetCurrentTier();
+                if (currentTier >= ri.m_NoBenefitAtSkillLevel - 1)
+                {
+                    GameAudioManager.PlayGUIError();
+                    ri.m_ElapsedHours = ri.m_TimeRequirementHours;
+                    return true;
+                }
+
+                if (__instance.MaybeAbortReadingWithHUDMessage())
+                {
+                    GameAudioManager.PlayGUIError();
+                    return true;
+                }
+
+                GameAudioManager.PlayGuiConfirm();
+                __instance.SelectWindow(__instance.m_ActionInProgressWindow);
+                __instance.SetReadInProgress(true);
+
+                UISlider slider = __instance.m_Slider_ActionProgress;
+                if (slider == null) 
+                    return true;
+
+                slider.value = 0f;
+                __instance.m_ElapsedProgressBarSeconds = 0f;
+                __instance.m_ProgressBarTimeSeconds = __instance.m_ReadTimeSeconds;
+
+                int minutesRemaining = 0;
+                if (ri.m_ElapsedHours < ri.GetTimeRequirementHoursPrecise())
+                    minutesRemaining = Mathf.RoundToInt((ri.GetTimeRequirementHours() - ri.m_ElapsedHours) * 60f);
+
+                int minutesToAdvance = Math.Min(__instance.m_HoursToRead * 60, minutesRemaining);
+                __instance.AccelerateTimeOfDay(minutesToAdvance, false);
+
+                GameObject emitter = InterfaceManager.GetSoundEmitter();
+                __instance.m_ProgressBarAudio = GameAudioManager.PlaySound(ri.m_ReadAudio, emitter);
+                __instance.SetInventoryAlpha(0f);
+
+                return true;
+            }
+        }
     }
 }

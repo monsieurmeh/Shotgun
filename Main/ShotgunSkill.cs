@@ -71,10 +71,10 @@ namespace Shotgun
             object skillDef = constructor.Invoke(new object[]
             {
                 SkillName,
-                new LocalizedString { m_LocalizationID = "Shotgun" },
-                "ico_skill_large_Rifle",
-                "ico_skill_large_Rifle",
-                "ico_skill_large_Rifle",
+                new LocalizedString { m_LocalizationID = "GAMEPLAY_Shotgun_SkillName" },
+                "ico_Shotgun_Skill",
+                "",
+                "Shotgun_Skill_graphic",
                 new LocalizedString[]
                 {
                     new LocalizedString { m_LocalizationID = "Novice" },
@@ -120,10 +120,11 @@ namespace Shotgun
 
         internal static void MaybeIncreaseSkill()
         {
-            if (DateTime.Now.Millisecond - LastSkillUpTime >= 1000)
+            MelonLogger.Msg($"TRYING BABY IM TRYING");
+            if (DateTime.Now.Ticks - LastSkillUpTime >= TimeSpan.TicksPerSecond)
             {
-                LastSkillUpTime = DateTime.Now.Millisecond;
-                IncreaseSkillPoints.Invoke("Shotgun", 1);
+                LastSkillUpTime = DateTime.Now.Ticks;
+                IncreaseSkillPoints.Invoke(SkillName, 1);
             }
         }
 

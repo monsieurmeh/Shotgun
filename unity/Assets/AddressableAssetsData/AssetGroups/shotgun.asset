@@ -15,6 +15,11 @@ MonoBehaviour:
   m_GroupName: shotgun
   m_GUID: 38210b1315f74d94cbc0fca6f05eb04a
   m_SerializeEntries:
+  - m_GUID: 08505b0cde729764f9a515f5fddf61d3
+    m_Address: Shotgun_Skill_Graphic
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 09d061a8ea129ed438db6601cfca1d20
     m_Address: ico_GearItem__Shotgun
     m_ReadOnly: 0
@@ -135,6 +140,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b4b48ce004c7b3347859806c92b0fac1
+    m_Address: ico_Shotgun_Skill
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bd67c7844ba36b947be3133326e72fea
     m_Address: ico_GearItem__ShotgunAmmoCasing
     m_ReadOnly: 0
@@ -162,6 +172,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e67d8c77c09a14244b907f30a5fd9554
     m_Address: ShotgunAmmoBoxMesh_Default_Material_BaseColor.1001
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ea1eebccd3c4a8b428319179e7fc62f8
+    m_Address: GEAR_ShotgunBookBeginner
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
