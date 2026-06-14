@@ -453,7 +453,49 @@ namespace Shotgun
             {
                 if (__instance.m_GunItem == null) return true;
                 if (__instance.m_GunItem.m_GunType != GunTypeCustom) return true;
+                ApplyShotgunRecoil();
                 return true;
+            }
+        }
+
+        internal static void ApplyShotgunRecoil()
+        {
+            float pitchMax = Settings.Instance.RecoilMaxPitchKick;
+            float yawMax = Settings.Instance.RecoilMaxYawKick;
+            if (pitchMax <= 0f && yawMax <= 0f) return;
+
+            int tier = ShotgunSkill.GetCurrentTier();
+            float factor = Mathf.Clamp01(1f - (tier / 4f));
+            if (factor <= 0f) return;
+
+            MelonCoroutines.Start(RecoilRoutine(pitchMax * factor, UnityEngine.Random.Range(-yawMax, yawMax) * factor));
+        }
+
+        private static System.Collections.IEnumerator RecoilRoutine(float pitchTotal, float yawTotal)
+        {
+            vp_FPSCamera cam = GameManager.GetVpFPSCamera();
+            if (cam == null) yield break;
+
+            float duration = Mathf.Max(0.001f, Settings.Instance.RecoilRiseTime);
+            float elapsed = 0f;
+            float pitchApplied = 0f;
+            float yawApplied = 0f;
+
+            while (elapsed < duration)
+            {
+                elapsed += Time.deltaTime;
+                float t = Mathf.Clamp01(elapsed / duration);
+                float eased = 1f - (1f - t) * (1f - t);
+
+                float pitchTarget = pitchTotal * eased;
+                cam.m_Pitch += pitchTarget - pitchApplied;
+                pitchApplied = pitchTarget;
+
+                float yawTarget = yawTotal * eased;
+                cam.AddToYaw(yawTarget - yawApplied);
+                yawApplied = yawTarget;
+
+                yield return null;
             }
         }
 

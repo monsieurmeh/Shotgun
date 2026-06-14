@@ -121,6 +121,22 @@ namespace Shotgun
         public int BirdshotPelletCount = 30;
 
 
+        [Section("Recoil Settings")]
+        [Name("Recoil Pitch Kick")]
+        [Description("Strength of the upward camera jerk when the shotgun fires, at Shotgun skill level 1. Scales down linearly to zero at level 5. Set to 0 to disable. Default: 6")]
+        [Slider(0f, 20f)]
+        public float RecoilMaxPitchKick = 6f;
+
+        [Name("Recoil Yaw Kick")]
+        [Description("Strength of the random sideways camera jerk when the shotgun fires, at Shotgun skill level 1. Scales down to zero at level 5. Set to 0 to disable. Default: 1.5")]
+        [Slider(0f, 8f)]
+        public float RecoilMaxYawKick = 1.5f;
+
+        [Name("Recoil Rise Time")]
+        [Description("Seconds over which the upward kick is applied. Higher = a slower, smoother rise. Default: 0.12")]
+        [Slider(0.02f, 0.5f)]
+        public float RecoilRiseTime = 0.12f;
+
         internal Settings() : base(Path.Combine("Shotgun", "Shotgun"))
         {
             Initialize();
