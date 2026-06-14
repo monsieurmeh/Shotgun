@@ -208,6 +208,12 @@ namespace Shotgun
                 ShotgunSkill.MaybeIncreaseSkill();
                 switch (CustomAmmoHUD.Current.LoadedAmmo.name)
                 {
+                    case "GEAR_ShotgunAmmoBoxSlug":
+                        float shotgunTierCritMultiplier = (ShotgunSkill.GetCurrentTier() - 1) * 0.25f; //We take opposite approach of rifle: no crits until you start to get high level, at which point you get level 1 rifle boosts
+                        float adjustedChance = __instance.GetChanceKill(WeaponSource.Rifle) * shotgunTierCritMultiplier * 1.25f; //add a flat 25% boost to rifle rate
+                        MelonLogger.Msg($"Crit Chance: {adjustedChance}");
+                        __result = Utils.RollChance(adjustedChance); 
+                        return;
                     case "GEAR_ShotgunAmmoBoxBirdshot":
                     case "GEAR_ShotgunAmmoBoxBuckshot":
                         __result = false; //We don't allow crits on multi-projectile shot

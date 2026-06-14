@@ -704,7 +704,6 @@ namespace Shotgun
             gunItem.m_AmmoReferences = new Il2CppSystem.Collections.Generic.List<AssetReferenceT<Il2CppTLD.Gear.GearItemData>>();
             foreach (var ammoType in ShotgunAmmoTypes)
             {
-                //gunItem.m_AmmoReferences.Add(new AssetReferenceT<Il2CppTLD.Gear.GearItemData>($"ModdedGearItemData_ShotgunAmmoSingle{ammoType}"));
                 gunItem.m_AmmoReferences.Add(new AssetReferenceT<Il2CppTLD.Gear.GearItemData>($"ModdedGearItemData_ShotgunAmmoBox{ammoType}"));
             }
             gunItem.m_GearItem = refs.Shotgun.Gun.GearItem;

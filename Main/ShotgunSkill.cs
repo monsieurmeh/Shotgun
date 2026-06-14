@@ -116,15 +116,7 @@ namespace Shotgun
         {
             int t = 0;
             for (int i = 0; i < TierTresholds.Length; i++) if (points >= TierTresholds[i]) t = i;
-            return t; // 0..4
-        }
-
-        internal static float NormalizedForPoints(int points)
-        {
-            int tier = TierForPoints(points);
-            if (tier >= TierTresholds.Length - 1) return 1f;
-            int lo = TierTresholds[tier], hi = TierTresholds[tier + 1];
-            return hi > lo ? Mathf.Clamp01((points - lo) / (float)(hi - lo)) : 0f;
+            return t;
         }
 
         internal static Skill GetSkillObject()
@@ -145,11 +137,11 @@ namespace Shotgun
 
         }
 
+        
         internal static long LastSkillUpTime;
 
         internal static void MaybeIncreaseSkill()
         {
-            MelonLogger.Msg($"TRYING BABY IM TRYING");
             if (DateTime.Now.Ticks - LastSkillUpTime >= TimeSpan.TicksPerSecond)
             {
                 LastSkillUpTime = DateTime.Now.Ticks;
