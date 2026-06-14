@@ -123,19 +123,29 @@ namespace Shotgun
 
         [Section("Recoil Settings")]
         [Name("Recoil Pitch Kick")]
-        [Description("Strength of the upward camera jerk when the shotgun fires, at Shotgun skill level 1. Scales down linearly to zero at level 5. Set to 0 to disable. Default: 6")]
+        [Description("Strength of the upward camera jerk when the shotgun fires, at Shotgun skill level 1. Scales down linearly to zero at level 5. Set to 0 to disable. Default: 12")]
         [Slider(0f, 20f)]
-        public float RecoilMaxPitchKick = 6f;
+        public float RecoilMaxPitchKick = 12f;
 
         [Name("Recoil Yaw Kick")]
-        [Description("Strength of the random sideways camera jerk when the shotgun fires, at Shotgun skill level 1. Scales down to zero at level 5. Set to 0 to disable. Default: 1.5")]
+        [Description("Strength of the random sideways camera jerk when the shotgun fires, at Shotgun skill level 1. Scales down to zero at level 5. Set to 0 to disable. Default: 4")]
         [Slider(0f, 8f)]
-        public float RecoilMaxYawKick = 1.5f;
+        public float RecoilMaxYawKick = 4f;
 
         [Name("Recoil Rise Time")]
         [Description("Seconds over which the upward kick is applied. Higher = a slower, smoother rise. Default: 0.12")]
         [Slider(0.02f, 0.5f)]
         public float RecoilRiseTime = 0.12f;
+
+        [Name("Recoil Recovery Fraction")]
+        [Description("Fraction of the kick that smoothly glides back toward center after the rise. 0 = stays fully kicked up; 1 = returns all the way to your original aim. Default: 0.25")]
+        [Slider(0f, 1f)]
+        public float RecoilRecoveryFraction = 0.25f;
+
+        [Name("Recoil Recovery Time")]
+        [Description("Seconds over which the recovery glide happens, after the rise. Higher = a slower, lazier settle. Default: 0.25")]
+        [Slider(0.02f, 1f)]
+        public float RecoilRecoveryTime = 0.25f;
 
         internal Settings() : base(Path.Combine("Shotgun", "Shotgun"))
         {

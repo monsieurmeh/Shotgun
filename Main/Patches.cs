@@ -476,22 +476,41 @@ namespace Shotgun
             vp_FPSCamera cam = GameManager.GetVpFPSCamera();
             if (cam == null) yield break;
 
-            float duration = Mathf.Max(0.001f, Settings.Instance.RecoilRiseTime);
+            float riseDur = Mathf.Max(0.001f, Settings.Instance.RecoilRiseTime);
+            float recFrac = Mathf.Clamp01(Settings.Instance.RecoilRecoveryFraction);
+            float recDur = recFrac > 0f ? Mathf.Max(0.001f, Settings.Instance.RecoilRecoveryTime) : 0f;
+            float total = riseDur + recDur;
+
             float elapsed = 0f;
             float pitchApplied = 0f;
             float yawApplied = 0f;
 
-            while (elapsed < duration)
+            while (elapsed < total)
             {
                 elapsed += Time.deltaTime;
-                float t = Mathf.Clamp01(elapsed / duration);
-                float eased = 1f - (1f - t) * (1f - t);
 
-                float pitchTarget = pitchTotal * eased;
+                float shape;
+                if (elapsed <= riseDur)
+                {
+                    float u = Mathf.Clamp01(elapsed / riseDur);
+                    shape = 1f - (1f - u) * (1f - u);
+                }
+                else if (recDur > 0f)
+                {
+                    float v = Mathf.Clamp01((elapsed - riseDur) / recDur);
+                    float s = v * v * (3f - 2f * v);
+                    shape = 1f - recFrac * s;
+                }
+                else
+                {
+                    shape = 1f;
+                }
+
+                float pitchTarget = pitchTotal * shape;
                 cam.m_Pitch += pitchTarget - pitchApplied;
                 pitchApplied = pitchTarget;
 
-                float yawTarget = yawTotal * eased;
+                float yawTarget = yawTotal * shape;
                 cam.AddToYaw(yawTarget - yawApplied);
                 yawApplied = yawTarget;
 
