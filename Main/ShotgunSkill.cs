@@ -9,6 +9,8 @@ namespace Shotgun
     internal static class ShotgunSkill
     {
         internal const string SkillName = "Shotgun";
+        internal static int[] TierTresholds = new int[] { 0, 25, 50, 75, 100 };
+
         #region FiligranisSkills Compat
 
         private static Type mFSkillType;
@@ -110,6 +112,33 @@ namespace Shotgun
             return skill.tier;
         }
 
+        internal static int TierForPoints(int points)
+        {
+            int t = 0;
+            for (int i = 0; i < TierTresholds.Length; i++) if (points >= TierTresholds[i]) t = i;
+            return t; // 0..4
+        }
+
+        internal static float NormalizedForPoints(int points)
+        {
+            int tier = TierForPoints(points);
+            if (tier >= TierTresholds.Length - 1) return 1f;
+            int lo = TierTresholds[tier], hi = TierTresholds[tier + 1];
+            return hi > lo ? Mathf.Clamp01((points - lo) / (float)(hi - lo)) : 0f;
+        }
+
+        internal static Skill GetSkillObject()
+        {
+            SkillsManager mgr = GameManager.GetSkillsManager();
+            if (mgr == null || mgr.m_Skills == null) return null;
+            string goName = "Skill_" + SkillName;
+            for (int i = 0; i < mgr.m_Skills.Count; i++)
+            {
+                Skill sk = mgr.m_Skills[i];
+                if (sk != null && sk.name == goName) return sk;
+            }
+            return null;
+        }
 
         internal static void ApplyToGunItem(GunItem gunItem)
         {

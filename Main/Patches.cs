@@ -214,7 +214,7 @@ namespace Shotgun
                         return;
                 }
             }
-        }       
+        }
 
 
         [HarmonyPatch(typeof(BaseAi), nameof(BaseAi.ApplyDamage), new Type[] { typeof(float), typeof(float), typeof(DamageSource), typeof(string) })]
@@ -290,7 +290,7 @@ namespace Shotgun
         [HarmonyPatch(typeof(PlayerMovement), nameof(PlayerMovement.Update))]
         internal static class PlayerMovement_TransmitLocomotion
         {
-            private static Vector3 mLastPosisiton; 
+            private static Vector3 mLastPosisiton;
 
             internal static void Postfix(PlayerMovement __instance)
             {
@@ -305,13 +305,13 @@ namespace Shotgun
 
                 if (playerTransform != null && Time.deltaTime > 0f)
                 {
-                    if (mLastPosisiton != Vector3.zero) 
-                    { 
-                        Vector3 d = playerTransform.position - mLastPosisiton; 
-                        d.y = 0f; 
-                        speed = d.magnitude / Time.deltaTime; 
+                    if (mLastPosisiton != Vector3.zero)
+                    {
+                        Vector3 d = playerTransform.position - mLastPosisiton;
+                        d.y = 0f;
+                        speed = d.magnitude / Time.deltaTime;
                     }
-                    mLastPosisiton = playerTransform.position; 
+                    mLastPosisiton = playerTransform.position;
                 }
 
                 moddedAnimator.SetFloat("Movement_Speed", speed, 0.10f, Time.deltaTime);
@@ -552,7 +552,7 @@ namespace Shotgun
                 __instance.SetReadInProgress(true);
 
                 UISlider slider = __instance.m_Slider_ActionProgress;
-                if (slider == null) 
+                if (slider == null)
                     return true;
 
                 slider.value = 0f;
@@ -569,6 +569,48 @@ namespace Shotgun
                 GameObject emitter = InterfaceManager.GetSoundEmitter();
                 __instance.m_ProgressBarAudio = GameAudioManager.PlaySound(ri.m_ReadAudio, emitter);
                 __instance.SetInventoryAlpha(0f);
+
+                return true;
+            }
+        }
+
+
+        [HarmonyPatch(typeof(Panel_Inventory_Examine), nameof(Panel_Inventory_Examine.RefreshReadPanel))]
+        internal static class Panel_Inventory_Examine_PatchRefreshReadPanel
+        {
+            private static bool Prefix(Panel_Inventory_Examine __instance)
+            {
+                GearItem gi = __instance.m_GearItem;
+                if (gi == null)
+                    return false;
+
+                ResearchItem ri = gi.m_ResearchItem;
+                if (ri == null)
+                    return false;
+
+                if (!gi.name.StartsWith("GEAR_ShotgunBook"))
+                    return false;
+
+                if (!ShotgunSkill.IsAvailable)
+                    return false;
+
+                (int points, int tier) s = ShotgunSkill.GetPointsAndTiers(ShotgunSkill.SkillName);
+
+                if (__instance.m_SkillProgressBarLabel != null)
+                    __instance.m_SkillProgressBarLabel.text = Localization.Get("GAMEPLAY_Shotgun_SkillName");
+
+                if (__instance.m_SkillLevelLabel != null)
+                    __instance.m_SkillLevelLabel.text = (s.tier + 1).ToString();
+
+                Skill skill = ShotgunSkill.GetSkillObject();
+                if (__instance.m_SkillProgressBar != null)
+                    __instance.m_SkillProgressBar.value = skill != null ? skill.GetProgressToNextLevelAsNormalizedValue(0) : 0f;
+
+                if (__instance.m_SkillProgressBarSprite != null)
+                    __instance.m_SkillProgressBarSprite.fillAmount = skill != null ? Mathf.Clamp01(skill.GetProgressToNextLevelAsNormalizedValue(ri.m_SkillPoints)) : 0f;
+
+                if (__instance.m_ResearchIcon != null)
+                    __instance.m_ResearchIcon.spriteName = "ico_Shotgun_Skill";
 
                 return true;
             }

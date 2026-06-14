@@ -175,6 +175,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e7a63804086842a42b5afb039242db0b
+    m_Address: ico_GearItem__ShotgunBookBeginner
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ea1eebccd3c4a8b428319179e7fc62f8
     m_Address: GEAR_ShotgunBookBeginner
     m_ReadOnly: 0
