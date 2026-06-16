@@ -147,6 +147,43 @@ namespace Shotgun
         [Slider(0.02f, 1f)]
         public float RecoilRecoveryTime = 0.25f;
 
+
+        [Section("(DEBUG) Animation Settings")]
+        [Name("Idle Animation Speed Multiplier")]
+        [Description("Multiplier to idle animation speed. Base: 0.25")]
+        [Slider(0.05f, 2.0f)]
+        public float IdleSpeedMulitplier = 0.25f;
+
+        [Name("Base Walking Speed Multiplier")]
+        [Description("Multipler to base walking animation speed. Base: 1.0")]
+        [Slider(0.05f, 2.0f)]
+        public float BaseWalkingSpeedMulitplier = 1.0f;
+
+        [Name("Max Walking Speed Multiplier")]
+        [Description("Multipler to max walking animation speed. Applied gradually as actual walking speed increases, reaching this multiplier just before transitioning to sprinting. Default: 1.0")]
+        [Slider(1.0f, 2.0f)]
+        public float MaxWalkingSpeedMulitplier = 1.0f;
+
+        [Name("Max Walking Speed")]
+        [Description("Sets the max speed that is considered 'walking' by the animation system. Transitioning to 'sprint' still requires holding shift, this will simply adjust at what point the animation system transitions in conjunction with holding sprint. Default: 5.0")]
+        [Slider(3.0f, 7.0f)]
+        public float MaxWalkingSpeed = 5.0f;
+
+        [Name("Base Sprinting Speed Multiplier")]
+        [Description("Multipler to base sprinting animation speed. Base: 0.5")]
+        [Slider(0.05f, 2.0f)]
+        public float BaseSprintingSpeedMulitplier = 0.5f;
+
+        [Name("Max Sprinting Speed Multiplier")]
+        [Description("Multipler to max sprinting animation speed. Applied gradually as actual sprinting speed increases, reaching this multiplier just before transitioning to sprinting. Default: 1.0")]
+        [Slider(1.0f, 2.0f)]
+        public float MaxSprintingSpeedMulitplier = 1.0f;
+
+        [Name("Max Sprinting Speed")]
+        [Description("Sets the max speed that is considered 'sprinting' by the animation system. In-game speed can still surpass this, but speed multipliers stop having any effect once speed is above this threshold. Default: 10.0")]
+        [Slider(8.0f, 12.0f)]
+        public float MaxSprintingSpeed = 10.0f;
+
         internal Settings() : base(Path.Combine("Shotgun", "Shotgun"))
         {
             Initialize();

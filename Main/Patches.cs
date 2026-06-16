@@ -323,6 +323,10 @@ namespace Shotgun
                 moddedAnimator.SetFloat("Movement_Speed", speed, 0.10f, Time.deltaTime);
                 moddedAnimator.SetBool("Movement_Input", hasInput);
                 moddedAnimator.SetBool("Sprint_Input", sprint);
+                moddedAnimator.SetFloat("Idle_Speed_Multiplier", Settings.Instance.IdleSpeedMulitplier);
+                moddedAnimator.SetFloat("Walk_Speed_Multiplier", Settings.Instance.BaseWalkingSpeedMulitplier * Mathf.Lerp(1.0f, Settings.Instance.MaxWalkingSpeedMulitplier, 1.0f - ((Settings.Instance.MaxWalkingSpeed - speed) / (Settings.Instance.MaxWalkingSpeed))));
+                moddedAnimator.SetFloat("Sprint_Speed_Multiplier", Settings.Instance.BaseSprintingSpeedMulitplier * Mathf.Lerp(1.0f, Settings.Instance.MaxSprintingSpeedMulitplier, 1.0f - ((Settings.Instance.MaxSprintingSpeed - speed) / (Settings.Instance.MaxSprintingSpeed - Settings.Instance.MaxWalkingSpeed))));
+                moddedAnimator.SetBool("Fast_Enough_For_Sprinting", speed >= Settings.Instance.MaxWalkingSpeed);
             }
         }
 
