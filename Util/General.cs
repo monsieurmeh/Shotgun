@@ -17,5 +17,7 @@ namespace Shotgun.Utility
         internal const string ShotgunFPHPrefabName = "FPH_Shotgun";
         internal const string ShotgunItemPrefabName = "GEAR_Shotgun";
         internal const string ShotgunItemPrefabCloneName = "GEAR_Shotgun(Clone)";
+
+        internal static float SampleGameTime() => GameManager.m_TimeOfDay.m_WeatherSystem.m_ElapsedHoursAccumulator + GameManager.m_TimeOfDay.m_WeatherSystem.m_ElapsedHours;
     }
 }

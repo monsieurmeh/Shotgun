@@ -316,7 +316,7 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 3
     m_ConditionEvent: ManualRemoveSpeed
-    m_EventTreshold: 2
+    m_EventTreshold: 1
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 2000013}
   m_Solo: 0
@@ -449,7 +449,7 @@ BlendTree:
   m_Name: Blend Tree
   m_Childs:
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 239ccca988c794e4e83037ca81096d8e, type: 2}
+    m_Motion: {fileID: 7400000, guid: f402b4bc55a0cd14aabbc3f21ede1931, type: 2}
     m_Threshold: 0
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
@@ -457,7 +457,7 @@ BlendTree:
     m_DirectBlendParameter: Movement_Speed
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 7ebfae4a07b7b6e4e8a392e80aeda2c3, type: 2}
+    m_Motion: {fileID: 7400000, guid: 995e92f072b27d94c94985f250d76012, type: 2}
     m_Threshold: 1
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
@@ -752,9 +752,6 @@ AnimatorStateMachine:
   m_AnyStateTransitions: []
   m_EntryTransitions: []
   m_StateMachineTransitions:
-  - first: {fileID: -7955708777969680597}
-    second:
-    - {fileID: 721363043996906360}
   - first: {fileID: 3464734677273230039}
     second:
     - {fileID: 6747653145097106623}
@@ -762,6 +759,9 @@ AnimatorStateMachine:
   - first: {fileID: -1328547086457048998}
     second:
     - {fileID: -688978404115297708}
+  - first: {fileID: -7955708777969680597}
+    second:
+    - {fileID: 721363043996906360}
   m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: -160, y: -370, z: 0}
   m_EntryPosition: {x: 70, y: 270, z: 0}
@@ -2263,22 +2263,22 @@ AnimatorStateMachine:
   m_ChildStateMachines:
   - serializedVersion: 1
     m_StateMachine: {fileID: 7000003}
-    m_Position: {x: -130, y: 90, z: 0}
+    m_Position: {x: -100, y: 80, z: 0}
   - serializedVersion: 1
     m_StateMachine: {fileID: 7000004}
-    m_Position: {x: -250, y: 270, z: 0}
+    m_Position: {x: -300, y: 280, z: 0}
   - serializedVersion: 1
     m_StateMachine: {fileID: 7000005}
-    m_Position: {x: -40, y: -40, z: 0}
+    m_Position: {x: 0, y: -20, z: 0}
   - serializedVersion: 1
     m_StateMachine: {fileID: 6562184764047280778}
-    m_Position: {x: 200, y: -130, z: 0}
+    m_Position: {x: 200, y: -120, z: 0}
   - serializedVersion: 1
     m_StateMachine: {fileID: 6767508896622864249}
-    m_Position: {x: 180, y: -340, z: 0}
+    m_Position: {x: 200, y: -320, z: 0}
   - serializedVersion: 1
     m_StateMachine: {fileID: -743865298349178929}
-    m_Position: {x: 210, y: 80, z: 0}
+    m_Position: {x: 200, y: 80, z: 0}
   m_AnyStateTransitions:
   - {fileID: 193031632630226224}
   - {fileID: -8905293421775307893}
@@ -2293,7 +2293,7 @@ AnimatorStateMachine:
     - {fileID: -8908901122160313945}
   m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: -380, y: -190, z: 0}
-  m_EntryPosition: {x: 230, y: 250, z: 0}
+  m_EntryPosition: {x: 220, y: 280, z: 0}
   m_ExitPosition: {x: 800, y: 0, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
   m_DefaultState: {fileID: 5719069621240291386}
@@ -2383,6 +2383,12 @@ AnimatorStateMachine:
   m_AnyStateTransitions: []
   m_EntryTransitions: []
   m_StateMachineTransitions:
+  - first: {fileID: 7000006}
+    second:
+    - {fileID: -7168904799502525528}
+    - {fileID: 5000001}
+    - {fileID: 5000002}
+    - {fileID: 5000003}
   - first: {fileID: 7000007}
     second:
     - {fileID: 2584411861270595540}
@@ -2395,12 +2401,6 @@ AnimatorStateMachine:
   - first: {fileID: 7000009}
     second:
     - {fileID: -8788513076466701082}
-  - first: {fileID: 7000006}
-    second:
-    - {fileID: -7168904799502525528}
-    - {fileID: 5000001}
-    - {fileID: 5000002}
-    - {fileID: 5000003}
   - first: {fileID: 7000010}
     second:
     - {fileID: 5000007}
@@ -2691,6 +2691,12 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
+  - m_Name: CanCloseBarrelToAim
+    m_Type: 4
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 1
+    m_Controller: {fileID: 9100000}
   - m_Name: ManualRemoveSpeed
     m_Type: 3
     m_DefaultFloat: 0
@@ -2702,12 +2708,6 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
-  - m_Name: CanCloseBarrelToAim
-    m_Type: 4
-    m_DefaultFloat: 0
-    m_DefaultInt: 0
-    m_DefaultBool: 1
     m_Controller: {fileID: 9100000}
   - m_Name: RecoilHandlingLevel
     m_Type: 3
@@ -2851,7 +2851,10 @@ AnimatorStateTransition:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: 
-  m_Conditions: []
+  m_Conditions:
+  - m_ConditionMode: 3
+    m_ConditionEvent: ManualRemoveSpeed
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 2000011}
   m_Solo: 0
@@ -2892,7 +2895,7 @@ BlendTree:
   m_Name: Blend Tree
   m_Childs:
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 9af09dde1da3c344ebd9a2a49a9d62c4, type: 2}
+    m_Motion: {fileID: 7400000, guid: 9cfac72b9355fbc4e9deda316bdf2124, type: 2}
     m_Threshold: 0
     m_Position: {x: 0, y: 0}
     m_TimeScale: 0.5
@@ -2900,7 +2903,7 @@ BlendTree:
     m_DirectBlendParameter: MoveSpeed
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: c8eab3c1f25fa72448d3e298a6b17815, type: 2}
+    m_Motion: {fileID: 7400000, guid: 00206934bace95f4fa5c6c51aaff1ac1, type: 2}
     m_Threshold: 1
     m_Position: {x: 0, y: 0}
     m_TimeScale: 0.5
@@ -3098,7 +3101,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: ba0cd2653d521e942887702fe89f009e, type: 2}
+  m_Motion: {fileID: 7400000, guid: d05cea6c4dec08041ade539c63abbf38, type: 2}
   m_Tag: 
   m_SpeedParameter: Walk_Speed_Multiplier
   m_MirrorParameter: 
@@ -3112,9 +3115,9 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 6
+  - m_ConditionMode: 3
     m_ConditionEvent: ManualRemoveSpeed
-    m_EventTreshold: 1
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 2000012}
   m_Solo: 0

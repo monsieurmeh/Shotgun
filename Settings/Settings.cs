@@ -148,6 +148,48 @@ namespace Shotgun
         public float RecoilRecoveryTime = 0.25f;
 
 
+        [Section("(DEBUG) Idle Variation Generator")]
+        [Name("Idle Variation Speed")]
+        [Description("Fine-tunes how fast the smooth random 'Idle_Variation' blend (0..1) drifts, relative to in-game time. 1.0 = baseline, 0.1 = 10x slower, 100 = 100x faster. Default: 10")]
+        [Slider(0.1f, 100.0f)]
+        public float IdleVariationSpeed = 10.0f;
+
+        [Name("Idle Variation Min Interval")]
+        [Description("Shortest interval between targets, in scaled time units. Lower = more frequent direction changes. Default: 0.5")]
+        [Slider(0.05f, 5.0f)]
+        public float IdleVariationMinInterval = 0.5f;
+
+        [Name("Idle Variation Max Interval")]
+        [Description("Longest interval between targets, in scaled time units. Higher = longer lazy drifts. Default: 2.0")]
+        [Slider(0.1f, 10.0f)]
+        public float IdleVariationMaxInterval = 2.0f;
+
+        [Name("Idle Variation Min Target Distance")]
+        [Description("Smallest jump (0..1) a new target may sit from the current value. Higher = always-large swings. Default: 0.2")]
+        [Slider(0.0f, 1.0f)]
+        public float IdleVariationMinTargetDistance = 0.2f;
+
+        [Name("Idle Variation Max Target Distance")]
+        [Description("Largest jump (0..1) a new target may sit from the current value. Lower = gentler, smaller swings. Default: 0.8")]
+        [Slider(0.0f, 1.0f)]
+        public float IdleVariationMaxTargetDistance = 0.8f;
+
+        [Name("Idle Variation Output Min")]
+        [Description("Lower bound of the blend output fed to the animator. Default: 0.0")]
+        [Slider(0.0f, 1.0f)]
+        public float IdleVariationOutputMin = 0.0f;
+
+        [Name("Idle Variation Output Max")]
+        [Description("Upper bound of the blend output fed to the animator. Default: 1.0")]
+        [Slider(0.0f, 1.0f)]
+        public float IdleVariationOutputMax = 1.0f;
+
+        [Name("Idle Variation Graph Window (hours)")]
+        [Description("How many in-game hours the debug graph shows at once (fixed scale). Default: 2")]
+        [Slider(1.0f, 24.0f)]
+        public float IdleVariationGraphWindowHours = 2.0f;
+
+
         [Section("(DEBUG) Animation Settings")]
         [Name("Idle Animation Speed Multiplier")]
         [Description("Multiplier to idle animation speed. Base: 0.25")]

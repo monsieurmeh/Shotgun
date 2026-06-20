@@ -23,6 +23,11 @@ namespace Shotgun
         internal Settings? Settings { get; private set; }
         internal bool LateInitialized { get; private set; } = false;
 
+        // Debug overlays, toggled together with F8: the Idle_Variation graph (top-left) and the
+        // live modded-animator parameter readout (top-right).
+        private readonly SmoothBlendDebugOverlay mBlendOverlay = new();
+        private readonly AnimatorParameterDebugOverlay mAnimParamOverlay = new();
+
         public override void OnEarlyInitializeMelon()
         {
             EarlyInitialize();
@@ -59,6 +64,28 @@ namespace Shotgun
             ClassInjector.RegisterTypeInIl2Cpp<AnimationEventProxy>();
 
             ShotgunSkill.Init();
+        }
+
+        public override void OnUpdate()
+        {
+            if (Input.GetKeyDown(KeyCode.F8))
+            {
+                bool on = !mBlendOverlay.Enabled;
+                mBlendOverlay.Enabled = on;
+                mAnimParamOverlay.Enabled = on;
+            }
+
+            if (LateInitialized)
+                mBlendOverlay.Tick();
+        }
+
+        public override void OnGUI()
+        {
+            if (LateInitialized)
+            {
+                mBlendOverlay.Draw();
+                mAnimParamOverlay.Draw();
+            }
         }
 
         public bool Register = false;

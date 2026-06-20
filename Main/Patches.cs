@@ -5,6 +5,7 @@ using UnityEngine;
 using MelonLoader;
 using UnityEngine.Playables;
 using UnityEngine.AddressableAssets;
+using Shotgun.Utility;
 
 namespace Shotgun
 {
@@ -292,6 +293,7 @@ namespace Shotgun
             return isShotgun;
         }
 
+        internal static readonly SmoothRandomBlend IdleVariation = new();
 
         [HarmonyPatch(typeof(PlayerMovement), nameof(PlayerMovement.Update))]
         internal static class PlayerMovement_TransmitLocomotion
@@ -320,6 +322,7 @@ namespace Shotgun
                     mLastPosisiton = playerTransform.position;
                 }
 
+                // Should invoke shotgun animation parameters here too, not just on equip/unequip.
                 moddedAnimator.SetFloat("Movement_Speed", speed, 0.10f, Time.deltaTime);
                 moddedAnimator.SetBool("Movement_Input", hasInput);
                 moddedAnimator.SetBool("Sprint_Input", sprint);
@@ -327,6 +330,20 @@ namespace Shotgun
                 moddedAnimator.SetFloat("Walk_Speed_Multiplier", Settings.Instance.BaseWalkingSpeedMulitplier * Mathf.Lerp(1.0f, Settings.Instance.MaxWalkingSpeedMulitplier, 1.0f - ((Settings.Instance.MaxWalkingSpeed - speed) / (Settings.Instance.MaxWalkingSpeed))));
                 moddedAnimator.SetFloat("Sprint_Speed_Multiplier", Settings.Instance.BaseSprintingSpeedMulitplier * Mathf.Lerp(1.0f, Settings.Instance.MaxSprintingSpeedMulitplier, 1.0f - ((Settings.Instance.MaxSprintingSpeed - speed) / (Settings.Instance.MaxSprintingSpeed - Settings.Instance.MaxWalkingSpeed))));
                 moddedAnimator.SetBool("Fast_Enough_For_Sprinting", speed >= Settings.Instance.MaxWalkingSpeed);
+
+                Settings s = Settings.Instance;
+                
+                // Move these to settings post-change so we aren't wasting cycles here
+                IdleVariation.TimeScale = s.IdleVariationSpeed;
+                IdleVariation.MinSegmentDuration = s.IdleVariationMinInterval;
+                IdleVariation.MaxSegmentDuration = s.IdleVariationMaxInterval;
+                IdleVariation.MinTargetDistance = s.IdleVariationMinTargetDistance;
+                IdleVariation.MaxTargetDistance = s.IdleVariationMaxTargetDistance;
+                IdleVariation.OutputMin = s.IdleVariationOutputMin;
+                IdleVariation.OutputMax = s.IdleVariationOutputMax;
+                IdleVariation.Tick();
+
+                moddedAnimator.SetFloat("Idle_Variation", IdleVariation.Value);
             }
         }
 
@@ -684,6 +701,18 @@ namespace Shotgun
                     __instance.m_ResearchIcon.spriteName = "ico_Shotgun_Skill";
 
                 return true;
+            }
+        }
+
+        [HarmonyPatch(typeof(ConsoleManager), nameof(ConsoleManager.Initialize))]
+        internal class ConsoleManagerPatches_Initialize
+        {
+            private static void Postfix()
+            {
+                uConsole.RegisterCommand("shotgun_levelup", new Action(() =>
+                {
+                    ShotgunSkill.IncreaseSkillPoints.Invoke("Shotgun", 25);
+                }));
             }
         }
     }
