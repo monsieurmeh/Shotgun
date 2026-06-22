@@ -45,6 +45,10 @@ namespace Shotgun
             TryRegisterSkill();
         }
 
+        /// <summary>
+        /// OK, she IS removing the ammo properly at high level - it seems to be an issue of maybe not having the reload itself trigger properly? WTF
+        /// Somehow the post-switch reload is not working. This is actually a very good sign, it means our previous fix hasn't changed the bug manifestation itself. We're just chasing a tail end of it :D
+        /// </summary>
         private static void TryRegisterSkill()
         {
             if (mFSkillType == null) return;

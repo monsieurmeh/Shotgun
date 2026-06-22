@@ -154,10 +154,7 @@ namespace Shotgun
             GunItem gunItem = playerManager?.m_ItemInHands?.m_GunItem;
             if (gunItem == null || gunItem.m_Clip == null) 
                 return;
-
-            if (gunItem.m_PreviousAmmoIndex < 0) 
-                return;
-
+    
             for (int i = 0; i < count && gunItem.m_Clip.Count > 0; i++)
             {
                 int condition = gunItem.m_Clip[0];
@@ -165,8 +162,7 @@ namespace Shotgun
                 playerManager.InstantiateItemInPlayerInventory(assetRef, 1, condition, 0);
                 gunItem.m_Clip.RemoveAt(0);
             }
-
-            if (gunItem.m_Clip.Count == 0) gunItem.m_PreviousAmmoIndex = -1;
+            Actions.SyncAmmoParams(gunItem);
         }
 
         internal void OnEjectCasing(int count)
@@ -186,7 +182,6 @@ namespace Shotgun
                 }
                 gunItem.m_SpentCasingsInClip--;
             }
-            Actions.SyncAmmoParams(gunItem);
         }
 
         internal void OnPlaySound(string sound)
