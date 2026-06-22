@@ -84,10 +84,11 @@ namespace Shotgun
                 if (__instance.m_GunType != GunTypeCustom) return;
                 if (!InputManager.HasContext(InputManager.m_CurrentContext)) return;
                 if (!Input.GetKeyDown(Settings.Instance.AmmoSwapKeyCode)) return;
+                if (!__instance.IsEquipped()) return;
+                if (__instance.GetNextValidAmmoIndex() == __instance.m_SelectedAmmoIndex) return; //no other ammo available
 
-                __instance.PressSwitchAmmo();
-                UpdateShotgunParams(__instance, __instance.ValidAmmo[__instance.m_SelectedAmmoIndex].DisplayName);
-                CustomAmmoHUD.Current.Refresh();
+                __instance.m_PreviousAmmoIndex = __instance.m_SelectedAmmoIndex; //indicate is ammo swap during reload
+                __instance.PressReloadAmmo(); 
             }
         }
 
@@ -101,7 +102,9 @@ namespace Shotgun
                 if (!InputManager.HasContext(InputManager.m_CurrentContext)) return;
                 if (!InputManager.GetReloadPressed(InputManager.m_CurrentContext)) return;
                 if (__instance.m_Clip.Count == __instance.m_ClipSize && __instance.m_SpentCasingsInClip == 0) return;
-                
+
+
+                __instance.m_PreviousAmmoIndex = -1; //indicate is NOT ammo swap during reload
                 __instance.PressReloadAmmo();
                 CustomAmmoHUD.Current.Refresh();
             }

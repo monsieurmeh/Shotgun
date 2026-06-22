@@ -22,7 +22,7 @@ namespace Shotgun
         internal Configuration Configuration { get; private set; } = new();
         internal Settings? Settings { get; private set; }
         internal bool LateInitialized { get; private set; } = false;
-        internal Vector3 LastPosisiton { get; set; }
+        internal Vector3 LastPosition { get; set; }
 
         private bool mResourceLocatorInitialized = false;
 

@@ -70,13 +70,13 @@ namespace Shotgun
 
             if (playerTransform != null && Time.deltaTime > 0f)
             {
-                if (Main.Instance.LastPosisiton != Vector3.zero)
+                if (Main.Instance.LastPosition != Vector3.zero)
                 {
-                    Vector3 d = playerTransform.position - Main.Instance.LastPosisiton;
+                    Vector3 d = playerTransform.position - Main.Instance.LastPosition;
                     d.y = 0f;
                     speed = d.magnitude / Time.deltaTime;
                 }
-                Main.Instance.LastPosisiton = playerTransform.position;
+                Main.Instance.LastPosition = playerTransform.position;
             }
 
             moddedAnimator.SetFloat("Movement_Speed", speed, 0.10f, Time.deltaTime);

@@ -161,7 +161,7 @@ namespace Shotgun
             for (int i = 0; i < count && gunItem.m_Clip.Count > 0; i++)
             {
                 int condition = gunItem.m_Clip[0];
-                AssetReferenceGearItem assetRef = gunItem.ValidAmmo[gunItem.m_PreviousAmmoIndex].m_PrefabReference;
+                AssetReferenceGearItem assetRef = gunItem.ValidAmmo[gunItem.m_SelectedAmmoIndex].m_PrefabReference;
                 playerManager.InstantiateItemInPlayerInventory(assetRef, 1, condition, 0);
                 gunItem.m_Clip.RemoveAt(0);
             }
@@ -205,7 +205,12 @@ namespace Shotgun
 
         internal void OnAmmoTypeChanged()
         {
-            // do stuff on ammo type changed
+            PlayerManager playerManager = GameManager.GetPlayerManagerComponent();
+            GunItem gunItem = playerManager?.m_ItemInHands?.m_GunItem;
+
+            gunItem.m_SelectedAmmoIndex = gunItem.GetNextValidAmmoIndex();
+            UpdateShotgunParams(gunItem, gunItem.ValidAmmo[gunItem.m_SelectedAmmoIndex].DisplayName);
+            CustomAmmoHUD.Current.Refresh();
         }
     }
 }
