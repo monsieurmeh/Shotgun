@@ -68,7 +68,7 @@ namespace Shotgun.Utility
             if (now - mLastSample >= interval)
             {
                 mTimes[mHead] = now;
-                mValues[mHead] = Patches.IdleVariationApplied;
+                mValues[mHead] = Main.Instance.IdleVariation.Value;
                 mHead = (mHead + 1) % HistorySize;
                 if (mCount < HistorySize) mCount++;
                 mLastSample = now;
@@ -92,7 +92,7 @@ namespace Shotgun.Utility
             const float graphH = 165f;   // 1.5x taller graph
             const float axisW = 30f;
 
-            SmoothRandomBlend gen = Patches.IdleVariation;
+            SmoothRandomBlend gen = Main.Instance.IdleVariation;
             float min = gen.OutputMin;
             float max = gen.OutputMax;
 

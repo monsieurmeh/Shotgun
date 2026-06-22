@@ -90,7 +90,7 @@ namespace Shotgun
 
             playerAnimation.OnAnimationEvent_Generic_Round_Loaded();
             GunItem gunItem = GameManager.GetPlayerManagerComponent()?.m_ItemInHands?.m_GunItem;
-            Patches.SyncAmmoParams(gunItem);
+            Actions.SyncAmmoParams(gunItem);
         }
 
         internal void OnRoundsUnloaded()
@@ -118,12 +118,12 @@ namespace Shotgun
             int stateAfter = (int)playerAnimation.m_State;
 
             GunItem gunItem = playerManager?.m_ItemInHands?.m_GunItem;
-            Patches.SyncAmmoParams(gunItem);
+            Actions.SyncAmmoParams(gunItem);
         }
 
         internal void SyncAmmoVisibility(GunItem gunItem)
         {
-            Patches.SyncAmmoParams(gunItem);
+            Actions.SyncAmmoParams(gunItem);
         }
 
         internal void OnSyncAmmoVisibility()
@@ -186,7 +186,7 @@ namespace Shotgun
                 }
                 gunItem.m_SpentCasingsInClip--;
             }
-            Patches.SyncAmmoParams(gunItem);
+            Actions.SyncAmmoParams(gunItem);
         }
 
         internal void OnPlaySound(string sound)
@@ -200,6 +200,12 @@ namespace Shotgun
                 return;
 
             refs.AudioShot._audioSource.PlayOneShot(clip.audioClip);
+        }
+
+
+        internal void OnAmmoTypeChanged()
+        {
+            // do stuff on ammo type changed
         }
     }
 }

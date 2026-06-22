@@ -22,11 +22,14 @@ namespace Shotgun
         internal Configuration Configuration { get; private set; } = new();
         internal Settings? Settings { get; private set; }
         internal bool LateInitialized { get; private set; } = false;
+        internal Vector3 LastPosisiton { get; set; }
 
-        // Debug overlays, toggled together with F8: the Idle_Variation graph (top-left) and the
-        // live modded-animator parameter readout (top-right).
+        private bool mResourceLocatorInitialized = false;
+
+        internal readonly SmoothRandomBlend IdleVariation = new();
         private readonly SmoothBlendDebugOverlay mBlendOverlay = new();
-        private readonly AnimatorParameterDebugOverlay mAnimParamOverlay = new();
+        private readonly AnimatorParameterDebugOverlay mAnimParamOverlay = new(); 
+
 
         public override void OnEarlyInitializeMelon()
         {
@@ -88,24 +91,15 @@ namespace Shotgun
             }
         }
 
-        public bool Register = false;
 
         public override void OnSceneWasInitialized(int buildIndex, string sceneName)
         {
-            if (!Register)
+            if (!mResourceLocatorInitialized)
             {
                 Addressables.AddResourceLocator(new ModdedResourceLocator().Cast<IResourceLocator>());
-                Register = true;
+                mResourceLocatorInitialized = true;
             }
         }
-
-
-        [HarmonyPatch(typeof(vp_FPSCamera), nameof(vp_FPSCamera.LoadAllFPSWeapons))]
-        internal static class LateInitializationPatch
-        {
-            internal static void Postfix() => Main.Instance?.LateInitialize();
-        }
-
 
         internal void LateInitialize()
         {
