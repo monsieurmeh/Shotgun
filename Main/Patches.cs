@@ -278,6 +278,8 @@ namespace Shotgun
                 if (equippedGun != null) 
                     Actions.SyncAmmoParams(equippedGun);
 
+
+                ShotgunSkill.ApplyAnimatorParams(moddedAnimator);
                 moddedAnimator.SetTrigger("Trigger_Generic_Equip");
             }
         }
@@ -357,7 +359,6 @@ namespace Shotgun
                 moddedAnimator.SetBool("IsAmmoSwitch", isAmmoSwitch);
                 moddedAnimator.SetBool("Is_Jammed", willJam);
                 moddedAnimator.SetBool("IsAimHeld", __instance.m_State == PlayerAnimation.State.Aiming);
-                ShotgunSkill.ApplyAnimatorParams(moddedAnimator);
                 moddedAnimator.SetTrigger("Trigger_Generic_Reload_Single");
             }
         }

@@ -15,6 +15,11 @@ MonoBehaviour:
   m_GroupName: shotgun
   m_GUID: 38210b1315f74d94cbc0fca6f05eb04a
   m_SerializeEntries:
+  - m_GUID: 021c5c74f8f7a1f4aac2364cd8a79d12
+    m_Address: GAMEPLAY_Shotgun_ShellDrop_Hard
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 08505b0cde729764f9a515f5fddf61d3
     m_Address: Shotgun_Skill_Graphic
     m_ReadOnly: 0
@@ -75,8 +80,18 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 45c3238f4ce41474bb093d241960836c
+    m_Address: GAMEPLAY_Shotgun_Open
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4d15e4ed32d75bb41a5b513cd2cbc305
     m_Address: GEAR_ShotgunAmmoBoxBuckshot
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4f2d8d61790ac064a87b053a652955b0
+    m_Address: GAMEPLAY_Shotgun_InsertLeft
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -135,6 +150,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ac0a681c5cb17df4e9a83eb5eb5d371e
+    m_Address: GAMEPLAY_Shotgun_InsertRight
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b32445faae2511b44af10fbb5ffd1863
     m_Address: Shotgun_lambert1_BaseColor
     m_ReadOnly: 0
@@ -170,6 +190,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e3e22d5edd345b946901e324b27ecae9
+    m_Address: GAMEPLAY_Shotgun_Close
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e67d8c77c09a14244b907f30a5fd9554
     m_Address: ShotgunAmmoBoxMesh_Default_Material_BaseColor.1001
     m_ReadOnly: 0
@@ -182,6 +207,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ea1eebccd3c4a8b428319179e7fc62f8
     m_Address: GEAR_ShotgunBookBeginner
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fefc04543d80c2d4c8731b87619a0033
+    m_Address: GAMEPLAY_Shotgun_Discharge
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

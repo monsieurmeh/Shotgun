@@ -226,6 +226,36 @@ namespace Shotgun
         [Slider(8.0f, 12.0f)]
         public float MaxSprintingSpeed = 10.0f;
 
+        [Name("Base Reload Speed Multiplier")]
+        [Description("Sets the base reload speed multiplier applied regardless of shotgun skill level.")]
+        [Slider(0.1f, 10f)]
+        public float BaseReloadSpeedMultiplier = 1.0f;
+
+        [Name("Per-Level Reload Speed Multiplier")]
+        [Description("Sets the reload speed increase per shotgun skill level, measured in additional percentage.")]
+        [Slider(0f, 20f)]
+        public float AdditionalReloadSpeedMultiplier = 10.0f;
+
+        [Name("Base Aim Speed Multiplier")]
+        [Description("Sets the base aim speed multiplier applied regardless of shotgun skill level.")]
+        [Slider(0.1f, 10f)]
+        public float BaseAimSpeedMultiplier = 1.0f;
+
+        [Name("Per-Level Aim Speed Multiplier")]
+        [Description("Sets the aim speed increase per shotgun skill level, measured in additional percentage.")]
+        [Slider(0f, 20f)]
+        public float AdditionalAimSpeedMultiplier = 10.0f;
+
+        [Name("Base Equip Speed Multiplier")]
+        [Description("Sets the base equip speed multiplier applied regardless of shotgun skill level.")]
+        [Slider(0.1f, 10f)]
+        public float BaseEquipSpeedMultiplier = 1.0f;
+
+        [Name("Per-Level Equip Speed Multiplier")]
+        [Description("Sets the equip speed increase per shotgun skill level, measured in additional percentage.")]
+        [Slider(0f, 20f)]
+        public float AdditionalEquipSpeedMultiplier = 10.0f;
+
         internal Settings() : base(Path.Combine("Shotgun", "Shotgun"))
         {
             Initialize();

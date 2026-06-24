@@ -821,6 +821,11 @@ namespace Shotgun
             refs.AudioShot = AudioMgr.AudioMaster.CreatePlayerShot(AudioMgr.AudioMaster.SourceType.SFX);
 
             RegisterAudioClip(refs, "GAMEPLAY_Shotgun_Discharge");
+            RegisterAudioClip(refs, "GAMEPLAY_Shotgun_Insert");
+            RegisterAudioClip(refs, "GAMEPLAY_Shotgun_Remove");
+            RegisterAudioClip(refs, "GAMEPLAY_Shotgun_Open");
+            RegisterAudioClip(refs, "GAMEPLAY_Shotgun_Close");
+            RegisterAudioClip(refs, "GAMEPLAY_Shotgun_ShellDrop_Hard");
         }
 
         internal void RegisterAudioClip(ConfigurationReferences refs, string addressableKey)
@@ -831,8 +836,7 @@ namespace Shotgun
                 MelonLogger.Error($"Failed to load audio clip: {addressableKey}");
                 return;
             }
-            //TODO: Need to figure out audio!
-            //refs.ClipManager.RegisterClip(addressableKey, clip);
+            refs.ClipManager.LoadAudioclip(addressableKey, clip);
             MelonLogger.Msg($"Registered audio clip: {addressableKey}");
         }
 

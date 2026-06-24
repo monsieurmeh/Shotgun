@@ -181,6 +181,9 @@ namespace Shotgun
             animator.SetInteger("ManualRemoveSpeed", ManualRemoveSpeed);
             animator.SetInteger("InsertSpeed", InsertSpeed);
             animator.SetInteger("RecoilHandlingLevel", RecoilHandlingLevel);
+            animator.SetFloat("Reload_Speed_Multiplier", Settings.Instance.BaseReloadSpeedMultiplier + ((AnimationTier * Settings.Instance.AdditionalReloadSpeedMultiplier) * 0.01f));
+            animator.SetFloat("Aim_Speed_Multiplier", Settings.Instance.BaseAimSpeedMultiplier + ((AnimationTier * Settings.Instance.AdditionalAimSpeedMultiplier) * 0.01f));
+            animator.SetFloat("Equip_Speed_Multiplier", Settings.Instance.BaseEquipSpeedMultiplier + ((AnimationTier * Settings.Instance.AdditionalEquipSpeedMultiplier) * 0.01f));
         }
 
         #endregion

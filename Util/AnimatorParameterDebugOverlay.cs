@@ -6,7 +6,7 @@ namespace Shotgun.Utility
     // AI DISCLOSURE: 100% AI generated, used just to help visualize some testing data for Waltz and I. No part of The Long Dark was used in generating this, just my own written code and basic Unity RAG.
     internal class AnimatorParameterDebugOverlay
     {
-        internal bool Enabled { get; set; } = true;
+        internal bool Enabled { get; set; } = false;
 
         private readonly StringBuilder mBuilder = new();
 
