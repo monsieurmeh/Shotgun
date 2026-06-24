@@ -80746,9 +80746,9 @@ AnimationClip:
     floatParameter: 0
     intParameter: 1
     messageOptions: 0
-  - time: 0.43333334
+  - time: 0.26666668
     functionName: OnPlaySound
-    data: GAMEPLAY_Shotgun_InsertLeft
+    data: GAMEPLAY_Shotgun_Insert
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0

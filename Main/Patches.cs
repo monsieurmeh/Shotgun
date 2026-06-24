@@ -13,6 +13,10 @@ namespace Shotgun
     // I end up having to recreate a fair bit of vanilla firearm logic here in order to continue streamlined use of vanilla methods as triggers and so forth
     // so if it looks like we're reinventing half the wheel... we are. Wheeeeee!
 
+    //BUG: I noticed on holding left dropping  right, spent casings in barrel doesnt reset to 0 until after reloadingis complete... that should sync iup immediately. Its messing with the visibility layer and likely causing an earlier issue with not transitionoing through reloading correctly.
+    // BUG: I noticed if I have zero remaining ammo, one spent shell and one live shell, i cannot swap ammo - i have to shoot that other shell first. What gives 
+    // BUG: "InsertBothMedium" goes right-left... which is is against our existing left-right format.
+
     internal class Patches
     {
         [HarmonyPatch(typeof(vp_FPSCamera), nameof(vp_FPSCamera.LoadAllFPSWeapons))]

@@ -81,7 +81,7 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 45c3238f4ce41474bb093d241960836c
-    m_Address: GAMEPLAY_Shotgun_Open
+    m_Address: GAMEPLAY_Shotgun_OpenClick
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -91,7 +91,7 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4f2d8d61790ac064a87b053a652955b0
-    m_Address: GAMEPLAY_Shotgun_InsertLeft
+    m_Address: GAMEPLAY_Shotgun_Remove
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -151,7 +151,7 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ac0a681c5cb17df4e9a83eb5eb5d371e
-    m_Address: GAMEPLAY_Shotgun_InsertRight
+    m_Address: GAMEPLAY_Shotgun_Insert
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -187,6 +187,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d3ec771b87c74d74b9a94992fa337583
     m_Address: GEAR_ShotgunAmmoSingleSlug
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: de49e7a9a97bb64409258c02f088f982
+    m_Address: GAMEPLAY_Shotgun_Open
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

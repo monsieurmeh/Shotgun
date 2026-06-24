@@ -72279,9 +72279,9 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 0
+  - time: 0.26666668
     functionName: OnPlaySound
-    data: GAMEPLAY_Shotgun_ShellDrop_Hard
+    data: GAMEPLAY_Shotgun_Remove
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
@@ -72292,6 +72292,13 @@ AnimationClip:
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 1
+    messageOptions: 0
+  - time: 0.4
+    functionName: OnPlaySound
+    data: GAMEPLAY_Shotgun_ShellDrop_Hard
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
     messageOptions: 0
   - time: 0.46666667
     functionName: OnReturnRound
