@@ -269,6 +269,8 @@ namespace Shotgun
                     return;
                 }
 
+                GunItem gunItem = GameManager.GetPlayerManagerComponent()?.m_ItemInHands?.m_GunItem;
+                SyncAmmoParams(gunItem);
                 ResetShotgunTriggers(moddedAnimator);
                 moddedAnimator.SetTrigger("Trigger_Generic_Unequip");
             }
