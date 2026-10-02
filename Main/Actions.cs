@@ -47,6 +47,17 @@ namespace Shotgun
             }
         }
 
+        internal static void ResetShotgunTriggers(Animator moddedAnimator)
+        {
+            if (moddedAnimator == null) return;
+            moddedAnimator.ResetTrigger("Trigger_Generic_Equip");
+            moddedAnimator.ResetTrigger("Trigger_Generic_Unequip");
+            moddedAnimator.ResetTrigger("Trigger_Generic_Aim");
+            moddedAnimator.ResetTrigger("Trigger_Generic_Aim_Cancel");
+            moddedAnimator.ResetTrigger("Trigger_Generic_Fire");
+            moddedAnimator.ResetTrigger("Trigger_Generic_Reload_Single");
+        }
+
         internal static void TransmitLocomotion(PlayerMovement __instance)
         {
             Animator moddedAnimator = Main.Instance?.Configuration?.Refs?.ModdedAnimator;

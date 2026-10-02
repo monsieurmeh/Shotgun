@@ -197,6 +197,7 @@ namespace Shotgun
         {
             internal static void Postfix(PlayerAnimation __instance, GearItem gearItem)
             {
+                if (__instance.m_State != PlayerAnimation.State.Equipping && __instance.m_State != PlayerAnimation.State.Showing) return;
                 if (!MaybeLatchShotgunAnimator(__instance, "Equip")) return;
 
                 if (__instance.m_EquippedFirstPersonWeaponShoulder != null)
@@ -218,8 +219,9 @@ namespace Shotgun
         [HarmonyPatch(typeof(PlayerAnimation), nameof(PlayerAnimation.Trigger_Generic_Unequip))]
         internal static class PlayerAnimation_ShotgunUnequip
         {
-            internal static void Prefix(PlayerAnimation __instance)
+            internal static void Postfix(PlayerAnimation __instance, bool __result)
             {
+                if (!__result) return;
                 if (__instance.m_EquippedFirstPersonWeaponShoulder == null) return;
                 if (!__instance.m_EquippedFirstPersonWeaponShoulder.name.Contains("Shotgun")) return;
 
@@ -231,6 +233,7 @@ namespace Shotgun
                     return;
                 }
 
+                ResetShotgunTriggers(moddedAnimator);
                 moddedAnimator.SetTrigger("Trigger_Generic_Unequip");
             }
         }
@@ -241,6 +244,7 @@ namespace Shotgun
         {
             internal static void Postfix(PlayerAnimation __instance)
             {
+                if (__instance.m_State != PlayerAnimation.State.ToAiming) return;
                 if (!MaybeLatchShotgunAnimator(__instance, "Aim")) return;
                 Main.Instance.Configuration.Refs.ModdedAnimator.SetTrigger("Trigger_Generic_Aim");
             }
@@ -252,6 +256,7 @@ namespace Shotgun
         {
             internal static void Postfix(PlayerAnimation __instance)
             {
+                if (__instance.m_State != PlayerAnimation.State.FromAiming) return;
                 if (!MaybeLatchShotgunAnimator(__instance, "AimCancel")) return;
                 Main.Instance.Configuration.Refs.ModdedAnimator.SetTrigger("Trigger_Generic_Aim_Cancel");
             }
@@ -263,6 +268,7 @@ namespace Shotgun
         {
             internal static void Postfix(PlayerAnimation __instance)
             {
+                if (__instance.m_State != PlayerAnimation.State.Firing) return;
                 if (!MaybeLatchShotgunAnimator(__instance, "Fire")) return;
                 Main.Instance.Configuration.Refs.ModdedAnimator.SetTrigger("Trigger_Generic_Fire");
             }
@@ -274,10 +280,11 @@ namespace Shotgun
         {
             internal static void Postfix(PlayerAnimation __instance, int bulletsToReload, int roundsLoaded, bool willJam)
             {
+                if (__instance.m_State != PlayerAnimation.State.Reloading) return;
                 if (!MaybeLatchShotgunAnimator(__instance, "Reload")) return;
 
                 GearItem weaponInHands = GameManager.GetPlayerManagerComponent()?.m_ItemInHands;
-                GunItem gunItem = weaponInHands.m_GunItem;
+                GunItem gunItem = weaponInHands?.m_GunItem;
                 int spentCasings = gunItem != null ? gunItem.m_SpentCasingsInClip : 0;
                 bool isAmmoSwitch = gunItem != null && gunItem.m_PreviousAmmoIndex >= 0;
 
