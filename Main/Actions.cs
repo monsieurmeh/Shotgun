@@ -69,7 +69,13 @@ namespace Shotgun
 
             vp_FPSShooter shooter = GameManager.GetVpFPSCamera()?.m_CurrentShooter;
             if (shooter == null) return false;
-            shooter.Reload(0);
+            if (!shooter.Reload(0)) return true;
+
+            vp_FPSPlayer player = GameManager.GetVpFPSPlayer();
+            if (player == null) return true;
+            if (player.m_ReenableWeaponStatesTimer != null) player.m_ReenableWeaponStatesTimer.Cancel();
+            player.MaybeCancelZoomInternal();
+            player.SetState("Reload", true);
             return true;
         }
 
