@@ -491,6 +491,20 @@ namespace Shotgun
             }
         }
 
+
+        [HarmonyPatch(typeof(SprainedWrist), nameof(SprainedWrist.CanEquipItem))]
+        internal static class SprainedWrist_BlockShotgunLikeRifle
+        {
+            private static void Postfix(SprainedWrist __instance, GearItem gi, ref SprainedWrist.CanEquipItemResult __result)
+            {
+                if (__result != SprainedWrist.CanEquipItemResult.Success) return;
+                if (gi == null || gi.m_GunItem == null) return;
+                if (gi.m_GunItem.m_GunType != GunTypeCustom) return;
+                if (__instance.m_CausesLocIDs == null || __instance.m_CausesLocIDs.Count < 1) return;
+                __result = SprainedWrist.CanEquipItemResult.CannotEquip2HandedWeapon;
+            }
+        }
+
         [HarmonyPatch(typeof(ConsoleManager), nameof(ConsoleManager.Initialize))]
         internal class ConsoleManagerPatches_Initialize
         {
