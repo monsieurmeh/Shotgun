@@ -58,6 +58,21 @@ namespace Shotgun
             moddedAnimator.ResetTrigger("Trigger_Generic_Reload_Single");
         }
 
+        internal static bool ReloadPastVanillaAmmoGate(GunItem gunItem)
+        {
+            GearItem weaponInHands = GameManager.GetPlayerManagerComponent()?.m_ItemInHands;
+            Inventory inventory = GameManager.GetInventoryComponent();
+            if (weaponInHands == null || inventory == null) return false;
+            if (inventory.GetAmmoAvailableForWeapon(weaponInHands) > 0) return false;
+
+            if (!gunItem.CanReload()) return true;
+
+            vp_FPSShooter shooter = GameManager.GetVpFPSCamera()?.m_CurrentShooter;
+            if (shooter == null) return false;
+            shooter.Reload(0);
+            return true;
+        }
+
         internal static void SwitchToNextAmmoType(GunItem gunItem)
         {
             if (gunItem == null) return;

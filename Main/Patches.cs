@@ -92,6 +92,7 @@ namespace Shotgun
                 if (__instance.GetNextValidAmmoIndex() == __instance.m_SelectedAmmoIndex) return; //no other ammo available
 
                 __instance.m_PreviousAmmoIndex = __instance.m_SelectedAmmoIndex; //indicate is ammo swap during reload
+                if (ReloadPastVanillaAmmoGate(__instance)) return;
                 __instance.PressReloadAmmo(); 
             }
         }
@@ -109,6 +110,11 @@ namespace Shotgun
 
 
                 __instance.m_PreviousAmmoIndex = -1; //indicate is NOT ammo swap during reload
+                if (__instance.m_SpentCasingsInClip > 0 && ReloadPastVanillaAmmoGate(__instance))
+                {
+                    CustomAmmoHUD.Current.Refresh();
+                    return;
+                }
                 __instance.PressReloadAmmo();
                 CustomAmmoHUD.Current.Refresh();
             }
