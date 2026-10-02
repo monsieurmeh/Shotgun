@@ -170,6 +170,7 @@ namespace Shotgun
         internal static int DefaultAnimationTier = 3;
         internal static int AnimationTier => IsAvailable ? GetCurrentTier() : DefaultAnimationTier;
         internal static int CatchLeftMinTier = 3;
+        internal static int RemoveBothMediumMinTier = 2;
         internal static int RemoveBothFastMinTier = 3;
         internal static int InsertBothMediumMinTier = 2;
         internal static int InsertBothFastMinTier = 4;
@@ -179,13 +180,22 @@ namespace Shotgun
 
         internal static bool CanCatchLeftOnAmmoSwitch => AnimationTier >= CatchLeftMinTier;
         internal static bool CanCloseBarrelToAim => AnimationTier >= CloseToAimMinTier;
-        internal static int ManualRemoveSpeed  => AnimationTier >= RemoveBothFastMinTier ? 2 : 1;
+        internal static int ManualRemoveSpeed => AnimationTier >= RemoveBothFastMinTier ? 2 : (AnimationTier >= RemoveBothMediumMinTier ? 1 : 0);
         internal static int InsertSpeed => AnimationTier >= InsertBothFastMinTier ? 2 : (AnimationTier >= InsertBothMediumMinTier ? 1 : 0);
         internal static int RecoilHandlingLevel => AnimationTier >= RecoilLowMinTier ? 2 : (AnimationTier >= RecoilMedMinTier ? 1 : 0);
+
+        private static int mAppliedTier = -1;
+
+        internal static void ReapplyAnimatorParamsIfTierChanged(Animator animator)
+        {
+            if (AnimationTier == mAppliedTier) return;
+            ApplyAnimatorParams(animator);
+        }
 
         internal static void ApplyAnimatorParams(Animator animator)
         {
             if (animator == null) return;
+            mAppliedTier = AnimationTier;
             animator.SetBool("CanCatchLeftOnAmmoSwitch", CanCatchLeftOnAmmoSwitch);
             animator.SetBool("CanCloseBarrelToAim", CanCloseBarrelToAim);
             animator.SetInteger("ManualRemoveSpeed", ManualRemoveSpeed);

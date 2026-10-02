@@ -86,6 +86,7 @@ namespace Shotgun
         {
             Animator moddedAnimator = Main.Instance?.Configuration?.Refs?.ModdedAnimator;
             if (moddedAnimator == null || !moddedAnimator.enabled) return;
+            ShotgunSkill.ReapplyAnimatorParamsIfTierChanged(moddedAnimator);
 
             bool sprint = InputManager.GetSprintDown(__instance);
             Vector2 move = InputManager.GetPlayerMovement(__instance);
