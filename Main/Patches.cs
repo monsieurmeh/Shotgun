@@ -278,7 +278,12 @@ namespace Shotgun
         [HarmonyPatch(typeof(PlayerAnimation), nameof(PlayerAnimation.Trigger_Generic_Reload))]
         internal static class PlayerAnimation_ShotgunReload
         {
-            internal static void Postfix(PlayerAnimation __instance, int bulletsToReload, int roundsLoaded, bool willJam)
+            internal static void Prefix(PlayerAnimation __instance, out PlayerAnimation.State __state)
+            {
+                __state = __instance.m_State;
+            }
+
+            internal static void Postfix(PlayerAnimation __instance, int bulletsToReload, int roundsLoaded, bool willJam, PlayerAnimation.State __state)
             {
                 if (__instance.m_State != PlayerAnimation.State.Reloading) return;
                 if (!MaybeLatchShotgunAnimator(__instance, "Reload")) return;
@@ -295,7 +300,7 @@ namespace Shotgun
                 moddedAnimator.SetBool("Is_Loaded", roundsLoaded > 0);
                 moddedAnimator.SetBool("IsAmmoSwitch", isAmmoSwitch);
                 moddedAnimator.SetBool("Is_Jammed", willJam);
-                moddedAnimator.SetBool("IsAimHeld", __instance.m_State == PlayerAnimation.State.Aiming);
+                moddedAnimator.SetBool("IsAimHeld", __state == PlayerAnimation.State.Aiming);
                 moddedAnimator.SetTrigger("Trigger_Generic_Reload_Single");
             }
         }
