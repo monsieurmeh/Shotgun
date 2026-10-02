@@ -190,6 +190,8 @@ namespace Shotgun
                 }
                 gunItem.m_SpentCasingsInClip--;
             }
+
+            Actions.SyncAmmoParams(gunItem);
         }
 
         internal void OnPlaySound(string sound)
