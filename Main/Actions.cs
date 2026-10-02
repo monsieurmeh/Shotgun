@@ -133,12 +133,26 @@ namespace Shotgun
             }
 
             bool isShotgun = instance.m_EquippedFirstPersonWeaponShoulder.name.Contains("Shotgun");
+            bool wasModdedEnabled = moddedAnimator.enabled;
+
+            bool renamed = false;
+            if (isShotgun && instance.m_EquippedFirstPersonWeaponShoulder.gameObject.name != ShotgunFPHPrefabName)
+            {
+                instance.m_EquippedFirstPersonWeaponShoulder.gameObject.name = ShotgunFPHPrefabName;
+                renamed = true;
+            }
 
             moddedAnimator.enabled = isShotgun;
             vanillaAnimator.enabled = !isShotgun;
             shotgunAnimator.enabled = !isShotgun;
 
-            return isShotgun;
+            if (!isShotgun) return false;
+            if (wasModdedEnabled && !renamed) return true;
+
+            if (wasModdedEnabled) moddedAnimator.Rebind();
+            SyncAmmoParams(GameManager.GetPlayerManagerComponent()?.m_ItemInHands?.m_GunItem);
+            ShotgunSkill.ApplyAnimatorParams(moddedAnimator);
+            return true;
         }
 
         internal static void ApplyShotgunRecoil()
