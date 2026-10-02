@@ -255,6 +255,25 @@ namespace Shotgun
         }
 
 
+        [HarmonyPatch(typeof(PlayerAnimation), nameof(PlayerAnimation.Reset))]
+        internal static class PlayerAnimation_ShotgunReset
+        {
+            internal static void Postfix(PlayerAnimation __instance)
+            {
+                if (__instance.m_EquippedFirstPersonWeaponShoulder != null && __instance.m_EquippedFirstPersonWeaponShoulder.name.Contains("Shotgun")) return;
+
+                Animator moddedAnimator = Main.Instance?.Configuration?.Refs?.ModdedAnimator;
+                if (moddedAnimator == null || !moddedAnimator.enabled) return;
+
+                ResetShotgunTriggers(moddedAnimator);
+                moddedAnimator.enabled = false;
+
+                Animator vanillaAnimator = Main.Instance.Configuration.Refs.VanillaAnimator;
+                if (vanillaAnimator != null) vanillaAnimator.enabled = true;
+            }
+        }
+
+
         [HarmonyPatch(typeof(PlayerAnimation), nameof(PlayerAnimation.Trigger_Generic_Aim))]
         internal static class PlayerAnimation_ShotgunAim
         {
