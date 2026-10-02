@@ -58,6 +58,15 @@ namespace Shotgun
             moddedAnimator.ResetTrigger("Trigger_Generic_Reload_Single");
         }
 
+        internal static void SwitchToNextAmmoType(GunItem gunItem)
+        {
+            if (gunItem == null) return;
+            gunItem.m_SelectedAmmoIndex = gunItem.GetNextValidAmmoIndex();
+            gunItem.m_PreviousAmmoIndex = -1;
+            UpdateShotgunParams(gunItem, gunItem.ValidAmmo[gunItem.m_SelectedAmmoIndex].DisplayName);
+            CustomAmmoHUD.Current.Refresh();
+        }
+
         internal static void TransmitLocomotion(PlayerMovement __instance)
         {
             Animator moddedAnimator = Main.Instance?.Configuration?.Refs?.ModdedAnimator;

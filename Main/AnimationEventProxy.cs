@@ -212,10 +212,10 @@ namespace Shotgun
         {
             PlayerManager playerManager = GameManager.GetPlayerManagerComponent();
             GunItem gunItem = playerManager?.m_ItemInHands?.m_GunItem;
+            if (gunItem == null)
+                return;
 
-            gunItem.m_SelectedAmmoIndex = gunItem.GetNextValidAmmoIndex();
-            UpdateShotgunParams(gunItem, gunItem.ValidAmmo[gunItem.m_SelectedAmmoIndex].DisplayName);
-            CustomAmmoHUD.Current.Refresh();
+            Actions.SwitchToNextAmmoType(gunItem);
         }
     }
 }

@@ -137,6 +137,11 @@ namespace Shotgun
                 if (__instance.m_Weapon.m_GunItem.m_GunType != GunTypeCustom) return;
 
                 GunItem gunItem = __instance.m_Weapon.m_GunItem;
+                if (__instance.m_Weapon.m_BulletsToReload > 0) return;
+                if (__instance.IsReloadCooldownActive) return;
+
+                if (gunItem.m_PreviousAmmoIndex >= 0 && gunItem.m_Clip.Count == 0)
+                    SwitchToNextAmmoType(gunItem);
 
                 int slotsToFill;
                 if (gunItem.m_PreviousAmmoIndex >= 0)
@@ -152,7 +157,12 @@ namespace Shotgun
                 GearItem weaponInHands = GameManager.GetPlayerManagerComponent()?.m_ItemInHands;
                 Inventory inventory = GameManager.GetInventoryComponent();
                 if (weaponInHands != null && inventory != null)
-                    ammoAvailable = inventory.GetAmmoAvailableForWeapon(weaponInHands);
+                {
+                    if (gunItem.m_PreviousAmmoIndex >= 0)
+                        ammoAvailable = inventory.GetAmmoAvailableForWeapon(gunItem.ValidAmmo[gunItem.GetNextValidAmmoIndex()]);
+                    else
+                        ammoAvailable = inventory.GetAmmoAvailableForWeapon(weaponInHands);
+                }
 
                 ammoCount = Math.Min(slotsToFill, ammoAvailable);
             }
