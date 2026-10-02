@@ -525,6 +525,20 @@ namespace Shotgun
             }
         }
 
+        [HarmonyPatch(typeof(Inventory), nameof(Inventory.IsGearItemGunOfType))]
+        internal static class Inventory_IsGearItemGunOfType_ShotgunCyclesWithRifles
+        {
+            private static void Postfix(GearItem gi, GunType targetType, ref bool __result)
+            {
+                if (__result) return;
+                if (targetType != GunType.Rifle) return;
+                if (gi == null || gi.m_GunItem == null) return;
+                if (gi.m_GunItem.m_GunType != GunTypeCustom) return;
+                if (gi.m_GunItem.m_ClipSize == 0) return;
+                __result = true;
+            }
+        }
+
         [HarmonyPatch(typeof(ConsoleManager), nameof(ConsoleManager.Initialize))]
         internal class ConsoleManagerPatches_Initialize
         {
