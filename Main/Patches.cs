@@ -269,7 +269,7 @@ namespace Shotgun
         [HarmonyPatch(typeof(PlayerAnimation), nameof(PlayerAnimation.Trigger_Generic_Equip))]
         internal static class PlayerAnimation_ShotgunEquip
         {
-            internal static void Postfix(PlayerAnimation __instance)
+            internal static void Postfix(PlayerAnimation __instance, GearItem gearItem)
             {
                 if (!MaybeLatchShotgunAnimator(__instance, "Equip")) return;
 
@@ -278,7 +278,7 @@ namespace Shotgun
                 Animator moddedAnimator = Main.Instance.Configuration.Refs.ModdedAnimator;
                 moddedAnimator.Rebind();
 
-                GunItem equippedGun = GameManager.GetPlayerManagerComponent()?.m_ItemInHands?.m_GunItem;
+                GunItem equippedGun = gearItem?.m_GunItem;
                 if (equippedGun != null) 
                     Actions.SyncAmmoParams(equippedGun);
 
