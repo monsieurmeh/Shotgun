@@ -651,6 +651,14 @@ namespace Shotgun
                 MelonLogger.Error("Null Panel_ActionsRadial");
                 return false;
             }
+            for (int i = 0, iMax = radialActionsPanel.m_WeaponRadialOrder.Length; i < iMax; i++)
+            {
+                if (radialActionsPanel.m_WeaponRadialOrder[i] == "GEAR_Shotgun")
+                {
+                    MelonLogger.Msg("Already configured radial for GEAR_Shotgun, skipping");
+                    return true;
+                }
+            }
             Il2CppInterop.Runtime.InteropTypes.Arrays.Il2CppStringArray newWeaponFilterList = new Il2CppInterop.Runtime.InteropTypes.Arrays.Il2CppStringArray(radialActionsPanel.m_WeaponRadialOrder.Length + 1);
             for (int i = 0, iMax = radialActionsPanel.m_WeaponRadialOrder.Length; i < iMax; i++)
             {
