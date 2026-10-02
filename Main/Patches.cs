@@ -47,9 +47,7 @@ namespace Shotgun
             internal static bool Prefix(GunItem __instance)
             {
                 if (__instance.m_GunType != GunTypeCustom) return true;
-                if (!InputManager.HasContext(InputManager.m_CurrentContext)) return false;
-                if (!Input.GetKey(Settings.Instance.AmmoSwapKeyCode)) return false;
-                return true;
+                return false;
             }
         }
 
@@ -57,12 +55,25 @@ namespace Shotgun
         [HarmonyPatch(typeof(GunItem), nameof(GunItem.PressReloadAmmo))]
         internal static class GunItem_PreventReloadAmmoUnlessIntended
         {
+            private static bool mOwnerRequest = false;
+
+            internal static void StartShotgunReload(GunItem gunItem)
+            {
+                mOwnerRequest = true;
+                try
+                {
+                    gunItem.PressReloadAmmo();
+                }
+                finally
+                {
+                    mOwnerRequest = false;
+                }
+            }
+
             internal static bool Prefix(GunItem __instance)
             {
                 if (__instance.m_GunType != GunTypeCustom) return true;
-                if (!InputManager.HasContext(InputManager.m_CurrentContext)) return false;
-                if (!InputManager.GetReloadPressed(InputManager.m_CurrentContext) && !Input.GetKey(Settings.Instance.AmmoSwapKeyCode)) return false;
-                return true;
+                return mOwnerRequest;
             }
         }
 
@@ -90,10 +101,12 @@ namespace Shotgun
                 if (!Input.GetKeyDown(Settings.Instance.AmmoSwapKeyCode)) return;
                 if (!__instance.IsEquipped()) return;
                 if (__instance.GetNextValidAmmoIndex() == __instance.m_SelectedAmmoIndex) return; //no other ammo available
+                if (!__instance.CanReload()) return;
+                if (__instance.m_IsJammed) return;
 
                 __instance.m_PreviousAmmoIndex = __instance.m_SelectedAmmoIndex; //indicate is ammo swap during reload
                 if (ReloadPastVanillaAmmoGate(__instance)) return;
-                __instance.PressReloadAmmo(); 
+                GunItem_PreventReloadAmmoUnlessIntended.StartShotgunReload(__instance);
             }
         }
 
@@ -106,8 +119,15 @@ namespace Shotgun
                 if (__instance.m_GunType != GunTypeCustom) return;
                 if (!InputManager.HasContext(InputManager.m_CurrentContext)) return;
                 if (!InputManager.GetReloadPressed(InputManager.m_CurrentContext)) return;
-                if (__instance.m_Clip.Count == __instance.m_ClipSize && __instance.m_SpentCasingsInClip == 0) return;
+                if (!__instance.CanReload()) return;
 
+                if (__instance.m_IsJammed)
+                {
+                    GunItem_PreventReloadAmmoUnlessIntended.StartShotgunReload(__instance);
+                    return;
+                }
+
+                if (__instance.m_Clip.Count == __instance.m_ClipSize && __instance.m_SpentCasingsInClip == 0) return;
 
                 __instance.m_PreviousAmmoIndex = -1; //indicate is NOT ammo swap during reload
                 if (__instance.m_SpentCasingsInClip > 0 && ReloadPastVanillaAmmoGate(__instance))
@@ -115,7 +135,7 @@ namespace Shotgun
                     CustomAmmoHUD.Current.Refresh();
                     return;
                 }
-                __instance.PressReloadAmmo();
+                GunItem_PreventReloadAmmoUnlessIntended.StartShotgunReload(__instance);
                 CustomAmmoHUD.Current.Refresh();
             }
         }
