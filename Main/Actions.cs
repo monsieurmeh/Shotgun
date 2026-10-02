@@ -58,25 +58,51 @@ namespace Shotgun
             moddedAnimator.ResetTrigger("Trigger_Generic_Reload_Single");
         }
 
-        internal static bool ReloadPastVanillaAmmoGate(GunItem gunItem)
+        internal static bool TryGetSelectedAmmoReserve(GunItem gunItem, out int reserve)
         {
-            GearItem weaponInHands = GameManager.GetPlayerManagerComponent()?.m_ItemInHands;
+            reserve = 0;
             Inventory inventory = GameManager.GetInventoryComponent();
-            if (weaponInHands == null || inventory == null) return false;
-            if (inventory.GetAmmoAvailableForWeapon(weaponInHands) > 0) return false;
+            if (inventory == null)
+            {
+                MelonLogger.Error("TryGetSelectedAmmoReserve: no Inventory while the shotgun is equipped; reload not started");
+                return false;
+            }
+            GearItem gearItem = gunItem.GetComponent<GearItem>();
+            if (gearItem == null)
+            {
+                MelonLogger.Error("TryGetSelectedAmmoReserve: shotgun GunItem has no GearItem; reload not started");
+                return false;
+            }
+            reserve = inventory.GetAmmoAvailableForWeapon(gearItem);
+            return true;
+        }
 
-            if (!gunItem.CanReload()) return true;
-
+        internal static void ReloadPastVanillaAmmoGate()
+        {
             vp_FPSShooter shooter = GameManager.GetVpFPSCamera()?.m_CurrentShooter;
-            if (shooter == null) return false;
-            if (!shooter.Reload(0)) return true;
-
+            if (shooter == null)
+            {
+                MelonLogger.Error("ReloadPastVanillaAmmoGate: no current vp_FPSShooter while the shotgun is equipped; reload not started");
+                return;
+            }
             vp_FPSPlayer player = GameManager.GetVpFPSPlayer();
-            if (player == null) return true;
+            if (player == null)
+            {
+                MelonLogger.Error("ReloadPastVanillaAmmoGate: no vp_FPSPlayer while the shotgun is equipped; reload not started");
+                return;
+            }
+
+            bool started = shooter.Reload(0);
             if (player.m_ReenableWeaponStatesTimer != null) player.m_ReenableWeaponStatesTimer.Cancel();
+
+            if (!started)
+            {
+                MelonLogger.Error("ReloadPastVanillaAmmoGate: vp_FPSShooter.Reload refused although GunItem.CanReload held");
+                return;
+            }
+
             player.MaybeCancelZoomInternal();
             player.SetState("Reload", true);
-            return true;
         }
 
         internal static void SwitchToNextAmmoType(GunItem gunItem)

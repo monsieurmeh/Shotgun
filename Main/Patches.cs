@@ -103,10 +103,15 @@ namespace Shotgun
                 if (__instance.GetNextValidAmmoIndex() == __instance.m_SelectedAmmoIndex) return; //no other ammo available
                 if (!__instance.CanReload()) return;
                 if (__instance.m_IsJammed) return;
+                if (!TryGetSelectedAmmoReserve(__instance, out int reserve)) return;
 
                 __instance.m_PreviousAmmoIndex = __instance.m_SelectedAmmoIndex; //indicate is ammo swap during reload
-                if (ReloadPastVanillaAmmoGate(__instance)) return;
-                GunItem_PreventReloadAmmoUnlessIntended.StartShotgunReload(__instance);
+                if (reserve > 0)
+                {
+                    GunItem_PreventReloadAmmoUnlessIntended.StartShotgunReload(__instance);
+                    return;
+                }
+                ReloadPastVanillaAmmoGate();
             }
         }
 
@@ -128,15 +133,22 @@ namespace Shotgun
                 }
 
                 if (__instance.m_Clip.Count == __instance.m_ClipSize && __instance.m_SpentCasingsInClip == 0) return;
+                if (!TryGetSelectedAmmoReserve(__instance, out int reserve)) return;
 
-                __instance.m_PreviousAmmoIndex = -1; //indicate is NOT ammo swap during reload
-                if (__instance.m_SpentCasingsInClip > 0 && ReloadPastVanillaAmmoGate(__instance))
+                if (reserve > 0)
                 {
+                    __instance.m_PreviousAmmoIndex = -1; //indicate is NOT ammo swap during reload
+                    GunItem_PreventReloadAmmoUnlessIntended.StartShotgunReload(__instance);
                     CustomAmmoHUD.Current.Refresh();
                     return;
                 }
-                GunItem_PreventReloadAmmoUnlessIntended.StartShotgunReload(__instance);
-                CustomAmmoHUD.Current.Refresh();
+                if (__instance.m_SpentCasingsInClip > 0)
+                {
+                    __instance.m_PreviousAmmoIndex = -1; //indicate is NOT ammo swap during reload
+                    ReloadPastVanillaAmmoGate();
+                    CustomAmmoHUD.Current.Refresh();
+                    return;
+                }
             }
         }
 
