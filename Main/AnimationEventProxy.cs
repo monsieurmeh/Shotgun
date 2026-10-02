@@ -89,8 +89,15 @@ namespace Shotgun
                 return;
 
             playerAnimation.OnAnimationEvent_Generic_Round_Loaded();
+
             GunItem gunItem = GameManager.GetPlayerManagerComponent()?.m_ItemInHands?.m_GunItem;
-            Actions.SyncAmmoParams(gunItem);
+            Animator moddedAnimator = Main.Instance?.Configuration?.Refs?.ModdedAnimator;
+            if (gunItem == null || gunItem.m_Clip == null || moddedAnimator == null)
+                return;
+
+            int roundsLoaded = Math.Max(moddedAnimator.GetInteger("Rounds_Loaded"), gunItem.m_Clip.Count);
+            moddedAnimator.SetInteger("Rounds_Loaded", roundsLoaded);
+            moddedAnimator.SetInteger("SpentCasingsInClip", gunItem.m_SpentCasingsInClip);
         }
 
         internal void OnRoundsUnloaded()
@@ -143,7 +150,8 @@ namespace Shotgun
             if (gunItem == null || gunItem.m_Clip == null || moddedAnimator == null) 
                 return;
 
-            moddedAnimator.SetInteger("Rounds_Loaded", gunItem.m_Clip.Count + count);
+            int alreadyCounted = Math.Max(moddedAnimator.GetInteger("Rounds_Loaded"), gunItem.m_Clip.Count);
+            moddedAnimator.SetInteger("Rounds_Loaded", Math.Min(alreadyCounted + count, gunItem.m_ClipSize));
             moddedAnimator.SetInteger("SpentCasingsInClip", gunItem.m_SpentCasingsInClip);
         }
 
