@@ -886,6 +886,20 @@ namespace Shotgun
         }
 
 
+        internal static readonly System.Collections.Generic.HashSet<string> ShotgunOwnedShooterFields = new System.Collections.Generic.HashSet<string>
+        {
+            "ProjectilePrefab",
+            "MuzzleFlashPrefab",
+            "ShellPrefab",
+            "BulletEmissionLocator",
+            "ProjectileCount",
+            "ProjectileSpread",
+            "ProjectileScale",
+            "MotionPositionPause",
+            "ShellScale",
+            "ShellEjectSpin",
+        };
+
         internal void ConfigureShotgunFPSShooter(ConfigurationReferences refs)
         {
             vp_FPSShooter shooter = refs.Shotgun.WeaponView.FPSShooter;
@@ -903,14 +917,22 @@ namespace Shotgun
                 vp_ComponentPreset newPreset = new vp_ComponentPreset();
                 newPreset.m_ComponentType = state.Preset.m_ComponentType;
                 newPreset.m_Fields = new Il2CppSystem.Collections.Generic.List<vp_ComponentPreset.Field>();
+                System.Collections.Generic.List<string> dropped = new System.Collections.Generic.List<string>();
                 foreach (vp_ComponentPreset.Field field in state.Preset.m_Fields)
                 {
+                    string fieldName = field.m_FieldInfo.Name;
+                    if (ShotgunOwnedShooterFields.Contains(fieldName))
+                    {
+                        dropped.Add(fieldName);
+                        continue;
+                    }
                     newPreset.m_Fields.Add(new vp_ComponentPreset.Field(field.m_FieldInfo, field.Args));
                 }
                 newState.Preset = newPreset;
                 newState.TextAsset = state.TextAsset;
                 shooter.m_StateManager.m_States.Add(newState);
                 if (state.Name == "Default") shooter.m_DefaultState = newState;
+                if (dropped.Count > 0) MelonLogger.Msg($"Shotgun shooter state '{state.Name}': not copying rifle preset fields {string.Join(", ", dropped)}");
             }
 
             shooter.ProjectileScale = 1.0f;
