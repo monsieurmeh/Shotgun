@@ -109,9 +109,11 @@ namespace Shotgun
 
         #region Stat Calculation
 
+        internal static int DefaultAnimationTier = 3;
+
         internal static int GetCurrentTier()
         {
-            if (!IsAvailable) return 3; 
+            if (!IsAvailable) return DefaultAnimationTier;
             (int points, int tier) skill = GetPointsAndTiers(SkillName);
             return skill.tier;
         }
@@ -167,8 +169,7 @@ namespace Shotgun
 
         #region Animation Skill Gates
 
-        internal static int DefaultAnimationTier = 3;
-        internal static int AnimationTier => IsAvailable ? GetCurrentTier() : DefaultAnimationTier;
+        internal static int AnimationTier => GetCurrentTier();
         internal static int CatchLeftMinTier = 3;
         internal static int RemoveBothMediumMinTier = 2;
         internal static int RemoveBothFastMinTier = 3;
