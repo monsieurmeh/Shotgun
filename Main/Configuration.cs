@@ -421,6 +421,7 @@ namespace Shotgun
             if (!InstantiateShotgunVPFPSWeapon(refs)) return false;
             if (!InstantiateShotgunVPFPSShooter(refs)) return false;
             if (!InstantiateShotgunStruggleBonus(refs)) return false;
+            if (!InstantiateShotgunCleanable(refs)) return false;
             if (!InstantiateShotgunGunItem(refs)) return false;
             if (!InstantiateShotgunFirstPersonItem(refs)) return false;
             if (!InstantiateShotgunFPSItem(refs)) return false;
@@ -434,6 +435,18 @@ namespace Shotgun
             if (refs.Shotgun.Gun.StruggleBonus == null)
             {
                 MelonLogger.Error("Null StruggleBonus");
+                return false;
+            }
+            return true;
+        }
+
+
+        internal bool InstantiateShotgunCleanable(ConfigurationReferences refs)
+        {
+            refs.Shotgun.Gun.Cleanable = refs.Shotgun.Gun.Prefab?.GetOrCreateComponent<Cleanable>() ?? null;
+            if (refs.Shotgun.Gun.Cleanable == null)
+            {
+                MelonLogger.Error("Null Cleanable");
                 return false;
             }
             return true;
@@ -610,6 +623,7 @@ namespace Shotgun
                 ConfigureShotgunGunItem(refs);
                 ConfigureShotgunFirstPersonItem(refs);
                 ConfigureShotgunStruggleBonus(refs);
+                ConfigureShotgunCleanable(refs);
                 ConfigureShotgunFPSItem(refs);
                 ConfigureShotgunFPHRoot(refs);
                 ConfigureShotgunFirstPersonWeapon(refs);
@@ -693,6 +707,7 @@ namespace Shotgun
             gearItem.m_FirstPersonItem = refs.Shotgun.Gun.FirstPersonItem;
             gearItem.m_GunItem = refs.Shotgun.Gun.GunItem;
             gearItem.m_Inspect = refs.Shotgun.Gun.Prefab.GetComponent<Inspect>();
+            gearItem.m_Cleanable = refs.Shotgun.Gun.Cleanable;
         }
 
 
@@ -767,6 +782,28 @@ namespace Shotgun
         internal void ConfigureShotgunStruggleBonus(ConfigurationReferences refs)
         {
             refs.Shotgun.Gun.StruggleBonus.m_StruggleWeaponType = StruggleBonus.StruggleWeaponType.Rifle;
+        }
+
+
+        // copied from rifle - expose in modcomponent!
+        internal void ConfigureShotgunCleanable(ConfigurationReferences refs)
+        {
+            Cleanable cleanable = refs.Shotgun.Gun.Cleanable;
+            Cleanable rifleCleanable = refs.Rifle.Gun.Prefab.GetComponent<Cleanable>();
+            if (rifleCleanable == null)
+            {
+                MelonLogger.Error("GEAR_Rifle has no Cleanable; shotgun will not be cleanable");
+                return;
+            }
+            cleanable.m_RequiredGear = rifleCleanable.m_RequiredGear;
+            cleanable.m_RequiredGearUnits = rifleCleanable.m_RequiredGearUnits;
+            cleanable.m_ConditionIncreaseMin = rifleCleanable.m_ConditionIncreaseMin;
+            cleanable.m_ConditionIncreaseMax = rifleCleanable.m_ConditionIncreaseMax;
+            cleanable.m_DurationMinutesMin = rifleCleanable.m_DurationMinutesMin;
+            cleanable.m_DurationMinutesMax = rifleCleanable.m_DurationMinutesMax;
+            cleanable.m_CleanAudio = rifleCleanable.m_CleanAudio;
+            cleanable.m_CleanToolChoices = rifleCleanable.m_CleanToolChoices;
+            cleanable.m_RequiresToolToClean = rifleCleanable.m_RequiresToolToClean;
         }
 
 

@@ -83,6 +83,7 @@ namespace Shotgun
         internal GunItem? GunItem { get; set; }
         internal FirstPersonItem? FirstPersonItem { get; set; }
         internal StruggleBonus? StruggleBonus { get; set; }
+        internal Cleanable? Cleanable { get; set; }
         internal ModGenericComponent? ModComponent { get; set; }
     }
 
