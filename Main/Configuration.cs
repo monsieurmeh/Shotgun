@@ -808,7 +808,7 @@ namespace Shotgun
         {
             RuntimeAnimatorController controller = Addressables.LoadAssetAsync<RuntimeAnimatorController>("FPH_Shotgun_Controller").WaitForCompletion();
             refs.ModdedAnimator.runtimeAnimatorController = controller;
-            refs.ModdedAnimator.cullingMode = AnimatorCullingMode.CullUpdateTransforms;
+            refs.ModdedAnimator.cullingMode = AnimatorCullingMode.AlwaysAnimate;
             refs.ModdedAnimator.enabled = false;
 
             refs.ModdedAnimator.gameObject.GetOrCreateComponent<AnimationEventProxy>();
