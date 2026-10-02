@@ -123,6 +123,16 @@ namespace Shotgun
             return t;
         }
 
+        internal const string BookPrefabPrefix = "GEAR_ShotgunBook";
+
+        internal static bool IsShotgunBook(GameObject go)
+        {
+            if (go == null) return false;
+            string name = go.name;
+            if (string.IsNullOrEmpty(name)) return false;
+            return name.StartsWith(BookPrefabPrefix);
+        }
+
         internal static Skill GetSkillObject()
         {
             SkillsManager mgr = GameManager.GetSkillsManager();
@@ -149,7 +159,7 @@ namespace Shotgun
             if (DateTime.Now.Ticks - LastSkillUpTime >= TimeSpan.TicksPerSecond)
             {
                 LastSkillUpTime = DateTime.Now.Ticks;
-                IncreaseSkillPoints.Invoke(SkillName, 1);
+                IncreaseSkillPoints?.Invoke(SkillName, 1);
             }
         }
 

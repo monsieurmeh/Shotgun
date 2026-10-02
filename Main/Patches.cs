@@ -379,16 +379,21 @@ namespace Shotgun
         [HarmonyPatch(typeof(ResearchItem), nameof(ResearchItem.OnResearchComplete))]
         internal static class Patch_ResearchItem_OnResearchComplete
         {
-            private static void Postfix(ResearchItem __instance)
+            private static bool Prefix(ResearchItem __instance)
             {
-                if (__instance == null || __instance.gameObject == null)
-                    return;
+                if (__instance == null) return true;
+                if (!ShotgunSkill.IsShotgunBook(__instance.gameObject)) return true;
 
-                string goName = __instance.gameObject.name;
-                if (string.IsNullOrEmpty(goName) || !goName.StartsWith("GEAR_ShotgunBook"))
-                    return;
+                __instance.m_ElapsedHours = __instance.m_TimeRequirementHours;
+                if (!ShotgunSkill.IsAvailable || ShotgunSkill.IncreaseSkillPoints == null) return false;
 
-                ShotgunSkill.IncreaseSkillPoints.Invoke("Shotgun", __instance.m_SkillPoints);
+                float multiplier = 1f;
+                Feat_BookSmarts bookSmarts = FeatsManager.m_Feat_BookSmarts;
+                if (bookSmarts != null && bookSmarts.IsUnlockedAndEnabled()) multiplier += bookSmarts.m_PercentBenefit / 100f;
+
+                int points = (int)Math.Round(__instance.m_SkillPoints * multiplier);
+                ShotgunSkill.IncreaseSkillPoints.Invoke(ShotgunSkill.SkillName, points);
+                return false;
             }
         }
 
@@ -399,20 +404,16 @@ namespace Shotgun
             private static bool Prefix(Panel_Inventory_Examine __instance)
             {
                 GearItem gi = __instance.m_GearItem;
-                if (gi == null)
-                    return false;
+                if (gi == null) return true;
+                if (!ShotgunSkill.IsShotgunBook(gi.gameObject)) return true;
 
                 ResearchItem ri = gi.m_ResearchItem;
-                if (ri == null)
-                    return false;
-
-                if (!gi.name.StartsWith("GEAR_ShotgunBook"))
-                    return false;
+                if (ri == null) return true;
 
                 if (ri.m_ElapsedHours >= ri.GetTimeRequirementHoursPrecise())
                 {
                     GameAudioManager.PlayGUIError();
-                    return true;
+                    return false;
                 }
 
                 int currentTier = ShotgunSkill.GetCurrentTier();
@@ -420,13 +421,13 @@ namespace Shotgun
                 {
                     GameAudioManager.PlayGUIError();
                     ri.m_ElapsedHours = ri.m_TimeRequirementHours;
-                    return true;
+                    return false;
                 }
 
                 if (__instance.MaybeAbortReadingWithHUDMessage())
                 {
                     GameAudioManager.PlayGUIError();
-                    return true;
+                    return false;
                 }
 
                 GameAudioManager.PlayGuiConfirm();
@@ -435,7 +436,7 @@ namespace Shotgun
 
                 UISlider slider = __instance.m_Slider_ActionProgress;
                 if (slider == null)
-                    return true;
+                    return false;
 
                 slider.value = 0f;
                 __instance.m_ElapsedProgressBarSeconds = 0f;
@@ -452,7 +453,7 @@ namespace Shotgun
                 __instance.m_ProgressBarAudio = GameAudioManager.PlaySound(ri.m_ReadAudio, emitter);
                 __instance.SetInventoryAlpha(0f);
 
-                return true;
+                return false;
             }
         }
 
@@ -460,21 +461,15 @@ namespace Shotgun
         [HarmonyPatch(typeof(Panel_Inventory_Examine), nameof(Panel_Inventory_Examine.RefreshReadPanel))]
         internal static class Panel_Inventory_Examine_PatchRefreshReadPanel
         {
-            private static bool Prefix(Panel_Inventory_Examine __instance)
+            private static void Postfix(Panel_Inventory_Examine __instance)
             {
                 GearItem gi = __instance.m_GearItem;
-                if (gi == null)
-                    return false;
+                if (gi == null) return;
+                if (!ShotgunSkill.IsShotgunBook(gi.gameObject)) return;
 
                 ResearchItem ri = gi.m_ResearchItem;
-                if (ri == null)
-                    return false;
-
-                if (!gi.name.StartsWith("GEAR_ShotgunBook"))
-                    return false;
-
-                if (!ShotgunSkill.IsAvailable)
-                    return false;
+                if (ri == null) return;
+                if (!ShotgunSkill.IsAvailable) return;
 
                 (int points, int tier) s = ShotgunSkill.GetPointsAndTiers(ShotgunSkill.SkillName);
 
@@ -493,8 +488,6 @@ namespace Shotgun
 
                 if (__instance.m_ResearchIcon != null)
                     __instance.m_ResearchIcon.spriteName = "ico_Shotgun_Skill";
-
-                return true;
             }
         }
 
