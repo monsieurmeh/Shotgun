@@ -75,11 +75,11 @@ namespace Shotgun
             if (playerAnimation == null) 
                 return;
 
-            playerAnimation.OnAnimationEvent_Generic_HiddenComplete();
             Animator vanillaAnimator = Main.Instance?.Configuration?.Refs?.VanillaAnimator;
             Animator moddedAnimator = Main.Instance?.Configuration?.Refs?.ModdedAnimator;
             if (vanillaAnimator != null) vanillaAnimator.enabled = true;
             if (moddedAnimator != null) moddedAnimator.enabled = false;
+            playerAnimation.OnAnimationEvent_Generic_HiddenComplete();
         }
 
         internal void OnRoundLoaded()
