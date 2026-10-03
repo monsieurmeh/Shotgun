@@ -311,11 +311,21 @@ namespace Shotgun
         [HarmonyPatch(typeof(PlayerAnimation), nameof(PlayerAnimation.Trigger_Generic_Aim))]
         internal static class PlayerAnimation_ShotgunAim
         {
+            private static readonly int CloseBarrelToAimHash = Animator.StringToHash("CloseBarrelToAim");
+
             internal static void Postfix(PlayerAnimation __instance)
             {
                 if (__instance.m_State != PlayerAnimation.State.ToAiming) return;
                 if (!MaybeLatchShotgunAnimator(__instance, "Aim")) return;
-                Main.Instance.Configuration.Refs.ModdedAnimator.SetTrigger("Trigger_Generic_Aim");
+                Animator moddedAnimator = Main.Instance.Configuration.Refs.ModdedAnimator;
+
+                if (!moddedAnimator.IsInTransition(0) && moddedAnimator.GetCurrentAnimatorStateInfo(0).shortNameHash == CloseBarrelToAimHash)
+                {
+                    moddedAnimator.SetBool("AimConfirmed", true);
+                    __instance.OnAnimationEvent_Generic_Aim_Complete();
+                    return;
+                }
+                moddedAnimator.SetTrigger("Trigger_Generic_Aim");
             }
         }
 
@@ -370,6 +380,7 @@ namespace Shotgun
                 moddedAnimator.SetBool("IsAmmoSwitch", isAmmoSwitch);
                 moddedAnimator.SetBool("Is_Jammed", willJam);
                 moddedAnimator.SetBool("IsAimHeld", __state == PlayerAnimation.State.Aiming);
+                moddedAnimator.SetBool("AimConfirmed", false);
                 moddedAnimator.SetTrigger("Trigger_Generic_Reload_Single");
             }
         }

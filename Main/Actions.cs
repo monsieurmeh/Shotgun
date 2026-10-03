@@ -156,6 +156,34 @@ namespace Shotgun
             Main.Instance.IdleVariation.Tick();
 
             moddedAnimator.SetFloat("Idle_Variation", Main.Instance.IdleVariation.Value);
+            TickRareIdle(moddedAnimator, hasInput);
+        }
+
+        private const float RareIdleMinSeconds = 25f;
+        private const float RareIdleMaxSeconds = 60f;
+        private static readonly int IdleStateHash = Animator.StringToHash("Idle");
+        private static float mIdleSeconds;
+        private static float mNextRareIdleSeconds = -1f;
+
+        private static void TickRareIdle(Animator moddedAnimator, bool hasInput)
+        {
+            PlayerAnimation playerAnimation = GameManager.GetPlayerAnimationComponent();
+            bool resting = !hasInput
+                && playerAnimation != null && playerAnimation.m_State == PlayerAnimation.State.Showing
+                && !moddedAnimator.IsInTransition(0)
+                && moddedAnimator.GetCurrentAnimatorStateInfo(0).shortNameHash == IdleStateHash;
+            if (!resting)
+            {
+                mIdleSeconds = 0f;
+                return;
+            }
+            if (mNextRareIdleSeconds < 0f) mNextRareIdleSeconds = UnityEngine.Random.Range(RareIdleMinSeconds, RareIdleMaxSeconds);
+            mIdleSeconds += Time.deltaTime;
+            if (mIdleSeconds < mNextRareIdleSeconds) return;
+
+            moddedAnimator.SetTrigger("Idle_Rare");
+            mIdleSeconds = 0f;
+            mNextRareIdleSeconds = UnityEngine.Random.Range(RareIdleMinSeconds, RareIdleMaxSeconds);
         }
 
 
