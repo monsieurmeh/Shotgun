@@ -1,8 +1,0 @@
-- Skill effects: Animation changes + recoil and animation speed scaling (design question?)
-- Skill books
-- Locomotion smoothing and actual animating
-- Animation speed fine tuning
-- Sound
-- Ammo Distribution
-- Lead Shot Recipe
-- Load Pellets Recipe
