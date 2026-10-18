@@ -97,22 +97,25 @@ namespace Shotgun
             internal static void Postfix(GunItem __instance)
             {
                 if (__instance.m_GunType != GunTypeCustom) return;
-                if (!InputManager.HasContext(InputManager.m_CurrentContext)) return;
-                if (!Input.GetKeyDown(Settings.Instance.AmmoSwapKeyCode)) return;
-                if (!__instance.IsEquipped()) return;
-                if (__instance.GetNextValidAmmoIndex() == __instance.m_SelectedAmmoIndex) return; //no other ammo available
-                if (!__instance.CanReload()) return;
-                if (__instance.m_IsJammed) return;
-                if (!TryGetSelectedAmmoReserve(__instance, out int reserve)) return;
-
-                __instance.m_PreviousAmmoIndex = __instance.m_SelectedAmmoIndex; //indicate is ammo swap during reload
-                if (reserve > 0)
-                {
-                    GunItem_PreventReloadAmmoUnlessIntended.StartShotgunReload(__instance);
-                    return;
-                }
-                ReloadPastVanillaAmmoGate();
+                AmmoRadial.Tick(__instance);
             }
+        }
+
+        internal static bool TryBeginAmmoSwap(GunItem gunItem)
+        {
+            if (gunItem.GetNextValidAmmoIndex() == gunItem.m_SelectedAmmoIndex) return false; //no other ammo available
+            if (!gunItem.CanReload()) return false;
+            if (gunItem.m_IsJammed) return false;
+            if (!TryGetSelectedAmmoReserve(gunItem, out int reserve)) return false;
+
+            gunItem.m_PreviousAmmoIndex = gunItem.m_SelectedAmmoIndex; //indicate is ammo swap during reload
+            if (reserve > 0)
+            {
+                GunItem_PreventReloadAmmoUnlessIntended.StartShotgunReload(gunItem);
+                return true;
+            }
+            ReloadPastVanillaAmmoGate();
+            return true;
         }
 
 

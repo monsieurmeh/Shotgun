@@ -110,6 +110,7 @@ namespace Shotgun
             if (gunItem == null) return;
             gunItem.m_SelectedAmmoIndex = gunItem.GetNextValidAmmoIndex();
             gunItem.m_PreviousAmmoIndex = -1;
+            AmmoRadial.ClearPending();
             UpdateShotgunParams(gunItem, gunItem.ValidAmmo[gunItem.m_SelectedAmmoIndex].DisplayName);
             CustomAmmoHUD.Current.Refresh();
         }

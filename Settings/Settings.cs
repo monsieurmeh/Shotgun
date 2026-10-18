@@ -34,6 +34,11 @@ namespace Shotgun
         [Description("Hotkey for swapping ammo types. Vanilla does not handle this, instead using single ammo types for guns and using the reload key for cameras. Default: T")]
         public KeyCode AmmoSwapKeyCode = KeyCode.T;
 
+        [Name("Ammo Wheel Hold Time")]
+        [Slider(0.1f, 1.0f, 10)]
+        [Description("Seconds to hold the ammo switch hotkey before the ammo wheel opens. A quick tap still switches to the next ammo type. Default: 0.3")]
+        public float AmmoRadialHoldSeconds = 0.3f;
+
 
         [Section("Slug Settings")]
         [Name("Slug Base Damage")]
