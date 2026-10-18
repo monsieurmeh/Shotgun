@@ -424,6 +424,29 @@ namespace Shotgun
             }
         }
 
+        [HarmonyPatch(typeof(Inventory), nameof(Inventory.AddGear))]
+        internal static class Inventory_NoShotgunBooksWithoutSkills
+        {
+            private static bool Prefix(GearItem gi)
+            {
+                if (ShotgunSkill.IsAvailable || gi == null || !ShotgunSkill.IsShotgunBook(gi.gameObject)) return true;
+                UnityEngine.Object.Destroy(gi.gameObject);
+                return false;
+            }
+        }
+
+
+        [HarmonyPatch(typeof(GearItem), nameof(GearItem.ManualStart))]
+        internal static class GearItem_RemoveShotgunBooksWithoutSkills
+        {
+            private static void Postfix(GearItem __instance)
+            {
+                if (ShotgunSkill.IsAvailable || !ShotgunSkill.IsShotgunBook(__instance.gameObject)) return;
+                UnityEngine.Object.Destroy(__instance.gameObject);
+            }
+        }
+
+
         [HarmonyPatch(typeof(ResearchItem), nameof(ResearchItem.OnResearchComplete))]
         internal static class Patch_ResearchItem_OnResearchComplete
         {
