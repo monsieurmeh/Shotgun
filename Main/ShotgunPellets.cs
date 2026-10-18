@@ -20,8 +20,6 @@ namespace Shotgun
         internal static ShotgunAmmo CurrentAmmo { get; private set; } = ShotgunAmmo.None;
         private static bool mShotHitAnimal;
 
-        internal static bool DebugLog = false;
-
         private static readonly Dictionary<IntPtr, PelletTarget> mTargets = new Dictionary<IntPtr, PelletTarget>();
 
 
@@ -245,9 +243,6 @@ namespace Shotgun
             ai.SetupDamageForAnim(target.HeaviestPart.transform.position, playerPosition, target.HeaviestPart);
             ai.ApplyDamage(target.Damage, target.BleedMinutes, DamageSource.Player, target.ColliderName);
             ai.MaybeFleeOrAttackFromProjectileHit(WeaponSource.Unspecified);
-
-            if (DebugLog)
-                MelonLogger.Msg($"[Pellets] {ai.name}: {target.Pellets} pellet(s), {target.Damage:F1} dmg, bleed {target.BleedMinutes:F0}m, worst part {target.ColliderName}, hp now {ai.m_CurrentHP:F1}");
         }
 
 
@@ -348,22 +343,7 @@ namespace Shotgun
 
                 float shotgunTierCritMultiplier = ShotgunSkill.GetCurrentTier() * 0.25f;
                 float adjustedChance = __instance.GetChanceKill(WeaponSource.Rifle) * shotgunTierCritMultiplier * 1.25f;
-                if (DebugLog) MelonLogger.Msg($"[Pellets] slug crit chance {adjustedChance}");
                 __result = Utils.RollChance(adjustedChance);
-            }
-        }
-
-
-        [HarmonyPatch(typeof(ConsoleManager), nameof(ConsoleManager.Initialize))]
-        internal static class ConsoleManager_RegisterPelletLog
-        {
-            private static void Postfix()
-            {
-                uConsole.RegisterCommand("shotgun_pellet_log", new Action(() =>
-                {
-                    DebugLog = !DebugLog;
-                    MelonLogger.Msg($"Shotgun pellet log: {DebugLog}");
-                }));
             }
         }
     }
