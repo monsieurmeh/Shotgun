@@ -27,8 +27,6 @@ namespace Shotgun
         private bool mResourceLocatorInitialized = false;
 
         internal readonly SmoothRandomBlend IdleVariation = new();
-        private readonly SmoothBlendDebugOverlay mBlendOverlay = new();
-        private readonly AnimatorParameterDebugOverlay mAnimParamOverlay = new(); 
 
 
         public override void OnEarlyInitializeMelon()
@@ -67,28 +65,6 @@ namespace Shotgun
             ClassInjector.RegisterTypeInIl2Cpp<AnimationEventProxy>();
 
             ShotgunSkill.Init();
-        }
-
-        public override void OnUpdate()
-        {
-            if (Input.GetKeyDown(KeyCode.F8))
-            {
-                bool on = !mBlendOverlay.Enabled;
-                mBlendOverlay.Enabled = on;
-                mAnimParamOverlay.Enabled = on;
-            }
-
-            if (LateInitialized)
-                mBlendOverlay.Tick();
-        }
-
-        public override void OnGUI()
-        {
-            if (LateInitialized)
-            {
-                mBlendOverlay.Draw();
-                mAnimParamOverlay.Draw();
-            }
         }
 
 

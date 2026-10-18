@@ -184,10 +184,6 @@ namespace Shotgun
         [Slider(0.0f, 1.0f)]
         public float IdleVariationOutputMax = 1.0f;
 
-        [Name("Idle Variation Graph Window (hours)")]
-        [Description("How many in-game hours the debug graph shows at once (fixed scale). Default: 2")]
-        [Slider(1.0f, 24.0f)]
-        public float IdleVariationGraphWindowHours = 2.0f;
 
 
         [Section("(DEBUG) Animation Settings")]
