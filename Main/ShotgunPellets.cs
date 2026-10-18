@@ -174,6 +174,7 @@ namespace Shotgun
                         anyHit = true;
                         firstHit = hit;
                     }
+                    bulletTransform.position = hit.point;
                     bullet.SpawnImpactEffects(hit);
 
                     BaseAi ai = AiUtils.GetBaseAiFromObject(hit.collider.gameObject);
