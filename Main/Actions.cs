@@ -27,40 +27,98 @@ namespace Shotgun
         {
             if (gun == null) return;
             if (!gun.name.Contains("Shotgun")) return;
-            vp_Bullet currentBullet = Main.Instance.Configuration.Refs.Shotgun.WeaponView.FPSShooter.ProjectilePrefab.GetComponent<vp_Bullet>();
+            vp_FPSShooter shooter = Main.Instance.Configuration.Refs.Shotgun.WeaponView.FPSShooter;
+            shooter.ProjectileCount = 1;
+            shooter.ProjectileSpread = 0f;
             if (ammoName.Contains("Slug"))
             {
                 gun.m_DamageHP = Settings.Instance.SlugBaseDamage;
                 gun.m_AccuracyRange = Settings.Instance.SlugAccuracyRange;
-                Main.Instance.Configuration.Refs.Shotgun.WeaponView.FPSShooter.ProjectileCount = 1;
-                Main.Instance.Configuration.Refs.Shotgun.WeaponView.FPSShooter.ProjectileSpread = 0f;
-                currentBullet.MinimumDamageFalloffBeyondEffectiveRange = Settings.Instance.SlugMinimumDamage;
-                currentBullet.DamageFalloffPerMeterBeyondEffectiveRange = Settings.Instance.SlugDamageFalloff;
             }
             else if (ammoName.Contains("Buckshot"))
             {
                 gun.m_DamageHP = Settings.Instance.BuckshotBaseDamage;
                 gun.m_AccuracyRange = Settings.Instance.BuckshotAccuracyRange;
-                Main.Instance.Configuration.Refs.Shotgun.WeaponView.FPSShooter.ProjectileCount = Settings.Instance.BuckshotPelletCount;
-                Main.Instance.Configuration.Refs.Shotgun.WeaponView.FPSShooter.ProjectileSpread = Settings.Instance.BuckshotPelletSpread / 2;
-                currentBullet.MinimumDamageFalloffBeyondEffectiveRange = Settings.Instance.BuckshotMinimumDamage;
-                currentBullet.DamageFalloffPerMeterBeyondEffectiveRange = Settings.Instance.BuckshotDamageFalloff;
             }
             else if (ammoName.Contains("Birdshot"))
             {
                 gun.m_DamageHP = Settings.Instance.BirdshotBaseDamage;
                 gun.m_AccuracyRange = Settings.Instance.BirdshotAccuracyRange;
-                Main.Instance.Configuration.Refs.Shotgun.WeaponView.FPSShooter.ProjectileCount = Settings.Instance.BirdshotPelletCount;
-                Main.Instance.Configuration.Refs.Shotgun.WeaponView.FPSShooter.ProjectileSpread = Settings.Instance.BirdshotPelletSpread / 2;
-                currentBullet.MinimumDamageFalloffBeyondEffectiveRange = Settings.Instance.BirdshotMinimumDamage;
-                currentBullet.DamageFalloffPerMeterBeyondEffectiveRange = Settings.Instance.BirdshotDamageFalloff;
             }
+        }
+
+        internal static void ResetShotgunTriggers(Animator moddedAnimator)
+        {
+            if (moddedAnimator == null) return;
+            moddedAnimator.ResetTrigger("Trigger_Generic_Equip");
+            moddedAnimator.ResetTrigger("Trigger_Generic_Unequip");
+            moddedAnimator.ResetTrigger("Trigger_Generic_Aim");
+            moddedAnimator.ResetTrigger("Trigger_Generic_Aim_Cancel");
+            moddedAnimator.ResetTrigger("Trigger_Generic_Fire");
+            moddedAnimator.ResetTrigger("Trigger_Generic_Reload_Single");
+        }
+
+        internal static bool TryGetSelectedAmmoReserve(GunItem gunItem, out int reserve)
+        {
+            reserve = 0;
+            Inventory inventory = GameManager.GetInventoryComponent();
+            if (inventory == null)
+            {
+                MelonLogger.Error("TryGetSelectedAmmoReserve: no Inventory while the shotgun is equipped; reload not started");
+                return false;
+            }
+            GearItem gearItem = gunItem.GetComponent<GearItem>();
+            if (gearItem == null)
+            {
+                MelonLogger.Error("TryGetSelectedAmmoReserve: shotgun GunItem has no GearItem; reload not started");
+                return false;
+            }
+            reserve = inventory.GetAmmoAvailableForWeapon(gearItem);
+            return true;
+        }
+
+        internal static void ReloadPastVanillaAmmoGate()
+        {
+            vp_FPSShooter shooter = GameManager.GetVpFPSCamera()?.m_CurrentShooter;
+            if (shooter == null)
+            {
+                MelonLogger.Error("ReloadPastVanillaAmmoGate: no current vp_FPSShooter while the shotgun is equipped; reload not started");
+                return;
+            }
+            vp_FPSPlayer player = GameManager.GetVpFPSPlayer();
+            if (player == null)
+            {
+                MelonLogger.Error("ReloadPastVanillaAmmoGate: no vp_FPSPlayer while the shotgun is equipped; reload not started");
+                return;
+            }
+
+            bool started = shooter.Reload(0);
+            if (player.m_ReenableWeaponStatesTimer != null) player.m_ReenableWeaponStatesTimer.Cancel();
+
+            if (!started)
+            {
+                MelonLogger.Error("ReloadPastVanillaAmmoGate: vp_FPSShooter.Reload refused although GunItem.CanReload held");
+                return;
+            }
+
+            player.MaybeCancelZoomInternal();
+            player.SetState("Reload", true);
+        }
+
+        internal static void SwitchToNextAmmoType(GunItem gunItem)
+        {
+            if (gunItem == null) return;
+            gunItem.m_SelectedAmmoIndex = gunItem.GetNextValidAmmoIndex();
+            gunItem.m_PreviousAmmoIndex = -1;
+            UpdateShotgunParams(gunItem, gunItem.ValidAmmo[gunItem.m_SelectedAmmoIndex].DisplayName);
+            CustomAmmoHUD.Current.Refresh();
         }
 
         internal static void TransmitLocomotion(PlayerMovement __instance)
         {
             Animator moddedAnimator = Main.Instance?.Configuration?.Refs?.ModdedAnimator;
             if (moddedAnimator == null || !moddedAnimator.enabled) return;
+            ShotgunSkill.ReapplyAnimatorParamsIfTierChanged(moddedAnimator);
 
             bool sprint = InputManager.GetSprintDown(__instance);
             Vector2 move = InputManager.GetPlayerMovement(__instance);
@@ -98,6 +156,38 @@ namespace Shotgun
             Main.Instance.IdleVariation.Tick();
 
             moddedAnimator.SetFloat("Idle_Variation", Main.Instance.IdleVariation.Value);
+            TickRareIdle(moddedAnimator, hasInput);
+        }
+
+        private static readonly int IdleStateHash = Animator.StringToHash("Idle");
+        private static float mIdleSeconds;
+        private static float mNextRareIdleSeconds = -1f;
+
+        private static float NextRareIdleDelay()
+        {
+            float min = Settings.Instance.RareIdleMinSeconds;
+            return UnityEngine.Random.Range(min, Mathf.Max(min, Settings.Instance.RareIdleMaxSeconds));
+        }
+
+        private static void TickRareIdle(Animator moddedAnimator, bool hasInput)
+        {
+            PlayerAnimation playerAnimation = GameManager.GetPlayerAnimationComponent();
+            bool resting = !hasInput
+                && playerAnimation != null && playerAnimation.m_State == PlayerAnimation.State.Showing
+                && !moddedAnimator.IsInTransition(0)
+                && moddedAnimator.GetCurrentAnimatorStateInfo(0).shortNameHash == IdleStateHash;
+            if (!resting)
+            {
+                mIdleSeconds = 0f;
+                return;
+            }
+            if (mNextRareIdleSeconds < 0f) mNextRareIdleSeconds = NextRareIdleDelay();
+            mIdleSeconds += Time.deltaTime;
+            if (mIdleSeconds < mNextRareIdleSeconds) return;
+
+            moddedAnimator.SetTrigger("Idle_Rare");
+            mIdleSeconds = 0f;
+            mNextRareIdleSeconds = NextRareIdleDelay();
         }
 
 
@@ -132,12 +222,26 @@ namespace Shotgun
             }
 
             bool isShotgun = instance.m_EquippedFirstPersonWeaponShoulder.name.Contains("Shotgun");
+            bool wasModdedEnabled = moddedAnimator.enabled;
+
+            bool renamed = false;
+            if (isShotgun && instance.m_EquippedFirstPersonWeaponShoulder.gameObject.name != ShotgunFPHPrefabName)
+            {
+                instance.m_EquippedFirstPersonWeaponShoulder.gameObject.name = ShotgunFPHPrefabName;
+                renamed = true;
+            }
 
             moddedAnimator.enabled = isShotgun;
             vanillaAnimator.enabled = !isShotgun;
             shotgunAnimator.enabled = !isShotgun;
 
-            return isShotgun;
+            if (!isShotgun) return false;
+            if (wasModdedEnabled && !renamed) return true;
+
+            if (wasModdedEnabled) moddedAnimator.Rebind();
+            SyncAmmoParams(GameManager.GetPlayerManagerComponent()?.m_ItemInHands?.m_GunItem);
+            ShotgunSkill.ApplyAnimatorParams(moddedAnimator);
+            return true;
         }
 
         internal static void ApplyShotgunRecoil()

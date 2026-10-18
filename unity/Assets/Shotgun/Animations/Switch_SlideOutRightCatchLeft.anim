@@ -72307,7 +72307,7 @@ AnimationClip:
     floatParameter: 0
     intParameter: 1
     messageOptions: 0
-  - time: 0.6333333
+  - time: 0.5
     functionName: OnAmmoTypeChanged
     data: 
     objectReferenceParameter: {fileID: 0}

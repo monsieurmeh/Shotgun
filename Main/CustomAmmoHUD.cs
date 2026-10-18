@@ -62,8 +62,14 @@ namespace Shotgun
 
         private void Awake()
         {
+            BuildUI();
+        }
+
+
+        private void BuildUI()
+        {
             mCanvasObject = new GameObject("Canvas");
-            mCanvasObject.transform.SetParent(null, false);
+            mCanvasObject.transform.SetParent(transform, false);
 
             RectTransform canvasRect = mCanvasObject.AddComponent<RectTransform>();
             canvasRect.anchorMin = Vector2.zero;
@@ -101,9 +107,33 @@ namespace Shotgun
             UpdateIconPanelPosition();
         }
 
+
+        private bool IsUIAlive()
+        {
+            if (mCanvasObject == null) return false;
+            if (mIconPanel == null) return false;
+            if (mIconPanelRect == null) return false;
+            if (mGridLayoutGroup == null) return false;
+            return true;
+        }
+
+
+        private void RebuildUI()
+        {
+            MelonLogger.Warning("[CustomAmmoHUD] UI was destroyed, rebuilding");
+            if (mCanvasObject != null)
+            {
+                GameObject.Destroy(mCanvasObject);
+            }
+            mIcons.Clear();
+            mCurrentHUDPreset = string.Empty;
+            BuildUI();
+        }
+
         public void UpdateIconPanelPosition()
         {
             if (Settings.Instance == null) return;
+            if (mIconPanelRect == null) return;
 
             float x = -Screen.width * ((float)Settings.Instance.CustomAmmoHUDXOffset / 1920f);
             float y = Screen.height * ((float)Settings.Instance.CustomAmmoHUDYOffset / 1080f);
@@ -128,7 +158,7 @@ namespace Shotgun
         public void Update()
         {
             mSinceLastCheck += Time.deltaTime;
-            if (mSinceLastCheck <= 0.25f) return;
+            if (mSinceLastCheck <= 0.1f) return;
             mSinceLastCheck = 0f;
             Refresh();
         }
@@ -170,6 +200,11 @@ namespace Shotgun
 
             string hudPresetName = $"{mItemInHands.name}.{mLoadedAmmo.name}";
 
+            if (!IsUIAlive())
+            {
+                RebuildUI();
+            }
+
             if (mCurrentHUDPreset == hudPresetName && mLastAmmoCount == mGunInHands.m_Clip.Count) return;
             mCurrentHUDPreset = hudPresetName;
             mLastAmmoCount = mGunInHands.m_Clip.Count;
@@ -180,7 +215,7 @@ namespace Shotgun
             }
             else
             {
-                DeactivateHUD();
+                Reset();
             }
         }
 
@@ -188,6 +223,7 @@ namespace Shotgun
         {
             mCurrentHUDPreset = string.Empty;
             mLastAmmoCount = 0;
+            DeactivateHUD();
         }
    
 
@@ -207,13 +243,27 @@ namespace Shotgun
 
         private void ActivateHud(GunItem gun, HUDPreset preset)
         {
+            if (!IsUIAlive())
+            {
+                RebuildUI();
+            }
+
+            for (int i = mIcons.Count - 1; i >= 0; i--)
+            {
+                if (mIcons[i] == null)
+                {
+                    mIcons.RemoveAt(i);
+                }
+            }
+
             int existingIconCount = mIcons.Count;
             for (int i = 0, iMax = gun.m_ClipSize; i < iMax; i++)
             {
+                Sprite sprite = i < mLastAmmoCount ? preset.LoadedSprite : preset.UnloadedSprite;
                 if (i >= existingIconCount)
                 {
                     GameObject newIconObject = new GameObject($"CustomAmmoIcon{i}");
-                    newIconObject.transform.SetParent(mIconPanel.transform);
+                    newIconObject.transform.SetParent(mIconPanel.transform, false);
                     RectTransform iconRect = newIconObject.AddComponent<RectTransform>();
                     iconRect.localScale = Vector3.one;
                     iconRect.anchorMin = new Vector2(0.5f, 0.5f);
@@ -222,21 +272,20 @@ namespace Shotgun
                     Image newIcon = newIconObject.AddComponent<Image>();
                     newIcon.preserveAspect = false;
                     newIcon.type = Image.Type.Simple;
-                    newIcon.sprite = i < mLastAmmoCount ? preset.LoadedSprite : preset.UnloadedSprite;
+                    newIcon.sprite = sprite;
                     mIcons.Add(newIcon);
                 }
                 else
                 {
                     Image existingIcon = mIcons[i];
-                    GameObject existingIconObject = existingIcon.gameObject;
-                    RectTransform existingIconRect = existingIconObject.GetComponent<RectTransform>();
+                    RectTransform existingIconRect = existingIcon.rectTransform;
                     existingIconRect.localScale = Vector3.one;
                     existingIconRect.anchorMin = new Vector2(0.5f, 0.5f);
                     existingIconRect.anchorMax = new Vector2(0.5f, 0.5f);
                     existingIconRect.sizeDelta = Vector2.zero;
                     existingIcon.preserveAspect = false;
                     existingIcon.type = Image.Type.Simple;
-                    existingIcon.sprite = i < mLastAmmoCount ? preset.LoadedSprite : preset.UnloadedSprite;
+                    existingIcon.sprite = sprite;
                 }
             }
 
@@ -254,11 +303,14 @@ namespace Shotgun
 
         private void DeactivateHUD()
         {
-            for (int i = mIcons.Count - 1, iMin = 0; i >= iMin; i--)
+            for (int i = mIcons.Count - 1; i >= 0; i--)
             {
-                GameObject.Destroy(mIcons[i].gameObject);
-                mIcons.RemoveAt(i);
+                if (mIcons[i] != null)
+                {
+                    GameObject.Destroy(mIcons[i].gameObject);
+                }
             }
+            mIcons.Clear();
         }
     }
 }

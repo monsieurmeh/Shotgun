@@ -88,6 +88,16 @@ namespace Shotgun
         [Slider(6f, 12f)]
         public int BuckshotPelletCount = 9;
 
+        [Name("Buckshot Pellets To Bleed")]
+        [Description("Pellets that must hit one animal in a single shot to start a bleed. 0 = never. Default: 3")]
+        [Slider(0, 12)]
+        public int BuckshotBleedPellets = 3;
+
+        [Name("Buckshot Pellets For Critical Roll")]
+        [Description("Pellets within accuracy range that must hit one animal for one critical-hit roll. 0 = never. Default: 6")]
+        [Slider(0, 12)]
+        public int BuckshotCriticalPellets = 6;
+
 
         [Section("Birdshot Settings")]
         [Name("Birdshot Base Damage")]
@@ -119,6 +129,16 @@ namespace Shotgun
         [Description("Pellet Count. Default: 30")]
         [Slider(20, 40f)]
         public int BirdshotPelletCount = 30;
+
+        [Name("Birdshot Pellets To Bleed")]
+        [Description("Pellets that must hit one animal in a single shot to start a bleed. 0 = never. Default: 15")]
+        [Slider(0, 40)]
+        public int BirdshotBleedPellets = 15;
+
+        [Name("Birdshot Pellets For Critical Roll")]
+        [Description("Pellets within accuracy range that must hit one animal for one critical-hit roll. 0 = never. Default: 0")]
+        [Slider(0, 40)]
+        public int BirdshotCriticalPellets = 0;
 
 
         [Section("Recoil Settings")]
@@ -184,10 +204,16 @@ namespace Shotgun
         [Slider(0.0f, 1.0f)]
         public float IdleVariationOutputMax = 1.0f;
 
-        [Name("Idle Variation Graph Window (hours)")]
-        [Description("How many in-game hours the debug graph shows at once (fixed scale). Default: 2")]
-        [Slider(1.0f, 24.0f)]
-        public float IdleVariationGraphWindowHours = 2.0f;
+        [Name("Rare Idle Min Delay")]
+        [Description("Shortest time standing still before the rare idle can play, in seconds. Default: 25")]
+        [Slider(5f, 120f)]
+        public float RareIdleMinSeconds = 25f;
+
+        [Name("Rare Idle Max Delay")]
+        [Description("Longest time standing still before the rare idle plays, in seconds. Default: 60")]
+        [Slider(5f, 120f)]
+        public float RareIdleMaxSeconds = 60f;
+
 
 
         [Section("(DEBUG) Animation Settings")]

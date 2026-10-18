@@ -18,6 +18,8 @@ namespace Shotgun
 {
     public class Main : MelonMod
     {
+        public const string Version = "0.10.1";
+
         internal static Main? Instance { get; private set; }
         internal Configuration Configuration { get; private set; } = new();
         internal Settings? Settings { get; private set; }
@@ -27,8 +29,6 @@ namespace Shotgun
         private bool mResourceLocatorInitialized = false;
 
         internal readonly SmoothRandomBlend IdleVariation = new();
-        private readonly SmoothBlendDebugOverlay mBlendOverlay = new();
-        private readonly AnimatorParameterDebugOverlay mAnimParamOverlay = new(); 
 
 
         public override void OnEarlyInitializeMelon()
@@ -46,7 +46,7 @@ namespace Shotgun
                 string basePath = Path.Combine(modsPath, DataFolderPath);
                 Directory.CreateDirectory(basePath);
                 Settings = new();
-                bool shouldForceRefreshEmbeddedData = Versioning.IsVersionCorrect(basePath, "0.9.8");
+                bool shouldForceRefreshEmbeddedData = Versioning.IsVersionCorrect(basePath, Version);
                 EmbeddedResourceExtractor.RefreshEmbeddedData(modsPath, "Shotgun.modcomponent", shouldForceRefreshEmbeddedData);
                 MelonLogger.Msg("EarlyInitialize Complete");
             }
@@ -67,28 +67,6 @@ namespace Shotgun
             ClassInjector.RegisterTypeInIl2Cpp<AnimationEventProxy>();
 
             ShotgunSkill.Init();
-        }
-
-        public override void OnUpdate()
-        {
-            if (Input.GetKeyDown(KeyCode.F8))
-            {
-                bool on = !mBlendOverlay.Enabled;
-                mBlendOverlay.Enabled = on;
-                mAnimParamOverlay.Enabled = on;
-            }
-
-            if (LateInitialized)
-                mBlendOverlay.Tick();
-        }
-
-        public override void OnGUI()
-        {
-            if (LateInitialized)
-            {
-                mBlendOverlay.Draw();
-                mAnimParamOverlay.Draw();
-            }
         }
 
 

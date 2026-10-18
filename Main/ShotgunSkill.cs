@@ -109,9 +109,11 @@ namespace Shotgun
 
         #region Stat Calculation
 
+        internal static int DefaultAnimationTier = 3;
+
         internal static int GetCurrentTier()
         {
-            if (!IsAvailable) return 3; 
+            if (!IsAvailable) return DefaultAnimationTier;
             (int points, int tier) skill = GetPointsAndTiers(SkillName);
             return skill.tier;
         }
@@ -121,6 +123,16 @@ namespace Shotgun
             int t = 0;
             for (int i = 0; i < TierTresholds.Length; i++) if (points >= TierTresholds[i]) t = i;
             return t;
+        }
+
+        internal const string BookPrefabPrefix = "GEAR_ShotgunBook";
+
+        internal static bool IsShotgunBook(GameObject go)
+        {
+            if (go == null) return false;
+            string name = go.name;
+            if (string.IsNullOrEmpty(name)) return false;
+            return name.StartsWith(BookPrefabPrefix);
         }
 
         internal static Skill GetSkillObject()
@@ -149,7 +161,7 @@ namespace Shotgun
             if (DateTime.Now.Ticks - LastSkillUpTime >= TimeSpan.TicksPerSecond)
             {
                 LastSkillUpTime = DateTime.Now.Ticks;
-                IncreaseSkillPoints.Invoke(SkillName, 1);
+                IncreaseSkillPoints?.Invoke(SkillName, 1);
             }
         }
 
@@ -157,9 +169,9 @@ namespace Shotgun
 
         #region Animation Skill Gates
 
-        internal static int DefaultAnimationTier = 3;
-        internal static int AnimationTier => IsAvailable ? GetCurrentTier() : DefaultAnimationTier;
+        internal static int AnimationTier => GetCurrentTier();
         internal static int CatchLeftMinTier = 3;
+        internal static int RemoveBothMediumMinTier = 2;
         internal static int RemoveBothFastMinTier = 3;
         internal static int InsertBothMediumMinTier = 2;
         internal static int InsertBothFastMinTier = 4;
@@ -169,13 +181,22 @@ namespace Shotgun
 
         internal static bool CanCatchLeftOnAmmoSwitch => AnimationTier >= CatchLeftMinTier;
         internal static bool CanCloseBarrelToAim => AnimationTier >= CloseToAimMinTier;
-        internal static int ManualRemoveSpeed  => AnimationTier >= RemoveBothFastMinTier ? 2 : 1;
+        internal static int ManualRemoveSpeed => AnimationTier >= RemoveBothFastMinTier ? 2 : (AnimationTier >= RemoveBothMediumMinTier ? 1 : 0);
         internal static int InsertSpeed => AnimationTier >= InsertBothFastMinTier ? 2 : (AnimationTier >= InsertBothMediumMinTier ? 1 : 0);
         internal static int RecoilHandlingLevel => AnimationTier >= RecoilLowMinTier ? 2 : (AnimationTier >= RecoilMedMinTier ? 1 : 0);
+
+        private static int mAppliedTier = -1;
+
+        internal static void ReapplyAnimatorParamsIfTierChanged(Animator animator)
+        {
+            if (AnimationTier == mAppliedTier) return;
+            ApplyAnimatorParams(animator);
+        }
 
         internal static void ApplyAnimatorParams(Animator animator)
         {
             if (animator == null) return;
+            mAppliedTier = AnimationTier;
             animator.SetBool("CanCatchLeftOnAmmoSwitch", CanCatchLeftOnAmmoSwitch);
             animator.SetBool("CanCloseBarrelToAim", CanCloseBarrelToAim);
             animator.SetInteger("ManualRemoveSpeed", ManualRemoveSpeed);

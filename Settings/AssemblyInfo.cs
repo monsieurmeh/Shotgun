@@ -3,7 +3,7 @@ using System.Reflection;
 
 [assembly: AssemblyTitle("Shotgun")]
 [assembly: AssemblyCopyright("Team Shotgun")]
-[assembly: AssemblyVersion("0.9.10")]
-[assembly: AssemblyFileVersion("0.9.10")]
-[assembly: MelonInfo(typeof(Shotgun.Main), "Shotgun", "0.9.10", "Team Shotgun", null)]
+[assembly: AssemblyVersion(Shotgun.Main.Version)]
+[assembly: AssemblyFileVersion(Shotgun.Main.Version)]
+[assembly: MelonInfo(typeof(Shotgun.Main), "Shotgun", Shotgun.Main.Version, "Team Shotgun", null)]
 [assembly: MelonGame("Hinterland", "TheLongDark")]
