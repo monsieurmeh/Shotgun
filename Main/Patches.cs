@@ -397,7 +397,11 @@ namespace Shotgun
                 if (__instance.m_EquippedFirstPersonWeaponShoulder == null) return true;
                 if (!__instance.m_EquippedFirstPersonWeaponShoulder.name.Contains("Shotgun")) return true;
 
-                if (allowHipFire)
+                if (DoubleFire.FiringSecondBarrel)
+                {
+                    __result = true;
+                }
+                else if (allowHipFire)
                 {
                     int state = (int)__instance.m_State;
                     int blocked = (1 << (int)PlayerAnimation.State.Equipping) | (1 << (int)PlayerAnimation.State.Dequipping);

@@ -39,6 +39,10 @@ namespace Shotgun
         [Description("Seconds to hold the ammo switch hotkey before the ammo wheel opens. A quick tap still switches to the next ammo type. Default: 0.3")]
         public float AmmoRadialHoldSeconds = 0.3f;
 
+        [Name("Fire Both Barrels Modifier")]
+        [Description("Hold this key while firing to discharge both barrels at once. Default: Left Alt")]
+        public KeyCode DoubleFireKeyCode = KeyCode.LeftAlt;
+
 
         [Section("Slug Settings")]
         [Name("Slug Base Damage")]
