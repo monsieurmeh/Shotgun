@@ -11,8 +11,6 @@ namespace Shotgun
     {
         internal enum ShotgunAmmo { None, Slug, Buckshot, Birdshot }
 
-        internal const bool PelletsCanBleed = false;
-
         internal const int BulletLayerMask = 0x180e1b41;
         internal const int GearLayer = 17;
         internal const int MaxImpactSoundsPerShot = 3;
@@ -31,6 +29,7 @@ namespace Shotgun
         {
             internal BaseAi Ai;
             internal int Pellets;
+            internal int PelletsInRange;
             internal float Damage;
             internal float BleedMinutes;
             internal LocalizedDamage HeaviestPart;
@@ -107,6 +106,31 @@ namespace Shotgun
                 default: return 0f;
             }
         }
+
+
+        internal static int GetBleedPelletThreshold(ShotgunAmmo ammo)
+        {
+            switch (ammo)
+            {
+                case ShotgunAmmo.Buckshot: return Settings.Instance.BuckshotBleedPellets;
+                case ShotgunAmmo.Birdshot: return Settings.Instance.BirdshotBleedPellets;
+                default: return 0;
+            }
+        }
+
+
+        internal static int GetCriticalPelletThreshold(ShotgunAmmo ammo)
+        {
+            switch (ammo)
+            {
+                case ShotgunAmmo.Buckshot: return Settings.Instance.BuckshotCriticalPellets;
+                case ShotgunAmmo.Birdshot: return Settings.Instance.BirdshotCriticalPellets;
+                default: return 0;
+            }
+        }
+
+
+        private static bool MeetsPelletThreshold(int pellets, int threshold) => threshold > 0 && pellets >= threshold;
 
 
         internal static void BeginShot(ShotgunAmmo ammo)
@@ -196,7 +220,7 @@ namespace Shotgun
 
                 foreach (PelletTarget target in mTargets.Values)
                 {
-                    ApplyToTarget(target, playerPosition);
+                    ApplyToTarget(target, playerPosition, ammo);
                 }
             }
             finally
@@ -230,7 +254,8 @@ namespace Shotgun
             float bleed = part.GetBleedOutMinutes(WeaponSource.Unspecified);
             float damage = bullet.Damage * part.GetDamageScale(WeaponSource.Unspecified);
             float distance = Vector3.Distance(playerPosition, hit.collider.transform.position);
-            if (distance >= bullet.Accuracy)
+            bool inRange = distance < bullet.Accuracy;
+            if (!inRange)
             {
                 damage -= (distance - bullet.Accuracy) * falloffPerMeter;
                 if (damage < minimumDamage) damage = minimumDamage;
@@ -243,6 +268,7 @@ namespace Shotgun
                 mTargets[ai.Pointer] = target;
             }
             target.Pellets++;
+            if (inRange) target.PelletsInRange++;
             target.Damage += damage;
             if (bleed > 0f && (target.BleedMinutes <= 0f || bleed < target.BleedMinutes)) target.BleedMinutes = bleed;
             if (target.HeaviestPart == null || damage > target.HeaviestPartDamage)
@@ -254,7 +280,7 @@ namespace Shotgun
         }
 
 
-        private static void ApplyToTarget(PelletTarget target, Vector3 playerPosition)
+        private static void ApplyToTarget(PelletTarget target, Vector3 playerPosition, ShotgunAmmo ammo)
         {
             BaseAi ai = target.Ai;
             if (ai == null) return;
@@ -262,8 +288,17 @@ namespace Shotgun
             if (target.HeaviestPart == null) return;
             if (Mathf.Abs(target.Damage) <= 0.0001f && ai.m_HuntedPart2WaypointController == null) return;
 
+            float bleedMinutes = MeetsPelletThreshold(target.Pellets, GetBleedPelletThreshold(ammo)) ? target.BleedMinutes : 0f;
+            float damage = target.Damage;
+            if (!ai.m_IgnoreCriticalHits
+                && MeetsPelletThreshold(target.PelletsInRange, GetCriticalPelletThreshold(ammo))
+                && target.HeaviestPart.RollChanceToKill(WeaponSource.Unspecified))
+            {
+                damage = float.MaxValue;
+            }
+
             ai.SetupDamageForAnim(target.HeaviestPart.transform.position, playerPosition, target.HeaviestPart);
-            ai.ApplyDamage(target.Damage, target.BleedMinutes, DamageSource.Player, target.ColliderName);
+            ai.ApplyDamage(damage, bleedMinutes, DamageSource.Player, target.ColliderName);
             ai.MaybeFleeOrAttackFromProjectileHit(WeaponSource.Unspecified);
         }
 
@@ -357,7 +392,6 @@ namespace Shotgun
             {
                 if (!InShotgunShot) return;
                 MarkHitAnimal();
-                if (IsPelletAmmo(CurrentAmmo) && !PelletsCanBleed) __result = 0f;
             }
         }
 
@@ -368,12 +402,7 @@ namespace Shotgun
             internal static void Postfix(LocalizedDamage __instance, ref bool __result)
             {
                 if (!InShotgunShot) return;
-                if (IsPelletAmmo(CurrentAmmo))
-                {
-                    __result = false;
-                    return;
-                }
-                if (CurrentAmmo != ShotgunAmmo.Slug) return;
+                if (CurrentAmmo == ShotgunAmmo.None) return;
 
                 float shotgunTierCritMultiplier = ShotgunSkill.GetCurrentTier() * 0.25f;
                 float adjustedChance = __instance.GetChanceKill(WeaponSource.Rifle) * shotgunTierCritMultiplier * 1.25f;
