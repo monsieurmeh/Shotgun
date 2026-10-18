@@ -15,12 +15,16 @@ namespace Shotgun
 
         internal const int BulletLayerMask = 0x180e1b41;
         internal const int GearLayer = 17;
+        internal const int MaxImpactSoundsPerShot = 3;
 
         internal static bool InShotgunShot { get; private set; }
         internal static ShotgunAmmo CurrentAmmo { get; private set; } = ShotgunAmmo.None;
         private static bool mShotHitAnimal;
 
         private static readonly Dictionary<IntPtr, PelletTarget> mTargets = new Dictionary<IntPtr, PelletTarget>();
+        private static readonly HashSet<IntPtr> mSoundedSurfaces = new HashSet<IntPtr>();
+
+        internal static bool MuteImpactAudio { get; private set; }
 
 
         internal sealed class PelletTarget
@@ -156,6 +160,7 @@ namespace Shotgun
             if (cougarManager != null) cougarManager.MaybeAimNearMiss(bulletTransform.forward);
 
             mTargets.Clear();
+            mSoundedSurfaces.Clear();
             MatchTransform.EnableCollidersForAllActive(true);
             try
             {
@@ -174,10 +179,9 @@ namespace Shotgun
                         anyHit = true;
                         firstHit = hit;
                     }
-                    bulletTransform.position = hit.point;
-                    bullet.SpawnImpactEffects(hit);
-
                     BaseAi ai = AiUtils.GetBaseAiFromObject(hit.collider.gameObject);
+                    SpawnPelletImpact(bullet, hit, ai != null ? ai.Pointer : hit.collider.gameObject.Pointer);
+
                     if (ai == null || ai.GetAiMode() == AiMode.Dead)
                     {
                         MaybePushGear(bullet, hit, pelletCount);
@@ -198,8 +202,25 @@ namespace Shotgun
             finally
             {
                 mTargets.Clear();
+                mSoundedSurfaces.Clear();
                 MatchTransform.EnableCollidersForAllActive(false);
                 FinishBullet(bullet, anyHit, firstHit);
+            }
+        }
+
+
+        private static void SpawnPelletImpact(vp_Bullet bullet, RaycastHit hit, IntPtr surface)
+        {
+            bullet.transform.position = hit.point;
+            MuteImpactAudio = mSoundedSurfaces.Contains(surface) || mSoundedSurfaces.Count >= MaxImpactSoundsPerShot;
+            mSoundedSurfaces.Add(surface);
+            try
+            {
+                bullet.SpawnImpactEffects(hit);
+            }
+            finally
+            {
+                MuteImpactAudio = false;
             }
         }
 
@@ -313,6 +334,18 @@ namespace Shotgun
             {
                 if (__instance == null) return;
                 EndShot();
+            }
+        }
+
+
+        [HarmonyPatch(typeof(AkSoundEngine), nameof(AkSoundEngine.PostEvent), new Type[] { typeof(string), typeof(GameObject) })]
+        internal static class AkSoundEngine_MuteRepeatedPelletImpacts
+        {
+            internal static bool Prefix(ref uint __result)
+            {
+                if (!MuteImpactAudio) return true;
+                __result = 0;
+                return false;
             }
         }
 
