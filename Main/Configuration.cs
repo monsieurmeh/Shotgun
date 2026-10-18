@@ -905,6 +905,8 @@ namespace Shotgun
             vp_FPSShooter rifleShooter = refs.Rifle.WeaponView.FPSShooter;
             shooter.m_Weapon = refs.Shotgun.WeaponView.FPSWeapon;
             shooter.MuzzleFlashPrefab = rifleShooter.MuzzleFlashPrefab;
+            shooter.MuzzleFlashScale = rifleShooter.MuzzleFlashScale;
+            if (shooter.m_MuzzleFlash != null) shooter.m_MuzzleFlash.transform.localScale = rifleShooter.MuzzleFlashScale;
             shooter.ProjectilePrefab = rifleShooter.ProjectilePrefab;
             shooter.ShellPrefab = rifleShooter.ShellPrefab;
             shooter.BulletEmissionLocator = refs.Shotgun.FPH.FirstPersonWeapon.m_BulletEmissionPoint.transform;
