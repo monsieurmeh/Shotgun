@@ -2,6 +2,7 @@ using HarmonyLib;
 using Il2Cpp;
 using Il2CppTLD.Gear;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 
 namespace Shotgun
 {
@@ -12,6 +13,17 @@ namespace Shotgun
 
         private static float mPressStartTime = -1f;
         private static bool mOpenedThisPress;
+        private static readonly Dictionary<string, Sprite> mIcons = new();
+        private static readonly List<ArmLayout> mResizedArms = new();
+
+        private struct ArmLayout
+        {
+            internal UITexture Texture;
+            internal int Width;
+            internal int Height;
+            internal Rect UvRect;
+            internal UIWidget.AspectRatioSource KeepAspectRatio;
+        }
 
         internal static void Tick(GunItem gunItem)
         {
@@ -70,6 +82,7 @@ namespace Shotgun
             if (inventory == null) return;
             Panel_ActionsRadial.RadialInfo template = FindTemplate(panel);
 
+            RestoreArms();
             panel.Enable(true, false);
             Il2CppSystem.Collections.Generic.IList<GearItemData> validAmmo = gunItem.ValidAmmo;
             int armCount = panel.m_RadialArms.Length;
@@ -82,9 +95,10 @@ namespace Shotgun
 
                 panel.AddRadialSelection(CopyInfo(template), (Il2CppSystem.Action)(System.Action)(() => Select(gunItem, index)), greyOut, false);
                 RadialMenuArm arm = panel.m_RadialArms[panel.m_NextArmToAdd - 1];
-                Texture2D icon = GetIcon(ammo);
-                if (icon != null) arm.OverrideSpriteWithGearIcon(icon, greyOut, string.Empty);
-                arm.m_NameWhenHoveredOver = ammo.DisplayName;
+                string ammoType = GetAmmoType(ammo);
+                Sprite icon = GetIcon(ammoType);
+                if (icon != null) ApplyIcon(arm, icon, greyOut);
+                arm.m_NameWhenHoveredOver = ammoType ?? ammo.DisplayName;
                 if (arm.m_StackLabel != null) arm.m_StackLabel.text = count.ToString();
             }
 
@@ -115,15 +129,50 @@ namespace Shotgun
             };
         }
 
-        private static Texture2D GetIcon(GearItemData ammo)
+        private static string GetAmmoType(GearItemData ammo)
         {
             foreach (string ammoType in Configuration.ShotgunAmmoTypes)
             {
-                if (!ammo.name.EndsWith(ammoType)) continue;
-                Texture2D single = Il2Cpp.Utils.GetInventoryIconTextureFromPrefabName($"GEAR_ShotgunAmmoSingle{ammoType}");
-                if (single != null) return single;
+                if (ammo.name.EndsWith(ammoType)) return ammoType;
             }
-            return Il2Cpp.Utils.GetInventoryIconTexture(ammo);
+            return null;
+        }
+
+        private static Sprite GetIcon(string ammoType)
+        {
+            if (ammoType == null) return null;
+            if (!mIcons.TryGetValue(ammoType, out Sprite sprite) || sprite == null)
+            {
+                sprite = Addressables.LoadAssetAsync<Sprite>($"ico_Shotgun{ammoType}HUD").WaitForCompletion();
+                mIcons[ammoType] = sprite;
+            }
+            return sprite;
+        }
+
+        private static void ApplyIcon(RadialMenuArm arm, Sprite icon, bool greyOut)
+        {
+            arm.OverrideSpriteWithGearIcon(icon.texture, greyOut, string.Empty);
+            UITexture texture = arm.m_Texture;
+            if (texture == null) return;
+
+            mResizedArms.Add(new ArmLayout { Texture = texture, Width = texture.width, Height = texture.height, UvRect = texture.uvRect, KeepAspectRatio = texture.keepAspectRatio });
+            Rect rect = icon.textureRect;
+            texture.uvRect = new Rect(rect.x / icon.texture.width, rect.y / icon.texture.height, rect.width / icon.texture.width, rect.height / icon.texture.height);
+            texture.keepAspectRatio = UIWidget.AspectRatioSource.Free;
+            texture.width = Mathf.Max(1, Mathf.RoundToInt(texture.height * rect.width / rect.height));
+        }
+
+        private static void RestoreArms()
+        {
+            foreach (ArmLayout layout in mResizedArms)
+            {
+                if (layout.Texture == null) continue;
+                layout.Texture.keepAspectRatio = layout.KeepAspectRatio;
+                layout.Texture.uvRect = layout.UvRect;
+                layout.Texture.width = layout.Width;
+                layout.Texture.height = layout.Height;
+            }
+            mResizedArms.Clear();
         }
 
         private static void Select(GunItem gunItem, int index)
@@ -167,7 +216,9 @@ namespace Shotgun
         {
             internal static void Postfix(bool enable)
             {
-                if (!enable) IsOpen = false;
+                if (enable) return;
+                IsOpen = false;
+                RestoreArms();
             }
         }
     }
