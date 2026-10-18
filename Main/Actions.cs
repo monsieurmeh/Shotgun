@@ -159,11 +159,15 @@ namespace Shotgun
             TickRareIdle(moddedAnimator, hasInput);
         }
 
-        private const float RareIdleMinSeconds = 25f;
-        private const float RareIdleMaxSeconds = 60f;
         private static readonly int IdleStateHash = Animator.StringToHash("Idle");
         private static float mIdleSeconds;
         private static float mNextRareIdleSeconds = -1f;
+
+        private static float NextRareIdleDelay()
+        {
+            float min = Settings.Instance.RareIdleMinSeconds;
+            return UnityEngine.Random.Range(min, Mathf.Max(min, Settings.Instance.RareIdleMaxSeconds));
+        }
 
         private static void TickRareIdle(Animator moddedAnimator, bool hasInput)
         {
@@ -177,13 +181,13 @@ namespace Shotgun
                 mIdleSeconds = 0f;
                 return;
             }
-            if (mNextRareIdleSeconds < 0f) mNextRareIdleSeconds = UnityEngine.Random.Range(RareIdleMinSeconds, RareIdleMaxSeconds);
+            if (mNextRareIdleSeconds < 0f) mNextRareIdleSeconds = NextRareIdleDelay();
             mIdleSeconds += Time.deltaTime;
             if (mIdleSeconds < mNextRareIdleSeconds) return;
 
             moddedAnimator.SetTrigger("Idle_Rare");
             mIdleSeconds = 0f;
-            mNextRareIdleSeconds = UnityEngine.Random.Range(RareIdleMinSeconds, RareIdleMaxSeconds);
+            mNextRareIdleSeconds = NextRareIdleDelay();
         }
 
 

@@ -204,6 +204,16 @@ namespace Shotgun
         [Slider(0.0f, 1.0f)]
         public float IdleVariationOutputMax = 1.0f;
 
+        [Name("Rare Idle Min Delay")]
+        [Description("Shortest time standing still before the rare idle can play, in seconds. Default: 25")]
+        [Slider(5f, 120f)]
+        public float RareIdleMinSeconds = 25f;
+
+        [Name("Rare Idle Max Delay")]
+        [Description("Longest time standing still before the rare idle plays, in seconds. Default: 60")]
+        [Slider(5f, 120f)]
+        public float RareIdleMaxSeconds = 60f;
+
 
 
         [Section("(DEBUG) Animation Settings")]
