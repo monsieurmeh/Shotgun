@@ -13,7 +13,7 @@ namespace Shotgun
 {
     internal static class GroupSpawner
     {
-        internal sealed record Member(string Scene, string Prefab, Vector3 Position, Quaternion Rotation, int Weight);
+        internal sealed record Member(string Scene, string Prefab, Vector3 Position, Quaternion Rotation, int Weight, string Set);
 
         internal sealed class Group
         {
@@ -25,7 +25,7 @@ namespace Shotgun
         private static readonly Regex sScene = new(@"^scene\s*=\s*(\S+)$", RegexOptions.IgnoreCase);
         private static readonly Regex sGroup = new(@"^group\s*=\s*(\w+)((?:\s+\w+\s*=\s*\d+)*)$", RegexOptions.IgnoreCase);
         private static readonly Regex sPicks = new(@"(\w+)\s*=\s*(\d+)");
-        private static readonly Regex sItem = new(@"^item\s*=\s*(\w+)\s+p\s*=\s*([-\d.,\s]+?)\s+r\s*=\s*([-\d.,\s]+?)(?:\s+c\s*=\s*(\d+))?$", RegexOptions.IgnoreCase);
+        private static readonly Regex sItem = new(@"^item\s*=\s*(\w+)\s+p\s*=\s*([-\d.,\s]+?)\s+r\s*=\s*([-\d.,\s]+?)(?:\s+c\s*=\s*(\d+))?(?:\s+s\s*=\s*(\w+))?$", RegexOptions.IgnoreCase);
 
         private static List<Group> sGroups;
 
@@ -63,7 +63,7 @@ namespace Shotgun
                 if (current != null && (m = sItem.Match(line)).Success)
                 {
                     int w = m.Groups[4].Success ? Int(m.Groups[4].Value) : 1;
-                    current.Members.Add(new Member(scene, m.Groups[1].Value, Vec(m.Groups[2].Value), Quaternion.Euler(Vec(m.Groups[3].Value)), Math.Max(1, w)));
+                    current.Members.Add(new Member(scene, m.Groups[1].Value, Vec(m.Groups[2].Value), Quaternion.Euler(Vec(m.Groups[3].Value)), Math.Max(1, w), m.Groups[5].Success ? m.Groups[5].Value : null));
                 }
             }
             return groups.Values.ToList();
@@ -107,22 +107,25 @@ namespace Shotgun
             return new System.Random((int)h);
         }
 
+        internal static List<List<Member>> Units(Group g) =>
+            g.Members.Select((m, i) => (m, key: m.Set ?? "\u0001" + i)).GroupBy(x => x.key, StringComparer.OrdinalIgnoreCase).Select(u => u.Select(x => x.m).ToList()).ToList();
+
         internal static List<Member> Pick(Group g, string level, System.Random rng)
         {
-            List<Member> pool = new(g.Members);
+            List<List<Member>> pool = Units(g);
             List<Member> picked = new();
             int count = Math.Min(PicksFor(g, level), pool.Count);
             for (int i = 0; i < count; i++)
             {
-                int total = pool.Sum(x => x.Weight);
+                int total = pool.Sum(u => u.Max(x => x.Weight));
                 int roll = rng.Next(total);
                 int index = 0;
                 for (; index < pool.Count - 1; index++)
                 {
-                    roll -= pool[index].Weight;
+                    roll -= pool[index].Max(x => x.Weight);
                     if (roll < 0) break;
                 }
-                picked.Add(pool[index]);
+                picked.AddRange(pool[index]);
                 pool.RemoveAt(index);
             }
             return picked;
