@@ -619,6 +619,7 @@ namespace Shotgun
                     ConfigureShotgunAmmoBox(refs, ammoType);
                     ConfigureShotgunAmmoCasing(refs, ammoType);
                 }
+                ConfigureFirearmBans(refs);
                 ConfigureShotgunGearItem(refs);
                 ConfigureShotgunGunItem(refs);
                 ConfigureShotgunFirstPersonItem(refs);
@@ -703,6 +704,37 @@ namespace Shotgun
 
         internal void ConfigureShotgunAmmoCasing(ConfigurationReferences refs, string ammoType)
         {
+        }
+
+
+        internal static readonly string[] ShotgunPartNames = { "GEAR_ShotgunPartBarrel", "GEAR_ShotgunPartBolt", "GEAR_ShotgunPartForend", "GEAR_ShotgunPartStock", "GEAR_ShotgunPartTrigger" };
+
+
+        internal void ConfigureFirearmBans(ConfigurationReferences refs)
+        {
+            DisableObjectForGameMode rifleBan = refs.Rifle.Gun.Prefab != null ? refs.Rifle.Gun.Prefab.GetComponent<DisableObjectForGameMode>() : null;
+            if (rifleBan == null)
+            {
+                MelonLogger.Warning("GEAR_Rifle has no DisableObjectForGameMode; shotgun items will not be banned in firearm-free modes");
+                return;
+            }
+            System.Collections.Generic.List<GameObject> prefabs = new() { refs.Shotgun.Gun.Prefab, refs.Shotgun.Casing.Prefab };
+            foreach (var ammoType in ShotgunAmmoTypes)
+            {
+                prefabs.Add(refs.Shotgun.AmmoTypes[ammoType].AmmoSingle.Prefab);
+                prefabs.Add(refs.Shotgun.AmmoTypes[ammoType].AmmoBox.Prefab);
+            }
+            foreach (string part in ShotgunPartNames) prefabs.Add(Addressables.LoadAssetAsync<GameObject>(part).WaitForCompletion());
+            int banned = 0;
+            foreach (GameObject prefab in prefabs)
+            {
+                if (prefab == null) continue;
+                DisableObjectForGameMode ban = prefab.GetComponent<DisableObjectForGameMode>();
+                if (ban == null) ban = prefab.AddComponent<DisableObjectForGameMode>();
+                ban.m_DisableIfAnyActive = rifleBan.m_DisableIfAnyActive;
+                banned++;
+            }
+            MelonLogger.Msg($"Shotgun items banned like the rifle (NoFirearms / NoRifle): {banned} prefabs");
         }
 
 
