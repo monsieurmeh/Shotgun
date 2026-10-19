@@ -61,6 +61,7 @@
 
   <ItemGroup>
     <EmbeddedResource Include="Shotgun.modcomponent" />
+    <EmbeddedResource Include="Spawns\groupspawns.txt" LogicalName="Shotgun.groupspawns.txt" />
   </ItemGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent" Condition="'$(NoDeploy)' != 'true'">

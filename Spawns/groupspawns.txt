@@ -1,0 +1,1 @@
+# Shotgun x-of-n spawn groups: scene=, group=<name> low=<picks> medium=<picks> high=<picks> veryhigh=<picks> [default=<picks>], item= p= r= c=<weight>
