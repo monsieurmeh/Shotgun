@@ -81,22 +81,8 @@ namespace Shotgun
                 "ico_Shotgun_Skill",
                 "",
                 "Shotgun_Skill_graphic",
-                new LocalizedString[]
-                {
-                    new LocalizedString { m_LocalizationID = "Novice" },
-                    new LocalizedString { m_LocalizationID = "Beginner" },
-                    new LocalizedString { m_LocalizationID = "Intermediate" },
-                    new LocalizedString { m_LocalizationID = "Advanced" },
-                    new LocalizedString { m_LocalizationID = "Expert" }
-                },
-                new LocalizedString[]
-                {
-                    new LocalizedString { m_LocalizationID = "Novice" },
-                    new LocalizedString { m_LocalizationID = "Beginner" },
-                    new LocalizedString { m_LocalizationID = "Intermediate" },
-                    new LocalizedString { m_LocalizationID = "Advanced" },
-                    new LocalizedString { m_LocalizationID = "Expert" }
-                },
+                TierStrings("Description"),
+                TierStrings("Benefits"),
                 new int[] { 0, 25, 50, 75, 100 },
                 null
             });
@@ -104,6 +90,9 @@ namespace Shotgun
             registerMethod.Invoke(null, new[] { skillDef });
             MelonLogger.Msg("Shotgun skill registered with FiligranisSkills");
         }
+
+        private static LocalizedString[] TierStrings(string suffix) =>
+            Enumerable.Range(1, TierTresholds.Length).Select(i => new LocalizedString { m_LocalizationID = $"GAMEPLAY_Shotgun_SkillTier{i}{suffix}" }).ToArray();
 
         #endregion
 

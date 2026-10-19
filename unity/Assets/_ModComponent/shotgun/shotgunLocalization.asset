@@ -479,9 +479,9 @@ MonoBehaviour:
       Ukrainian: 
   - localizationKey: GAMEPLAY_Shotgun_PartBarrelDescription
     languages:
-      English: A 12-gauge barrel and magazine tube, cold enough to burn bare skin.
-        Pitted near the muzzle but still straight down its length. On its own it's
-        just a pipe. At a workbench, with the rest of the gun, it could fire again.
+      English: A pair of 12-gauge barrels, cold enough to burn bare skin. Pitted
+        near the muzzles but still straight down their length. On their own they're
+        just pipes. At a workbench, with the rest of the gun, they could fire again.
       German: 
       Russian: 
       French: 
@@ -567,7 +567,7 @@ MonoBehaviour:
       Ukrainian: 
   - localizationKey: GAMEPLAY_Shotgun_PartForendDescription
     languages:
-      English: The pump slide and its action bars, wrapped in a greasy rag. It rattles
+      English: The wooden forend and its latch, wrapped in a greasy rag. It rattles
         when you shake it, but nothing is cracked. One of five parts needed to rebuild
         a shotgun at a workbench.
       German: 
@@ -655,9 +655,272 @@ MonoBehaviour:
       Ukrainian: 
   - localizationKey: GAMEPLAY_Shotgun_PartBoltDescription
     languages:
-      English: The breech block and tang plate, and a few pins that would be impossible
-        to replace out here. Small enough to lose in a coat pocket. One of five parts
-        needed to rebuild a shotgun at a workbench.
+      English: The hinge pin, locking bolt and top lever, and a few springs that
+        would be impossible to replace out here. Small enough to lose in a coat pocket.
+        One of five parts needed to rebuild a shotgun at a workbench.
+      German: 
+      Russian: 
+      French: 
+      Japanese: 
+      Korean: 
+      SimplifiedChinese: 
+      Swedish: 
+      TraditionalChinese: 
+      Turkish: 
+      Norwegian: 
+      Spanish: 
+      PortuguesePortugal: 
+      PortugueseBrazil: 
+      Dutch: 
+      Finnish: 
+      Italian: 
+      Polish: 
+      Ukrainian: 
+  - localizationKey: GAMEPLAY_Shotgun_SkillTier1Description
+    languages:
+      English: You've barely handled a shotgun. The kick throws your aim off the
+        mark, and you fumble every shell into the breech.
+      German: 
+      Russian: 
+      French: 
+      Japanese: 
+      Korean: 
+      SimplifiedChinese: 
+      Swedish: 
+      TraditionalChinese: 
+      Turkish: 
+      Norwegian: 
+      Spanish: 
+      PortuguesePortugal: 
+      PortugueseBrazil: 
+      Dutch: 
+      Finnish: 
+      Italian: 
+      Polish: 
+      Ukrainian: 
+  - localizationKey: GAMEPLAY_Shotgun_SkillTier2Description
+    languages:
+      English: You're learning to lean into the stock. The recoil is less of a shock,
+        and your hands find the shells a little faster.
+      German: 
+      Russian: 
+      French: 
+      Japanese: 
+      Korean: 
+      SimplifiedChinese: 
+      Swedish: 
+      TraditionalChinese: 
+      Turkish: 
+      Norwegian: 
+      Spanish: 
+      PortuguesePortugal: 
+      PortugueseBrazil: 
+      Dutch: 
+      Finnish: 
+      Italian: 
+      Polish: 
+      Ukrainian: 
+  - localizationKey: GAMEPLAY_Shotgun_SkillTier3Description
+    languages:
+      English: Breaking the gun open and feeding both barrels has become one smooth
+        motion. You ride the recoil instead of fighting it.
+      German: 
+      Russian: 
+      French: 
+      Japanese: 
+      Korean: 
+      SimplifiedChinese: 
+      Swedish: 
+      TraditionalChinese: 
+      Turkish: 
+      Norwegian: 
+      Spanish: 
+      PortuguesePortugal: 
+      PortugueseBrazil: 
+      Dutch: 
+      Finnish: 
+      Italian: 
+      Polish: 
+      Ukrainian: 
+  - localizationKey: GAMEPLAY_Shotgun_SkillTier4Description
+    languages:
+      English: You can change loads without wasting a shell, and the breech snaps
+        shut as the stock meets your shoulder.
+      German: 
+      Russian: 
+      French: 
+      Japanese: 
+      Korean: 
+      SimplifiedChinese: 
+      Swedish: 
+      TraditionalChinese: 
+      Turkish: 
+      Norwegian: 
+      Spanish: 
+      PortuguesePortugal: 
+      PortugueseBrazil: 
+      Dutch: 
+      Finnish: 
+      Italian: 
+      Polish: 
+      Ukrainian: 
+  - localizationKey: GAMEPLAY_Shotgun_SkillTier5Description
+    languages:
+      English: The shotgun is an extension of your arms. The recoil barely moves
+        you, and both barrels are loaded before most people find their shells.
+      German: 
+      Russian: 
+      French: 
+      Japanese: 
+      Korean: 
+      SimplifiedChinese: 
+      Swedish: 
+      TraditionalChinese: 
+      Turkish: 
+      Norwegian: 
+      Spanish: 
+      PortuguesePortugal: 
+      PortugueseBrazil: 
+      Dutch: 
+      Finnish: 
+      Italian: 
+      Polish: 
+      Ukrainian: 
+  - localizationKey: GAMEPLAY_Shotgun_SkillTier1Benefits
+    languages:
+      English: 'Full recoil kick
+
+        Slow unloading and loading of both barrels
+
+        No
+        critical hits'
+      German: 
+      Russian: 
+      French: 
+      Japanese: 
+      Korean: 
+      SimplifiedChinese: 
+      Swedish: 
+      TraditionalChinese: 
+      Turkish: 
+      Norwegian: 
+      Spanish: 
+      PortuguesePortugal: 
+      PortugueseBrazil: 
+      Dutch: 
+      Finnish: 
+      Italian: 
+      Polish: 
+      Ukrainian: 
+  - localizationKey: GAMEPLAY_Shotgun_SkillTier2Benefits
+    languages:
+      English: 'Faster reloading, aiming and equipping
+
+        Recoil kick reduced
+        by 25%
+
+        Low critical hit chance'
+      German: 
+      Russian: 
+      French: 
+      Japanese: 
+      Korean: 
+      SimplifiedChinese: 
+      Swedish: 
+      TraditionalChinese: 
+      Turkish: 
+      Norwegian: 
+      Spanish: 
+      PortuguesePortugal: 
+      PortugueseBrazil: 
+      Dutch: 
+      Finnish: 
+      Italian: 
+      Polish: 
+      Ukrainian: 
+  - localizationKey: GAMEPLAY_Shotgun_SkillTier3Benefits
+    languages:
+      English: 'Faster reloading, aiming and equipping
+
+        Recoil kick reduced
+        by 50%
+
+        Steadier recovery after each shot
+
+        Unload and load
+        both barrels at medium speed
+
+        Moderate critical hit chance'
+      German: 
+      Russian: 
+      French: 
+      Japanese: 
+      Korean: 
+      SimplifiedChinese: 
+      Swedish: 
+      TraditionalChinese: 
+      Turkish: 
+      Norwegian: 
+      Spanish: 
+      PortuguesePortugal: 
+      PortugueseBrazil: 
+      Dutch: 
+      Finnish: 
+      Italian: 
+      Polish: 
+      Ukrainian: 
+  - localizationKey: GAMEPLAY_Shotgun_SkillTier4Benefits
+    languages:
+      English: 'Faster reloading, aiming and equipping
+
+        Recoil kick reduced
+        by 75%
+
+        Unload both barrels quickly
+
+        Keep the unspent shell
+        when switching ammo
+
+        Close the breech while raising the gun to aim
+
+        High
+        critical hit chance'
+      German: 
+      Russian: 
+      French: 
+      Japanese: 
+      Korean: 
+      SimplifiedChinese: 
+      Swedish: 
+      TraditionalChinese: 
+      Turkish: 
+      Norwegian: 
+      Spanish: 
+      PortuguesePortugal: 
+      PortugueseBrazil: 
+      Dutch: 
+      Finnish: 
+      Italian: 
+      Polish: 
+      Ukrainian: 
+  - localizationKey: GAMEPLAY_Shotgun_SkillTier5Benefits
+    languages:
+      English: 'Fastest reloading, aiming and equipping
+
+        No recoil kick
+
+        Steadiest
+        recovery after each shot
+
+        Unload and load both barrels quickly
+
+        Keep
+        the unspent shell when switching ammo
+
+        Close the breech while raising
+        the gun to aim
+
+        Very high critical hit chance'
       German: 
       Russian: 
       French: 
