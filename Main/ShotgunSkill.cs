@@ -3,6 +3,7 @@ using HarmonyLib;
 using Il2Cpp;
 using MelonLoader;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 
 namespace Shotgun
 {
@@ -78,9 +79,9 @@ namespace Shotgun
             {
                 SkillName,
                 new LocalizedString { m_LocalizationID = "GAMEPLAY_Shotgun_SkillName" },
-                "ico_Shotgun_Skill",
+                IconId,
                 "",
-                "Shotgun_Skill_graphic",
+                "Shotgun_Skill_Graphic",
                 TierStrings("Description"),
                 TierStrings("Benefits"),
                 new int[] { 0, 25, 50, 75, 100 },
@@ -93,6 +94,47 @@ namespace Shotgun
 
         private static LocalizedString[] TierStrings(string suffix) =>
             Enumerable.Range(1, TierTresholds.Length).Select(i => new LocalizedString { m_LocalizationID = $"GAMEPLAY_Shotgun_SkillTier{i}{suffix}" }).ToArray();
+
+        internal const string IconId = "ico_Shotgun_Skill";
+        private const string IconOverlayName = "ShotgunSkillIconTexture";
+        private static Texture2D mIconTexture;
+
+        internal static void ApplyIconOverlay(UISprite sprite)
+        {
+            if (sprite == null) return;
+            bool show = sprite.spriteName == IconId;
+            Transform overlay = sprite.transform.Find(IconOverlayName);
+            if (overlay != null)
+            {
+                overlay.gameObject.SetActive(show);
+                return;
+            }
+            if (!show) return;
+            if (mIconTexture == null) mIconTexture = Addressables.LoadAssetAsync<Texture2D>(IconId).WaitForCompletion();
+            if (mIconTexture == null) return;
+
+            GameObject go = new(IconOverlayName) { layer = sprite.gameObject.layer };
+            go.transform.SetParent(sprite.transform, false);
+            UITexture texture = go.AddComponent<UITexture>();
+            texture.mainTexture = mIconTexture;
+            texture.rawPivot = sprite.pivot;
+            texture.color = sprite.color;
+            texture.depth = sprite.depth + 1;
+            texture.height = sprite.height;
+            texture.width = Mathf.Max(1, Mathf.RoundToInt(sprite.height * (float)mIconTexture.width / mIconTexture.height));
+            go.transform.localPosition = Vector3.zero;
+        }
+
+        [HarmonyPatch(typeof(Panel_Log), nameof(Panel_Log.RefreshSkillsList))]
+        internal static class Panel_Log_ShotgunIcon
+        {
+            private static void Postfix(Panel_Log __instance)
+            {
+                if (__instance.m_SkillsDisplayList == null) return;
+                for (int i = 0; i < __instance.m_SkillsDisplayList.Count; i++)
+                    ApplyIconOverlay(__instance.m_SkillsDisplayList[i]?.m_SkillIcon);
+            }
+        }
 
         #endregion
 

@@ -538,6 +538,7 @@ namespace Shotgun
         {
             private static void Postfix(Panel_Inventory_Examine __instance)
             {
+                ShotgunSkill.ApplyIconOverlay(__instance.m_ResearchIcon);
                 GearItem gi = __instance.m_GearItem;
                 if (gi == null) return;
                 if (!ShotgunSkill.IsShotgunBook(gi.gameObject)) return;
@@ -562,7 +563,10 @@ namespace Shotgun
                     __instance.m_SkillProgressBarSprite.fillAmount = skill != null ? Mathf.Clamp01(skill.GetProgressToNextLevelAsNormalizedValue(ri.m_SkillPoints)) : 0f;
 
                 if (__instance.m_ResearchIcon != null)
-                    __instance.m_ResearchIcon.spriteName = "ico_Shotgun_Skill";
+                {
+                    __instance.m_ResearchIcon.spriteName = ShotgunSkill.IconId;
+                    ShotgunSkill.ApplyIconOverlay(__instance.m_ResearchIcon);
+                }
             }
         }
 
