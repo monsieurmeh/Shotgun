@@ -69,6 +69,8 @@ group=BRIntA low=1 medium=1 high=1 veryhigh=1
 item=GEAR_ShotgunAmmoSingleBirdshot p=55,0.0277,10.55 r=359.8622,110.0001,89.9499 c=1 s=A
 item=GEAR_ShotgunAmmoSingleBuckshot p=55.75,0.0296,10.25 r=359.873,59.9999,90.0734 c=1 s=A
 item=GEAR_ShotgunAmmoSingleSlug p=30.327,0.0533,6.854 r=0,335,90 c=1 s=B
+group=SG_Shotgun low=0 medium=0 high=1 veryhigh=2
+item=GEAR_Shotgun p=29.56,0.9054,7.0115 r=75.0182,89.0628,0.0003 c=1
 
 scene=BlackrockPowerplantA
 group=BRPP low=1 medium=1 high=1 veryhigh=1
@@ -290,6 +292,12 @@ item=GEAR_ShotgunAmmoSingleBuckshot p=-13,-17.3671,149 r=349.2219,30.1431,88.483
 item=GEAR_ShotgunAmmoSingleBirdshot p=-14.1,-17.6602,148.1 r=347.3985,80.8915,81.9392 c=1 s=B
 item=GEAR_ShotgunAmmoBoxBirdshot p=-62.4,-30.4204,-51.4 r=0,100,0 c=1 s=C
 item=GEAR_ShotgunAmmoSingleSlug p=-66.2,-23.6693,-104.45 r=0,20,90 c=1 s=D
+group=SG_Shotgun low=0 medium=0 high=1 veryhigh=2
+item=GEAR_Shotgun p=79.4885,9.3754,44.3499 r=0,236.6212,269.9999 c=1
+
+scene=ModShatteredBunker
+group=SG_Shotgun low=0 medium=0 high=1 veryhigh=2
+item=GEAR_Shotgun p=259.2422,78.4463,19.3995 r=74.9024,14.0994,314.9997 c=1
 
 scene=MountainPassBasement
 group=SG_PartStock low=1 medium=1 high=1 veryhigh=2

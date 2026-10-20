@@ -28,6 +28,13 @@ scene=BlackRockTrailerB
 item=GEAR_ShotgunAmmoSingleBirdshot p=2.6,1.1577,-1.45 r=0,20,90 c=42
 item=GEAR_ShotgunAmmoSingleBuckshot p=4.3,0.0218,-1 r=0,75,90 c=42
 
+scene=BlackrockInteriorASurvival
+item=GEAR_ShotgunAmmoBoxSlug p=29.7722,0.2154,6.6357 r=0,176.4454,0 c=100
+
+scene=BlackrockPrisonSurvivalZone
+item=GEAR_ShotgunAmmoBoxBuckshot p=-187.2578,226.007,6.5194 r=270,4.058,0 c=100
+item=GEAR_ShotgunAmmoBoxBirdshot p=-187.1535,227.2585,6.9421 r=0,63.9847,0 c=100
+
 scene=CampOffice
 item=GEAR_ShotgunAmmoSingleSlug p=-0.6,1.0866,-4.5 r=90,100,0 c=50
 item=GEAR_ShotgunAmmoSingleBuckshot p=-4.45,0.0838,3.25 r=90,60,0 c=100
@@ -113,6 +120,10 @@ item=GEAR_ShotgunAmmoBoxSlug p=-4.2,15.6506,-11.1 r=0,90,0 c=28
 scene=MineTransitionZone
 item=GEAR_ShotgunAmmoSingleBuckshot p=-41.6,-15.3275,24.75 r=0,70,90 c=100
 item=GEAR_ShotgunAmmoBoxBuckshot p=-119.8,-56.8063,213.4 r=320.2305,31.6394,355.4696 c=30
+
+scene=MiningRegionMine
+item=GEAR_ShotgunAmmoCasing p=79.639,8.0604,39.0946 r=0,249.8456,90 c=100
+item=GEAR_ShotgunAmmoCasing p=76.2224,8.0603,33.0304 r=0,309.5905,90 c=100
 
 scene=MountainPassBasement
 item=GEAR_ShotgunAmmoSingleBuckshot p=-2.1,0.0522,-3.15 r=0,80,90 c=40

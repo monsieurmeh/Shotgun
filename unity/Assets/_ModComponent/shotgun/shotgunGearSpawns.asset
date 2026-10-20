@@ -77,6 +77,22 @@ MonoBehaviour:
       position: {x: 4.3, y: 0.0218, z: -1}
       rotation: {x: 0, y: 75, z: 90}
       spawnChance: 42
+  - sceneName: {fileID: 11400000, guid: 7c5b1e54c6138a94d948da52ab31afb7, type: 2}
+    sceneItemSpawns:
+    - itemName: {fileID: 11400000, guid: a124cb7102b3bed4d8c14bfcd913407e, type: 2}
+      position: {x: 29.7722, y: 0.2154, z: 6.6357}
+      rotation: {x: 0, y: 176.4454, z: 0}
+      spawnChance: 100
+  - sceneName: {fileID: 11400000, guid: f8312a5a656d0f447b7a80faf98abcda, type: 2}
+    sceneItemSpawns:
+    - itemName: {fileID: 11400000, guid: 830cf55f974d25f4d8085e3b3ef75006, type: 2}
+      position: {x: -187.2578, y: 226.007, z: 6.5194}
+      rotation: {x: 270, y: 4.058, z: 0}
+      spawnChance: 100
+    - itemName: {fileID: 11400000, guid: 8ce1ab74f64c90049a070345d2806b39, type: 2}
+      position: {x: -187.1535, y: 227.2585, z: 6.9421}
+      rotation: {x: 0, y: 63.9847, z: 0}
+      spawnChance: 100
   - sceneName: {fileID: 11400000, guid: deb6ed2fec09bb947b44abd28e157014, type: 2}
     sceneItemSpawns:
     - itemName: {fileID: 11400000, guid: 8121c5b36260cfe469352a1b3951fb3e, type: 2}
@@ -295,6 +311,16 @@ MonoBehaviour:
       position: {x: -119.8, y: -56.8063, z: 213.4}
       rotation: {x: 320.2305, y: 31.6394, z: 355.4696}
       spawnChance: 30
+  - sceneName: {fileID: 11400000, guid: f426dff9063b94642941604bad054d59, type: 2}
+    sceneItemSpawns:
+    - itemName: {fileID: 11400000, guid: 451151ba75d8ceb41ac4aed9ff13a22e, type: 2}
+      position: {x: 79.639, y: 8.0604, z: 39.0946}
+      rotation: {x: 0, y: 249.8456, z: 90}
+      spawnChance: 100
+    - itemName: {fileID: 11400000, guid: 451151ba75d8ceb41ac4aed9ff13a22e, type: 2}
+      position: {x: 76.2224, y: 8.0603, z: 33.0304}
+      rotation: {x: 0, y: 309.5905, z: 90}
+      spawnChance: 100
   - sceneName: {fileID: 11400000, guid: 0a0f19ed0f554994ca9619044fbc6c94, type: 2}
     sceneItemSpawns:
     - itemName: {fileID: 11400000, guid: 963a0c4b19a1fec4a9f6d419e948dbf6, type: 2}
