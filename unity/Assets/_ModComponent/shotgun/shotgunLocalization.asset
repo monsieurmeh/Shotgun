@@ -456,3 +456,223 @@ MonoBehaviour:
       Italian: 
       Polish: 
       Ukrainian: 
+  - localizationKey: GAMEPLAY_Shotgun_PartBarrelName
+    languages:
+      English: Shotgun Barrel
+      German: 
+      Russian: 
+      French: 
+      Japanese: 
+      Korean: 
+      SimplifiedChinese: 
+      Swedish: 
+      TraditionalChinese: 
+      Turkish: 
+      Norwegian: 
+      Spanish: 
+      PortuguesePortugal: 
+      PortugueseBrazil: 
+      Dutch: 
+      Finnish: 
+      Italian: 
+      Polish: 
+      Ukrainian: 
+  - localizationKey: GAMEPLAY_Shotgun_PartBarrelDescription
+    languages:
+      English: A 12-gauge barrel and magazine tube, cold enough to burn bare skin.
+        Pitted near the muzzle but still straight down its length. On its own it's
+        just a pipe. At a workbench, with the rest of the gun, it could fire again.
+      German: 
+      Russian: 
+      French: 
+      Japanese: 
+      Korean: 
+      SimplifiedChinese: 
+      Swedish: 
+      TraditionalChinese: 
+      Turkish: 
+      Norwegian: 
+      Spanish: 
+      PortuguesePortugal: 
+      PortugueseBrazil: 
+      Dutch: 
+      Finnish: 
+      Italian: 
+      Polish: 
+      Ukrainian: 
+  - localizationKey: GAMEPLAY_Shotgun_PartStockName
+    languages:
+      English: Shotgun Stock
+      German: 
+      Russian: 
+      French: 
+      Japanese: 
+      Korean: 
+      SimplifiedChinese: 
+      Swedish: 
+      TraditionalChinese: 
+      Turkish: 
+      Norwegian: 
+      Spanish: 
+      PortuguesePortugal: 
+      PortugueseBrazil: 
+      Dutch: 
+      Finnish: 
+      Italian: 
+      Polish: 
+      Ukrainian: 
+  - localizationKey: GAMEPLAY_Shotgun_PartStockDescription
+    languages:
+      English: A hardwood stock, the finish worn pale where a cheek rested through
+        years of autumn hunts. Someone scratched initials into the grip. One of five
+        parts needed to rebuild a shotgun at a workbench.
+      German: 
+      Russian: 
+      French: 
+      Japanese: 
+      Korean: 
+      SimplifiedChinese: 
+      Swedish: 
+      TraditionalChinese: 
+      Turkish: 
+      Norwegian: 
+      Spanish: 
+      PortuguesePortugal: 
+      PortugueseBrazil: 
+      Dutch: 
+      Finnish: 
+      Italian: 
+      Polish: 
+      Ukrainian: 
+  - localizationKey: GAMEPLAY_Shotgun_PartForendName
+    languages:
+      English: Shotgun Forend Assembly
+      German: 
+      Russian: 
+      French: 
+      Japanese: 
+      Korean: 
+      SimplifiedChinese: 
+      Swedish: 
+      TraditionalChinese: 
+      Turkish: 
+      Norwegian: 
+      Spanish: 
+      PortuguesePortugal: 
+      PortugueseBrazil: 
+      Dutch: 
+      Finnish: 
+      Italian: 
+      Polish: 
+      Ukrainian: 
+  - localizationKey: GAMEPLAY_Shotgun_PartForendDescription
+    languages:
+      English: The pump slide and its action bars, wrapped in a greasy rag. It rattles
+        when you shake it, but nothing is cracked. One of five parts needed to rebuild
+        a shotgun at a workbench.
+      German: 
+      Russian: 
+      French: 
+      Japanese: 
+      Korean: 
+      SimplifiedChinese: 
+      Swedish: 
+      TraditionalChinese: 
+      Turkish: 
+      Norwegian: 
+      Spanish: 
+      PortuguesePortugal: 
+      PortugueseBrazil: 
+      Dutch: 
+      Finnish: 
+      Italian: 
+      Polish: 
+      Ukrainian: 
+  - localizationKey: GAMEPLAY_Shotgun_PartTriggerName
+    languages:
+      English: Shotgun Trigger Group
+      German: 
+      Russian: 
+      French: 
+      Japanese: 
+      Korean: 
+      SimplifiedChinese: 
+      Swedish: 
+      TraditionalChinese: 
+      Turkish: 
+      Norwegian: 
+      Spanish: 
+      PortuguesePortugal: 
+      PortugueseBrazil: 
+      Dutch: 
+      Finnish: 
+      Italian: 
+      Polish: 
+      Ukrainian: 
+  - localizationKey: GAMEPLAY_Shotgun_PartTriggerDescription
+    languages:
+      English: Trigger, sear and guard, packed in an old tobacco tin by someone who
+        meant to come back for them. One of five parts needed to rebuild a shotgun
+        at a workbench.
+      German: 
+      Russian: 
+      French: 
+      Japanese: 
+      Korean: 
+      SimplifiedChinese: 
+      Swedish: 
+      TraditionalChinese: 
+      Turkish: 
+      Norwegian: 
+      Spanish: 
+      PortuguesePortugal: 
+      PortugueseBrazil: 
+      Dutch: 
+      Finnish: 
+      Italian: 
+      Polish: 
+      Ukrainian: 
+  - localizationKey: GAMEPLAY_Shotgun_PartBoltName
+    languages:
+      English: Shotgun Breech Parts
+      German: 
+      Russian: 
+      French: 
+      Japanese: 
+      Korean: 
+      SimplifiedChinese: 
+      Swedish: 
+      TraditionalChinese: 
+      Turkish: 
+      Norwegian: 
+      Spanish: 
+      PortuguesePortugal: 
+      PortugueseBrazil: 
+      Dutch: 
+      Finnish: 
+      Italian: 
+      Polish: 
+      Ukrainian: 
+  - localizationKey: GAMEPLAY_Shotgun_PartBoltDescription
+    languages:
+      English: The breech block and tang plate, and a few pins that would be impossible
+        to replace out here. Small enough to lose in a coat pocket. One of five parts
+        needed to rebuild a shotgun at a workbench.
+      German: 
+      Russian: 
+      French: 
+      Japanese: 
+      Korean: 
+      SimplifiedChinese: 
+      Swedish: 
+      TraditionalChinese: 
+      Turkish: 
+      Norwegian: 
+      Spanish: 
+      PortuguesePortugal: 
+      PortugueseBrazil: 
+      Dutch: 
+      Finnish: 
+      Italian: 
+      Polish: 
+      Ukrainian: 

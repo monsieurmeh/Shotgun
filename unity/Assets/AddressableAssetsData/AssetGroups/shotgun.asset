@@ -50,6 +50,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 246c91e77ee31dc46b9a24d90ba2b927
+    m_Address: ico_GearItem__ShotgunPartStock
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2787ec30c32242dbad4d27b8ed7749a9
     m_Address: FPH_Shotgun_Controller
     m_ReadOnly: 0
@@ -75,6 +80,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 436d6f930f194024fa61cfa366af51c5
+    m_Address: GEAR_ShotgunPartTrigger
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 45b0748a386d1e44381cad77d48b68eb
     m_Address: ico_ShotgunFlareHUD
     m_ReadOnly: 0
@@ -95,6 +105,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 52beaeac2045ccd4b8c6043a06e7a068
+    m_Address: GEAR_ShotgunPartStock
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 599cc86b11253364a835e8845667b135
     m_Address: ico_ShotgunSlugHUD
     m_ReadOnly: 0
@@ -105,8 +120,18 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 67ed2b80ebf7fa14bab4b4c6074f6108
+    m_Address: GEAR_ShotgunPartBolt
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6da82257abfbaa740a2b9b7e95b098f0
     m_Address: ico_ShotgunBirdshotHUD
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7145aabd9824c704baac8af2a0f8de9a
+    m_Address: ico_GearItem__ShotgunPartBolt
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -132,6 +157,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 92649c61de2e60c419387941584afb33
     m_Address: ico_GearItem__ShotgunAmmoBoxBuckshot
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9504fa51a69269742a914f39404b0dac
+    m_Address: ico_GearItem__ShotgunPartTrigger
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -165,8 +195,18 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bb603ff547269554c942111eaebeec25
+    m_Address: GEAR_ShotgunPartForend
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bd67c7844ba36b947be3133326e72fea
     m_Address: ico_GearItem__ShotgunAmmoCasing
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bea2c5aa70d407840bd980ebd81f6da5
+    m_Address: GEAR_ShotgunPartBarrel
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -195,6 +235,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e1bdf47fdfa61154ca54629be06edc0c
+    m_Address: ico_GearItem__ShotgunPartBarrel
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e3e22d5edd345b946901e324b27ecae9
     m_Address: GAMEPLAY_Shotgun_Close
     m_ReadOnly: 0
@@ -212,6 +257,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ea1eebccd3c4a8b428319179e7fc62f8
     m_Address: GEAR_ShotgunBookBeginner
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fef3529fecd778c42a838056e3058965
+    m_Address: ico_GearItem__ShotgunPartForend
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

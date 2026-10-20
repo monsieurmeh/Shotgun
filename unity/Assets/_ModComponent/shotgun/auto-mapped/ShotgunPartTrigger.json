@@ -1,0 +1,35 @@
+{
+  "ModGenericComponent": {
+    "DisplayNameLocalizationId": "GAMEPLAY_Shotgun_PartTriggerName",
+    "DescriptionLocalizatonId": "GAMEPLAY_Shotgun_PartTriggerDescription",
+    "InventoryActionLocalizationId": "",
+    "WeightKG": 0.2,
+    "DaysToDecay": 0,
+    "MaxHP": 100.0,
+    "InitialCondition": "Random",
+    "InventoryCategory": "Material",
+    "PickUpAudio": "",
+    "PutBackAudio": "",
+    "StowAudio": "",
+    "WornOutAudio": "",
+    "InspectOnPickup": true,
+    "InspectDistance": 0.45,
+    "InspectAngles": [
+      0.0,
+      90.0,
+      0.0
+    ],
+    "InspectOffset": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "InspectScale": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "NormalModel": "",
+    "InspectModel": ""
+  }
+}
