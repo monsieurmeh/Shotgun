@@ -18,7 +18,7 @@ namespace Shotgun
 {
     public class Main : MelonMod
     {
-        public const string Version = "0.12.0";
+        public const string Version = "0.12.1";
 
         internal static Main? Instance { get; private set; }
         internal Configuration Configuration { get; private set; } = new();

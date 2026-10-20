@@ -263,6 +263,7 @@ namespace Shotgun
 
                 ShotgunSkill.ApplyAnimatorParams(moddedAnimator);
                 moddedAnimator.SetTrigger("Trigger_Generic_Equip");
+                moddedAnimator.Update(0f);
             }
         }
 
