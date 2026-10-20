@@ -707,7 +707,7 @@ namespace Shotgun
         }
 
 
-        internal static readonly string[] ShotgunPartNames = { "GEAR_ShotgunPartBarrel", "GEAR_ShotgunPartBolt", "GEAR_ShotgunPartForend", "GEAR_ShotgunPartStock", "GEAR_ShotgunPartTrigger" };
+        internal static readonly string[] ShotgunPartNames = { "GEAR_ShotgunPartBarrel", "GEAR_ShotgunPartForend", "GEAR_ShotgunPartStock", "GEAR_ShotgunPartTrigger" };
 
 
         internal void ConfigureFirearmBans(ConfigurationReferences refs)

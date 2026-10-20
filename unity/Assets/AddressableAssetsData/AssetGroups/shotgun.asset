@@ -120,18 +120,8 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 67ed2b80ebf7fa14bab4b4c6074f6108
-    m_Address: GEAR_ShotgunPartBolt
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6da82257abfbaa740a2b9b7e95b098f0
     m_Address: ico_ShotgunBirdshotHUD
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 7145aabd9824c704baac8af2a0f8de9a
-    m_Address: ico_GearItem__ShotgunPartBolt
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

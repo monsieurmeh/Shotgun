@@ -20,11 +20,6 @@
       "Item": "GEAR_ShotgunPartTrigger",
       "Count": 1,
       "Units": "Count"
-    },
-    {
-      "Item": "GEAR_ShotgunPartBolt",
-      "Count": 1,
-      "Units": "Count"
     }
   ],
   "RequiredPowder": [],

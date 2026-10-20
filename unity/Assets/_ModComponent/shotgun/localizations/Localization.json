@@ -462,7 +462,7 @@
     "Ukrainian": ""
   },
   "GAMEPLAY_Shotgun_PartBarrelDescription": {
-    "English": "A pair of 12-gauge barrels, cold enough to burn bare skin. Pitted near the muzzles but still straight down their length. On their own they're just pipes. At a workbench, with the rest of the gun, they could fire again.",
+    "English": "The barrels of what looks like a double-barrel shotgun.",
     "German": "",
     "Russian": "",
     "French (France)": "",
@@ -504,7 +504,7 @@
     "Ukrainian": ""
   },
   "GAMEPLAY_Shotgun_PartStockDescription": {
-    "English": "A hardwood stock, the finish worn pale where a cheek rested through years of autumn hunts. Someone scratched initials into the grip. One of five parts needed to rebuild a shotgun at a workbench.",
+    "English": "The stock of what looks like a double-barrel shotgun.",
     "German": "",
     "Russian": "",
     "French (France)": "",
@@ -546,7 +546,7 @@
     "Ukrainian": ""
   },
   "GAMEPLAY_Shotgun_PartForendDescription": {
-    "English": "The wooden forend and its latch, wrapped in a greasy rag. It rattles when you shake it, but nothing is cracked. One of five parts needed to rebuild a shotgun at a workbench.",
+    "English": "The forend of what looks like a double-barrel shotgun.",
     "German": "",
     "Russian": "",
     "French (France)": "",
@@ -588,49 +588,7 @@
     "Ukrainian": ""
   },
   "GAMEPLAY_Shotgun_PartTriggerDescription": {
-    "English": "Trigger, sear and guard, packed in an old tobacco tin by someone who meant to come back for them. One of five parts needed to rebuild a shotgun at a workbench.",
-    "German": "",
-    "Russian": "",
-    "French (France)": "",
-    "Japanese": "",
-    "Korean": "",
-    "Simplified Chinese": "",
-    "Swedish": "",
-    "Traditional Chinese": "",
-    "Turkish": "",
-    "Norwegian": "",
-    "Spanish (Spain)": "",
-    "Portuguese (Portugal)": "",
-    "Portuguese (Brazil)": "",
-    "Dutch": "",
-    "Finnish": "",
-    "Italian": "",
-    "Polish": "",
-    "Ukrainian": ""
-  },
-  "GAMEPLAY_Shotgun_PartBoltName": {
-    "English": "Shotgun Breech Parts",
-    "German": "",
-    "Russian": "",
-    "French (France)": "",
-    "Japanese": "",
-    "Korean": "",
-    "Simplified Chinese": "",
-    "Swedish": "",
-    "Traditional Chinese": "",
-    "Turkish": "",
-    "Norwegian": "",
-    "Spanish (Spain)": "",
-    "Portuguese (Portugal)": "",
-    "Portuguese (Brazil)": "",
-    "Dutch": "",
-    "Finnish": "",
-    "Italian": "",
-    "Polish": "",
-    "Ukrainian": ""
-  },
-  "GAMEPLAY_Shotgun_PartBoltDescription": {
-    "English": "The hinge pin, locking bolt and top lever, and a few springs that would be impossible to replace out here. Small enough to lose in a coat pocket. One of five parts needed to rebuild a shotgun at a workbench.",
+    "English": "The trigger group of what looks like a double-barrel shotgun.",
     "German": "",
     "Russian": "",
     "French (France)": "",

@@ -113,9 +113,6 @@ MonoBehaviour:
   - GearItem: {fileID: 11400000, guid: 80ed6b28a0cb66f4c8e18695800bf63f, type: 2}
     Count: 1
     Units: 0
-  - GearItem: {fileID: 11400000, guid: c306413712bf5c544af372597d3e8176, type: 2}
-    Count: 1
-    Units: 0
   RequiredPowder: []
   RequiredLiquid: []
   RequiredTool: {fileID: 11400000, guid: 72680386a55c5764782c58c12456f4c0, type: 2}
