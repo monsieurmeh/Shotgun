@@ -33,7 +33,7 @@
   "RequiresLight": true,
   "CraftedResult": "GEAR_Shotgun",
   "CraftedResultCount": 1,
-  "DurationMinutes": 180,
+  "DurationMinutes": 2880,
   "CraftingAudio": "Play_HarvestingAmmo",
   "AppliedSkill": "Gunsmithing",
   "ImprovedSkill": "Gunsmithing"

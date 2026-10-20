@@ -123,7 +123,7 @@ MonoBehaviour:
   RequiresLight: 1
   CraftedResult: {fileID: 11400000, guid: bfd7525724b3a354cb4e2d690740953b, type: 2}
   CraftedResultCount: 1
-  DurationMinutes: 180
+  DurationMinutes: 2880
   CraftingAudio: {fileID: 11400000, guid: f1c6de6d4392e6542a17b68d477656ad, type: 2}
   AppliedSkill: 10
   ImprovedSkill: 10
