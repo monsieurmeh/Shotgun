@@ -672,7 +672,7 @@ namespace Shotgun
         internal void ConfigureShotgunAmmoSingle(ConfigurationReferences refs, string ammoType)
         {
             var ammoRefs = refs.Shotgun.AmmoTypes[ammoType];
-            ammoRefs.AmmoSingle.AmmoItem.m_AmmoForGunType = (GunType)((int)(GunType.Camera) + 1);
+            ammoRefs.AmmoSingle.AmmoItem.m_AmmoForGunType = GunTypeCustom;
             ammoRefs.AmmoSingle.AmmoItem.m_LoadedHudIconSpriteName = "";
             ammoRefs.AmmoSingle.AmmoItem.m_EmptyHudIconSpriteName = "";
             ammoRefs.AmmoBox.GearItem.m_GearItemData.name = $"GEAR_ShotgunAmmoSingle{ammoType}";
@@ -684,7 +684,7 @@ namespace Shotgun
         internal void ConfigureShotgunAmmoBox(ConfigurationReferences refs, string ammoType)
         {
             var ammoRefs = refs.Shotgun.AmmoTypes[ammoType];
-            ammoRefs.AmmoBox.AmmoItem.m_AmmoForGunType = (GunType)((int)(GunType.Camera) + 1);
+            ammoRefs.AmmoBox.AmmoItem.m_AmmoForGunType = GunTypeCustom;
             ammoRefs.AmmoBox.AmmoItem.m_LoadedHudIconSpriteName = "";
             ammoRefs.AmmoBox.AmmoItem.m_EmptyHudIconSpriteName = "";
             ammoRefs.AmmoBox.GearItem.m_GearItemData.name = $"GEAR_ShotgunAmmoBox{ammoType}";
@@ -773,7 +773,7 @@ namespace Shotgun
             gunItem.m_MisfireTable = rifleGunItem.m_MisfireTable;
             gunItem.m_MisfirePlayerVO = rifleGunItem.m_MisfirePlayerVO;
             gunItem.m_AimingStaminaExhaustedSound = rifleGunItem.m_AimingStaminaExhaustedSound;
-            gunItem.m_GunType = (GunType)((int)(GunType.Camera) + 1);
+            gunItem.m_GunType = GunTypeCustom;
 
 
             // preset here - expose in modcomponent!
