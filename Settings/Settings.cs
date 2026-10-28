@@ -307,6 +307,7 @@ namespace Shotgun
         {
             base.OnConfirm();
             CustomAmmoHUD.Current.UpdateIconPanelPosition();
+            ShotgunSkill.ApplyAnimatorParams(Main.Instance?.Configuration?.Refs?.ModdedAnimator);
         }
     }
 }

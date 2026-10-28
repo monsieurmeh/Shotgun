@@ -80,6 +80,11 @@ namespace Shotgun
         {
             try
             {
+                if (ExperienceModeManager.GetCurrentExperienceModeType() == ExperienceModeType.Custom)
+                {
+                    CustomExperienceMode custom = GameManager.GetCustomMode();
+                    if (custom != null) return custom.m_BaseResourceAvailability.ToString();
+                }
                 ExperienceMode mode = ExperienceModeManager.Instance?.GetCurrentExperienceMode();
                 if (mode != null) return mode.m_BaseResourceAvailability.ToString();
             }

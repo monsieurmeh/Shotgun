@@ -37,9 +37,10 @@ namespace Shotgun
             prompt.transform.MirrorLayout(reload.transform);
             prompt.m_KeyboardButtonLabel.SetTextIfChanged(Settings.Instance.AmmoSwapKeyCode.PromptText());
             prompt.m_KeyboardActionLabel.SetTextIfChanged(NGUIExtensions.LocalizedOr(LabelKey, FallbackLabel));
-            UILabel? enabledLabel = popup.m_ButtonPromptHolster?.m_KeyboardActionLabel;
-            if (prompt.m_KeyboardActionLabel != null)
-                prompt.m_KeyboardActionLabel.color = CanSwap(gunItem) ? (enabledLabel != null ? enabledLabel.color : Color.white) : prompt.m_DisabledColor;
+            ButtonPrompt? holster = popup.m_ButtonPromptHolster;
+            if (prompt.m_KeyboardActionLabel != null && holster?.m_KeyboardActionLabel != null)
+                prompt.m_KeyboardActionLabel.color = holster.m_KeyboardActionLabel.color;
+            if (holster != null) ColorGlyph(prompt, holster, CanSwap(gunItem));
             Place(reload, popup.m_ButtonPromptHolster, prompt);
         }
 
@@ -62,6 +63,19 @@ namespace Shotgun
             Vector3 position = reload.transform.localPosition;
             position.x -= gap + Extent(prompt);
             prompt.transform.localPosition = position;
+        }
+
+
+        private static void ColorGlyph(ButtonPrompt prompt, ButtonPrompt holster, bool enabled)
+        {
+            UIWidget?[] glyph = { prompt.m_KeyboardButtonLabel, prompt.m_KeyboardButtonSprite, prompt.m_KeyboardButtonBGSprite };
+            UIWidget?[] enabledGlyph = { holster.m_KeyboardButtonLabel, holster.m_KeyboardButtonSprite, holster.m_KeyboardButtonBGSprite };
+            for (int i = 0; i < glyph.Length; i++)
+            {
+                if (glyph[i] == null || enabledGlyph[i] == null) continue;
+                Color color = enabled ? enabledGlyph[i]!.color : prompt.m_DisabledColor;
+                if (glyph[i]!.color != color) glyph[i]!.color = color;
+            }
         }
 
 

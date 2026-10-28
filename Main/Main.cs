@@ -18,7 +18,7 @@ namespace Shotgun
 {
     public class Main : MelonMod
     {
-        public const string Version = "0.13.0";
+        public const string Version = "0.13.1";
 
         internal static Main? Instance { get; private set; }
         internal Configuration Configuration { get; private set; } = new();
@@ -72,6 +72,7 @@ namespace Shotgun
 
         public override void OnSceneWasInitialized(int buildIndex, string sceneName)
         {
+            ShotgunAvailability.ApplyToCurrentMode();
             if (!mResourceLocatorInitialized)
             {
                 Addressables.AddResourceLocator(new ModdedResourceLocator().Cast<IResourceLocator>());
