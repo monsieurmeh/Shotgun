@@ -90,7 +90,7 @@ namespace Shotgun
 
             playerAnimation.OnAnimationEvent_Generic_Round_Loaded();
 
-            GunItem gunItem = GameManager.GetPlayerManagerComponent()?.m_ItemInHands?.m_GunItem;
+            GunItem gunItem = GunItemInHands();
             Animator moddedAnimator = Main.Instance?.Configuration?.Refs?.ModdedAnimator;
             if (gunItem == null || gunItem.m_Clip == null || moddedAnimator == null)
                 return;
@@ -135,7 +135,7 @@ namespace Shotgun
 
         internal void OnSyncAmmoVisibility()
         {
-            GunItem gunItem = GameManager.GetPlayerManagerComponent()?.m_ItemInHands?.m_GunItem;
+            GunItem gunItem = GunItemInHands();
             if (gunItem == null) 
                 return;
 
@@ -145,7 +145,7 @@ namespace Shotgun
         internal void OnInsertStarted(int count)
         {
             if (count <= 0) count = 1;
-            GunItem gunItem = GameManager.GetPlayerManagerComponent()?.m_ItemInHands?.m_GunItem;
+            GunItem gunItem = GunItemInHands();
             Animator moddedAnimator = Main.Instance?.Configuration?.Refs?.ModdedAnimator;
             if (gunItem == null || gunItem.m_Clip == null || moddedAnimator == null) 
                 return;

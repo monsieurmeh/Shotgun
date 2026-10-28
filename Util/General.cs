@@ -1,5 +1,6 @@
 ﻿global using static Shotgun.Utility.Utility;
 global using MehToolBox;
+global using Shotgun.ToolBox;
 using Il2Cpp;
 using System;
 using System.Collections.Generic;
@@ -19,5 +20,9 @@ namespace Shotgun.Utility
         internal const string ShotgunItemPrefabCloneName = "GEAR_Shotgun(Clone)";
 
         internal static float SampleGameTime() => GameManager.m_TimeOfDay.m_WeatherSystem.m_ElapsedHoursAccumulator + GameManager.m_TimeOfDay.m_WeatherSystem.m_ElapsedHours;
+
+        internal static GunItem? GunItemInHands() => GameManager.GetPlayerManagerComponent()?.m_ItemInHands?.m_GunItem;
+
+        internal static GunItem? ShotgunInHands() => GunItemInHands() is GunItem gunItem && gunItem.m_GunType == GunTypeCustom ? gunItem : null;
     }
 }
