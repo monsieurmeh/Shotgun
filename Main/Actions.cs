@@ -112,7 +112,7 @@ namespace Shotgun
             gunItem.m_PreviousAmmoIndex = -1;
             AmmoRadial.ClearPending();
             UpdateShotgunParams(gunItem, gunItem.ValidAmmo[gunItem.m_SelectedAmmoIndex].DisplayName);
-            CustomAmmoHUD.Current.Refresh();
+            CustomAmmoHUD.Refresh();
         }
 
         internal static void TransmitLocomotion(PlayerMovement __instance)

@@ -86,7 +86,7 @@ namespace Shotgun
                 if (__instance.m_GunType != GunTypeCustom) return;
                 ShotgunSkill.ApplyToGunItem(__instance);
                 UpdateShotgunParams(__instance, __instance.ValidAmmo[__instance.m_SelectedAmmoIndex].DisplayName);
-                CustomAmmoHUD.Current.Refresh();
+                CustomAmmoHUD.Refresh();
             }
         }
 
@@ -142,14 +142,14 @@ namespace Shotgun
                 {
                     __instance.m_PreviousAmmoIndex = -1; //indicate is NOT ammo swap during reload
                     GunItem_PreventReloadAmmoUnlessIntended.StartShotgunReload(__instance);
-                    CustomAmmoHUD.Current.Refresh();
+                    CustomAmmoHUD.Refresh();
                     return;
                 }
                 if (__instance.m_SpentCasingsInClip > 0)
                 {
                     __instance.m_PreviousAmmoIndex = -1; //indicate is NOT ammo swap during reload
                     ReloadPastVanillaAmmoGate();
-                    CustomAmmoHUD.Current.Refresh();
+                    CustomAmmoHUD.Refresh();
                     return;
                 }
             }
@@ -215,7 +215,7 @@ namespace Shotgun
         {
             internal static void Postfix(GunItem __instance)
             {
-                CustomAmmoHUD.Current.Refresh();
+                CustomAmmoHUD.Refresh();
 
                 if (__instance.m_GunType != GunTypeCustom) return;
                 Actions.SyncAmmoParams(__instance);
@@ -228,7 +228,7 @@ namespace Shotgun
         {
             internal static void Postfix()
             {
-                CustomAmmoHUD.Current.Refresh();
+                CustomAmmoHUD.Refresh();
             }
         }
 
