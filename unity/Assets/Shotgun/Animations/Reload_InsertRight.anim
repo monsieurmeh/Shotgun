@@ -77398,7 +77398,7 @@ AnimationClip:
     floatParameter: 0
     intParameter: 1
     messageOptions: 0
-  - time: 0.3
+  - time: 0.53333336
     functionName: OnPlaySound
     data: GAMEPLAY_DoubleBarrel_Insert
     objectReferenceParameter: {fileID: 0}
