@@ -27,9 +27,8 @@ namespace Shotgun
             ButtonPrompt? prompt = GetOrCreate(reload);
             if (prompt == null) return;
 
-            GunItem? gunItem = GameManager.GetPlayerManagerComponent()?.m_ItemInHands?.m_GunItem;
+            GunItem? gunItem = ShotgunInHands();
             bool show = gunItem != null
-                && gunItem.m_GunType == GunTypeCustom
                 && reload.gameObject.activeSelf
                 && !Il2Cpp.Utils.IsGamepadActive();
             if (prompt.gameObject.activeSelf != show) prompt.gameObject.SetActive(show);

@@ -240,7 +240,7 @@ namespace Shotgun
             if (wasModdedEnabled && !renamed) return true;
 
             if (wasModdedEnabled) moddedAnimator.Rebind();
-            SyncAmmoParams(GameManager.GetPlayerManagerComponent()?.m_ItemInHands?.m_GunItem);
+            SyncAmmoParams(GunItemInHands());
             ShotgunSkill.ApplyAnimatorParams(moddedAnimator);
             return true;
         }
