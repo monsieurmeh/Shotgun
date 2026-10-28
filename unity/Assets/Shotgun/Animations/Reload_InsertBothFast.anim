@@ -80206,23 +80206,23 @@ AnimationClip:
     floatParameter: 0
     intParameter: 2
     messageOptions: 0
-  - time: 0.5
+  - time: 0.6
+    functionName: OnRoundLoaded
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.6
+    functionName: OnRoundLoaded
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.7
     functionName: OnPlaySound
     data: GAMEPLAY_DoubleBarrel_Insert
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 0.6
-    functionName: OnRoundLoaded
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 0.6
-    functionName: OnRoundLoaded
-    data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
