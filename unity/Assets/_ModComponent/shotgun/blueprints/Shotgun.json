@@ -2,22 +2,22 @@
   "Name": "Shotgun",
   "RequiredGear": [
     {
-      "Item": "GEAR_ShotgunPartBarrel",
+      "Item": "GEAR_DoubleBarrelPartBarrel",
       "Count": 1,
       "Units": "Count"
     },
     {
-      "Item": "GEAR_ShotgunPartStock",
+      "Item": "GEAR_DoubleBarrelPartStock",
       "Count": 1,
       "Units": "Count"
     },
     {
-      "Item": "GEAR_ShotgunPartForend",
+      "Item": "GEAR_DoubleBarrelPartForend",
       "Count": 1,
       "Units": "Count"
     },
     {
-      "Item": "GEAR_ShotgunPartTrigger",
+      "Item": "GEAR_DoubleBarrelPartTrigger",
       "Count": 1,
       "Units": "Count"
     }
@@ -31,7 +31,7 @@
   "RequiredCraftingLocation": "Workbench",
   "RequiresLitFire": false,
   "RequiresLight": true,
-  "CraftedResult": "GEAR_Shotgun",
+  "CraftedResult": "GEAR_DoubleBarrel",
   "CraftedResultCount": 1,
   "DurationMinutes": 2880,
   "CraftingAudio": "Play_HarvestingAmmo",

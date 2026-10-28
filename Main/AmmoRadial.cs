@@ -143,7 +143,7 @@ namespace Shotgun
             if (ammoType == null) return null;
             if (!mIcons.TryGetValue(ammoType, out Sprite sprite) || sprite == null)
             {
-                sprite = Addressables.LoadAssetAsync<Sprite>($"ico_Shotgun{ammoType}HUD").WaitForCompletion();
+                sprite = Addressables.LoadAssetAsync<Sprite>($"ico_DoubleBarrel{ammoType}HUD").WaitForCompletion();
                 mIcons[ammoType] = sprite;
             }
             return sprite;

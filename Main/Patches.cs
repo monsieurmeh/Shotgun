@@ -275,7 +275,7 @@ namespace Shotgun
             {
                 if (!__result) return;
                 if (__instance.m_EquippedFirstPersonWeaponShoulder == null) return;
-                if (!__instance.m_EquippedFirstPersonWeaponShoulder.name.Contains("Shotgun")) return;
+                if (!__instance.m_EquippedFirstPersonWeaponShoulder.name.StartsWith(ShotgunFPHPrefabName)) return;
 
                 Animator moddedAnimator = Main.Instance.Configuration.Refs.ModdedAnimator;
                 if (moddedAnimator == null || !moddedAnimator.enabled)
@@ -298,7 +298,7 @@ namespace Shotgun
         {
             internal static void Postfix(PlayerAnimation __instance)
             {
-                if (__instance.m_EquippedFirstPersonWeaponShoulder != null && __instance.m_EquippedFirstPersonWeaponShoulder.name.Contains("Shotgun")) return;
+                if (__instance.m_EquippedFirstPersonWeaponShoulder != null && __instance.m_EquippedFirstPersonWeaponShoulder.name.StartsWith(ShotgunFPHPrefabName)) return;
 
                 Animator moddedAnimator = Main.Instance?.Configuration?.Refs?.ModdedAnimator;
                 if (moddedAnimator == null || !moddedAnimator.enabled) return;
@@ -396,7 +396,7 @@ namespace Shotgun
             internal static bool Prefix(PlayerAnimation __instance, bool allowHipFire, ref bool __result)
             {
                 if (__instance.m_EquippedFirstPersonWeaponShoulder == null) return true;
-                if (!__instance.m_EquippedFirstPersonWeaponShoulder.name.Contains("Shotgun")) return true;
+                if (!__instance.m_EquippedFirstPersonWeaponShoulder.name.StartsWith(ShotgunFPHPrefabName)) return true;
 
                 if (DoubleFire.FiringSecondBarrel)
                 {
@@ -551,7 +551,7 @@ namespace Shotgun
                 (int points, int tier) s = ShotgunSkill.GetPointsAndTiers(ShotgunSkill.SkillName);
 
                 if (__instance.m_SkillProgressBarLabel != null)
-                    __instance.m_SkillProgressBarLabel.text = Localization.Get("GAMEPLAY_Shotgun_SkillName");
+                    __instance.m_SkillProgressBarLabel.text = Localization.Get("GAMEPLAY_DoubleBarrel_SkillName");
 
                 if (__instance.m_SkillLevelLabel != null)
                     __instance.m_SkillLevelLabel.text = (s.tier + 1).ToString();
@@ -606,7 +606,7 @@ namespace Shotgun
             {
                 uConsole.RegisterCommand("shotgun_levelup", new Action(() =>
                 {
-                    ShotgunSkill.IncreaseSkillPoints.Invoke("Shotgun", 25);
+                    ShotgunSkill.IncreaseSkillPoints.Invoke(ShotgunSkill.SkillName, 25);
                 }));
             }
         }

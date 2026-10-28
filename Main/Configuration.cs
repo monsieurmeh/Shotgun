@@ -199,21 +199,21 @@ namespace Shotgun
         internal bool GetRifleCasingGearItem(ConfigurationReferences refs) => Attempt(() => refs.Rifle.Casing.GearItem = refs.Rifle.Casing.Prefab.GetComponent<GearItem>(), () => refs.Rifle.Casing.GearItem != null, "Null GEAR_RifleAmmoCasing.GearItem");
         internal bool GetRifleCasingStackableItem(ConfigurationReferences refs) => Attempt(() => refs.Rifle.Casing.StackableItem = refs.Rifle.Casing.Prefab.GetComponent<StackableItem>(), () => refs.Rifle.Casing.StackableItem != null, "Null GEAR_RifleAmmoCasing.StackableItem");
 
-        internal bool GetShotgunAmmoSingleAsset(ConfigurationReferences refs, string ammoType) => Attempt(() => refs.Shotgun.AmmoTypes[ammoType].AmmoSingle.Prefab = Addressables.LoadAssetAsync<GameObject>($"GEAR_ShotgunAmmoSingle{ammoType}").WaitForCompletion(), () => refs.Shotgun.AmmoTypes[ammoType].AmmoSingle.Prefab != null, $"Null GEAR_ShotgunAmmoSingle{ammoType}");
-        internal bool GetShotgunAmmoSingleGearItem(ConfigurationReferences refs, string ammoType) => Attempt(() => refs.Shotgun.AmmoTypes[ammoType].AmmoSingle.GearItem = refs.Shotgun.AmmoTypes[ammoType].AmmoSingle.Prefab.GetComponent<GearItem>(), () => refs.Shotgun.AmmoTypes[ammoType].AmmoSingle.GearItem != null, $"Null GEAR_ShotgunAmmoSingle{ammoType}.GearItem");
-        internal bool GetShotgunAmmoSingleAmmoItem(ConfigurationReferences refs, string ammoType) => Attempt(() => refs.Shotgun.AmmoTypes[ammoType].AmmoSingle.AmmoItem = refs.Shotgun.AmmoTypes[ammoType].AmmoSingle.Prefab.GetComponent<AmmoItem>(), () => refs.Shotgun.AmmoTypes[ammoType].AmmoSingle.AmmoItem != null, $"Null GEAR_ShotgunAmmoSingle{ammoType}.AmmoItem");
-        internal bool GetShotgunAmmoSingleStackableItem(ConfigurationReferences refs, string ammoType) => Attempt(() => refs.Shotgun.AmmoTypes[ammoType].AmmoSingle.StackableItem = refs.Shotgun.AmmoTypes[ammoType].AmmoSingle.Prefab.GetComponent<StackableItem>(), () => refs.Shotgun.AmmoTypes[ammoType].AmmoSingle.StackableItem != null, $"Null GEAR_ShotgunAmmoSingle{ammoType}.StackableItem");
-        internal bool GetShotgunAmmoSingleHarvestable(ConfigurationReferences refs, string ammoType) => Attempt(() => refs.Shotgun.AmmoTypes[ammoType].AmmoSingle.Harvestable = refs.Shotgun.AmmoTypes[ammoType].AmmoSingle.Prefab.GetComponent<Harvestable>(), () => refs.Shotgun.AmmoTypes[ammoType].AmmoSingle.GearItem != null, $"Null GEAR_ShotgunAmmoSingle{ammoType}.Harvestable");
+        internal bool GetShotgunAmmoSingleAsset(ConfigurationReferences refs, string ammoType) => Attempt(() => refs.Shotgun.AmmoTypes[ammoType].AmmoSingle.Prefab = Addressables.LoadAssetAsync<GameObject>($"GEAR_DoubleBarrelAmmoSingle{ammoType}").WaitForCompletion(), () => refs.Shotgun.AmmoTypes[ammoType].AmmoSingle.Prefab != null, $"Null GEAR_DoubleBarrelAmmoSingle{ammoType}");
+        internal bool GetShotgunAmmoSingleGearItem(ConfigurationReferences refs, string ammoType) => Attempt(() => refs.Shotgun.AmmoTypes[ammoType].AmmoSingle.GearItem = refs.Shotgun.AmmoTypes[ammoType].AmmoSingle.Prefab.GetComponent<GearItem>(), () => refs.Shotgun.AmmoTypes[ammoType].AmmoSingle.GearItem != null, $"Null GEAR_DoubleBarrelAmmoSingle{ammoType}.GearItem");
+        internal bool GetShotgunAmmoSingleAmmoItem(ConfigurationReferences refs, string ammoType) => Attempt(() => refs.Shotgun.AmmoTypes[ammoType].AmmoSingle.AmmoItem = refs.Shotgun.AmmoTypes[ammoType].AmmoSingle.Prefab.GetComponent<AmmoItem>(), () => refs.Shotgun.AmmoTypes[ammoType].AmmoSingle.AmmoItem != null, $"Null GEAR_DoubleBarrelAmmoSingle{ammoType}.AmmoItem");
+        internal bool GetShotgunAmmoSingleStackableItem(ConfigurationReferences refs, string ammoType) => Attempt(() => refs.Shotgun.AmmoTypes[ammoType].AmmoSingle.StackableItem = refs.Shotgun.AmmoTypes[ammoType].AmmoSingle.Prefab.GetComponent<StackableItem>(), () => refs.Shotgun.AmmoTypes[ammoType].AmmoSingle.StackableItem != null, $"Null GEAR_DoubleBarrelAmmoSingle{ammoType}.StackableItem");
+        internal bool GetShotgunAmmoSingleHarvestable(ConfigurationReferences refs, string ammoType) => Attempt(() => refs.Shotgun.AmmoTypes[ammoType].AmmoSingle.Harvestable = refs.Shotgun.AmmoTypes[ammoType].AmmoSingle.Prefab.GetComponent<Harvestable>(), () => refs.Shotgun.AmmoTypes[ammoType].AmmoSingle.GearItem != null, $"Null GEAR_DoubleBarrelAmmoSingle{ammoType}.Harvestable");
 
-        internal bool GetShotgunAmmoBoxAsset(ConfigurationReferences refs, string ammoType) => Attempt(() => refs.Shotgun.AmmoTypes[ammoType].AmmoBox.Prefab = Addressables.LoadAssetAsync<GameObject>($"GEAR_ShotgunAmmoBox{ammoType}").WaitForCompletion(), () => refs.Shotgun.AmmoTypes[ammoType].AmmoBox.Prefab != null, $"Null GEAR_ShotgunAmmoBox{ammoType}");
-        internal bool GetShotgunAmmoBoxGearItem(ConfigurationReferences refs, string ammoType) => Attempt(() => refs.Shotgun.AmmoTypes[ammoType].AmmoBox.GearItem = refs.Shotgun.AmmoTypes[ammoType].AmmoBox.Prefab.GetComponent<GearItem>(), () => refs.Shotgun.AmmoTypes[ammoType].AmmoBox.GearItem != null, $"Null GEAR_ShotgunAmmoBox{ammoType}.GearItem");
-        internal bool GetShotgunAmmoBoxAmmoItem(ConfigurationReferences refs, string ammoType) => Attempt(() => refs.Shotgun.AmmoTypes[ammoType].AmmoBox.AmmoItem = refs.Shotgun.AmmoTypes[ammoType].AmmoBox.Prefab.GetComponent<AmmoItem>(), () => refs.Shotgun.AmmoTypes[ammoType].AmmoBox.AmmoItem != null, $"Null GEAR_ShotgunAmmoBox{ammoType}.AmmoItem");
-        internal bool GetShotgunAmmoBoxStackableItem(ConfigurationReferences refs, string ammoType) => Attempt(() => refs.Shotgun.AmmoTypes[ammoType].AmmoBox.StackableItem = refs.Shotgun.AmmoTypes[ammoType].AmmoBox.Prefab.GetComponent<StackableItem>(), () => refs.Shotgun.AmmoTypes[ammoType].AmmoBox.StackableItem != null, $"Null GEAR_ShotgunAmmoBox{ammoType}.StackableItem");
-        internal bool GetShotgunAmmoBoxHarvestable(ConfigurationReferences refs, string ammoType) => Attempt(() => refs.Shotgun.AmmoTypes[ammoType].AmmoBox.Harvestable = refs.Shotgun.AmmoTypes[ammoType].AmmoBox.Prefab.GetComponent<Harvestable>(), () => refs.Shotgun.AmmoTypes[ammoType].AmmoBox.GearItem != null, $"Null GEAR_ShotgunAmmoBox{ammoType}.Harvestable");
+        internal bool GetShotgunAmmoBoxAsset(ConfigurationReferences refs, string ammoType) => Attempt(() => refs.Shotgun.AmmoTypes[ammoType].AmmoBox.Prefab = Addressables.LoadAssetAsync<GameObject>($"GEAR_DoubleBarrelAmmoBox{ammoType}").WaitForCompletion(), () => refs.Shotgun.AmmoTypes[ammoType].AmmoBox.Prefab != null, $"Null GEAR_DoubleBarrelAmmoBox{ammoType}");
+        internal bool GetShotgunAmmoBoxGearItem(ConfigurationReferences refs, string ammoType) => Attempt(() => refs.Shotgun.AmmoTypes[ammoType].AmmoBox.GearItem = refs.Shotgun.AmmoTypes[ammoType].AmmoBox.Prefab.GetComponent<GearItem>(), () => refs.Shotgun.AmmoTypes[ammoType].AmmoBox.GearItem != null, $"Null GEAR_DoubleBarrelAmmoBox{ammoType}.GearItem");
+        internal bool GetShotgunAmmoBoxAmmoItem(ConfigurationReferences refs, string ammoType) => Attempt(() => refs.Shotgun.AmmoTypes[ammoType].AmmoBox.AmmoItem = refs.Shotgun.AmmoTypes[ammoType].AmmoBox.Prefab.GetComponent<AmmoItem>(), () => refs.Shotgun.AmmoTypes[ammoType].AmmoBox.AmmoItem != null, $"Null GEAR_DoubleBarrelAmmoBox{ammoType}.AmmoItem");
+        internal bool GetShotgunAmmoBoxStackableItem(ConfigurationReferences refs, string ammoType) => Attempt(() => refs.Shotgun.AmmoTypes[ammoType].AmmoBox.StackableItem = refs.Shotgun.AmmoTypes[ammoType].AmmoBox.Prefab.GetComponent<StackableItem>(), () => refs.Shotgun.AmmoTypes[ammoType].AmmoBox.StackableItem != null, $"Null GEAR_DoubleBarrelAmmoBox{ammoType}.StackableItem");
+        internal bool GetShotgunAmmoBoxHarvestable(ConfigurationReferences refs, string ammoType) => Attempt(() => refs.Shotgun.AmmoTypes[ammoType].AmmoBox.Harvestable = refs.Shotgun.AmmoTypes[ammoType].AmmoBox.Prefab.GetComponent<Harvestable>(), () => refs.Shotgun.AmmoTypes[ammoType].AmmoBox.GearItem != null, $"Null GEAR_DoubleBarrelAmmoBox{ammoType}.Harvestable");
 
-        internal bool GetShotgunCasingAsset(ConfigurationReferences refs) => Attempt(() => refs.Shotgun.Casing.Prefab = Addressables.LoadAssetAsync<GameObject>($"GEAR_ShotgunAmmoCasing").WaitForCompletion(), () => refs.Shotgun.Casing.Prefab != null, $"Null GEAR_ShotgunAmmoCasing");
-        internal bool GetShotgunCasingGearItem(ConfigurationReferences refs) => Attempt(() => refs.Shotgun.Casing.GearItem = refs.Shotgun.Casing.Prefab.GetComponent<GearItem>(), () => refs.Shotgun.Casing.GearItem != null, $"Null GEAR_ShotgunAmmoCasing.GearItem");
-        internal bool GetShotgunCasingStackableItem(ConfigurationReferences refs) => Attempt(() => refs.Shotgun.Casing.StackableItem = refs.Shotgun.Casing.Prefab.GetComponent<StackableItem>(), () => refs.Shotgun.Casing.StackableItem != null, $"Null GEAR_ShotgunAmmoCasing.StackableItem");
+        internal bool GetShotgunCasingAsset(ConfigurationReferences refs) => Attempt(() => refs.Shotgun.Casing.Prefab = Addressables.LoadAssetAsync<GameObject>($"GEAR_DoubleBarrelAmmoCasing").WaitForCompletion(), () => refs.Shotgun.Casing.Prefab != null, $"Null GEAR_DoubleBarrelAmmoCasing");
+        internal bool GetShotgunCasingGearItem(ConfigurationReferences refs) => Attempt(() => refs.Shotgun.Casing.GearItem = refs.Shotgun.Casing.Prefab.GetComponent<GearItem>(), () => refs.Shotgun.Casing.GearItem != null, $"Null GEAR_DoubleBarrelAmmoCasing.GearItem");
+        internal bool GetShotgunCasingStackableItem(ConfigurationReferences refs) => Attempt(() => refs.Shotgun.Casing.StackableItem = refs.Shotgun.Casing.Prefab.GetComponent<StackableItem>(), () => refs.Shotgun.Casing.StackableItem != null, $"Null GEAR_DoubleBarrelAmmoCasing.StackableItem");
 
         internal bool GetFPSPlayer(ConfigurationReferences refs)
         {
@@ -369,8 +369,8 @@ namespace Shotgun
 
         internal bool GetShotgunPrefab(ConfigurationReferences refs)
         {
-            refs.Shotgun.Gun.Prefab = Addressables.LoadAssetAsync<GameObject>("GEAR_Shotgun").WaitForCompletion();
-            if (refs.Shotgun.Gun.Prefab == null) MelonLogger.Error("Could not summon GEAR_Shotgun");
+            refs.Shotgun.Gun.Prefab = Addressables.LoadAssetAsync<GameObject>("GEAR_DoubleBarrel").WaitForCompletion();
+            if (refs.Shotgun.Gun.Prefab == null) MelonLogger.Error("Could not summon GEAR_DoubleBarrel");
             return refs.Shotgun.Gun.Prefab != null;
         }
 
@@ -523,10 +523,10 @@ namespace Shotgun
 
         internal bool InstantiateShotgunFPH(ConfigurationReferences refs)
         {
-            refs.Shotgun.FPH.Root = Addressables.LoadAssetAsync<GameObject>("FPH_Shotgun").WaitForCompletion();
+            refs.Shotgun.FPH.Root = Addressables.LoadAssetAsync<GameObject>("FPH_DoubleBarrel").WaitForCompletion();
             if (refs.Shotgun.FPH.Root == null)
             {
-                MelonLogger.Error("Could not summon FPH_Shotgun");
+                MelonLogger.Error("Could not summon FPH_DoubleBarrel");
                 return false;
             }
             return true;
@@ -538,7 +538,7 @@ namespace Shotgun
             refs.Shotgun.FPH.FirstPersonWeapon = refs.Shotgun.FPH.Root.GetOrCreateComponent<FirstPersonWeapon>();
             if (refs.Shotgun.FPH.FirstPersonWeapon == null)
             {
-                MelonLogger.Error("Could not attach FirstPersonWeapon to FPH_Shotgun");
+                MelonLogger.Error("Could not attach FirstPersonWeapon to FPH_DoubleBarrel");
                 return false;
             }
             return true;
@@ -550,7 +550,7 @@ namespace Shotgun
             refs.Shotgun.FPH.Animator = refs.Shotgun.FPH.Root.GetOrCreateComponent<Animator>();
             if (refs.Shotgun.FPH.FirstPersonWeapon == null)
             {
-                MelonLogger.Error("Could not attach Animator to FPH_Shotgun");
+                MelonLogger.Error("Could not attach Animator to FPH_DoubleBarrel");
                 return false;
             }
             return true;
@@ -654,7 +654,7 @@ namespace Shotgun
             }
             for (int i = 0, iMax = radialActionsPanel.m_WeaponRadialOrder.Length; i < iMax; i++)
             {
-                if (radialActionsPanel.m_WeaponRadialOrder[i] == "GEAR_Shotgun")
+                if (radialActionsPanel.m_WeaponRadialOrder[i] == "GEAR_DoubleBarrel")
                 {
                     return true;
                 }
@@ -664,7 +664,7 @@ namespace Shotgun
             {
                 newWeaponFilterList[i] = radialActionsPanel.m_WeaponRadialOrder[i];
             }
-            newWeaponFilterList[^1] = "GEAR_Shotgun";
+            newWeaponFilterList[^1] = "GEAR_DoubleBarrel";
             radialActionsPanel.m_WeaponRadialOrder = newWeaponFilterList;
             return true;
         }
@@ -675,8 +675,8 @@ namespace Shotgun
             ammoRefs.AmmoSingle.AmmoItem.m_AmmoForGunType = GunTypeCustom;
             ammoRefs.AmmoSingle.AmmoItem.m_LoadedHudIconSpriteName = "";
             ammoRefs.AmmoSingle.AmmoItem.m_EmptyHudIconSpriteName = "";
-            ammoRefs.AmmoBox.GearItem.m_GearItemData.name = $"GEAR_ShotgunAmmoSingle{ammoType}";
-            CustomAddressablesPatch.customAddressablePaths[$"ModdedGearItemData_ShotgunAmmoSingle{ammoType}"] = ammoRefs.AmmoSingle.GearItem.m_GearItemData;
+            ammoRefs.AmmoBox.GearItem.m_GearItemData.name = $"GEAR_DoubleBarrelAmmoSingle{ammoType}";
+            CustomAddressablesPatch.customAddressablePaths[$"ModdedGearItemData_DoubleBarrelAmmoSingle{ammoType}"] = ammoRefs.AmmoSingle.GearItem.m_GearItemData;
             ammoRefs.AmmoSingle.GearItem.m_AmmoItem = ammoRefs.AmmoSingle.AmmoItem;
         }
 
@@ -687,18 +687,18 @@ namespace Shotgun
             ammoRefs.AmmoBox.AmmoItem.m_AmmoForGunType = GunTypeCustom;
             ammoRefs.AmmoBox.AmmoItem.m_LoadedHudIconSpriteName = "";
             ammoRefs.AmmoBox.AmmoItem.m_EmptyHudIconSpriteName = "";
-            ammoRefs.AmmoBox.GearItem.m_GearItemData.name = $"GEAR_ShotgunAmmoBox{ammoType}";
-            CustomAddressablesPatch.customAddressablePaths[$"ModdedGearItemData_ShotgunAmmoBox{ammoType}"] = ammoRefs.AmmoBox.GearItem.m_GearItemData;
+            ammoRefs.AmmoBox.GearItem.m_GearItemData.name = $"GEAR_DoubleBarrelAmmoBox{ammoType}";
+            CustomAddressablesPatch.customAddressablePaths[$"ModdedGearItemData_DoubleBarrelAmmoBox{ammoType}"] = ammoRefs.AmmoBox.GearItem.m_GearItemData;
             ammoRefs.AmmoBox.GearItem.m_AmmoItem = ammoRefs.AmmoBox.AmmoItem;
 
             CustomAmmoHUD.HUDPreset preset = new CustomAmmoHUD.HUDPreset();
-            preset.LoadedSprite = Addressables.LoadAssetAsync<Sprite>($"ico_Shotgun{ammoType}HUD").WaitForCompletion();
-            preset.UnloadedSprite = Addressables.LoadAssetAsync<Sprite>($"ico_ShotgunEmptyHUD").WaitForCompletion();
+            preset.LoadedSprite = Addressables.LoadAssetAsync<Sprite>($"ico_DoubleBarrel{ammoType}HUD").WaitForCompletion();
+            preset.UnloadedSprite = Addressables.LoadAssetAsync<Sprite>($"ico_DoubleBarrelEmptyHUD").WaitForCompletion();
             preset.IconHeight = Settings.Instance.CustomAmmoHUDIconHeight;
             preset.IconWidth = preset.IconHeight / 3;
             preset.IconSpacing = preset.IconWidth * Settings.Instance.CustomAmmoHUDIconSpacingRatio;
             preset.IconsPerRow = 2;
-            CustomAmmoHUD.Current.TryRegisterHUDPreset("GEAR_Shotgun", $"GEAR_ShotgunAmmoBox{ammoType}", preset);
+            CustomAmmoHUD.Current.TryRegisterHUDPreset("GEAR_DoubleBarrel", $"GEAR_DoubleBarrelAmmoBox{ammoType}", preset);
         }
 
 
@@ -707,7 +707,7 @@ namespace Shotgun
         }
 
 
-        internal static readonly string[] ShotgunPartNames = { "GEAR_ShotgunPartBarrel", "GEAR_ShotgunPartForend", "GEAR_ShotgunPartStock", "GEAR_ShotgunPartTrigger" };
+        internal static readonly string[] ShotgunPartNames = { "GEAR_DoubleBarrelPartBarrel", "GEAR_DoubleBarrelPartForend", "GEAR_DoubleBarrelPartStock", "GEAR_DoubleBarrelPartTrigger" };
 
 
         internal void ConfigureFirearmBans(ConfigurationReferences refs)
@@ -758,7 +758,7 @@ namespace Shotgun
             gunItem.m_AmmoReferences = new Il2CppSystem.Collections.Generic.List<AssetReferenceT<Il2CppTLD.Gear.GearItemData>>();
             foreach (var ammoType in ShotgunAmmoTypes)
             {
-                gunItem.m_AmmoReferences.Add(new AssetReferenceT<Il2CppTLD.Gear.GearItemData>($"ModdedGearItemData_ShotgunAmmoBox{ammoType}"));
+                gunItem.m_AmmoReferences.Add(new AssetReferenceT<Il2CppTLD.Gear.GearItemData>($"ModdedGearItemData_DoubleBarrelAmmoBox{ammoType}"));
             }
             gunItem.m_GearItem = refs.Shotgun.Gun.GearItem;
             gunItem.m_CasingData = refs.Shotgun.Casing.GearItem.m_GearItemData;
@@ -796,7 +796,7 @@ namespace Shotgun
             FirstPersonItem firstPersonItem = refs.Shotgun.Gun.FirstPersonItem;
             FirstPersonItem rifleFirstPersonItem = refs.Rifle.Gun.FirstPersonItem;
 
-            firstPersonItem.m_FirstPersonObjectName = "Shotgun";
+            firstPersonItem.m_FirstPersonObjectName = ShotgunFPSPrefabName;
             firstPersonItem.m_PlayerStateTransitions = new PlayerStateTransitions();
             firstPersonItem.m_PlayerStateTransitions.m_InvalidTransitions = new Il2CppInterop.Runtime.InteropTypes.Arrays.Il2CppStructArray<PlayerAnimation.StateFlags>(rifleFirstPersonItem.m_PlayerStateTransitions.m_InvalidTransitions.Length);
             firstPersonItem.m_PlayerStateTransitions.m_ValidTransitions = new Il2CppInterop.Runtime.InteropTypes.Arrays.Il2CppStructArray<PlayerAnimation.StateFlags>(rifleFirstPersonItem.m_PlayerStateTransitions.m_ValidTransitions.Length);
@@ -848,7 +848,7 @@ namespace Shotgun
 
         internal void ConfigureShotgunFPSItem(ConfigurationReferences refs)
         {
-            refs.Shotgun.Floating.FPSItem.name = "FPSItem_Shotgun";
+            refs.Shotgun.Floating.FPSItem.name = "FPSItem_DoubleBarrel";
             refs.Shotgun.Floating.FPSItem.m_FPSWeaponPrefab = refs.Rifle.Floating.FPSItem.m_FPSWeaponPrefab;
         }
 
@@ -882,7 +882,7 @@ namespace Shotgun
 
         internal void ConfigureModdedAnimator(ConfigurationReferences refs)
         {
-            RuntimeAnimatorController controller = Addressables.LoadAssetAsync<RuntimeAnimatorController>("FPH_Shotgun_Controller").WaitForCompletion();
+            RuntimeAnimatorController controller = Addressables.LoadAssetAsync<RuntimeAnimatorController>("FPH_DoubleBarrel_Controller").WaitForCompletion();
             refs.ModdedAnimator.runtimeAnimatorController = controller;
             refs.ModdedAnimator.cullingMode = AnimatorCullingMode.AlwaysAnimate;
             refs.ModdedAnimator.enabled = false;
@@ -896,12 +896,12 @@ namespace Shotgun
             refs.ClipManager = AudioMgr.AudioMaster.NewClipManager();
             refs.AudioShot = AudioMgr.AudioMaster.CreatePlayerShot(AudioMgr.AudioMaster.SourceType.SFX);
 
-            RegisterAudioClip(refs, "GAMEPLAY_Shotgun_Discharge");
-            RegisterAudioClip(refs, "GAMEPLAY_Shotgun_Insert");
-            RegisterAudioClip(refs, "GAMEPLAY_Shotgun_Remove");
-            RegisterAudioClip(refs, "GAMEPLAY_Shotgun_Open");
-            RegisterAudioClip(refs, "GAMEPLAY_Shotgun_Close");
-            RegisterAudioClip(refs, "GAMEPLAY_Shotgun_ShellDrop_Hard");
+            RegisterAudioClip(refs, "GAMEPLAY_DoubleBarrel_Discharge");
+            RegisterAudioClip(refs, "GAMEPLAY_DoubleBarrel_Insert");
+            RegisterAudioClip(refs, "GAMEPLAY_DoubleBarrel_Remove");
+            RegisterAudioClip(refs, "GAMEPLAY_DoubleBarrel_Open");
+            RegisterAudioClip(refs, "GAMEPLAY_DoubleBarrel_Close");
+            RegisterAudioClip(refs, "GAMEPLAY_DoubleBarrel_ShellDrop_Hard");
         }
 
         internal void RegisterAudioClip(ConfigurationReferences refs, string addressableKey)

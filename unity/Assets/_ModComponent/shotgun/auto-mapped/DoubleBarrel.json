@@ -1,0 +1,35 @@
+{
+  "ModGenericComponent": {
+    "DisplayNameLocalizationId": "GAMEPLAY_DoubleBarrel_Name",
+    "DescriptionLocalizatonId": "GAMEPLAY_DoubleBarrel_Description",
+    "InventoryActionLocalizationId": "",
+    "WeightKG": 3.0,
+    "DaysToDecay": 500,
+    "MaxHP": 100.0,
+    "InitialCondition": "High",
+    "InventoryCategory": "Tool",
+    "PickUpAudio": "Play_DrawRifle",
+    "PutBackAudio": "Play_DrawRifle",
+    "StowAudio": "Play_DrawRifle",
+    "WornOutAudio": "Play_DrawRifle",
+    "InspectOnPickup": true,
+    "InspectDistance": 1.0,
+    "InspectAngles": [
+      20.0,
+      -90.0,
+      0.0
+    ],
+    "InspectOffset": [
+      -0.1,
+      -0.05,
+      0.0
+    ],
+    "InspectScale": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "NormalModel": "",
+    "InspectModel": ""
+  }
+}

@@ -1,350 +1,391 @@
 # Shotgun spawns, exported by the Shotgun dev-build SpawnEditor.
 
 scene=AFHangar
-item=GEAR_ShotgunAmmoBoxBuckshot p=-20.5834,0.1175,6.7215 r=0,42.4746,0 c=55
+item=GEAR_DoubleBarrelAmmoBoxBuckshot p=-20.5834,0.1175,6.7215 r=0,42.4746,0 c=55
 
 scene=AirfieldRegion
-item=GEAR_ShotgunAmmoBoxBuckshot p=565.5521,178.4171,-380.982 r=0,32,0 c=100
+item=GEAR_DoubleBarrelAmmoBoxBuckshot p=565.5521,178.4171,-380.982 r=0,32,0 c=100
 
 scene=AirfieldTrailerB
-item=GEAR_ShotgunAmmoBoxBuckshot p=-1.4561,0.741,-1.2018 r=0,80,0 c=28
+item=GEAR_DoubleBarrelAmmoBoxBuckshot p=-1.4561,0.741,-1.2018 r=0,80,0 c=28
 
 scene=AshCabinF
-item=GEAR_ShotgunAmmoBoxSlug p=2.2105,0.1033,-1.7413 r=0,0.7227,0 c=83
+item=GEAR_DoubleBarrelAmmoBoxSlug p=2.2105,0.1033,-1.7413 r=0,0.7227,0 c=83
 
 scene=AshCanyonRegion
-item=GEAR_ShotgunAmmoBoxSlug p=156.9768,227.7399,-22.3996 r=357.8003,199.8102,345.8119 c=50
-item=GEAR_ShotgunAmmoBoxBuckshot p=291,67.0741,-112.6 r=1.6855,159.9071,353.6917 c=100
-item=GEAR_ShotgunAmmoBoxBirdshot p=543.0998,103.2218,543.1999 r=2.8359,250.0668,2.697 c=40
+item=GEAR_DoubleBarrelAmmoBoxSlug p=156.9768,227.7399,-22.3996 r=357.8003,199.8102,345.8119 c=50
+item=GEAR_DoubleBarrelAmmoBoxBuckshot p=291,67.0741,-112.6 r=1.6855,159.9071,353.6917 c=100
+item=GEAR_DoubleBarrelAmmoBoxBirdshot p=543.0998,103.2218,543.1999 r=2.8359,250.0668,2.697 c=40
 
 scene=AshCaveA
-item=GEAR_ShotgunAmmoBoxBirdshot p=39.25,-4.8843,22.8 r=0.5964,200.0005,0.0877 c=28
+item=GEAR_DoubleBarrelAmmoBoxBirdshot p=39.25,-4.8843,22.8 r=0.5964,200.0005,0.0877 c=28
 
 scene=BarnHouseA
-item=GEAR_ShotgunAmmoBoxBuckshot p=2.2529,0.0683,14.4602 r=0,75,0 c=25
-item=GEAR_ShotgunAmmoSingleBirdshot p=0.2,0.0218,11 r=0,200,90 c=100
+item=GEAR_DoubleBarrelAmmoBoxBuckshot p=2.2529,0.0683,14.4602 r=0,75,0 c=25
+item=GEAR_DoubleBarrelAmmoSingleBirdshot p=0.2,0.0218,11 r=0,200,90 c=100
 
 scene=BlackRockTrailerB
-item=GEAR_ShotgunAmmoSingleBirdshot p=2.6,1.1577,-1.45 r=0,20,90 c=42
-item=GEAR_ShotgunAmmoSingleBuckshot p=4.3,0.0218,-1 r=0,75,90 c=42
+item=GEAR_DoubleBarrelAmmoSingleBirdshot p=2.6,1.1577,-1.45 r=0,20,90 c=42
+item=GEAR_DoubleBarrelAmmoSingleBuckshot p=4.3,0.0218,-1 r=0,75,90 c=42
 
 scene=BlackrockInteriorASurvival
-item=GEAR_ShotgunAmmoBoxSlug p=29.7722,0.2154,6.6357 r=0,176.4454,0 c=100
+item=GEAR_DoubleBarrelAmmoBoxSlug p=29.7722,0.2154,6.6357 r=0,176.4454,0 c=100
 
 scene=BlackrockPrisonSurvivalZone
-item=GEAR_ShotgunAmmoBoxBuckshot p=-187.2578,226.007,6.5194 r=270,4.058,0 c=100
-item=GEAR_ShotgunAmmoBoxBirdshot p=-187.1535,227.2585,6.9421 r=0,63.9847,0 c=100
+item=GEAR_DoubleBarrelAmmoBoxBuckshot p=-187.2578,226.007,6.5194 r=270,4.058,0 c=100
+item=GEAR_DoubleBarrelAmmoBoxBirdshot p=-187.1535,227.2585,6.9421 r=0,63.9847,0 c=100
 
 scene=CampOffice
-item=GEAR_ShotgunAmmoSingleSlug p=-0.6,1.0866,-4.5 r=90,100,0 c=50
-item=GEAR_ShotgunAmmoSingleBuckshot p=-4.45,0.0838,3.25 r=90,60,0 c=100
+item=GEAR_DoubleBarrelAmmoSingleSlug p=-0.6,1.0866,-4.5 r=90,100,0 c=50
+item=GEAR_DoubleBarrelAmmoSingleBuckshot p=-4.45,0.0838,3.25 r=90,60,0 c=100
 
 scene=CoastalHouseB
-item=GEAR_ShotgunAmmoSingleBuckshot p=0.45,1.2715,1.75 r=0,110,90 c=50
+item=GEAR_DoubleBarrelAmmoSingleBuckshot p=0.45,1.2715,1.75 r=0,110,90 c=50
 
 scene=CoastalHouseF
-item=GEAR_ShotgunAmmoSingleBuckshot p=-4.6,4.1348,-1.15 r=4.9239,29.9419,88.6496 c=50
+item=GEAR_DoubleBarrelAmmoSingleBuckshot p=-4.6,4.1348,-1.15 r=4.9239,29.9419,88.6496 c=50
 
 scene=CoastalHouseH
-item=GEAR_ShotgunAmmoSingleBuckshot p=0.75,-0.1782,1.15 r=0,140,90 c=100
-item=GEAR_ShotgunAmmoSingleBirdshot p=-3.7,-0.1782,-1.75 r=0,10,90 c=50
+item=GEAR_DoubleBarrelAmmoSingleBuckshot p=0.75,-0.1782,1.15 r=0,140,90 c=100
+item=GEAR_DoubleBarrelAmmoSingleBirdshot p=-3.7,-0.1782,-1.75 r=0,10,90 c=50
+
+scene=CoastalHouseH1_IronRoad
+item=GEAR_DoubleBarrelAmmoSingleBuckshot p=-4.718,-0.1782,-0.272 r=-0,201,90 c=75
 
 scene=CoastalRegion
-item=GEAR_ShotgunAmmoSingleBuckshot p=-425.2,25.1401,320.9 r=0.1897,70.0115,96.9588 c=40
-item=GEAR_ShotgunAmmoSingleSlug p=-570.8,23.325,674.4 r=0,150,90 c=100
-item=GEAR_ShotgunAmmoSingleBirdshot p=-189.3,23.425,547.55 r=0,60,90 c=100
+item=GEAR_DoubleBarrelAmmoSingleBuckshot p=-425.2,25.1401,320.9 r=0.1897,70.0115,96.9588 c=40
+item=GEAR_DoubleBarrelAmmoSingleSlug p=-570.8,23.325,674.4 r=0,150,90 c=100
+item=GEAR_DoubleBarrelAmmoSingleBirdshot p=-189.3,23.425,547.55 r=0,60,90 c=100
 
 scene=CommunityHallA
-item=GEAR_ShotgunAmmoSingleBuckshot p=2.1,0.0218,-4.4 r=0,150,90 c=100
+item=GEAR_DoubleBarrelAmmoSingleBuckshot p=2.1,0.0218,-4.4 r=0,150,90 c=100
 
 scene=DamRiverTransitionZoneB
-item=GEAR_ShotgunAmmoBoxBuckshot p=640.9146,50.3429,432.6352 r=1.7876,266.9985,359.9063 c=83
+item=GEAR_DoubleBarrelAmmoBoxBuckshot p=640.9146,50.3429,432.6352 r=1.7876,266.9985,359.9063 c=83
 
 scene=DamTransitionZone
-item=GEAR_ShotgunAmmoSingleBuckshot p=-4.25,1.2748,-9.3 r=81.748,351.6595,321.6595 c=100
-item=GEAR_ShotgunAmmoSingleBirdshot p=-5.2579,1.2629,-8.5527 r=90,120,0 c=100
-item=GEAR_ShotgunAmmoSingleSlug p=-3.6,0.0913,-8.1 r=89.9802,75,0 c=50
+item=GEAR_DoubleBarrelAmmoSingleBuckshot p=-4.25,1.2748,-9.3 r=81.748,351.6595,321.6595 c=100
+item=GEAR_DoubleBarrelAmmoSingleBirdshot p=-5.2579,1.2629,-8.5527 r=90,120,0 c=100
+item=GEAR_DoubleBarrelAmmoSingleSlug p=-3.6,0.0913,-8.1 r=89.9802,75,0 c=50
 
 scene=FarmHouseA
-item=GEAR_ShotgunAmmoSingleBuckshot p=-1.9738,0.9497,5.338 r=0,60,90 c=100
+item=GEAR_DoubleBarrelAmmoSingleBuckshot p=-1.9738,0.9497,5.338 r=0,60,90 c=100
 
 scene=FarmHouseB
-item=GEAR_ShotgunAmmoSingleBirdshot p=-4.3,0.025,-1.7 r=0,60,90 c=50
+item=GEAR_DoubleBarrelAmmoSingleBirdshot p=-4.3,0.025,-1.7 r=0,60,90 c=50
 
 scene=GreyMothersHouseA
-item=GEAR_ShotgunAmmoSingleBuckshot p=-3,0.4574,2.6 r=0,60,90 c=50
+item=GEAR_DoubleBarrelAmmoSingleBuckshot p=-3,0.4574,2.6 r=0,60,90 c=50
 
 scene=HighwayMineTransitionZone
-item=GEAR_ShotgunAmmoSingleBuckshot p=-116.1865,0.9308,-14.9391 r=0,60,90 c=50
-item=GEAR_ShotgunAmmoBoxBuckshot p=-66.6858,-5.5776,-22.9236 r=0,20,0 c=30
+item=GEAR_DoubleBarrelAmmoSingleBuckshot p=-116.1865,0.9308,-14.9391 r=0,60,90 c=50
+item=GEAR_DoubleBarrelAmmoBoxBuckshot p=-66.6858,-5.5776,-22.9236 r=0,20,0 c=30
 
 scene=HuntingLodgeA
-item=GEAR_ShotgunAmmoSingleBuckshot p=-10.7319,-2.4013,3.0156 r=90,10,0 c=50
+item=GEAR_DoubleBarrelAmmoSingleBuckshot p=-10.7319,-2.4013,3.0156 r=90,10,0 c=50
 
 scene=IceCaveB
-item=GEAR_ShotgunAmmoSingleSlug p=172.2,-10.3313,-26.6 r=13.7313,8.814,80.1736 c=20
+item=GEAR_DoubleBarrelAmmoSingleSlug p=172.2,-10.3313,-26.6 r=13.7313,8.814,80.1736 c=20
+
+scene=IslandATrackSection5
+item=GEAR_DoubleBarrelAmmoBoxBuckshot p=338.516,119.8239,482.0041 r=1.4715,0.052,4.0511 c=50
+item=GEAR_DoubleBarrelAmmoSingleBirdshot p=2313.519,106.2035,465.605 r=359.7202,67.0016,89.3407 c=50
+item=GEAR_DoubleBarrelAmmoSingleSlug p=1753.618,113.6396,493.803 r=-0,134,90 c=35
 
 scene=LakeCabinB
-item=GEAR_ShotgunAmmoBoxBuckshot p=1.75,0.1334,2.4 r=0,100,0 c=83
-item=GEAR_ShotgunAmmoSingleBirdshot p=1.5,0.869,-1.9 r=88.5889,76.798,46.7981 c=100
+item=GEAR_DoubleBarrelAmmoBoxBuckshot p=1.75,0.1334,2.4 r=0,100,0 c=83
+item=GEAR_DoubleBarrelAmmoSingleBirdshot p=1.5,0.869,-1.9 r=88.5889,76.798,46.7981 c=100
 
 scene=LakeCabinD
-item=GEAR_ShotgunAmmoSingleSlug p=-1.3,0.8754,2.75 r=88.5889,346.7979,276.7979 c=100
+item=GEAR_DoubleBarrelAmmoSingleSlug p=-1.3,0.8754,2.75 r=88.5889,346.7979,276.7979 c=100
+
+scene=LakeCabinD_IronRoad
+item=GEAR_DoubleBarrelAmmoSingleBirdshot p=1.803,0.0218,2.86 r=-0,335,90 c=55
 
 scene=LakeRegion
-item=GEAR_ShotgunAmmoSingleBirdshot p=1559.25,16.7502,1277.05 r=79.2367,170.5377,40.5377 c=40
+item=GEAR_DoubleBarrelAmmoSingleBirdshot p=1559.25,16.7502,1277.05 r=79.2367,170.5377,40.5377 c=40
 
 scene=LighthouseA
-item=GEAR_ShotgunAmmoSingleSlug p=1.693,4.5716,1.2801 r=0,70,90 c=50
+item=GEAR_DoubleBarrelAmmoSingleSlug p=1.693,4.5716,1.2801 r=0,70,90 c=50
 
 scene=MarshRegion
-item=GEAR_ShotgunAmmoBoxBuckshot p=475.7757,-124.3848,53.494 r=350.454,105.4975,354.6324 c=30
-item=GEAR_ShotgunAmmoBoxSlug p=475.5093,-124.4439,53.2997 r=2.3318,178.1258,349.3091 c=30
-item=GEAR_ShotgunAmmoBoxBirdshot p=475.5141,-124.423,53.7266 r=355.4557,141.683,350.0387 c=30
-item=GEAR_ShotgunAmmoSingleSlug p=1113.845,-129.9633,975.8779 r=356.4372,358.5819,90.9253 c=10
-item=GEAR_ShotgunAmmoSingleSlug p=1113.823,-129.9622,975.8999 r=358.0343,315.395,93.1126 c=10
-item=GEAR_ShotgunAmmoSingleSlug p=1113.843,-129.9447,975.8215 r=358.9507,299.6939,93.5283 c=10
-item=GEAR_ShotgunAmmoSingleBuckshot p=1114.239,-129.9977,975.2355 r=358.7596,302.8204,93.4658 c=10
-item=GEAR_ShotgunAmmoSingleBuckshot p=1114.286,-129.9976,975.2265 r=359.7166,287.562,93.6699 c=10
-item=GEAR_ShotgunAmmoSingleBuckshot p=1114.331,-129.989,975.3539 r=2.9697,229.4029,92.1756 c=10
-item=GEAR_ShotgunAmmoSingleBirdshot p=1114.22,-129.9716,975.6568 r=3.6138,204.1168,90.6997 c=10
-item=GEAR_ShotgunAmmoSingleBirdshot p=1114.226,-129.9681,975.7115 r=3.4799,174.108,88.7997 c=10
-item=GEAR_ShotgunAmmoSingleBirdshot p=1114.265,-129.945,975.7188 r=1.5059,127.2715,86.6409 c=10
-item=GEAR_ShotgunAmmoBoxBuckshot p=466.7687,-124.1313,64.3215 r=2.896,356.9708,354.1483 c=100
-item=GEAR_ShotgunAmmoSingleSlug p=-36.6741,-98.4748,126.0082 r=273.8967,209.3027,31.4361 c=100
-item=GEAR_ShotgunAmmoSingleSlug p=-36.6216,-98.4739,125.9934 r=273.8966,209.3027,13.3075 c=100
+item=GEAR_DoubleBarrelAmmoBoxBuckshot p=475.7757,-124.3848,53.494 r=350.454,105.4975,354.6324 c=30
+item=GEAR_DoubleBarrelAmmoBoxSlug p=475.5093,-124.4439,53.2997 r=2.3318,178.1258,349.3091 c=30
+item=GEAR_DoubleBarrelAmmoBoxBirdshot p=475.5141,-124.423,53.7266 r=355.4557,141.683,350.0387 c=30
+item=GEAR_DoubleBarrelAmmoSingleSlug p=1113.845,-129.9633,975.8779 r=356.4372,358.5819,90.9253 c=10
+item=GEAR_DoubleBarrelAmmoSingleSlug p=1113.823,-129.9622,975.8999 r=358.0343,315.395,93.1126 c=10
+item=GEAR_DoubleBarrelAmmoSingleSlug p=1113.843,-129.9447,975.8215 r=358.9507,299.6939,93.5283 c=10
+item=GEAR_DoubleBarrelAmmoSingleBuckshot p=1114.239,-129.9977,975.2355 r=358.7596,302.8204,93.4658 c=10
+item=GEAR_DoubleBarrelAmmoSingleBuckshot p=1114.286,-129.9976,975.2265 r=359.7166,287.562,93.6699 c=10
+item=GEAR_DoubleBarrelAmmoSingleBuckshot p=1114.331,-129.989,975.3539 r=2.9697,229.4029,92.1756 c=10
+item=GEAR_DoubleBarrelAmmoSingleBirdshot p=1114.22,-129.9716,975.6568 r=3.6138,204.1168,90.6997 c=10
+item=GEAR_DoubleBarrelAmmoSingleBirdshot p=1114.226,-129.9681,975.7115 r=3.4799,174.108,88.7997 c=10
+item=GEAR_DoubleBarrelAmmoSingleBirdshot p=1114.265,-129.945,975.7188 r=1.5059,127.2715,86.6409 c=10
+item=GEAR_DoubleBarrelAmmoBoxBuckshot p=466.7687,-124.1313,64.3215 r=2.896,356.9708,354.1483 c=100
+item=GEAR_DoubleBarrelAmmoSingleSlug p=-36.6741,-98.4748,126.0082 r=273.8967,209.3027,31.4361 c=100
+item=GEAR_DoubleBarrelAmmoSingleSlug p=-36.6216,-98.4739,125.9934 r=273.8966,209.3027,13.3075 c=100
 
 scene=MineConcentratorBuilding
-item=GEAR_ShotgunAmmoBoxSlug p=-4.2,15.6506,-11.1 r=0,90,0 c=28
+item=GEAR_DoubleBarrelAmmoBoxSlug p=-4.2,15.6506,-11.1 r=0,90,0 c=28
 
 scene=MineTransitionZone
-item=GEAR_ShotgunAmmoSingleBuckshot p=-41.6,-15.3275,24.75 r=0,70,90 c=100
-item=GEAR_ShotgunAmmoBoxBuckshot p=-119.8,-56.8063,213.4 r=320.2305,31.6394,355.4696 c=30
+item=GEAR_DoubleBarrelAmmoSingleBuckshot p=-41.6,-15.3275,24.75 r=0,70,90 c=100
+item=GEAR_DoubleBarrelAmmoBoxBuckshot p=-119.8,-56.8063,213.4 r=320.2305,31.6394,355.4696 c=30
 
 scene=MiningRegionMine
-item=GEAR_ShotgunAmmoCasing p=79.639,8.0604,39.0946 r=0,249.8456,90 c=100
-item=GEAR_ShotgunAmmoCasing p=76.2224,8.0603,33.0304 r=0,309.5905,90 c=100
+item=GEAR_DoubleBarrelAmmoCasing p=79.639,8.0604,39.0946 r=0,249.8456,90 c=100
+item=GEAR_DoubleBarrelAmmoCasing p=76.2224,8.0603,33.0304 r=0,309.5905,90 c=100
+
+scene=ModCamperTrailers
+item=GEAR_DoubleBarrelAmmoBoxBuckshot p=-45.704,0.3985,34.266 r=359.9253,-0.0001,0.2206 c=100
+item=GEAR_DoubleBarrelAmmoSingleSlug p=-41.111,1.4968,26.843 r=302.5968,102.6851,144.2176 c=100
+item=GEAR_DoubleBarrelAmmoSingleBirdshot p=-41.028,1.0157,34.952 r=-0,110,90 c=100
+
+scene=ModForsakenShore
+item=GEAR_DoubleBarrelAmmoBoxBuckshot p=-262.656,355.9736,277.72 r=-0,268,0 c=50
+item=GEAR_DoubleBarrelAmmoBoxBirdshot p=1805.806,423.5065,954.962 r=-0,335,0 c=50
+
+scene=ModMountainPass
+item=GEAR_DoubleBarrelAmmoBoxBuckshot p=1902.561,148.2332,450.169 r=0.2168,41.9998,359.8794 c=50
+
+scene=ModShatteredBunker
+item=GEAR_DoubleBarrelAmmoBoxSlug p=204.359,80.9811,3.789 r=-0,109,0 c=50
+
+scene=ModShatteredMarsh
+item=GEAR_DoubleBarrelAmmoBoxBuckshot p=757.4224,538.0269,5251.692 r=-0,243,0 c=100
+item=GEAR_DoubleBarrelAmmoSingleBirdshot p=759.1642,538.9905,5248.917 r=-0,310,90 c=50
+
+scene=ModStoneHouseSM
+item=GEAR_DoubleBarrelAmmoBoxBuckshot p=-46.372,3.8348,51.712 r=-0,17,0 c=50
+
+scene=ModTrainShed
+item=GEAR_DoubleBarrelAmmoBoxBuckshot p=-6.708,0.4,3.652 r=-0,151,0 c=50
+item=GEAR_DoubleBarrelAmmoSingleBirdshot p=-6.069,0.4124,4.748 r=352.099,218.6364,80.8038 c=50
 
 scene=MountainPassBasement
-item=GEAR_ShotgunAmmoSingleBuckshot p=-2.1,0.0522,-3.15 r=0,80,90 c=40
+item=GEAR_DoubleBarrelAmmoSingleBuckshot p=-2.1,0.0522,-3.15 r=0,80,90 c=40
 
 scene=PostOfficeA
-item=GEAR_ShotgunAmmoSingleBuckshot p=3.0102,1.1952,-0.8881 r=0,80,90 c=50
+item=GEAR_DoubleBarrelAmmoSingleBuckshot p=3.0102,1.1952,-0.8881 r=0,80,90 c=50
 
 scene=PrepperCacheA
-item=GEAR_ShotgunAmmoBoxSlug p=3.1328,0.7234,-0.3801 r=0,100,0 c=100
+item=GEAR_DoubleBarrelAmmoBoxSlug p=3.1328,0.7234,-0.3801 r=0,100,0 c=100
 
 scene=PrepperCacheEmpty
-item=GEAR_ShotgunAmmoBoxBirdshot p=3.0146,0.0683,-3.3509 r=0,200,0 c=83
+item=GEAR_DoubleBarrelAmmoBoxBirdshot p=3.0146,0.0683,-3.3509 r=0,200,0 c=83
 
 scene=PrepperCacheF
-item=GEAR_ShotgunAmmoBoxSlug p=1.6,0.7849,2.5 r=0,90,0 c=100
+item=GEAR_DoubleBarrelAmmoBoxSlug p=1.6,0.7849,2.5 r=0,90,0 c=100
 
 scene=QuonsetGasStation
-item=GEAR_ShotgunAmmoSingleBuckshot p=8.8,1.2224,6 r=0,10,90 c=100
-item=GEAR_ShotgunAmmoSingleBuckshot p=-4.75,0.9947,2 r=0,90,90 c=50
+item=GEAR_DoubleBarrelAmmoSingleBuckshot p=8.8,1.2224,6 r=0,10,90 c=100
+item=GEAR_DoubleBarrelAmmoSingleBuckshot p=-4.75,0.9947,2 r=0,90,90 c=50
 
 scene=RadioControlHut
-item=GEAR_ShotgunAmmoSingleBuckshot p=-0.25,1.0564,0.7 r=0,30,90 c=50
+item=GEAR_DoubleBarrelAmmoSingleBuckshot p=-0.25,1.0564,0.7 r=0,30,90 c=50
 
 scene=RiverValleyRegion
-item=GEAR_ShotgunAmmoSingleBirdshot p=1138.362,23.1452,1208.671 r=352.8823,152.7643,95.1977 c=40
-item=GEAR_ShotgunAmmoBoxBuckshot p=1310.849,89.8704,1139.449 r=357.8066,52.34,359.3816 c=30
+item=GEAR_DoubleBarrelAmmoSingleBirdshot p=1138.362,23.1452,1208.671 r=352.8823,152.7643,95.1977 c=40
+item=GEAR_DoubleBarrelAmmoBoxBuckshot p=1310.849,89.8704,1139.449 r=357.8066,52.34,359.3816 c=30
 
 scene=RuralRegion
-item=GEAR_ShotgunAmmoSingleBirdshot p=2387.15,88.746,1384.15 r=7.1407,119.9181,88.6867 c=100
-item=GEAR_ShotgunAmmoSingleSlug p=1451.563,60.1195,188.8033 r=14.2849,76.5033,101.9541 c=40
-item=GEAR_ShotgunAmmoSingleBuckshot p=2385.55,88.8467,1383.15 r=358.2505,10.1098,82.8192 c=100
-item=GEAR_ShotgunAmmoBoxBirdshot p=1835.586,44.6768,1602.581 r=358.0306,19.9198,8.0255 c=40
-item=GEAR_ShotgunAmmoBoxBuckshot p=355.04,139.9859,2623.84 r=31.7534,323.5464,339.015 c=40
+item=GEAR_DoubleBarrelAmmoSingleBirdshot p=2387.15,88.746,1384.15 r=7.1407,119.9181,88.6867 c=100
+item=GEAR_DoubleBarrelAmmoSingleSlug p=1451.563,60.1195,188.8033 r=14.2849,76.5033,101.9541 c=40
+item=GEAR_DoubleBarrelAmmoSingleBuckshot p=2385.55,88.8467,1383.15 r=358.2505,10.1098,82.8192 c=100
+item=GEAR_DoubleBarrelAmmoBoxBirdshot p=1835.586,44.6768,1602.581 r=358.0306,19.9198,8.0255 c=40
+item=GEAR_DoubleBarrelAmmoBoxBuckshot p=355.04,139.9859,2623.84 r=31.7534,323.5464,339.015 c=40
 
 scene=RuralStoreA
-item=GEAR_ShotgunAmmoSingleSlug p=-1.8,1.2124,0.3 r=0,0,90 c=100
+item=GEAR_DoubleBarrelAmmoSingleSlug p=-1.8,1.2124,0.3 r=0,0,90 c=100
 
 scene=SafeHouseA
-item=GEAR_ShotgunAmmoBoxSlug p=-1.2677,0.1457,2.0037 r=0,88.7205,0 c=83
+item=GEAR_DoubleBarrelAmmoBoxSlug p=-1.2677,0.1457,2.0037 r=0,88.7205,0 c=83
 
 scene=TrailerA
-item=GEAR_ShotgunAmmoSingleBuckshot p=0.6,1.1983,1.55 r=90,20,0 c=100
+item=GEAR_DoubleBarrelAmmoSingleBuckshot p=0.6,1.1983,1.55 r=90,20,0 c=100
 
 scene=TrailerE
-item=GEAR_ShotgunAmmoBoxBuckshot p=-4.9583,1.687,1.8416 r=0.8412,75.4995,359.8517 c=42
-item=GEAR_ShotgunAmmoBoxBirdshot p=-5.1078,1.6856,1.8073 r=0,260,0 c=42
+item=GEAR_DoubleBarrelAmmoBoxBuckshot p=-4.9583,1.687,1.8416 r=0.8412,75.4995,359.8517 c=42
+item=GEAR_DoubleBarrelAmmoBoxBirdshot p=-5.1078,1.6856,1.8073 r=0,260,0 c=42
 
 scene=TrailerSShape
-item=GEAR_ShotgunAmmoBoxBirdshot p=0.814,0.0683,-9.002 r=0,149,0 c=80
+item=GEAR_DoubleBarrelAmmoBoxBirdshot p=0.814,0.0683,-9.002 r=0,149,0 c=80
 
 scene=WhalingMine
-item=GEAR_ShotgunAmmoSingleBuckshot p=-16.1555,-5.8856,29.7783 r=356.8483,39.9021,93.5596 c=80
+item=GEAR_DoubleBarrelAmmoSingleBuckshot p=-16.1555,-5.8856,29.7783 r=356.8483,39.9021,93.5596 c=80
 
 scene=WhalingShipA
-item=GEAR_ShotgunAmmoSingleBuckshot p=-4.6924,1.1286,-1.252 r=351.054,39.1516,100.8131 c=100
-item=GEAR_ShotgunAmmoSingleBuckshot p=-4.3,5.198,-2.7 r=26.3787,43.2332,25.673 c=50
-item=GEAR_ShotgunAmmoSingleBirdshot p=0.3428,2.4636,-21.7736 r=349.3199,130.8528,80.895 c=100
+item=GEAR_DoubleBarrelAmmoSingleBuckshot p=-4.6924,1.1286,-1.252 r=351.054,39.1516,100.8131 c=100
+item=GEAR_DoubleBarrelAmmoSingleBuckshot p=-4.3,5.198,-2.7 r=26.3787,43.2332,25.673 c=50
+item=GEAR_DoubleBarrelAmmoSingleBirdshot p=0.3428,2.4636,-21.7736 r=349.3199,130.8528,80.895 c=100
 
 scene=WhalingStationRegion
-item=GEAR_ShotgunAmmoBoxBirdshot p=173.762,87.6474,964.827 r=4.2199,299.8617,356.2485 c=50
-item=GEAR_ShotgunAmmoSingleBuckshot p=171,87.4449,966.9 r=359.2739,79.9934,91.0371 c=100
-item=GEAR_ShotgunAmmoBoxSlug p=588.882,15.8074,922.9198 r=0,151.4436,0 c=40
+item=GEAR_DoubleBarrelAmmoBoxBirdshot p=173.762,87.6474,964.827 r=4.2199,299.8617,356.2485 c=50
+item=GEAR_DoubleBarrelAmmoSingleBuckshot p=171,87.4449,966.9 r=359.2739,79.9934,91.0371 c=100
+item=GEAR_DoubleBarrelAmmoBoxSlug p=588.882,15.8074,922.9198 r=0,151.4436,0 c=40
 
 scene=WhalingWarehouseA
-item=GEAR_ShotgunAmmoSingleSlug p=3,0.4212,-10.2 r=0,85,90 c=100
+item=GEAR_DoubleBarrelAmmoSingleSlug p=3,0.4212,-10.2 r=0,85,90 c=100
 
 scene=WoodCabinC
-item=GEAR_ShotgunAmmoSingleBuckshot p=-1.3041,0.8939,2.1519 r=0,30,90 c=100
+item=GEAR_DoubleBarrelAmmoSingleBuckshot p=-1.3041,0.8939,2.1519 r=0,30,90 c=100
+
+scene=WoodCabinC_IronRoad
+item=GEAR_DoubleBarrelAmmoSingleBuckshot p=-0.863,0.8854,2.356 r=-0,109,90 c=50
+item=GEAR_DoubleBarrelAmmoSingleSlug p=-2.075,0.0237,-2.391 r=-0,176,90 c=35
 
 loottable=LootCacheCommon
-item=GEAR_ShotgunAmmoSingleBuckshot w=1
+item=GEAR_DoubleBarrelAmmoSingleBuckshot w=1
 
 loottable=LootCacheRare
-item=GEAR_ShotgunAmmoBoxBuckshot w=1
-item=GEAR_ShotgunAmmoBoxBirdshot w=1
-item=GEAR_ShotgunAmmoBoxSlug w=1
-item=GEAR_ShotgunAmmoSingleBirdshot w=1
-item=GEAR_ShotgunAmmoSingleSlug w=1
-item=GEAR_ShotgunAmmoSingleBuckshot w=2
+item=GEAR_DoubleBarrelAmmoBoxBuckshot w=1
+item=GEAR_DoubleBarrelAmmoBoxBirdshot w=1
+item=GEAR_DoubleBarrelAmmoBoxSlug w=1
+item=GEAR_DoubleBarrelAmmoSingleBirdshot w=1
+item=GEAR_DoubleBarrelAmmoSingleSlug w=1
+item=GEAR_DoubleBarrelAmmoSingleBuckshot w=2
 
 loottable=LootCacheTrackableHidden
-item=GEAR_ShotgunAmmoBoxBuckshot w=1
+item=GEAR_DoubleBarrelAmmoBoxBuckshot w=1
 
 loottable=LootCargoMiscC
-item=GEAR_ShotgunAmmoBoxBuckshot w=1
+item=GEAR_DoubleBarrelAmmoBoxBuckshot w=1
 
 loottable=LootCargoRifle
-item=GEAR_ShotgunAmmoBoxBirdshot w=3
-item=GEAR_ShotgunAmmoBoxBuckshot w=5
-item=GEAR_ShotgunAmmoBoxSlug w=2
+item=GEAR_DoubleBarrelAmmoBoxBirdshot w=3
+item=GEAR_DoubleBarrelAmmoBoxBuckshot w=5
+item=GEAR_DoubleBarrelAmmoBoxSlug w=2
 
 loottable=LootTableBackPack
-item=GEAR_ShotgunAmmoSingleBirdshot w=1
+item=GEAR_DoubleBarrelAmmoSingleBirdshot w=1
 
 loottable=LootTableBackPackCoastal
-item=GEAR_ShotgunAmmoSingleBuckshot w=1
+item=GEAR_DoubleBarrelAmmoSingleBuckshot w=1
 
 loottable=LootTableCabinet
-item=GEAR_ShotgunAmmoSingleSlug w=1
-item=GEAR_ShotgunAmmoSingleBirdshot w=1
-item=GEAR_ShotgunAmmoSingleBuckshot w=1
+item=GEAR_DoubleBarrelAmmoSingleSlug w=1
+item=GEAR_DoubleBarrelAmmoSingleBirdshot w=1
+item=GEAR_DoubleBarrelAmmoSingleBuckshot w=1
 
 loottable=LootTableCashRegister
-item=GEAR_ShotgunAmmoSingleBuckshot w=2
-item=GEAR_ShotgunAmmoSingleBirdshot w=1
-item=GEAR_ShotgunAmmoSingleSlug w=1
+item=GEAR_DoubleBarrelAmmoSingleBuckshot w=2
+item=GEAR_DoubleBarrelAmmoSingleBirdshot w=1
+item=GEAR_DoubleBarrelAmmoSingleSlug w=1
 
 loottable=LootTableDepositBox
-item=GEAR_ShotgunAmmoSingleBuckshot w=2
-item=GEAR_ShotgunAmmoSingleBirdshot w=1
-item=GEAR_ShotgunAmmoSingleSlug w=1
+item=GEAR_DoubleBarrelAmmoSingleBuckshot w=2
+item=GEAR_DoubleBarrelAmmoSingleBirdshot w=1
+item=GEAR_DoubleBarrelAmmoSingleSlug w=1
 
 loottable=LootTableDepositBoxLocked
-item=GEAR_ShotgunAmmoBoxBirdshot w=2
-item=GEAR_ShotgunAmmoBoxBuckshot w=2
-item=GEAR_ShotgunAmmoBoxSlug w=1
+item=GEAR_DoubleBarrelAmmoBoxBirdshot w=2
+item=GEAR_DoubleBarrelAmmoBoxBuckshot w=2
+item=GEAR_DoubleBarrelAmmoBoxSlug w=1
 
 loottable=LootTableDresser
-item=GEAR_ShotgunAmmoSingleBirdshot w=1
+item=GEAR_DoubleBarrelAmmoSingleBirdshot w=1
 
 loottable=LootTableEndTable
-item=GEAR_ShotgunAmmoSingleBuckshot w=1
+item=GEAR_DoubleBarrelAmmoSingleBuckshot w=1
 
 loottable=LootTableEndTable_bedroom
-item=GEAR_ShotgunAmmoSingleBuckshot w=1
+item=GEAR_DoubleBarrelAmmoSingleBuckshot w=1
 
 loottable=LootTableFileCabinet
-item=GEAR_ShotgunAmmoSingleBirdshot w=1
+item=GEAR_DoubleBarrelAmmoSingleBirdshot w=1
 
 loottable=LootTableFishingDrawer
-item=GEAR_ShotgunAmmoSingleSlug w=1
-item=GEAR_ShotgunAmmoSingleBuckshot w=2
+item=GEAR_DoubleBarrelAmmoSingleSlug w=1
+item=GEAR_DoubleBarrelAmmoSingleBuckshot w=2
 
 loottable=LootTableHumanCorpse
-item=GEAR_ShotgunAmmoSingleBirdshot w=2
-item=GEAR_ShotgunAmmoSingleBuckshot w=2
-item=GEAR_ShotgunAmmoSingleSlug w=1
+item=GEAR_DoubleBarrelAmmoSingleBirdshot w=2
+item=GEAR_DoubleBarrelAmmoSingleBuckshot w=2
+item=GEAR_DoubleBarrelAmmoSingleSlug w=1
 
 loottable=LootTableHumanCorpseRare
-item=GEAR_ShotgunAmmoBoxBuckshot w=1
-item=GEAR_ShotgunAmmoBoxBirdshot w=1
-item=GEAR_ShotgunAmmoSingleBuckshot w=2
-item=GEAR_ShotgunAmmoSingleBirdshot w=1
-item=GEAR_ShotgunAmmoSingleSlug w=1
+item=GEAR_DoubleBarrelAmmoBoxBuckshot w=1
+item=GEAR_DoubleBarrelAmmoBoxBirdshot w=1
+item=GEAR_DoubleBarrelAmmoSingleBuckshot w=2
+item=GEAR_DoubleBarrelAmmoSingleBirdshot w=1
+item=GEAR_DoubleBarrelAmmoSingleSlug w=1
 
 loottable=LootTableKitchenDrawer
-item=GEAR_ShotgunAmmoSingleBuckshot w=1
+item=GEAR_DoubleBarrelAmmoSingleBuckshot w=1
 
 loottable=LootTableLocker
-item=GEAR_ShotgunAmmoSingleBirdshot w=2
-item=GEAR_ShotgunAmmoSingleBuckshot w=2
-item=GEAR_ShotgunAmmoSingleSlug w=1
-item=GEAR_ShotgunAmmoCasing w=2
+item=GEAR_DoubleBarrelAmmoSingleBirdshot w=2
+item=GEAR_DoubleBarrelAmmoSingleBuckshot w=2
+item=GEAR_DoubleBarrelAmmoSingleSlug w=1
+item=GEAR_DoubleBarrelAmmoCasing w=2
 
 loottable=LootTableLockerLocked
-item=GEAR_ShotgunAmmoBoxSlug w=1
-item=GEAR_ShotgunAmmoBoxBuckshot w=3
-item=GEAR_ShotgunAmmoBoxBirdshot w=1
-item=GEAR_ShotgunAmmoSingleBuckshot w=4
-item=GEAR_ShotgunAmmoSingleBirdshot w=2
-item=GEAR_ShotgunAmmoSingleSlug w=2
+item=GEAR_DoubleBarrelAmmoBoxSlug w=1
+item=GEAR_DoubleBarrelAmmoBoxBuckshot w=3
+item=GEAR_DoubleBarrelAmmoBoxBirdshot w=1
+item=GEAR_DoubleBarrelAmmoSingleBuckshot w=4
+item=GEAR_DoubleBarrelAmmoSingleBirdshot w=2
+item=GEAR_DoubleBarrelAmmoSingleSlug w=2
 
 loottable=LootTableMetalBox
-item=GEAR_ShotgunAmmoBoxBirdshot w=1
-item=GEAR_ShotgunAmmoBoxBuckshot w=1
-item=GEAR_ShotgunAmmoBoxSlug w=1
+item=GEAR_DoubleBarrelAmmoBoxBirdshot w=1
+item=GEAR_DoubleBarrelAmmoBoxBuckshot w=1
+item=GEAR_DoubleBarrelAmmoBoxSlug w=1
 
 loottable=LootTableRifleSupplies
-item=GEAR_ShotgunAmmoBoxSlug w=1
+item=GEAR_DoubleBarrelAmmoBoxSlug w=1
 
 loottable=LootTableSafe
-item=GEAR_ShotgunAmmoBoxBirdshot w=2
-item=GEAR_ShotgunAmmoBoxBuckshot w=2
-item=GEAR_ShotgunAmmoSingleBirdshot w=2
-item=GEAR_ShotgunAmmoSingleBuckshot w=2
-item=GEAR_ShotgunAmmoSingleSlug w=1
+item=GEAR_DoubleBarrelAmmoBoxBirdshot w=2
+item=GEAR_DoubleBarrelAmmoBoxBuckshot w=2
+item=GEAR_DoubleBarrelAmmoSingleBirdshot w=2
+item=GEAR_DoubleBarrelAmmoSingleBuckshot w=2
+item=GEAR_DoubleBarrelAmmoSingleSlug w=1
 
 loottable=LootTableTideLine
-item=GEAR_ShotgunAmmoSingleBuckshot w=1
-item=GEAR_ShotgunAmmoCasing w=2
+item=GEAR_DoubleBarrelAmmoSingleBuckshot w=1
+item=GEAR_DoubleBarrelAmmoCasing w=2
 
 loottable=LootTableTideLineBlizzard
-item=GEAR_ShotgunAmmoSingleBuckshot w=1
-item=GEAR_ShotgunAmmoCasing w=2
+item=GEAR_DoubleBarrelAmmoSingleBuckshot w=1
+item=GEAR_DoubleBarrelAmmoCasing w=2
 
 loottable=LootTableToolChest
-item=GEAR_ShotgunAmmoCasing w=2
+item=GEAR_DoubleBarrelAmmoCasing w=2
 
 loottable=LootTableToolChestDrawer
-item=GEAR_ShotgunAmmoSingleBirdshot w=1
-item=GEAR_ShotgunAmmoSingleBuckshot w=1
-item=GEAR_ShotgunAmmoCasing w=1
+item=GEAR_DoubleBarrelAmmoSingleBirdshot w=1
+item=GEAR_DoubleBarrelAmmoSingleBuckshot w=1
+item=GEAR_DoubleBarrelAmmoCasing w=1
 
 loottable=LootTableToolChest_sml
-item=GEAR_ShotgunAmmoCasing w=1
+item=GEAR_DoubleBarrelAmmoCasing w=1
 
 loottable=LootTableTrash
-item=GEAR_ShotgunAmmoCasing w=3
+item=GEAR_DoubleBarrelAmmoCasing w=3
 
 loottable=LootTableVehicleGloveBox
-item=GEAR_ShotgunAmmoSingleSlug w=1
-item=GEAR_ShotgunAmmoSingleBirdshot w=1
-item=GEAR_ShotgunAmmoCasing w=1
+item=GEAR_DoubleBarrelAmmoSingleSlug w=1
+item=GEAR_DoubleBarrelAmmoSingleBirdshot w=1
+item=GEAR_DoubleBarrelAmmoCasing w=1
 
 loottable=LootTableVehicleTrunk
-item=GEAR_ShotgunAmmoSingleBuckshot w=1
-item=GEAR_ShotgunAmmoCasing w=3
+item=GEAR_DoubleBarrelAmmoSingleBuckshot w=1
+item=GEAR_DoubleBarrelAmmoCasing w=3
 
 loottable=LootTableVehicleTrunkCoastal
-item=GEAR_ShotgunAmmoSingleBuckshot w=1
+item=GEAR_DoubleBarrelAmmoSingleBuckshot w=1
 
 loottable=LootTableVehicleTrunkLocked
-item=GEAR_ShotgunAmmoBoxSlug w=1
-item=GEAR_ShotgunAmmoBoxBuckshot w=2
+item=GEAR_DoubleBarrelAmmoBoxSlug w=1
+item=GEAR_DoubleBarrelAmmoBoxBuckshot w=2
 
 loottable=LootTableVehicleTrunkLockedCoastal
-item=GEAR_ShotgunAmmoBoxBirdshot w=1
-item=GEAR_ShotgunAmmoBoxBuckshot w=1
-item=GEAR_ShotgunAmmoBoxSlug w=1
+item=GEAR_DoubleBarrelAmmoBoxBirdshot w=1
+item=GEAR_DoubleBarrelAmmoBoxBuckshot w=1
+item=GEAR_DoubleBarrelAmmoBoxSlug w=1
 
 loottable=LootTableWorkbench
-item=GEAR_ShotgunAmmoSingleBirdshot w=1
-item=GEAR_ShotgunAmmoSingleSlug w=1
-item=GEAR_ShotgunAmmoCasing w=3
+item=GEAR_DoubleBarrelAmmoSingleBirdshot w=1
+item=GEAR_DoubleBarrelAmmoSingleSlug w=1
+item=GEAR_DoubleBarrelAmmoCasing w=3
