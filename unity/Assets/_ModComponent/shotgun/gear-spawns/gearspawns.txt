@@ -342,14 +342,6 @@ item=GEAR_DoubleBarrelAmmoSingleBirdshot w=2
 item=GEAR_DoubleBarrelAmmoSingleBuckshot w=2
 item=GEAR_DoubleBarrelAmmoSingleSlug w=1
 
-loottable=LootTableTideLine
-item=GEAR_DoubleBarrelAmmoSingleBuckshot w=1
-item=GEAR_DoubleBarrelAmmoCasing w=2
-
-loottable=LootTableTideLineBlizzard
-item=GEAR_DoubleBarrelAmmoSingleBuckshot w=1
-item=GEAR_DoubleBarrelAmmoCasing w=2
-
 loottable=LootTableToolChest
 item=GEAR_DoubleBarrelAmmoCasing w=2
 

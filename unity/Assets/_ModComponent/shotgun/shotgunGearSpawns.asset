@@ -746,18 +746,6 @@ MonoBehaviour:
       weight: 2
     - itemName: {fileID: 11400000, guid: 8121c5b36260cfe469352a1b3951fb3e, type: 2}
       weight: 1
-  - lootTableName: {fileID: 11400000, guid: 8d6515346d932e049a0699ca1a8d089c, type: 2}
-    lootTableSpawns:
-    - itemName: {fileID: 11400000, guid: 963a0c4b19a1fec4a9f6d419e948dbf6, type: 2}
-      weight: 1
-    - itemName: {fileID: 11400000, guid: 451151ba75d8ceb41ac4aed9ff13a22e, type: 2}
-      weight: 2
-  - lootTableName: {fileID: 11400000, guid: 0fab7d9565c6ecb45a376a561ec83559, type: 2}
-    lootTableSpawns:
-    - itemName: {fileID: 11400000, guid: 963a0c4b19a1fec4a9f6d419e948dbf6, type: 2}
-      weight: 1
-    - itemName: {fileID: 11400000, guid: 451151ba75d8ceb41ac4aed9ff13a22e, type: 2}
-      weight: 2
   - lootTableName: {fileID: 11400000, guid: d701e0806fff3cf448e951d5d459919b, type: 2}
     lootTableSpawns:
     - itemName: {fileID: 11400000, guid: 451151ba75d8ceb41ac4aed9ff13a22e, type: 2}
