@@ -46,6 +46,22 @@ group=SG_TLDevPartTrigger low=0 medium=1 high=1 veryhigh=2
 item=GEAR_ShotgunPartTrigger scene=ModOilRig p=-45.529,-1.282,-36.516 r=0,1,0
 item=GEAR_ShotgunPartTrigger scene=ModStoneHouseSM p=-46.137,3.812,51.797 r=0,84,0
 
+group=SG_IslandPartBarrel low=0 medium=1 high=1 veryhigh=2
+item=GEAR_ShotgunPartBarrel scene=TrainRepairDepotA p=-10.53,1.304,4.571 r=0,310,0
+item=GEAR_ShotgunPartBarrel scene=TrainRepairDepotB p=-6.947,1.088,2.436 r=0,201,0
+
+group=SG_IslandPartStock low=0 medium=1 high=1 veryhigh=2
+item=GEAR_ShotgunPartStock scene=LakeCabinD_IronRoad p=-1.03,0.976,3.071 r=1.4,42,0.6
+item=GEAR_ShotgunPartStock scene=WoodCabinC_IronRoad p=1.518,1.157,-2.203 r=0,186,0
+
+group=SG_IslandPartForend low=0 medium=1 high=1 veryhigh=2
+item=GEAR_ShotgunPartForend scene=CoastalHouseH1_IronRoad p=-4.361,-0.163,-0.142 r=0,202,0
+item=GEAR_ShotgunPartForend scene=WoodCabinC_IronRoad p=-1.383,0.039,-2.948 r=0,243,0
+
+group=SG_IslandPartTrigger low=0 medium=1 high=1 veryhigh=2
+item=GEAR_ShotgunPartTrigger scene=CoastalHouseH1_IronRoad p=-2.323,-0.154,-3.69 r=0,268,0
+item=GEAR_ShotgunPartTrigger scene=LakeCabinD_IronRoad p=1.692,0.046,2.287 r=0,269,0
+
 group=AF_Out_Boxes scene=AirfieldRegion low=0 medium=0 high=1 veryhigh=1
 item=GEAR_ShotgunAmmoBoxBirdshot p=37.989,155.876,383.69 r=24,8,15
 

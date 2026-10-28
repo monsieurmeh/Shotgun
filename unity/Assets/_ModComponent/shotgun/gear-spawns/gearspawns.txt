@@ -49,6 +49,9 @@ scene=CoastalHouseH
 item=GEAR_ShotgunAmmoSingleBuckshot p=0.75,-0.1782,1.15 r=0,140,90 c=100
 item=GEAR_ShotgunAmmoSingleBirdshot p=-3.7,-0.1782,-1.75 r=0,10,90 c=50
 
+scene=CoastalHouseH1_IronRoad
+item=GEAR_ShotgunAmmoSingleBuckshot p=-4.718,-0.1782,-0.272 r=-0,201,90 c=75
+
 scene=CoastalRegion
 item=GEAR_ShotgunAmmoSingleBuckshot p=-425.2,25.1401,320.9 r=0.1897,70.0115,96.9588 c=40
 item=GEAR_ShotgunAmmoSingleSlug p=-570.8,23.325,674.4 r=0,150,90 c=100
@@ -84,12 +87,20 @@ item=GEAR_ShotgunAmmoSingleBuckshot p=-10.7319,-2.4013,3.0156 r=90,10,0 c=50
 scene=IceCaveB
 item=GEAR_ShotgunAmmoSingleSlug p=172.2,-10.3313,-26.6 r=13.7313,8.814,80.1736 c=20
 
+scene=IslandATrackSection5
+item=GEAR_ShotgunAmmoBoxBuckshot p=338.516,119.8239,482.0041 r=1.4715,0.052,4.0511 c=50
+item=GEAR_ShotgunAmmoSingleBirdshot p=2313.519,106.2035,465.605 r=359.7202,67.0016,89.3407 c=50
+item=GEAR_ShotgunAmmoSingleSlug p=1753.618,113.6396,493.803 r=-0,134,90 c=35
+
 scene=LakeCabinB
 item=GEAR_ShotgunAmmoBoxBuckshot p=1.75,0.1334,2.4 r=0,100,0 c=83
 item=GEAR_ShotgunAmmoSingleBirdshot p=1.5,0.869,-1.9 r=88.5889,76.798,46.7981 c=100
 
 scene=LakeCabinD
 item=GEAR_ShotgunAmmoSingleSlug p=-1.3,0.8754,2.75 r=88.5889,346.7979,276.7979 c=100
+
+scene=LakeCabinD_IronRoad
+item=GEAR_ShotgunAmmoSingleBirdshot p=1.803,0.0218,2.86 r=-0,335,90 c=55
 
 scene=LakeRegion
 item=GEAR_ShotgunAmmoSingleBirdshot p=1559.25,16.7502,1277.05 r=79.2367,170.5377,40.5377 c=40
@@ -218,6 +229,10 @@ item=GEAR_ShotgunAmmoSingleSlug p=3,0.4212,-10.2 r=0,85,90 c=100
 
 scene=WoodCabinC
 item=GEAR_ShotgunAmmoSingleBuckshot p=-1.3041,0.8939,2.1519 r=0,30,90 c=100
+
+scene=WoodCabinC_IronRoad
+item=GEAR_ShotgunAmmoSingleBuckshot p=-0.863,0.8854,2.356 r=-0,109,90 c=50
+item=GEAR_ShotgunAmmoSingleSlug p=-2.075,0.0237,-2.391 r=-0,176,90 c=35
 
 loottable=LootCacheCommon
 item=GEAR_ShotgunAmmoSingleBuckshot w=1
