@@ -725,16 +725,23 @@ namespace Shotgun
                 prefabs.Add(refs.Shotgun.AmmoTypes[ammoType].AmmoBox.Prefab);
             }
             foreach (string part in ShotgunPartNames) prefabs.Add(Addressables.LoadAssetAsync<GameObject>(part).WaitForCompletion());
+            var banTags = ShotgunAvailability.BanTags(rifleBan);
+            if (banTags == null)
+            {
+                MelonLogger.Warning("GEAR_Rifle has no Gameplay.Gear.NoFirearms tag; shotgun items will not be banned in firearm-free modes");
+                return;
+            }
             int banned = 0;
             foreach (GameObject prefab in prefabs)
             {
                 if (prefab == null) continue;
                 DisableObjectForGameMode ban = prefab.GetComponent<DisableObjectForGameMode>();
                 if (ban == null) ban = prefab.AddComponent<DisableObjectForGameMode>();
-                ban.m_DisableIfAnyActive = rifleBan.m_DisableIfAnyActive;
+                ban.m_DisableIfAnyActive = banTags;
                 banned++;
             }
-            MelonLogger.Msg($"Shotgun items banned like the rifle (NoFirearms / NoRifle): {banned} prefabs");
+            ShotgunAvailability.ApplyToCurrentMode();
+            MelonLogger.Msg($"Shotgun items banned by {ShotgunAvailability.NoShotgunTagName} and Gameplay.Gear.NoFirearms: {banned} prefabs");
         }
 
 

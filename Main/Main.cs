@@ -72,6 +72,7 @@ namespace Shotgun
 
         public override void OnSceneWasInitialized(int buildIndex, string sceneName)
         {
+            ShotgunAvailability.ApplyToCurrentMode();
             if (!mResourceLocatorInitialized)
             {
                 Addressables.AddResourceLocator(new ModdedResourceLocator().Cast<IResourceLocator>());
