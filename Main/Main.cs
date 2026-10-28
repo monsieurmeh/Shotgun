@@ -18,7 +18,7 @@ namespace Shotgun
 {
     public class Main : MelonMod
     {
-        public const string Version = "0.13.2";
+        public const string Version = "0.13.3";
 
         internal static Main? Instance { get; private set; }
         internal Configuration Configuration { get; private set; } = new();
@@ -47,7 +47,7 @@ namespace Shotgun
                 Directory.CreateDirectory(basePath);
                 Settings = new();
                 bool shouldForceRefreshEmbeddedData = Versioning.IsVersionCorrect(basePath, Version);
-                EmbeddedResourceExtractor.RefreshEmbeddedData(modsPath, "Shotgun.modcomponent", shouldForceRefreshEmbeddedData);
+                EmbeddedResourceExtractor.RefreshEmbeddedData(modsPath, ModComponentFileName, shouldForceRefreshEmbeddedData);
                 MelonLogger.Msg("EarlyInitialize Complete");
             }
             catch (Exception e)

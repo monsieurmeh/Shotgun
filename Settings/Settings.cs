@@ -271,7 +271,7 @@ namespace Shotgun
         [Slider(0f, 20f)]
         public float AdditionalEquipSpeedMultiplier = 10.0f;
 
-        internal Settings() : base(Path.Combine("Shotgun", "Shotgun"))
+        internal Settings() : base(Path.Combine(DataFolderPath, DataFolderPath))
         {
             Initialize();
         }

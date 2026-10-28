@@ -13,7 +13,8 @@ namespace Shotgun.Utility
     internal static class Utility
     {
         internal static readonly GunType GunTypeCustom = (GunType)(Enum.GetValues<GunType>().Cast<int>().Max() + 1);
-        internal const string DataFolderPath = "Shotgun";
+        internal const string DataFolderPath = "DoubleBarrel";
+        internal const string ModComponentFileName = "DoubleBarrel.modcomponent";
         internal const string ShotgunFPSPrefabName = "DoubleBarrel";
         internal const string ShotgunFPHPrefabName = "FPH_DoubleBarrel";
         internal const string ShotgunItemPrefabName = "GEAR_DoubleBarrel";
