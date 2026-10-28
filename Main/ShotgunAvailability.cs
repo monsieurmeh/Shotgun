@@ -12,8 +12,8 @@ namespace Shotgun
         internal const string NoShotgunTagName = "Gameplay.Gear.NoShotgun";
         private const string NoFirearmsTagName = "Gameplay.Gear.NoFirearms";
         private const string RowName = "ShotgunsInWorld";
-        private const string RowLabel = "Shotgun Availability";
-        private const string RowToolTip = "Whether shotguns, their shells and their parts spawn in the world. Share codes don't carry this setting; entering a code sets it back to Yes.";
+        private const string RowNameKey = "GAMEPLAY_DoubleBarrel_AvailabilityName";
+        private const string RowDescriptionKey = "GAMEPLAY_DoubleBarrel_AvailabilityDescription";
         private const string ModDataSuffix = "ShotgunsInWorld";
 
         private static readonly ModDataManager mModData = new("Shotgun");
@@ -162,10 +162,10 @@ namespace Shotgun
             UILabel name = combo?.m_LableName;
             if (name == null) return;
             UILocalize localize = name.GetComponent<UILocalize>();
-            if (localize != null) UnityEngine.Object.Destroy(localize);
-            name.text = RowLabel;
+            if (localize != null) localize.key = RowNameKey;
+            name.text = Localization.Get(RowNameKey);
             if (combo.m_LocalizedToolTip != null)
-                combo.m_LocalizedToolTip.m_LocalizationID = RowToolTip;
+                combo.m_LocalizedToolTip.m_LocalizationID = RowDescriptionKey;
         }
 
 
