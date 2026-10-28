@@ -78,10 +78,10 @@ namespace Shotgun
             object skillDef = constructor.Invoke(new object[]
             {
                 SkillName,
-                new LocalizedString { m_LocalizationID = "GAMEPLAY_Shotgun_SkillName" },
+                new LocalizedString { m_LocalizationID = "GAMEPLAY_DoubleBarrel_SkillName" },
                 IconId,
                 "",
-                "Shotgun_Skill_Graphic",
+                "DoubleBarrel_Skill_Graphic",
                 TierStrings("Description"),
                 TierStrings("Benefits"),
                 new int[] { 0, 25, 50, 75, 100 },
@@ -93,9 +93,9 @@ namespace Shotgun
         }
 
         private static LocalizedString[] TierStrings(string suffix) =>
-            Enumerable.Range(1, TierTresholds.Length).Select(i => new LocalizedString { m_LocalizationID = $"GAMEPLAY_Shotgun_SkillTier{i}{suffix}" }).ToArray();
+            Enumerable.Range(1, TierTresholds.Length).Select(i => new LocalizedString { m_LocalizationID = $"GAMEPLAY_DoubleBarrel_SkillTier{i}{suffix}" }).ToArray();
 
-        internal const string IconId = "ico_Shotgun_Skill";
+        internal const string IconId = "ico_DoubleBarrel_Skill";
         private const string IconOverlayName = "ShotgunSkillIconTexture";
         private static Texture2D mIconTexture;
 
@@ -156,7 +156,7 @@ namespace Shotgun
             return t;
         }
 
-        internal const string BookPrefabPrefix = "GEAR_ShotgunBook";
+        internal const string BookPrefabPrefix = "GEAR_DoubleBarrelBook";
 
         internal static bool IsShotgunBook(GameObject go)
         {

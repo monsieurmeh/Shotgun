@@ -1,5 +1,5 @@
 {
-  "GAMEPLAY_Shotgun_Name": {
+  "GAMEPLAY_DoubleBarrel_Name": {
     "English": "Shotgun",
     "German": "",
     "Russian": "",
@@ -20,7 +20,7 @@
     "Polish": "",
     "Ukrainian": ""
   },
-  "GAMEPLAY_Shotgun_Description": {
+  "GAMEPLAY_DoubleBarrel_Description": {
     "English": "Whoa, that's a full barrel all the way! Double barrel, oh my God, double barrel! It's a double barrel all the way, damn! It's a double barrel all the way, damn, oh my God! What does this mean?",
     "German": "",
     "Russian": "",
@@ -41,7 +41,7 @@
     "Polish": "",
     "Ukrainian": ""
   },
-  "GAMEPLAY_Shotgun_AmmoBoxSlugName": {
+  "GAMEPLAY_DoubleBarrel_AmmoBoxSlugName": {
     "English": "Box of Shotgun Slug Rounds",
     "German": "",
     "Russian": "",
@@ -62,7 +62,7 @@
     "Polish": "",
     "Ukrainian": ""
   },
-  "GAMEPLAY_Shotgun_AmmoBoxSlugDescription": {
+  "GAMEPLAY_DoubleBarrel_AmmoBoxSlugDescription": {
     "English": "A box of shotgun slug rounds.",
     "German": "",
     "Russian": "",
@@ -83,7 +83,7 @@
     "Polish": "",
     "Ukrainian": ""
   },
-  "GAMEPLAY_Shotgun_AmmoUnitSingular": {
+  "GAMEPLAY_DoubleBarrel_AmmoUnitSingular": {
     "English": "Round",
     "German": "",
     "Russian": "",
@@ -104,7 +104,7 @@
     "Polish": "",
     "Ukrainian": ""
   },
-  "GAMEPLAY_Shotgun_AmmoUnitPlural": {
+  "GAMEPLAY_DoubleBarrel_AmmoUnitPlural": {
     "English": "Rounds",
     "German": "",
     "Russian": "",
@@ -125,7 +125,7 @@
     "Polish": "",
     "Ukrainian": ""
   },
-  "GAMEPLAY_Shotgun_AmmoSingleSlugName": {
+  "GAMEPLAY_DoubleBarrel_AmmoSingleSlugName": {
     "English": "Shotgun Slug Round",
     "German": "",
     "Russian": "",
@@ -146,7 +146,7 @@
     "Polish": "",
     "Ukrainian": ""
   },
-  "GAMEPLAY_Shotgun_AmmoSingleSlugDescription": {
+  "GAMEPLAY_DoubleBarrel_AmmoSingleSlugDescription": {
     "English": "A single shotgun slug round.",
     "German": "",
     "Russian": "",
@@ -167,7 +167,7 @@
     "Polish": "",
     "Ukrainian": ""
   },
-  "GAMEPLAY_Shotgun_AmmoCasingName": {
+  "GAMEPLAY_DoubleBarrel_AmmoCasingName": {
     "English": "Shotgun Shell Casing",
     "German": "",
     "Russian": "",
@@ -188,7 +188,7 @@
     "Polish": "",
     "Ukrainian": ""
   },
-  "GAMEPLAY_Shotgun_AmmoCasingDescription": {
+  "GAMEPLAY_DoubleBarrel_AmmoCasingDescription": {
     "English": "A single shotgun shell casing. Fill it with something fun and made of lead.",
     "German": "",
     "Russian": "",
@@ -209,7 +209,7 @@
     "Polish": "",
     "Ukrainian": ""
   },
-  "GAMEPLAY_Shotgun_AmmoBoxBirdshotName": {
+  "GAMEPLAY_DoubleBarrel_AmmoBoxBirdshotName": {
     "English": "Box of Shotgun Birdshot Rounds",
     "German": "",
     "Russian": "",
@@ -230,7 +230,7 @@
     "Polish": "",
     "Ukrainian": ""
   },
-  "GAMEPLAY_Shotgun_AmmoBoxBuckshotName": {
+  "GAMEPLAY_DoubleBarrel_AmmoBoxBuckshotName": {
     "English": "Box of Shotgun Buckshot Rounds",
     "German": "",
     "Russian": "",
@@ -251,7 +251,7 @@
     "Polish": "",
     "Ukrainian": ""
   },
-  "GAMEPLAY_Shotgun_AmmoSingleBuckshotName": {
+  "GAMEPLAY_DoubleBarrel_AmmoSingleBuckshotName": {
     "English": "Shotgun Buckshot Round",
     "German": "",
     "Russian": "",
@@ -272,7 +272,7 @@
     "Polish": "",
     "Ukrainian": ""
   },
-  "GAMEPLAY_Shotgun_AmmoSingleBirdshotName": {
+  "GAMEPLAY_DoubleBarrel_AmmoSingleBirdshotName": {
     "English": "Shotgun Birdshot Round",
     "German": "",
     "Russian": "",
@@ -293,7 +293,7 @@
     "Polish": "",
     "Ukrainian": ""
   },
-  "GAMEPLAY_Shotgun_AmmoBoxBirdshotDescription": {
+  "GAMEPLAY_DoubleBarrel_AmmoBoxBirdshotDescription": {
     "English": "A box of shotgun birdshot rounds.",
     "German": "",
     "Russian": "",
@@ -314,7 +314,7 @@
     "Polish": "",
     "Ukrainian": ""
   },
-  "GAMEPLAY_Shotgun_AmmoBoxBuckshotDescription": {
+  "GAMEPLAY_DoubleBarrel_AmmoBoxBuckshotDescription": {
     "English": "A box of shotgun buckshot rounds.",
     "German": "",
     "Russian": "",
@@ -335,7 +335,7 @@
     "Polish": "",
     "Ukrainian": ""
   },
-  "GAMEPLAY_Shotgun_AmmoSingleBirdshotDescription": {
+  "GAMEPLAY_DoubleBarrel_AmmoSingleBirdshotDescription": {
     "English": "A single shotgun birdshot round.",
     "German": "",
     "Russian": "",
@@ -356,7 +356,7 @@
     "Polish": "",
     "Ukrainian": ""
   },
-  "GAMEPLAY_Shotgun_AmmoSingleBuckshotDescription": {
+  "GAMEPLAY_DoubleBarrel_AmmoSingleBuckshotDescription": {
     "English": "A single shotgun buckshot round.",
     "German": "",
     "Russian": "",
@@ -377,7 +377,7 @@
     "Polish": "",
     "Ukrainian": ""
   },
-  "GAMEPLAY_Shotgun_SkillbookBeginnerName": {
+  "GAMEPLAY_DoubleBarrel_SkillbookBeginnerName": {
     "English": "A Shot in the Dark",
     "German": "",
     "Russian": "",
@@ -398,7 +398,7 @@
     "Polish": "",
     "Ukrainian": ""
   },
-  "GAMEPLAY_Shotgun_SkillbookBeginnerDescription": {
+  "GAMEPLAY_DoubleBarrel_SkillbookBeginnerDescription": {
     "English": "A handy guide to making sure you're never caught off guard with a shotgun.",
     "German": "",
     "Russian": "",
@@ -419,7 +419,7 @@
     "Polish": "",
     "Ukrainian": ""
   },
-  "GAMEPLAY_Shotgun_SkillName": {
+  "GAMEPLAY_DoubleBarrel_SkillName": {
     "English": "Shotgun Firearm",
     "German": "",
     "Russian": "",
@@ -440,7 +440,7 @@
     "Polish": "",
     "Ukrainian": ""
   },
-  "GAMEPLAY_Shotgun_PartBarrelName": {
+  "GAMEPLAY_DoubleBarrel_PartBarrelName": {
     "English": "Shotgun Barrel",
     "German": "",
     "Russian": "",
@@ -461,7 +461,7 @@
     "Polish": "",
     "Ukrainian": ""
   },
-  "GAMEPLAY_Shotgun_PartBarrelDescription": {
+  "GAMEPLAY_DoubleBarrel_PartBarrelDescription": {
     "English": "The barrels of what looks like a double-barrel shotgun.",
     "German": "",
     "Russian": "",
@@ -482,7 +482,7 @@
     "Polish": "",
     "Ukrainian": ""
   },
-  "GAMEPLAY_Shotgun_PartStockName": {
+  "GAMEPLAY_DoubleBarrel_PartStockName": {
     "English": "Shotgun Stock",
     "German": "",
     "Russian": "",
@@ -503,7 +503,7 @@
     "Polish": "",
     "Ukrainian": ""
   },
-  "GAMEPLAY_Shotgun_PartStockDescription": {
+  "GAMEPLAY_DoubleBarrel_PartStockDescription": {
     "English": "The stock of what looks like a double-barrel shotgun.",
     "German": "",
     "Russian": "",
@@ -524,7 +524,7 @@
     "Polish": "",
     "Ukrainian": ""
   },
-  "GAMEPLAY_Shotgun_PartForendName": {
+  "GAMEPLAY_DoubleBarrel_PartForendName": {
     "English": "Shotgun Forend Assembly",
     "German": "",
     "Russian": "",
@@ -545,7 +545,7 @@
     "Polish": "",
     "Ukrainian": ""
   },
-  "GAMEPLAY_Shotgun_PartForendDescription": {
+  "GAMEPLAY_DoubleBarrel_PartForendDescription": {
     "English": "The forend of what looks like a double-barrel shotgun.",
     "German": "",
     "Russian": "",
@@ -566,7 +566,7 @@
     "Polish": "",
     "Ukrainian": ""
   },
-  "GAMEPLAY_Shotgun_PartTriggerName": {
+  "GAMEPLAY_DoubleBarrel_PartTriggerName": {
     "English": "Shotgun Trigger Group",
     "German": "",
     "Russian": "",
@@ -587,7 +587,7 @@
     "Polish": "",
     "Ukrainian": ""
   },
-  "GAMEPLAY_Shotgun_PartTriggerDescription": {
+  "GAMEPLAY_DoubleBarrel_PartTriggerDescription": {
     "English": "The trigger group of what looks like a double-barrel shotgun.",
     "German": "",
     "Russian": "",
@@ -608,7 +608,7 @@
     "Polish": "",
     "Ukrainian": ""
   },
-  "GAMEPLAY_Shotgun_SkillTier1Description": {
+  "GAMEPLAY_DoubleBarrel_SkillTier1Description": {
     "English": "You've barely handled a shotgun. The kick throws your aim off the mark, and you fumble every shell into the breech.",
     "German": "",
     "Russian": "",
@@ -629,7 +629,7 @@
     "Polish": "",
     "Ukrainian": ""
   },
-  "GAMEPLAY_Shotgun_SkillTier2Description": {
+  "GAMEPLAY_DoubleBarrel_SkillTier2Description": {
     "English": "You're learning to lean into the stock. The recoil is less of a shock, and your hands find the shells a little faster.",
     "German": "",
     "Russian": "",
@@ -650,7 +650,7 @@
     "Polish": "",
     "Ukrainian": ""
   },
-  "GAMEPLAY_Shotgun_SkillTier3Description": {
+  "GAMEPLAY_DoubleBarrel_SkillTier3Description": {
     "English": "Breaking the gun open and feeding both barrels has become one smooth motion. You ride the recoil instead of fighting it.",
     "German": "",
     "Russian": "",
@@ -671,7 +671,7 @@
     "Polish": "",
     "Ukrainian": ""
   },
-  "GAMEPLAY_Shotgun_SkillTier4Description": {
+  "GAMEPLAY_DoubleBarrel_SkillTier4Description": {
     "English": "You can change loads without wasting a shell, and the breech snaps shut as the stock meets your shoulder.",
     "German": "",
     "Russian": "",
@@ -692,7 +692,7 @@
     "Polish": "",
     "Ukrainian": ""
   },
-  "GAMEPLAY_Shotgun_SkillTier5Description": {
+  "GAMEPLAY_DoubleBarrel_SkillTier5Description": {
     "English": "The shotgun is an extension of your arms. The recoil barely moves you, and both barrels are loaded before most people find their shells.",
     "German": "",
     "Russian": "",
@@ -713,7 +713,7 @@
     "Polish": "",
     "Ukrainian": ""
   },
-  "GAMEPLAY_Shotgun_SkillTier1Benefits": {
+  "GAMEPLAY_DoubleBarrel_SkillTier1Benefits": {
     "English": "Full recoil kick\nSlow unloading and loading of both barrels\nNo critical hits",
     "German": "",
     "Russian": "",
@@ -734,7 +734,7 @@
     "Polish": "",
     "Ukrainian": ""
   },
-  "GAMEPLAY_Shotgun_SkillTier2Benefits": {
+  "GAMEPLAY_DoubleBarrel_SkillTier2Benefits": {
     "English": "Faster reloading, aiming and equipping\nRecoil kick reduced by 25%\nLow critical hit chance",
     "German": "",
     "Russian": "",
@@ -755,7 +755,7 @@
     "Polish": "",
     "Ukrainian": ""
   },
-  "GAMEPLAY_Shotgun_SkillTier3Benefits": {
+  "GAMEPLAY_DoubleBarrel_SkillTier3Benefits": {
     "English": "Faster reloading, aiming and equipping\nRecoil kick reduced by 50%\nSteadier recovery after each shot\nUnload and load both barrels at medium speed\nModerate critical hit chance",
     "German": "",
     "Russian": "",
@@ -776,7 +776,7 @@
     "Polish": "",
     "Ukrainian": ""
   },
-  "GAMEPLAY_Shotgun_SkillTier4Benefits": {
+  "GAMEPLAY_DoubleBarrel_SkillTier4Benefits": {
     "English": "Faster reloading, aiming and equipping\nRecoil kick reduced by 75%\nUnload both barrels quickly\nKeep the unspent shell when switching ammo\nClose the breech while raising the gun to aim\nHigh critical hit chance",
     "German": "",
     "Russian": "",
@@ -797,7 +797,7 @@
     "Polish": "",
     "Ukrainian": ""
   },
-  "GAMEPLAY_Shotgun_SkillTier5Benefits": {
+  "GAMEPLAY_DoubleBarrel_SkillTier5Benefits": {
     "English": "Fastest reloading, aiming and equipping\nNo recoil kick\nSteadiest recovery after each shot\nUnload and load both barrels quickly\nKeep the unspent shell when switching ammo\nClose the breech while raising the gun to aim\nVery high critical hit chance",
     "German": "",
     "Russian": "",
