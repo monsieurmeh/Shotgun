@@ -26,7 +26,7 @@ namespace Shotgun
         internal static void UpdateShotgunParams(GunItem gun, string ammoName)
         {
             if (gun == null) return;
-            if (!gun.name.Contains("Shotgun")) return;
+            if (gun.m_GunType != GunTypeCustom) return;
             vp_FPSShooter shooter = Main.Instance.Configuration.Refs.Shotgun.WeaponView.FPSShooter;
             shooter.ProjectileCount = 1;
             shooter.ProjectileSpread = 0f;
@@ -222,7 +222,7 @@ namespace Shotgun
                 return false;
             }
 
-            bool isShotgun = instance.m_EquippedFirstPersonWeaponShoulder.name.Contains("Shotgun");
+            bool isShotgun = instance.m_EquippedFirstPersonWeaponShoulder.name.StartsWith(ShotgunFPHPrefabName);
             bool wasModdedEnabled = moddedAnimator.enabled;
 
             bool renamed = false;
@@ -240,7 +240,7 @@ namespace Shotgun
             if (wasModdedEnabled && !renamed) return true;
 
             if (wasModdedEnabled) moddedAnimator.Rebind();
-            SyncAmmoParams(GameManager.GetPlayerManagerComponent()?.m_ItemInHands?.m_GunItem);
+            SyncAmmoParams(GunItemInHands());
             ShotgunSkill.ApplyAnimatorParams(moddedAnimator);
             return true;
         }

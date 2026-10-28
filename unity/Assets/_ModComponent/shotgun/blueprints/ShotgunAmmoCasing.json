@@ -14,7 +14,7 @@
   "RequiredCraftingLocation": "Forge",
   "RequiresLitFire": true,
   "RequiresLight": true,
-  "CraftedResult": "GEAR_ShotgunAmmoCasing",
+  "CraftedResult": "GEAR_DoubleBarrelAmmoCasing",
   "CraftedResultCount": 6,
   "DurationMinutes": 30,
   "CraftingAudio": "Play_HarvestingAmmo",

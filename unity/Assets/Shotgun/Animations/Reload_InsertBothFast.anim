@@ -4513,7 +4513,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -4538,7 +4538,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -4563,7 +4563,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Meshes
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Meshes
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -4615,7 +4615,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -4640,7 +4640,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -4665,7 +4665,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/shaftBone
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/shaftBone
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -4843,7 +4843,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_L
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_L
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -4868,7 +4868,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_L/shellRotationBone_L
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_L/shellRotationBone_L
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -5037,7 +5037,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_R
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_R
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -5062,7 +5062,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_R/shellRotationBone_R
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_R/shellRotationBone_R
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -5087,7 +5087,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/shaftBone/extractorBone
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/shaftBone/extractorBone
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -5112,7 +5112,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/releaseBone
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/releaseBone
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -8823,7 +8823,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -8848,7 +8848,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -8873,7 +8873,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Meshes
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Meshes
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -8925,7 +8925,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -9139,7 +9139,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -9425,7 +9425,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/shaftBone
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/shaftBone
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -9648,7 +9648,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_L
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_L
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -9673,7 +9673,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_L/shellRotationBone_L
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_L/shellRotationBone_L
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -9905,7 +9905,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_R
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_R
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -9930,7 +9930,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_R/shellRotationBone_R
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_R/shellRotationBone_R
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -9955,7 +9955,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/shaftBone/extractorBone
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/shaftBone/extractorBone
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -9980,7 +9980,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/releaseBone
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/releaseBone
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -12231,7 +12231,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -12256,7 +12256,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -12281,7 +12281,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Meshes
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Meshes
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -12306,7 +12306,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -12331,7 +12331,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -12356,7 +12356,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/shaftBone
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/shaftBone
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -12417,7 +12417,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_L
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_L
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -12442,7 +12442,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_L/shellRotationBone_L
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_L/shellRotationBone_L
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -12503,7 +12503,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_R
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_R
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -12528,7 +12528,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_R/shellRotationBone_R
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_R/shellRotationBone_R
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -12553,7 +12553,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/shaftBone/extractorBone
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/shaftBone/extractorBone
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -12578,7 +12578,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/releaseBone
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/releaseBone
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -35056,7 +35056,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalRotation.x
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -35086,7 +35086,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalRotation.y
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -35116,7 +35116,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalRotation.z
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -35146,7 +35146,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalRotation.w
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -35176,7 +35176,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalRotation.x
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -35206,7 +35206,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalRotation.y
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -35236,7 +35236,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalRotation.z
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -35266,7 +35266,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalRotation.w
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -35296,7 +35296,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalRotation.x
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Meshes
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Meshes
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -35326,7 +35326,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalRotation.y
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Meshes
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Meshes
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -35356,7 +35356,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalRotation.z
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Meshes
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Meshes
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -35386,7 +35386,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalRotation.w
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Meshes
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Meshes
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -35443,7 +35443,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalRotation.x
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -35500,7 +35500,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalRotation.y
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -35557,7 +35557,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalRotation.z
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -35614,7 +35614,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalRotation.w
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -35644,7 +35644,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalRotation.x
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -35674,7 +35674,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalRotation.y
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -35704,7 +35704,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalRotation.z
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -35734,7 +35734,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalRotation.w
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -35764,7 +35764,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalRotation.x
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/shaftBone
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/shaftBone
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -35794,7 +35794,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalRotation.y
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/shaftBone
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/shaftBone
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -35824,7 +35824,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalRotation.z
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/shaftBone
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/shaftBone
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -35854,7 +35854,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalRotation.w
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/shaftBone
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/shaftBone
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -36037,7 +36037,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalRotation.x
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_L
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_L
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -36220,7 +36220,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalRotation.y
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_L
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_L
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -36403,7 +36403,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalRotation.z
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_L
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_L
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -36586,7 +36586,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalRotation.w
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_L
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_L
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -36616,7 +36616,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalRotation.x
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_L/shellRotationBone_L
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_L/shellRotationBone_L
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -36646,7 +36646,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalRotation.y
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_L/shellRotationBone_L
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_L/shellRotationBone_L
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -36676,7 +36676,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalRotation.z
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_L/shellRotationBone_L
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_L/shellRotationBone_L
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -36706,7 +36706,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalRotation.w
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_L/shellRotationBone_L
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_L/shellRotationBone_L
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -36880,7 +36880,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalRotation.x
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_R
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_R
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -37054,7 +37054,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalRotation.y
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_R
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_R
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -37228,7 +37228,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalRotation.z
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_R
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_R
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -37402,7 +37402,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalRotation.w
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_R
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_R
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -37432,7 +37432,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalRotation.x
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_R/shellRotationBone_R
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_R/shellRotationBone_R
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -37462,7 +37462,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalRotation.y
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_R/shellRotationBone_R
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_R/shellRotationBone_R
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -37492,7 +37492,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalRotation.z
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_R/shellRotationBone_R
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_R/shellRotationBone_R
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -37522,7 +37522,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalRotation.w
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_R/shellRotationBone_R
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_R/shellRotationBone_R
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -37552,7 +37552,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalRotation.x
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/shaftBone/extractorBone
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/shaftBone/extractorBone
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -37582,7 +37582,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalRotation.y
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/shaftBone/extractorBone
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/shaftBone/extractorBone
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -37612,7 +37612,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalRotation.z
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/shaftBone/extractorBone
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/shaftBone/extractorBone
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -37642,7 +37642,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalRotation.w
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/shaftBone/extractorBone
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/shaftBone/extractorBone
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -37672,7 +37672,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalRotation.x
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/releaseBone
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/releaseBone
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -37702,7 +37702,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalRotation.y
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/releaseBone
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/releaseBone
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -37732,7 +37732,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalRotation.z
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/releaseBone
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/releaseBone
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -37762,7 +37762,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalRotation.w
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/releaseBone
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/releaseBone
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -50206,7 +50206,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.x
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -50236,7 +50236,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.y
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -50266,7 +50266,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.z
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -50296,7 +50296,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.x
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -50326,7 +50326,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.y
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -50356,7 +50356,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.z
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -50386,7 +50386,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.x
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Meshes
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Meshes
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -50416,7 +50416,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.y
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Meshes
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Meshes
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -50446,7 +50446,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.z
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Meshes
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Meshes
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -50503,7 +50503,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.x
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -50560,7 +50560,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.y
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -50617,7 +50617,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.z
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -50836,7 +50836,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.x
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -51055,7 +51055,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.y
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -51274,7 +51274,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.z
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -51565,7 +51565,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.x
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/shaftBone
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/shaftBone
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -51856,7 +51856,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.y
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/shaftBone
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/shaftBone
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -52147,7 +52147,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.z
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/shaftBone
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/shaftBone
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -52375,7 +52375,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.x
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_L
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_L
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -52603,7 +52603,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.y
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_L
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_L
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -52831,7 +52831,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.z
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_L
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_L
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -52861,7 +52861,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.x
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_L/shellRotationBone_L
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_L/shellRotationBone_L
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -52891,7 +52891,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.y
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_L/shellRotationBone_L
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_L/shellRotationBone_L
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -52921,7 +52921,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.z
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_L/shellRotationBone_L
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_L/shellRotationBone_L
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -53158,7 +53158,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.x
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_R
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_R
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -53395,7 +53395,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.y
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_R
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_R
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -53632,7 +53632,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.z
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_R
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_R
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -53662,7 +53662,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.x
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_R/shellRotationBone_R
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_R/shellRotationBone_R
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -53692,7 +53692,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.y
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_R/shellRotationBone_R
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_R/shellRotationBone_R
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -53722,7 +53722,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.z
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_R/shellRotationBone_R
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_R/shellRotationBone_R
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -53752,7 +53752,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.x
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/shaftBone/extractorBone
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/shaftBone/extractorBone
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -53782,7 +53782,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.y
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/shaftBone/extractorBone
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/shaftBone/extractorBone
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -53812,7 +53812,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.z
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/shaftBone/extractorBone
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/shaftBone/extractorBone
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -53842,7 +53842,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.x
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/releaseBone
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/releaseBone
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -53872,7 +53872,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.y
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/releaseBone
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/releaseBone
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -53902,7 +53902,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.z
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/releaseBone
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/releaseBone
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -61942,7 +61942,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.x
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -61972,7 +61972,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.y
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -62002,7 +62002,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.z
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -62032,7 +62032,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.x
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -62062,7 +62062,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.y
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -62092,7 +62092,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.z
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -62122,7 +62122,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.x
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Meshes
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Meshes
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -62152,7 +62152,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.y
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Meshes
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Meshes
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -62182,7 +62182,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.z
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Meshes
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Meshes
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -62212,7 +62212,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.x
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -62242,7 +62242,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.y
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -62272,7 +62272,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.z
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -62302,7 +62302,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.x
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -62332,7 +62332,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.y
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -62362,7 +62362,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.z
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -62392,7 +62392,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.x
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/shaftBone
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/shaftBone
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -62422,7 +62422,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.y
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/shaftBone
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/shaftBone
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -62452,7 +62452,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.z
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/shaftBone
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/shaftBone
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -62518,7 +62518,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.x
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_L
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_L
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -62584,7 +62584,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.y
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_L
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_L
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -62650,7 +62650,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.z
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_L
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_L
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -62680,7 +62680,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.x
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_L/shellRotationBone_L
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_L/shellRotationBone_L
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -62710,7 +62710,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.y
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_L/shellRotationBone_L
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_L/shellRotationBone_L
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -62740,7 +62740,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.z
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_L/shellRotationBone_L
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_L/shellRotationBone_L
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -62806,7 +62806,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.x
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_R
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_R
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -62872,7 +62872,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.y
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_R
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_R
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -62938,7 +62938,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.z
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_R
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_R
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -62968,7 +62968,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.x
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_R/shellRotationBone_R
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_R/shellRotationBone_R
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -62998,7 +62998,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.y
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_R/shellRotationBone_R
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_R/shellRotationBone_R
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -63028,7 +63028,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.z
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_R/shellRotationBone_R
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_R/shellRotationBone_R
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -63058,7 +63058,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.x
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/shaftBone/extractorBone
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/shaftBone/extractorBone
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -63088,7 +63088,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.y
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/shaftBone/extractorBone
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/shaftBone/extractorBone
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -63118,7 +63118,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.z
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/shaftBone/extractorBone
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/shaftBone/extractorBone
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -63148,7 +63148,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.x
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/releaseBone
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/releaseBone
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -63178,7 +63178,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.y
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/releaseBone
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/releaseBone
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -63208,7 +63208,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.z
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/releaseBone
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/releaseBone
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -78080,7 +78080,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAngles.x
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -78110,7 +78110,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAngles.y
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -78140,7 +78140,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAngles.z
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -78170,7 +78170,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAngles.x
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -78200,7 +78200,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAngles.y
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -78230,7 +78230,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAngles.z
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -78260,7 +78260,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAngles.x
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Meshes
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Meshes
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -78290,7 +78290,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAngles.y
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Meshes
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Meshes
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -78320,7 +78320,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAngles.z
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Meshes
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Meshes
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -78377,7 +78377,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAngles.x
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -78434,7 +78434,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAngles.y
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -78491,7 +78491,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAngles.z
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -78521,7 +78521,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAngles.x
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -78551,7 +78551,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAngles.y
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -78581,7 +78581,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAngles.z
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -78611,7 +78611,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAngles.x
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/shaftBone
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/shaftBone
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -78641,7 +78641,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAngles.y
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/shaftBone
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/shaftBone
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -78671,7 +78671,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAngles.z
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/shaftBone
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/shaftBone
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -78854,7 +78854,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAngles.x
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_L
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_L
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -79037,7 +79037,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAngles.y
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_L
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_L
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -79220,7 +79220,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAngles.z
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_L
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_L
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -79250,7 +79250,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAngles.x
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_L/shellRotationBone_L
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_L/shellRotationBone_L
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -79280,7 +79280,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAngles.y
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_L/shellRotationBone_L
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_L/shellRotationBone_L
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -79310,7 +79310,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAngles.z
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_L/shellRotationBone_L
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_L/shellRotationBone_L
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -79484,7 +79484,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAngles.x
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_R
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_R
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -79658,7 +79658,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAngles.y
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_R
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_R
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -79832,7 +79832,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAngles.z
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_R
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_R
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -79862,7 +79862,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAngles.x
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_R/shellRotationBone_R
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_R/shellRotationBone_R
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -79892,7 +79892,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAngles.y
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_R/shellRotationBone_R
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_R/shellRotationBone_R
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -79922,7 +79922,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAngles.z
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_R/shellRotationBone_R
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/shaftBone/shellPositionBone_R/shellRotationBone_R
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -79952,7 +79952,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAngles.x
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/shaftBone/extractorBone
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/shaftBone/extractorBone
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -79982,7 +79982,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAngles.y
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/shaftBone/extractorBone
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/shaftBone/extractorBone
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -80012,7 +80012,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAngles.z
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/shaftBone/extractorBone
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/shaftBone/extractorBone
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -80042,7 +80042,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAngles.x
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/releaseBone
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/releaseBone
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -80072,7 +80072,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAngles.y
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/releaseBone
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/releaseBone
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -80102,7 +80102,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAngles.z
-    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_Shotgun/GAME_DATA/Origin/assBone/releaseBone
+    path: Origin/HipJoint/Chest_Joint/Camera_Weapon_Offset/Shoulder_Joint/Shoulder_Joint_Offset/shoulder_prop_point/FPH_DoubleBarrel/GAME_DATA/Origin/assBone/releaseBone
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -80206,23 +80206,23 @@ AnimationClip:
     floatParameter: 0
     intParameter: 2
     messageOptions: 0
-  - time: 0.5
+  - time: 0.6
+    functionName: OnRoundLoaded
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.6
+    functionName: OnRoundLoaded
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.7
     functionName: OnPlaySound
-    data: GAMEPLAY_Shotgun_Insert
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 0.6
-    functionName: OnRoundLoaded
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 0.6
-    functionName: OnRoundLoaded
-    data: 
+    data: GAMEPLAY_DoubleBarrel_Insert
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0

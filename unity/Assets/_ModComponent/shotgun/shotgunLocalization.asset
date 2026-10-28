@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: shotgunLocalization
   m_EditorClassIdentifier: 
   localizationEntries:
-  - localizationKey: GAMEPLAY_Shotgun_Name
+  - localizationKey: GAMEPLAY_DoubleBarrel_Name
     languages:
-      English: Shotgun
+      English: Double-Barreled Shotgun
       German: 
       Russian: 
       French: 
@@ -34,11 +34,11 @@ MonoBehaviour:
       Italian: 
       Polish: 
       Ukrainian: 
-  - localizationKey: GAMEPLAY_Shotgun_Description
+  - localizationKey: GAMEPLAY_DoubleBarrel_Description
     languages:
-      English: Whoa, that's a full barrel all the way! Double barrel, oh my God,
-        double barrel! It's a double barrel all the way, damn! It's a double barrel
-        all the way, damn, oh my God! What does this mean?
+      English: Whoa, that's a full barrel all the way Double barrel, oh my God, double
+        barrel It's a double barrel all the way, damn It's a double barrel all the
+        way, damn, oh my God What does this mean?
       German: 
       Russian: 
       French: 
@@ -57,7 +57,7 @@ MonoBehaviour:
       Italian: 
       Polish: 
       Ukrainian: 
-  - localizationKey: GAMEPLAY_Shotgun_AmmoBoxSlugName
+  - localizationKey: GAMEPLAY_DoubleBarrel_AmmoBoxSlugName
     languages:
       English: Box of Shotgun Slug Rounds
       German: 
@@ -78,7 +78,7 @@ MonoBehaviour:
       Italian: 
       Polish: 
       Ukrainian: 
-  - localizationKey: GAMEPLAY_Shotgun_AmmoBoxSlugDescription
+  - localizationKey: GAMEPLAY_DoubleBarrel_AmmoBoxSlugDescription
     languages:
       English: A box of shotgun slug rounds.
       German: 
@@ -99,7 +99,7 @@ MonoBehaviour:
       Italian: 
       Polish: 
       Ukrainian: 
-  - localizationKey: GAMEPLAY_Shotgun_AmmoUnitSingular
+  - localizationKey: GAMEPLAY_DoubleBarrel_AmmoUnitSingular
     languages:
       English: Round
       German: 
@@ -120,7 +120,7 @@ MonoBehaviour:
       Italian: 
       Polish: 
       Ukrainian: 
-  - localizationKey: GAMEPLAY_Shotgun_AmmoUnitPlural
+  - localizationKey: GAMEPLAY_DoubleBarrel_AmmoUnitPlural
     languages:
       English: Rounds
       German: 
@@ -141,7 +141,7 @@ MonoBehaviour:
       Italian: 
       Polish: 
       Ukrainian: 
-  - localizationKey: GAMEPLAY_Shotgun_AmmoSingleSlugName
+  - localizationKey: GAMEPLAY_DoubleBarrel_AmmoSingleSlugName
     languages:
       English: Shotgun Slug Round
       German: 
@@ -162,7 +162,7 @@ MonoBehaviour:
       Italian: 
       Polish: 
       Ukrainian: 
-  - localizationKey: GAMEPLAY_Shotgun_AmmoSingleSlugDescription
+  - localizationKey: GAMEPLAY_DoubleBarrel_AmmoSingleSlugDescription
     languages:
       English: A single shotgun slug round.
       German: 
@@ -183,7 +183,7 @@ MonoBehaviour:
       Italian: 
       Polish: 
       Ukrainian: 
-  - localizationKey: GAMEPLAY_Shotgun_AmmoCasingName
+  - localizationKey: GAMEPLAY_DoubleBarrel_AmmoCasingName
     languages:
       English: Shotgun Shell Casing
       German: 
@@ -204,7 +204,7 @@ MonoBehaviour:
       Italian: 
       Polish: 
       Ukrainian: 
-  - localizationKey: GAMEPLAY_Shotgun_AmmoCasingDescription
+  - localizationKey: GAMEPLAY_DoubleBarrel_AmmoCasingDescription
     languages:
       English: A single shotgun shell casing. Fill it with something fun and made
         of lead.
@@ -226,7 +226,7 @@ MonoBehaviour:
       Italian: 
       Polish: 
       Ukrainian: 
-  - localizationKey: GAMEPLAY_Shotgun_AmmoBoxBirdshotName
+  - localizationKey: GAMEPLAY_DoubleBarrel_AmmoBoxBirdshotName
     languages:
       English: Box of Shotgun Birdshot Rounds
       German: 
@@ -247,7 +247,7 @@ MonoBehaviour:
       Italian: 
       Polish: 
       Ukrainian: 
-  - localizationKey: GAMEPLAY_Shotgun_AmmoBoxBuckshotName
+  - localizationKey: GAMEPLAY_DoubleBarrel_AmmoBoxBuckshotName
     languages:
       English: Box of Shotgun Buckshot Rounds
       German: 
@@ -268,7 +268,7 @@ MonoBehaviour:
       Italian: 
       Polish: 
       Ukrainian: 
-  - localizationKey: GAMEPLAY_Shotgun_AmmoSingleBuckshotName
+  - localizationKey: GAMEPLAY_DoubleBarrel_AmmoSingleBuckshotName
     languages:
       English: Shotgun Buckshot Round
       German: 
@@ -289,7 +289,7 @@ MonoBehaviour:
       Italian: 
       Polish: 
       Ukrainian: 
-  - localizationKey: GAMEPLAY_Shotgun_AmmoSingleBirdshotName
+  - localizationKey: GAMEPLAY_DoubleBarrel_AmmoSingleBirdshotName
     languages:
       English: Shotgun Birdshot Round
       German: 
@@ -310,7 +310,7 @@ MonoBehaviour:
       Italian: 
       Polish: 
       Ukrainian: 
-  - localizationKey: GAMEPLAY_Shotgun_AmmoBoxBirdshotDescription
+  - localizationKey: GAMEPLAY_DoubleBarrel_AmmoBoxBirdshotDescription
     languages:
       English: A box of shotgun birdshot rounds.
       German: 
@@ -331,7 +331,7 @@ MonoBehaviour:
       Italian: 
       Polish: 
       Ukrainian: 
-  - localizationKey: GAMEPLAY_Shotgun_AmmoBoxBuckshotDescription
+  - localizationKey: GAMEPLAY_DoubleBarrel_AmmoBoxBuckshotDescription
     languages:
       English: A box of shotgun buckshot rounds.
       German: 
@@ -352,7 +352,7 @@ MonoBehaviour:
       Italian: 
       Polish: 
       Ukrainian: 
-  - localizationKey: GAMEPLAY_Shotgun_AmmoSingleBirdshotDescription
+  - localizationKey: GAMEPLAY_DoubleBarrel_AmmoSingleBirdshotDescription
     languages:
       English: A single shotgun birdshot round.
       German: 
@@ -373,7 +373,7 @@ MonoBehaviour:
       Italian: 
       Polish: 
       Ukrainian: 
-  - localizationKey: GAMEPLAY_Shotgun_AmmoSingleBuckshotDescription
+  - localizationKey: GAMEPLAY_DoubleBarrel_AmmoSingleBuckshotDescription
     languages:
       English: A single shotgun buckshot round.
       German: 
@@ -394,7 +394,7 @@ MonoBehaviour:
       Italian: 
       Polish: 
       Ukrainian: 
-  - localizationKey: GAMEPLAY_Shotgun_SkillbookBeginnerName
+  - localizationKey: GAMEPLAY_DoubleBarrel_SkillbookBeginnerName
     languages:
       English: A Shot in the Dark
       German: 
@@ -415,7 +415,7 @@ MonoBehaviour:
       Italian: 
       Polish: 
       Ukrainian: 
-  - localizationKey: GAMEPLAY_Shotgun_SkillbookBeginnerDescription
+  - localizationKey: GAMEPLAY_DoubleBarrel_SkillbookBeginnerDescription
     languages:
       English: A handy guide to making sure you're never caught off guard with a
         shotgun.
@@ -437,7 +437,7 @@ MonoBehaviour:
       Italian: 
       Polish: 
       Ukrainian: 
-  - localizationKey: GAMEPLAY_Shotgun_SkillName
+  - localizationKey: GAMEPLAY_DoubleBarrel_SkillName
     languages:
       English: Shotgun Firearm
       German: 
@@ -458,7 +458,7 @@ MonoBehaviour:
       Italian: 
       Polish: 
       Ukrainian: 
-  - localizationKey: GAMEPLAY_Shotgun_PartBarrelName
+  - localizationKey: GAMEPLAY_DoubleBarrel_PartBarrelName
     languages:
       English: Shotgun Barrel
       German: 
@@ -479,7 +479,7 @@ MonoBehaviour:
       Italian: 
       Polish: 
       Ukrainian: 
-  - localizationKey: GAMEPLAY_Shotgun_PartBarrelDescription
+  - localizationKey: GAMEPLAY_DoubleBarrel_PartBarrelDescription
     languages:
       English: The barrels of what looks like a double-barrel shotgun.
       German: 
@@ -500,7 +500,7 @@ MonoBehaviour:
       Italian: 
       Polish: 
       Ukrainian: 
-  - localizationKey: GAMEPLAY_Shotgun_PartStockName
+  - localizationKey: GAMEPLAY_DoubleBarrel_PartStockName
     languages:
       English: Shotgun Stock
       German: 
@@ -521,7 +521,7 @@ MonoBehaviour:
       Italian: 
       Polish: 
       Ukrainian: 
-  - localizationKey: GAMEPLAY_Shotgun_PartStockDescription
+  - localizationKey: GAMEPLAY_DoubleBarrel_PartStockDescription
     languages:
       English: The stock of what looks like a double-barrel shotgun.
       German: 
@@ -542,7 +542,7 @@ MonoBehaviour:
       Italian: 
       Polish: 
       Ukrainian: 
-  - localizationKey: GAMEPLAY_Shotgun_PartForendName
+  - localizationKey: GAMEPLAY_DoubleBarrel_PartForendName
     languages:
       English: Shotgun Forend Assembly
       German: 
@@ -563,7 +563,7 @@ MonoBehaviour:
       Italian: 
       Polish: 
       Ukrainian: 
-  - localizationKey: GAMEPLAY_Shotgun_PartForendDescription
+  - localizationKey: GAMEPLAY_DoubleBarrel_PartForendDescription
     languages:
       English: The forend of what looks like a double-barrel shotgun.
       German: 
@@ -584,7 +584,7 @@ MonoBehaviour:
       Italian: 
       Polish: 
       Ukrainian: 
-  - localizationKey: GAMEPLAY_Shotgun_PartTriggerName
+  - localizationKey: GAMEPLAY_DoubleBarrel_PartTriggerName
     languages:
       English: Shotgun Trigger Group
       German: 
@@ -605,7 +605,7 @@ MonoBehaviour:
       Italian: 
       Polish: 
       Ukrainian: 
-  - localizationKey: GAMEPLAY_Shotgun_PartTriggerDescription
+  - localizationKey: GAMEPLAY_DoubleBarrel_PartTriggerDescription
     languages:
       English: The trigger group of what looks like a double-barrel shotgun.
       German: 
@@ -626,7 +626,7 @@ MonoBehaviour:
       Italian: 
       Polish: 
       Ukrainian: 
-  - localizationKey: GAMEPLAY_Shotgun_SkillTier1Description
+  - localizationKey: GAMEPLAY_DoubleBarrel_SkillTier1Description
     languages:
       English: You've barely handled a shotgun. The kick throws your aim off the
         mark, and you fumble every shell into the breech.
@@ -648,7 +648,7 @@ MonoBehaviour:
       Italian: 
       Polish: 
       Ukrainian: 
-  - localizationKey: GAMEPLAY_Shotgun_SkillTier2Description
+  - localizationKey: GAMEPLAY_DoubleBarrel_SkillTier2Description
     languages:
       English: You're learning to lean into the stock. The recoil is less of a shock,
         and your hands find the shells a little faster.
@@ -670,7 +670,7 @@ MonoBehaviour:
       Italian: 
       Polish: 
       Ukrainian: 
-  - localizationKey: GAMEPLAY_Shotgun_SkillTier3Description
+  - localizationKey: GAMEPLAY_DoubleBarrel_SkillTier3Description
     languages:
       English: Breaking the gun open and feeding both barrels has become one smooth
         motion. You ride the recoil instead of fighting it.
@@ -692,7 +692,7 @@ MonoBehaviour:
       Italian: 
       Polish: 
       Ukrainian: 
-  - localizationKey: GAMEPLAY_Shotgun_SkillTier4Description
+  - localizationKey: GAMEPLAY_DoubleBarrel_SkillTier4Description
     languages:
       English: You can change loads without wasting a shell, and the breech snaps
         shut as the stock meets your shoulder.
@@ -714,7 +714,7 @@ MonoBehaviour:
       Italian: 
       Polish: 
       Ukrainian: 
-  - localizationKey: GAMEPLAY_Shotgun_SkillTier5Description
+  - localizationKey: GAMEPLAY_DoubleBarrel_SkillTier5Description
     languages:
       English: The shotgun is an extension of your arms. The recoil barely moves
         you, and both barrels are loaded before most people find their shells.
@@ -736,7 +736,7 @@ MonoBehaviour:
       Italian: 
       Polish: 
       Ukrainian: 
-  - localizationKey: GAMEPLAY_Shotgun_SkillTier1Benefits
+  - localizationKey: GAMEPLAY_DoubleBarrel_SkillTier1Benefits
     languages:
       English: 'Full recoil kick
 
@@ -762,7 +762,7 @@ MonoBehaviour:
       Italian: 
       Polish: 
       Ukrainian: 
-  - localizationKey: GAMEPLAY_Shotgun_SkillTier2Benefits
+  - localizationKey: GAMEPLAY_DoubleBarrel_SkillTier2Benefits
     languages:
       English: 'Faster reloading, aiming and equipping
 
@@ -788,7 +788,7 @@ MonoBehaviour:
       Italian: 
       Polish: 
       Ukrainian: 
-  - localizationKey: GAMEPLAY_Shotgun_SkillTier3Benefits
+  - localizationKey: GAMEPLAY_DoubleBarrel_SkillTier3Benefits
     languages:
       English: 'Faster reloading, aiming and equipping
 
@@ -819,7 +819,7 @@ MonoBehaviour:
       Italian: 
       Polish: 
       Ukrainian: 
-  - localizationKey: GAMEPLAY_Shotgun_SkillTier4Benefits
+  - localizationKey: GAMEPLAY_DoubleBarrel_SkillTier4Benefits
     languages:
       English: 'Faster reloading, aiming and equipping
 
@@ -853,7 +853,7 @@ MonoBehaviour:
       Italian: 
       Polish: 
       Ukrainian: 
-  - localizationKey: GAMEPLAY_Shotgun_SkillTier5Benefits
+  - localizationKey: GAMEPLAY_DoubleBarrel_SkillTier5Benefits
     languages:
       English: 'Fastest reloading, aiming and equipping
 
@@ -871,6 +871,27 @@ MonoBehaviour:
         the gun to aim
 
         Very high critical hit chance'
+      German: 
+      Russian: 
+      French: 
+      Japanese: 
+      Korean: 
+      SimplifiedChinese: 
+      Swedish: 
+      TraditionalChinese: 
+      Turkish: 
+      Norwegian: 
+      Spanish: 
+      PortuguesePortugal: 
+      PortugueseBrazil: 
+      Dutch: 
+      Finnish: 
+      Italian: 
+      Polish: 
+      Ukrainian: 
+  - localizationKey: GAMEPLAY_DoubleBarrel_ChangeAmmo
+    languages:
+      English: Change Ammo
       German: 
       Russian: 
       French: 
