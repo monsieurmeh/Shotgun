@@ -797,7 +797,7 @@ namespace Shotgun
             FirstPersonItem rifleFirstPersonItem = refs.Rifle.Gun.FirstPersonItem;
 
             firstPersonItem.m_FirstPersonObjectName = ShotgunFPSPrefabName;
-            firstPersonItem.m_PlayerStateTransitions = new PlayerStateTransitions();
+            firstPersonItem.m_PlayerStateTransitions = ScriptableObject.CreateInstance<PlayerStateTransitions>();
             firstPersonItem.m_PlayerStateTransitions.m_InvalidTransitions = new Il2CppInterop.Runtime.InteropTypes.Arrays.Il2CppStructArray<PlayerAnimation.StateFlags>(rifleFirstPersonItem.m_PlayerStateTransitions.m_InvalidTransitions.Length);
             firstPersonItem.m_PlayerStateTransitions.m_ValidTransitions = new Il2CppInterop.Runtime.InteropTypes.Arrays.Il2CppStructArray<PlayerAnimation.StateFlags>(rifleFirstPersonItem.m_PlayerStateTransitions.m_ValidTransitions.Length);
             int i = 0;

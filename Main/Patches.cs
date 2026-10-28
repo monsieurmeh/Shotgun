@@ -602,8 +602,12 @@ namespace Shotgun
         [HarmonyPatch(typeof(ConsoleManager), nameof(ConsoleManager.Initialize))]
         internal class ConsoleManagerPatches_Initialize
         {
+            private static bool mRegistered;
+
             private static void Postfix()
             {
+                if (mRegistered) return;
+                mRegistered = true;
                 uConsole.RegisterCommand("shotgun_levelup", new Action(() =>
                 {
                     ShotgunSkill.IncreaseSkillPoints.Invoke(ShotgunSkill.SkillName, 25);
