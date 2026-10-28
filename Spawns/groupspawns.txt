@@ -30,6 +30,22 @@ item=GEAR_ShotgunPartTrigger scene=AshWoodCabinA p=1.91,0.928,2.873 r=0,200,90
 item=GEAR_ShotgunPartTrigger scene=BlackrockPrisonSurvivalZone p=-115.743,227.362,58.131 r=0,18,90
 item=GEAR_ShotgunPartTrigger scene=PostOfficeA p=2.14,1.196,-4.06 r=0,75,90
 
+group=SG_TLDevPartBarrel low=0 medium=1 high=1 veryhigh=2
+item=GEAR_ShotgunPartBarrel scene=ModShatteredBunker p=204.012,81.383,4.227 r=32.5,192.1,51.7
+item=GEAR_ShotgunPartBarrel scene=ModTrainShed p=-1.6,1.34,19.4 r=0,0,0
+
+group=SG_TLDevPartStock low=0 medium=1 high=1 veryhigh=2
+item=GEAR_ShotgunPartStock scene=ModCamperTrailers p=-46.684,0.425,34.173 r=0,119,0
+item=GEAR_ShotgunPartStock scene=ModTrainShed p=-5.949,0.589,4.191 r=352,284.3,10.4
+
+group=SG_TLDevPartForend low=0 medium=1 high=1 veryhigh=2
+item=GEAR_ShotgunPartForend scene=ModCamperTrailers p=-42.815,0.36,28.527 r=12.4,200.4,354.6
+item=GEAR_ShotgunPartForend scene=ModShatteredBunker p=204.935,80.95,4.187 r=0,294,0
+
+group=SG_TLDevPartTrigger low=0 medium=1 high=1 veryhigh=2
+item=GEAR_ShotgunPartTrigger scene=ModOilRig p=-45.529,-1.282,-36.516 r=0,1,0
+item=GEAR_ShotgunPartTrigger scene=ModStoneHouseSM p=-46.137,3.812,51.797 r=0,84,0
+
 group=AF_Out_Boxes scene=AirfieldRegion low=0 medium=0 high=1 veryhigh=1
 item=GEAR_ShotgunAmmoBoxBirdshot p=37.989,155.876,383.69 r=24,8,15
 

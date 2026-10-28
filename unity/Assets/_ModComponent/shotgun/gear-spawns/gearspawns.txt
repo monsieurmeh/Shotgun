@@ -125,6 +125,32 @@ scene=MiningRegionMine
 item=GEAR_ShotgunAmmoCasing p=79.639,8.0604,39.0946 r=0,249.8456,90 c=100
 item=GEAR_ShotgunAmmoCasing p=76.2224,8.0603,33.0304 r=0,309.5905,90 c=100
 
+scene=ModCamperTrailers
+item=GEAR_ShotgunAmmoBoxBuckshot p=-45.704,0.3985,34.266 r=359.9253,-0.0001,0.2206 c=100
+item=GEAR_ShotgunAmmoSingleSlug p=-41.111,1.4968,26.843 r=302.5968,102.6851,144.2176 c=100
+item=GEAR_ShotgunAmmoSingleBirdshot p=-41.028,1.0157,34.952 r=-0,110,90 c=100
+
+scene=ModForsakenShore
+item=GEAR_ShotgunAmmoBoxBuckshot p=-262.656,355.9736,277.72 r=-0,268,0 c=50
+item=GEAR_ShotgunAmmoBoxBirdshot p=1805.806,423.5065,954.962 r=-0,335,0 c=50
+
+scene=ModMountainPass
+item=GEAR_ShotgunAmmoBoxBuckshot p=1902.561,148.2332,450.169 r=0.2168,41.9998,359.8794 c=50
+
+scene=ModShatteredBunker
+item=GEAR_ShotgunAmmoBoxSlug p=204.359,80.9811,3.789 r=-0,109,0 c=50
+
+scene=ModShatteredMarsh
+item=GEAR_ShotgunAmmoBoxBuckshot p=757.4224,538.0269,5251.692 r=-0,243,0 c=100
+item=GEAR_ShotgunAmmoSingleBirdshot p=759.1642,538.9905,5248.917 r=-0,310,90 c=50
+
+scene=ModStoneHouseSM
+item=GEAR_ShotgunAmmoBoxBuckshot p=-46.372,3.8348,51.712 r=-0,17,0 c=50
+
+scene=ModTrainShed
+item=GEAR_ShotgunAmmoBoxBuckshot p=-6.708,0.4,3.652 r=-0,151,0 c=50
+item=GEAR_ShotgunAmmoSingleBirdshot p=-6.069,0.4124,4.748 r=352.099,218.6364,80.8038 c=50
+
 scene=MountainPassBasement
 item=GEAR_ShotgunAmmoSingleBuckshot p=-2.1,0.0522,-3.15 r=0,80,90 c=40
 
