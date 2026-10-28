@@ -35,7 +35,6 @@ item=GEAR_DoubleBarrelPartBarrel scene=ModShatteredBunker p=204.012,81.383,4.227
 item=GEAR_DoubleBarrelPartBarrel scene=ModTrainShed p=-1.6,1.34,19.4 r=0,0,0
 
 group=SG_TLDevPartStock low=0 medium=1 high=1 veryhigh=2
-item=GEAR_DoubleBarrelPartStock scene=ModCamperTrailers p=-46.684,0.425,34.173 r=0,119,0
 item=GEAR_DoubleBarrelPartStock scene=ModTrainShed p=-5.949,0.589,4.191 r=352,284.3,10.4
 
 group=SG_TLDevPartForend low=0 medium=1 high=1 veryhigh=2
@@ -51,7 +50,6 @@ item=GEAR_DoubleBarrelPartBarrel scene=TrainRepairDepotA p=-10.53,1.304,4.571 r=
 item=GEAR_DoubleBarrelPartBarrel scene=TrainRepairDepotB p=-6.947,1.088,2.436 r=0,201,0
 
 group=SG_IslandPartStock low=0 medium=1 high=1 veryhigh=2
-item=GEAR_DoubleBarrelPartStock scene=LakeCabinD_IronRoad p=-1.03,0.976,3.071 r=1.4,42,0.6
 item=GEAR_DoubleBarrelPartStock scene=WoodCabinC_IronRoad p=1.518,1.157,-2.203 r=0,186,0
 
 group=SG_IslandPartForend low=0 medium=1 high=1 veryhigh=2
