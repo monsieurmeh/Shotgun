@@ -8,6 +8,8 @@ using Il2CppTLD.Gameplay.Tunable;
 using MelonLoader;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
+using UnityEngine.ResourceManagement.ResourceLocations;
 
 namespace Shotgun
 {
@@ -111,9 +113,27 @@ namespace Shotgun
             return new System.Random((int)h);
         }
 
+        private static readonly HashSet<string> sScenesInGame = new(StringComparer.OrdinalIgnoreCase);
+        private static readonly HashSet<string> sScenesReported = new(StringComparer.OrdinalIgnoreCase);
+
+        internal static bool SceneInGame(string scene)
+        {
+            if (sScenesInGame.Contains(scene)) return true;
+            AsyncOperationHandle<Il2CppSystem.Collections.Generic.IList<IResourceLocation>> locations = Addressables.LoadResourceLocationsAsync(scene, null);
+            bool found = locations.WaitForCompletion()?.Cast<Il2CppSystem.Collections.Generic.ICollection<IResourceLocation>>().Count > 0;
+            Addressables.Release(locations);
+            if (found)
+            {
+                sScenesInGame.Add(scene);
+                return true;
+            }
+            if (sScenesReported.Add(scene)) MelonLogger.Msg($"GroupSpawner: {scene} is not in this game (mod not installed?), left out of the spawn pools");
+            return false;
+        }
+
         internal static List<Member> Pick(Group g, string level, System.Random rng)
         {
-            List<Member> pool = new(g.Members);
+            List<Member> pool = g.Members.Where(m => SceneInGame(m.Scene)).ToList();
             List<Member> picked = new();
             int count = Math.Min(PicksFor(g, level), pool.Count);
             for (int i = 0; i < count; i++)
