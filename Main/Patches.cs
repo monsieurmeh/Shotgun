@@ -322,6 +322,7 @@ namespace Shotgun
                 if (__instance.m_State != PlayerAnimation.State.ToAiming) return;
                 if (!MaybeLatchShotgunAnimator(__instance, "Aim")) return;
                 Animator moddedAnimator = Main.Instance.Configuration.Refs.ModdedAnimator;
+                moddedAnimator.ResetTrigger("Trigger_Generic_Aim_Cancel");
 
                 if (!moddedAnimator.IsInTransition(0) && moddedAnimator.GetCurrentAnimatorStateInfo(0).shortNameHash == CloseBarrelToAimHash)
                 {
@@ -341,7 +342,9 @@ namespace Shotgun
             {
                 if (__instance.m_State != PlayerAnimation.State.FromAiming) return;
                 if (!MaybeLatchShotgunAnimator(__instance, "AimCancel")) return;
-                Main.Instance.Configuration.Refs.ModdedAnimator.SetTrigger("Trigger_Generic_Aim_Cancel");
+                Animator moddedAnimator = Main.Instance.Configuration.Refs.ModdedAnimator;
+                moddedAnimator.ResetTrigger("Trigger_Generic_Aim");
+                moddedAnimator.SetTrigger("Trigger_Generic_Aim_Cancel");
             }
         }
 
