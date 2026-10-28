@@ -889,7 +889,7 @@ MonoBehaviour:
       Italian: 
       Polish: 
       Ukrainian: 
-  - localizationKey: GAMEPLAY_Shotgun_ChangeAmmo
+  - localizationKey: GAMEPLAY_DoubleBarrel_ChangeAmmo
     languages:
       English: Change Ammo
       German: 

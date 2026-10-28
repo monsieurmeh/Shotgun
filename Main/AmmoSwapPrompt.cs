@@ -7,7 +7,7 @@ namespace Shotgun
     internal static class AmmoSwapPrompt
     {
         private const string PromptName = "ButtonPromptChangeAmmo";
-        private const string LabelKey = "GAMEPLAY_Shotgun_ChangeAmmo";
+        private const string LabelKey = "GAMEPLAY_DoubleBarrel_ChangeAmmo";
         private const string FallbackLabel = "Change Ammo";
 
         private static ButtonPrompt? mPrompt;
